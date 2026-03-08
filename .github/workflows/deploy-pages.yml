@@ -1,10 +1,10 @@
-# Deploy the public/ folder to GitHub Pages so the site is served at the repo root.
-# Enable in repo: Settings → Pages → Source: "GitHub Actions".
+# Deploy the public/ folder to GitHub Pages so the site shows the app (index.html), not the README.
+# In the repo: Settings → Pages → Source must be "GitHub Actions" (not "Deploy from a branch").
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main", "orlandott"]
+    branches: ["main", "orlandott", "cursor/goodreads-submission-ui-5f42"]
   workflow_dispatch:
 
 permissions:

@@ -2568,5 +2568,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const sheetUrl = submissionConfig.appsScript && submissionConfig.appsScript.sheetUrl;
+  const tracker = submissionConfig.appsScript && submissionConfig.appsScript.submissionTracker;
+  const defaultUrl = sheetUrl || "#";
+  const pipelineEl = document.getElementById("submission-tracker-pipeline");
+  const calendarEl = document.getElementById("submission-tracker-calendar");
+  const tableEl = document.getElementById("submission-tracker-table");
+  if (pipelineEl) {
+    pipelineEl.href = (tracker && tracker.pipelineUrl) || defaultUrl;
+  }
+  if (calendarEl) {
+    calendarEl.href = (tracker && tracker.calendarUrl) || defaultUrl;
+  }
+  if (tableEl) {
+    tableEl.href = (tracker && tracker.tableViewUrl) || defaultUrl;
+  }
+
   renderAllBooks();
 });
