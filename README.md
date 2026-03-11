@@ -1,6 +1,6 @@
-# [Reading What We Can](https://readingwhatwecan.com)
+# [AI Safety Resources](https://ai-safety-resources.com)
 
-Reading What We Can is a community-maintained reading hub focused on AI safety and alignment.  
+AI Safety Resources is a community-maintained reading hub focused on AI safety and alignment.  
 It curates books, essays, papers, and speculative fiction into learning tracks, with a submission form for new suggestions and guardrails to keep links and metadata reliable.
 
 📚📚📚📚📚📚📚📚📚 Reading everything
