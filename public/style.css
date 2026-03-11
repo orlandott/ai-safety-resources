@@ -101,6 +101,31 @@ body.site-body {
   color: var(--muted);
 }
 
+.submission-tracker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.submission-tracker-label {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-right: 0.25rem;
+}
+
+.submission-tracker-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.submission-tracker-link:hover {
+  text-decoration: underline;
+}
+
 .suggestion-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
