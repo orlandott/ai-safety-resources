@@ -1,10 +1,10 @@
 // Keep this file in git so submission routing and mappings are managed by pull requests.
-// For apps_script mode, deploy the Apps Script web app with access set to "Anyone".
+// Submissions go to /api/submit (Cloudflare Function), which forwards to Apps Script.
+// To post directly to Apps Script instead, set endpointUrl to the full script URL.
 window.RWWC_SUGGESTION_SUBMISSION = {
   mode: "apps_script",
   appsScript: {
-    endpointUrl:
-      "https://script.google.com/macros/s/AKfycbwQY1XXNQxh1_6rxTrMEXlk3aDUidhsQM8hq5T0Qzbv8tfErjqldlDub98STgnHtXj9DA/exec",
+    endpointUrl: "/api/submit",
     sheetUrl:
       "https://docs.google.com/spreadsheets/d/1OTDiyBuIVTqnYXzXp3asMoRSA4wYNBywBRePgtIZfyY/edit?usp=sharing",
     // Optional: override URLs for submission tracker views (defaults to sheetUrl).
