@@ -1,6 +1,9 @@
 # Cloudflare Pages – static site from public/
-# Deploy: connect this repo in Cloudflare Dashboard → Pages → Create project → Git,
-# or run: npx wrangler pages deploy public --project-name=ai-safety-resources
+# If the dashboard runs "npx wrangler deploy", this [assets] section lets it succeed
+# and serve the public/ folder. Prefer: Build command = empty, output dir = public.
 name = "ai-safety-resources"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "public"
+
+[assets]
+directory = "./public"

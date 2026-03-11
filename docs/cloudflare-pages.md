@@ -1,6 +1,20 @@
 # Deploy to Cloudflare Pages
 
-This project can be deployed to [Cloudflare Pages](https://pages.cloudflare.com/) with no build step (static site).
+This project can be deployed to [Cloudflare Pages](https://pages.cloudflare.com/) with no build step (static site + Pages Functions).
+
+**Important:** In Cloudflare, set **Build command** to **empty**. Do not use `npx wrangler deploy` (that is for Workers and will fail with "Missing entry-point").
+
+### Build configuration (production and preview)
+
+Use the same values for **Production** and **Preview** (non-production) branch settings:
+
+| Setting | Value |
+|--------|--------|
+| **Build command** | *(leave empty)* |
+| **Build output directory** | `public` |
+| **Root directory** (if present) | *(leave empty)* |
+
+Do not set a deploy command or custom build command for either environment.
 
 ## One-time setup
 
