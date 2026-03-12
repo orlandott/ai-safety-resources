@@ -38,9 +38,9 @@
 </head>
 <body class="site-body">
   <header class="site-header sticky top-0 z-50">
-    <nav class="site-nav container mx-auto flex justify-between items-center px-4 py-2">
+    <nav class="site-nav container mx-auto flex justify-between items-center px-4">
       <a href="index.html" class="flex items-center" aria-current="page">
-        <img src="images/logo-ai-safety-resources.png" width="160" alt="AI Safety Resources" class="nav-logo" />
+        <img src="images/logo-ai-safety-resources.png" width="128" alt="AI Safety Resources" class="nav-logo" />
       </a>
       <a href="mailto:contact@ai-safety-resources.com" class="contact-button">Contact</a>
     </nav>
@@ -55,9 +55,10 @@
       </p>
     </div>
     <div class="container mx-auto">
-      <div class="gauntlet-tabs flex flex-col md:flex-row gap-4">
+        <div class="gauntlet-tabs flex flex-col md:flex-row gap-4">
         <div class="gauntlet-tabs-menu w-full md:w-1/4">
-          <a data-w-tab="books" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition w--current">Books</a>
+          <a data-w-tab="books-non-fiction" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition w--current">Non-fiction Books</a>
+          <a data-w-tab="books-fiction" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Fiction Books</a>
           <a data-w-tab="academic-papers" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Academic Papers</a>
           <a data-w-tab="films" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Films</a>
           <a data-w-tab="podcasts" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Podcasts</a>
@@ -90,14 +91,12 @@
               Type
               <select id="category-type-control" class="category-control-input">
                 <option value="all">All types</option>
-                <option value="book">Book</option>
-                <option value="film">Film</option>
-                <option value="podcast">Podcast</option>
-                <option value="article">Article</option>
-                <option value="pdf">PDF</option>
-                <option value="lesswrong">LessWrong</option>
-                <option value="arxiv">ArXiv</option>
-                <option value="google_docs">Google Docs</option>
+                <option value="non_fiction_books">Non-fiction Books</option>
+                <option value="fiction_books">Fiction Books</option>
+                <option value="academic_papers">Academic Papers</option>
+                <option value="films">Films</option>
+                <option value="podcasts">Podcasts</option>
+                <option value="websites">Websites</option>
               </select>
             </label>
             <label class="category-control-label" for="category-year-from-control">
@@ -116,12 +115,19 @@
               Reset filters
             </button>
           </div>
-          <div data-w-tab="books" class="w-tab-pane w--tab-active">
+          <div data-w-tab="books-non-fiction" class="w-tab-pane w--tab-active">
             <div class="category-intro">
-              <h3 class="category-intro-title">Books</h3>
-              <p class="category-intro-summary">Books on AI safety, alignment, and related topics—from primers to foundational texts and fiction.</p>
+              <h3 class="category-intro-title">Non-fiction Books</h3>
+              <p class="category-intro-summary">Non-fiction books on AI safety, alignment, and related topics—from primers to foundational texts.</p>
             </div>
-            <div id="books-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <div id="books-non-fiction-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+          </div>
+          <div data-w-tab="books-fiction" class="w-tab-pane">
+            <div class="category-intro">
+              <h3 class="category-intro-title">Fiction Books</h3>
+              <p class="category-intro-summary">Speculative and science fiction that explores AI, agency, and long-term futures through story.</p>
+            </div>
+            <div id="books-fiction-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
           </div>
           <div data-w-tab="academic-papers" class="w-tab-pane">
             <div class="category-intro">
@@ -160,12 +166,6 @@
           <div>
             <h2 class="suggestion-title">Suggest a new option</h2>
             <p class="suggestion-copy">Share a book or article and we will send your suggestion to our submissions sheet.</p>
-            <nav class="submission-tracker" aria-label="Submission tracker views">
-              <span class="submission-tracker-label">Submission tracker:</span>
-              <a id="submission-tracker-pipeline" class="submission-tracker-link" href="">Pipeline</a>
-              <a id="submission-tracker-calendar" class="submission-tracker-link" href="">Calendar</a>
-              <a id="submission-tracker-table" class="submission-tracker-link" href="">Table view</a>
-            </nav>
           </div>
           <form id="book-suggestion-form" class="suggestion-form">
             <div class="suggestion-grid">
@@ -192,7 +192,8 @@
               <label class="field-label">
                 Category
                 <select id="suggestion-track" name="track">
-                  <option value="books">Books</option>
+                  <option value="non_fiction_books">Non-fiction Books</option>
+                  <option value="fiction_books">Fiction Books</option>
                   <option value="academic_papers">Academic Papers</option>
                   <option value="films">Films</option>
                   <option value="podcasts">Podcasts</option>

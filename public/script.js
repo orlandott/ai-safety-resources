@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const pendingMetadataLookups = new Map();
 
   const trackLabels = {
-    books: "Books",
+    non_fiction_books: "Non-fiction Books",
+    fiction_books: "Fiction Books",
     academic_papers: "Academic Papers",
     films: "Films",
     podcasts: "Podcasts",
@@ -50,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const readingProgressOrder = ["to_read", "reading", "finished"];
 
   const categoryTargets = [
-    { key: "books", parentId: "books-parent" },
+    { key: "non_fiction_books", parentId: "books-non-fiction-parent" },
+    { key: "fiction_books", parentId: "books-fiction-parent" },
     { key: "academic_papers", parentId: "academic-papers-parent" },
     { key: "films", parentId: "films-parent" },
     { key: "podcasts", parentId: "podcasts-parent" },
@@ -112,6 +114,50 @@ document.addEventListener("DOMContentLoaded", () => {
     "Service Model": 2024,
     "Flatland: A Romance of Many Dimensions": 1884,
   };
+
+  const fictionBookTitles = new Set([
+    "Do Androids Dream of Electric Sheep?",
+    "Logic Beach",
+    "Neuromancer",
+    "Flatland: A Romance of Many Dimensions",
+    "The Dark Forest (#2 of Three Body Problem)",
+    "The Bridge to Lucy Dunne",
+    "We Are Legion (We Are Bob)",
+    "Of Ants and Dinosaurs",
+    "Geometry for Ocelots",
+    "I, Robot",
+    "Klara and the Sun",
+    "Excession",
+    "Permutation City",
+    "Accelerando",
+    "A Closed and Common Orbit",
+    "There Is No Antimemetics Division",
+    "Hyperion",
+    "Daemon",
+    "Avogadro Corp",
+    "Service Model",
+    "The Diamond Age",
+    "Snow Crash",
+    "Exhalation (The Lifecycle of Software Objects)",
+    "Axiomatic",
+    "Diaspora",
+    "A Fire Upon the Deep",
+    "Rainbows End",
+    "Ancillary Justice",
+    "All Systems Red",
+    "The Moon is a Harsh Mistress",
+    "I Have No Mouth, and I Must Scream",
+    "The Metamorphosis of Prime Intellect",
+    "Ra",
+    "The Peripheral",
+    "Fall; or, Dodge in Hell",
+    "Sea of Rust",
+    "Infinity Gate",
+    "Aurora",
+    "2001: A Space Odyssey",
+    "R.U.R.",
+    "Frankenstein",
+  ]);
   const seededEntrySummaries = {
     "The AI Revolution":
       "Tim Urban gives an accessible, sticky explanation of exponential AI growth and why superintelligence is a matter of when, not if.",
@@ -1131,6 +1177,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const getEntryTypeKey = (entry = {}) =>
     normalizeTypeKey(getSourceLabel(getEntryPrimaryLink(entry)));
 
+  const getEntryBucketKey = (entry = {}) => {
+    let categoryKey = (entry.Category || "").toString();
+    if (categoryKey === "books") {
+      categoryKey = fictionBookTitles.has(entry.Name) ? "fiction_books" : "non_fiction_books";
+    }
+    return validTrackKeys.has(categoryKey) ? categoryKey : "";
+  };
+
   const readingListSummaryElement = document.getElementById("reading-list-summary");
   const readingListPreviewElement = document.getElementById("reading-list-preview");
   let latestEntryLookup = new Map();
@@ -1970,7 +2024,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     const categoryKeysFromData = {
-      books: new Set(),
+      non_fiction_books: new Set(),
+      fiction_books: new Set(),
       academic_papers: new Set(),
       films: new Set(),
       podcasts: new Set(),
@@ -2003,7 +2058,12 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
-        const categoryKey = (entry.Category || "").toString();
+        let categoryKey = (entry.Category || "").toString();
+        if (categoryKey === "books") {
+          const isFiction = fictionBookTitles.has(entry.Name);
+          categoryKey = isFiction ? "fiction_books" : "non_fiction_books";
+          entry.Category = categoryKey;
+        }
         if (categoryKeysFromData[categoryKey]) {
           categoryKeysFromData[categoryKey].add(lookupKey);
         }
@@ -2080,8 +2140,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!entry) {
       return false;
     }
-    const entryType = getEntryTypeKey(entry);
-    if (filters.typeFilter !== "all" && entryType !== filters.typeFilter) {
+    const entryBucket = getEntryBucketKey(entry);
+    if (filters.typeFilter !== "all" && entryBucket !== filters.typeFilter) {
       return false;
     }
     if (!filters.fromYear && !filters.toYear) {
@@ -2271,7 +2331,7 @@ document.addEventListener("DOMContentLoaded", () => {
       email: (formData.get("email") || "").toString().trim(),
       link: (formData.get("link") || "").toString().trim(),
       pages: (formData.get("pages") || "").toString().trim(),
-      track: (formData.get("track") || "books").toString(),
+      track: (formData.get("track") || "non_fiction_books").toString(),
     };
   };
 
@@ -2562,22 +2622,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
-  const sheetUrl = submissionConfig.appsScript && submissionConfig.appsScript.sheetUrl;
-  const tracker = submissionConfig.appsScript && submissionConfig.appsScript.submissionTracker;
-  const defaultUrl = sheetUrl || "#";
-  const pipelineEl = document.getElementById("submission-tracker-pipeline");
-  const calendarEl = document.getElementById("submission-tracker-calendar");
-  const tableEl = document.getElementById("submission-tracker-table");
-  if (pipelineEl) {
-    pipelineEl.href = (tracker && tracker.pipelineUrl) || defaultUrl;
-  }
-  if (calendarEl) {
-    calendarEl.href = (tracker && tracker.calendarUrl) || defaultUrl;
-  }
-  if (tableEl) {
-    tableEl.href = (tracker && tracker.tableViewUrl) || defaultUrl;
-  }
 
   renderAllBooks();
 });
