@@ -1872,7 +1872,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.Image !== safeImageUrl) {
         entry.Image = safeImageUrl;
       }
-      const lookupKey = getTitleLookupKey(entry.Name || "");
+      const lookupKey = getEntryLookupKey(entry);
       if (!lookupKey) {
         return;
       }
