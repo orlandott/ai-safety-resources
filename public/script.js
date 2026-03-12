@@ -2155,7 +2155,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const sortControl = document.getElementById("category-sort-control");
-  const typeControl = document.getElementById("category-type-control");
   const yearFromControl = document.getElementById("category-year-from-control");
   const yearToControl = document.getElementById("category-year-to-control");
   const filterResetButton = document.getElementById("category-filter-reset");
@@ -2163,7 +2162,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const getSortMode = () => (sortControl && sortControl.value) || "year_desc";
 
   const getFilterState = () => {
-    const typeFilter = normalizeTypeKey((typeControl && typeControl.value) || "all") || "all";
     let fromYear = normalizeYear((yearFromControl && yearFromControl.value) || "");
     let toYear = normalizeYear((yearToControl && yearToControl.value) || "");
     if (fromYear && toYear && fromYear > toYear) {
@@ -2174,17 +2172,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     return {
-      typeFilter,
       fromYear,
       toYear,
     };
   };
 
   const hasActiveFilters = (filters) =>
-    Boolean(
-      filters &&
-      (filters.typeFilter !== "all" || filters.fromYear || filters.toYear)
-    );
+    Boolean(filters && (filters.fromYear || filters.toYear));
 
   const updateYearSelectOptions = (control, years = []) => {
     if (!control) {
@@ -2213,10 +2207,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const entryMatchesFilters = (entry, filters) => {
     if (!entry) {
-      return false;
-    }
-    const entryBucket = getEntryBucketKey(entry);
-    if (filters.typeFilter !== "all" && entryBucket !== filters.typeFilter) {
       return false;
     }
     if (!filters.fromYear && !filters.toYear) {
@@ -2645,12 +2635,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (typeControl) {
-    typeControl.addEventListener("change", () => {
-      renderAllBooks();
-    });
-  }
-
   if (yearFromControl) {
     yearFromControl.addEventListener("change", () => {
       renderAllBooks();
@@ -2665,9 +2649,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (filterResetButton) {
     filterResetButton.addEventListener("click", () => {
-      if (typeControl) {
-        typeControl.value = "all";
-      }
       if (yearFromControl) {
         yearFromControl.value = "";
       }
