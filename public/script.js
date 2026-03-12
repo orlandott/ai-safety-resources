@@ -1967,7 +1967,12 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       wireCoverFallback(coverElementId, entry.Name || "Book");
 
-      if ((!entry.Image && !entry.__disableImage) || !normalizePositiveInteger(entry.page_count) || !yearValue) {
+      const needsHydration =
+        !isFilm &&
+        ((!entry.Image && !entry.__disableImage) ||
+          !normalizePositiveInteger(entry.page_count) ||
+          !yearValue);
+      if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
     } catch (error) {

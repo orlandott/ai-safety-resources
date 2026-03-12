@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Reclassify resources in books.js into: books, academic_papers, films, podcasts, websites.
+ * Reclassify resources in resources.js into: books, academic_papers, films, podcasts, websites.
  * Run from repo root: node scripts/reclassify-categories.mjs
  */
 import { readFileSync, writeFileSync } from "fs";
 
-const path = "public/books.js";
+const path = "public/resources.js";
 const raw = readFileSync(path, "utf8");
 
 function categoryFromLink(link) {
@@ -36,4 +36,4 @@ const out = lines.map((line) => {
 });
 
 writeFileSync(path, out.join("\n"), "utf8");
-console.log("Reclassified public/books.js by link → books | academic_papers | films | podcasts | websites");
+console.log("Reclassified public/resources.js by link → books | academic_papers | films | podcasts | websites");

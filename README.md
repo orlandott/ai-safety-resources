@@ -11,7 +11,7 @@ It curates books, essays, papers, and speculative fiction into learning tracks, 
 - **GitHub Pages:** Use **Settings → Pages → Source: "GitHub Actions"**. The workflow deploys the `public/` folder.
 - **Netlify:** [![Netlify Status](https://api.netlify.com/api/v1/badges/db1201fd-2948-475e-85e1-efceac89bba5/deploy-status)](https://app.netlify.com/sites/bright-cucurucho-3be4e5/deploys) — publish directory `public`.
 
-### Add a new book by editing the [books.js](public/books.js) file and submitting a pull request
+### Add a new resource by editing the [resources.js](public/resources.js) file and submitting a pull request
 
 ### Suggestions submission endpoint
 
@@ -44,3 +44,20 @@ node scripts/resource-guardrails.mjs --update-config
 ```
 
 A GitHub Action also runs this checker on PRs and weekly schedules.
+
+### Film posters and titles (OMDB)
+
+Films in `public/resources.js` use the `Name` and `Image` fields for title and poster. To backfill missing posters or refresh all film data from [OMDb](https://www.omdbapi.com/):
+
+1. Get a free API key at [omdbapi.com/apikey.aspx](https://www.omdbapi.com/apikey.aspx).
+2. Run:
+
+```bash
+OMDB_API_KEY=yourkey node scripts/fetch-film-posters-omdb.mjs
+```
+
+This updates only films that are missing an `Image`. To refresh every film’s poster (and fill missing titles) from OMDB:
+
+```bash
+OMDB_API_KEY=yourkey node scripts/fetch-film-posters-omdb.mjs --all
+```

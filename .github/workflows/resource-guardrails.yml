@@ -3,7 +3,7 @@ name: Resource Guardrails
 on:
   pull_request:
     paths:
-      - "public/books.js"
+      - "public/resources.js"
       - "public/script.js"
       - "public/resource-guardrails-config.js"
       - "scripts/resource-guardrails.mjs"
@@ -11,7 +11,7 @@ on:
     branches:
       - "**"
     paths:
-      - "public/books.js"
+      - "public/resources.js"
       - "public/script.js"
       - "public/resource-guardrails-config.js"
       - "scripts/resource-guardrails.mjs"

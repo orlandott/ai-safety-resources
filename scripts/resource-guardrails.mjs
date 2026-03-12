@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const workspaceRoot = path.resolve(__dirname, "..");
-const booksPath = path.join(workspaceRoot, "public", "books.js");
+const resourcesPath = path.join(workspaceRoot, "public", "resources.js");
 const guardrailsConfigPath = path.join(
   workspaceRoot,
   "public",
@@ -49,7 +49,7 @@ const getTitleKey = (title = "") => {
 };
 
 const readBooks = () => {
-  const source = fs.readFileSync(booksPath, "utf8");
+  const source = fs.readFileSync(resourcesPath, "utf8");
   const sandbox = {};
   vm.createContext(sandbox);
   vm.runInContext(
@@ -207,8 +207,8 @@ const classifyResult = (entry, checkResult) => {
 };
 
 const main = async () => {
-  if (!fs.existsSync(booksPath)) {
-    console.error(`books.js not found at ${booksPath}`);
+  if (!fs.existsSync(resourcesPath)) {
+    console.error(`resources.js not found at ${resourcesPath}`);
     process.exit(1);
   }
 
