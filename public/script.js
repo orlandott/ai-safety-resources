@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sourceLabels = [
     { match: "goodreads.com", label: "Book" },
     { match: "amazon", label: "Book" },
+    { match: "imdb.com", label: "Film" },
     { match: ".pdf", label: "PDF" },
     { match: "lesswrong", label: "LessWrong" },
     { match: "arxiv", label: "ArXiv" },
