@@ -1877,6 +1877,28 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover" />`
         : `<span class="cover-fallback">${getFallbackInitial(entry.Name || "")}</span>`;
 
+      const isFilm = (entry.Category || "").toString() === "films";
+      const imdbScore = isFilm && (entry.imdb != null && entry.imdb !== "") ? String(entry.imdb) : "";
+      const rtScore = isFilm && (entry.rt != null && entry.rt !== "") ? Number(entry.rt) : NaN;
+      const hasFilmScores = Boolean(imdbScore || (Number.isFinite(rtScore) && rtScore >= 0));
+      const imdbLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/24px-IMDB_Logo_2016.svg.png";
+      const rtLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/24px-Rotten_Tomatoes.svg.png";
+      const filmScoresMarkup = hasFilmScores
+        ? `<div class="film-scores">
+            ${imdbScore ? `<span class="film-score" title="IMDb rating"><img class="film-score-logo" src="${escapeHtml(imdbLogoUrl)}" alt="IMDb" />${escapeHtml(imdbScore)}</span>` : ""}
+            ${Number.isFinite(rtScore) && rtScore >= 0 ? `<span class="film-score" title="Rotten Tomatoes"><img class="film-score-logo" src="${escapeHtml(rtLogoUrl)}" alt="Rotten Tomatoes" />${escapeHtml(String(rtScore))}%</span>` : ""}
+          </div>`
+        : "";
+
+      const goodreadsScore = entry.goodreads != null && entry.goodreads !== "" ? String(entry.goodreads) : "";
+      const hasBookScore = Boolean(goodreadsScore);
+      const goodreadsLogoUrl = "https://www.goodreads.com/favicon.ico";
+      const bookScoresMarkup = hasBookScore
+        ? `<div class="film-scores book-scores">
+            <span class="film-score" title="Goodreads rating"><img class="film-score-logo" src="${escapeHtml(goodreadsLogoUrl)}" alt="Goodreads" />${escapeHtml(goodreadsScore)}</span>
+          </div>`
+        : "";
+
       parent.insertAdjacentHTML(
         "beforeend",
         `
@@ -1897,6 +1919,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <span id="${yearElementId}" class="page-pill year-pill${yearText ? "" : " is-hidden"}">${yearText}</span>
               <span id="${pageElementId}" class="page-pill${pageCountText ? "" : " is-hidden"}">${pageCountText}</span>
             </div>
+            ${filmScoresMarkup}
+            ${bookScoresMarkup}
             <div class="resource-actions">
               <button type="button" class="resource-save-button${isSaved ? " is-saved" : ""}" data-save-toggle="${safeLookupKey}" aria-pressed="${isSaved ? "true" : "false"}">
                 ${isSaved ? "Saved" : "Save"}

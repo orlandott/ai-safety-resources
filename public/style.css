@@ -629,6 +629,29 @@ body.site-body {
   gap: 0.4rem;
 }
 
+.film-scores {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.film-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.film-score-logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .resource-actions {
   display: flex;
   flex-wrap: wrap;

@@ -27,7 +27,7 @@ Do not set a deploy command or custom build command for either environment.
    - **Build output directory:** `public`.
 5. **Save and deploy.** Cloudflare will serve the contents of `public/` as the site and run any **Pages Functions** in the repo’s `/functions` directory (e.g. `/api/health`). No build step is required.
 
-Your site will be available at `https://<project-name>.pages.dev`. You can add a custom domain (e.g. readingwhatwecan.com) under the project’s **Custom domains**.
+Your site will be available at `https://<project-name>.pages.dev`. You can add a custom domain (e.g. ai-safety-resources.com) under the project’s **Custom domains**.
 
 ## Dynamic routes (Pages Functions)
 
@@ -50,7 +50,7 @@ npx wrangler pages deploy public --project-name=ai-safety-resources
 
 If you push to **main** but the site doesn’t update:
 
-1. **Correct repo:** In Cloudflare → your project → **Settings** → **Builds & deployments** → **Build configuration**. Under **Source**, the connected repository must be **orlandott/ai-safety-resources**. If it shows **orlandott/readingwhatwecan**, that’s why: Cloudflare is watching the wrong repo. Disconnect and **Connect to Git** again, then choose **orlandott/ai-safety-resources** and branch **main**.
+1. **Correct repo:** In Cloudflare → your project → **Settings** → **Builds & deployments** → **Build configuration**. Under **Source**, the connected repository must be **orlandott/ai-safety-resources**. If it shows a different repo, Cloudflare is watching the wrong one. Disconnect and **Connect to Git** again, then choose **orlandott/ai-safety-resources** and branch **main**.
 2. **GitHub app access:** Go to [github.com/settings/installations](https://github.com/settings/installations) → **Cloudflare Pages** → **Configure**. Under **Repository access**, ensure **orlandott/ai-safety-resources** is selected (or “All repositories”).
 3. **Production branch:** In the same Build configuration, **Production branch** should be **main**.
 4. **Manual deploy:** In Cloudflare → **Deployments** → **Create deployment** (or **Retry** on the latest) to confirm the project builds; then fix the connection so future pushes trigger automatically.
