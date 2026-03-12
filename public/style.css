@@ -54,6 +54,8 @@ body.site-body {
 
 .hero-title {
   font-family: "Hahmlet", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.2;
   color: var(--text);
 }
 
