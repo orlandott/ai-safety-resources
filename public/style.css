@@ -59,7 +59,12 @@ body.site-body {
   color: var(--text);
 }
 
-.hero-subtitle,
+.hero-subtitle {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--muted);
+}
+
 .hero-copy {
   color: var(--muted);
 }

@@ -613,6 +613,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return found ? found.label : "Article";
   };
 
+  const getDisplaySourceLabel = (entry = {}, link = "") => {
+    const category = (entry.Category || "").toString();
+    if (category === "websites") return "Website";
+    return getSourceLabel(link);
+  };
+
   const normalizeTypeKey = (value = "") =>
     value
       .toString()
@@ -968,7 +974,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return matchedRule.reason;
     }
 
-    const sourceLabel = getSourceLabel(getEntryPrimaryLink(entry)).toLowerCase();
+    const sourceLabel = getDisplaySourceLabel(entry, getEntryPrimaryLink(entry)).toLowerCase();
     if (sourceLabel === "book") {
       return "it builds durable mental models for forecasting, governance, and alignment under rapid capability growth";
     }
@@ -1078,7 +1084,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (entry.__disableImage) {
       entry.Image = "";
     }
-    const sourceType = getSourceLabel(getEntryPrimaryLink(entry));
+    const sourceType = getDisplaySourceLabel(entry, getEntryPrimaryLink(entry));
     const preferredPortrait = getVerifiedAuthorPortraitFallback(entry.Author || "");
     if (
       !entry.Image &&
@@ -1182,7 +1188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ].join("");
 
   const getEntryTypeKey = (entry = {}) =>
-    normalizeTypeKey(getSourceLabel(getEntryPrimaryLink(entry)));
+    normalizeTypeKey(getDisplaySourceLabel(entry, getEntryPrimaryLink(entry)));
 
   const getEntryBucketKey = (entry = {}) => {
     let categoryKey = (entry.Category || "").toString();
@@ -1954,7 +1960,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="author" title="${safeAuthor}">${safeAuthor}</span>
             ${summaryMarkup}
             <div class="book-meta">
-              <span class="source-pill">${getSourceLabel(normalizedLink)}</span>
+              <span class="source-pill">${getDisplaySourceLabel(entry, normalizedLink)}</span>
               <span id="${statusElementId}" class="page-pill status-pill${progressValue ? "" : " is-hidden"}">${escapeHtml(getReadingProgressLabel(progressValue))}</span>
               <span id="${yearElementId}" class="page-pill year-pill${yearText ? "" : " is-hidden"}">${yearText}</span>
               <span id="${pageElementId}" class="page-pill${pageCountText ? "" : " is-hidden"}">${pageCountText}</span>
