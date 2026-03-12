@@ -660,6 +660,11 @@ body.site-body {
   font-size: 0.8rem;
 }
 
+.book-scores .film-score-logo {
+  width: 44px;
+  height: 44px;
+}
+
 .resource-actions {
   display: flex;
   flex-wrap: wrap;

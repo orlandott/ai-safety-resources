@@ -1847,7 +1847,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<p class="resource-summary" title="${safeSummary}">${safeSummary}</p>`
         : "";
       const safeLink = escapeHtml(normalizedLink);
-      const isBook = (entry.Category || "").toString() === "books";
+      const category = (entry.Category || "").toString();
+      const isBook = category === "books";
+      const isFilm = category === "films";
       let safeImageUrl = sanitizeImageUrl(entry.Image || "");
       if (!safeImageUrl && isBook) {
         safeImageUrl =
@@ -1878,14 +1880,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const yearValue = getEntryYear(entry);
       const yearText = yearValue ? `${yearValue}` : "";
       const coverClassName = `book-image${entry.__coverIsLogo ? " is-logo" : ""}`;
+      const bookFallbackImg =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Books-aj.svg_aj_ashton_01.svg/330px-Books-aj.svg_aj_ashton_01.svg.png";
+      const coverFallbackImg = isBook ? bookFallbackImg : "";
       const coverMarkup = safeImageUrl
-        ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover" />`
+        ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover"${coverFallbackImg ? ` data-fallback="${escapeHtml(coverFallbackImg)}" onerror="if(this.dataset.fallback){this.onerror=null;this.src=this.dataset.fallback}"` : ""} />`
         : `<span class="cover-fallback">${getFallbackInitial(entry.Name || "")}</span>`;
 
-      const isFilm = (entry.Category || "").toString() === "films";
       const imdbScore = isFilm && (entry.imdb != null && entry.imdb !== "") ? String(entry.imdb) : "";
       const rtScore = isFilm && (entry.rt != null && entry.rt !== "") ? Number(entry.rt) : NaN;
-      const hasFilmScores = Boolean(imdbScore || (Number.isFinite(rtScore) && rtScore >= 0));
+      const hasFilmScores = Boolean(isFilm && (imdbScore || (Number.isFinite(rtScore) && rtScore >= 0)));
       const imdbLogoUrl =
         "https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg";
       const rtLogoUrl =
@@ -1913,10 +1917,10 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>`
         : "";
 
+      const isBookCategory = category === "books" || category === "fiction_books" || category === "non_fiction_books";
       const goodreadsScore = entry.goodreads != null && entry.goodreads !== "" ? String(entry.goodreads) : "";
-      const hasBookScore = Boolean(goodreadsScore);
-      const goodreadsLogoUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/a/ae/Goodreads_logo_2025.svg";
+      const hasBookScore = Boolean(isBookCategory && goodreadsScore);
+      const goodreadsLogoUrl = "https://www.goodreads.com/favicon.ico";
       const bookScoresMarkup = hasBookScore
         ? `<div class="film-scores book-scores">
             <span class="film-score" title="Goodreads rating"><img class="film-score-logo" src="${escapeHtml(
