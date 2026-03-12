@@ -1847,7 +1847,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<p class="resource-summary" title="${safeSummary}">${safeSummary}</p>`
         : "";
       const safeLink = escapeHtml(normalizedLink);
-      const safeImageUrl = sanitizeImageUrl(entry.Image || "");
+      const isBook = (entry.Category || "").toString() === "books";
+      let safeImageUrl = sanitizeImageUrl(entry.Image || "");
+      if (!safeImageUrl && isBook) {
+        safeImageUrl =
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Books-aj.svg_aj_ashton_01.svg/330px-Books-aj.svg_aj_ashton_01.svg.png";
+      }
       if (entry.Image !== safeImageUrl) {
         entry.Image = safeImageUrl;
       }
