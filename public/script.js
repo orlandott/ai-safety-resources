@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const pendingMetadataLookups = new Map();
 
   const trackLabels = {
-    entry_point: "The Entry Point (Primers & Essays)",
-    canon: "The Canon (Foundational Books)",
-    problem_space: "The Problem Space (Research Agendas & Concepts)",
-    technical_frontier: "The Technical Frontier (Mechanisms & Interpretability)",
-    speculative_fiction: "Speculative Fiction (AI-Relevant Sci-Fi)",
+    books: "Books",
+    academic_papers: "Academic Papers",
+    films: "Films",
+    podcasts: "Podcasts",
+    websites: "Websites",
   };
   const validTrackKeys = new Set(Object.keys(trackLabels));
   const suggestionFieldLimits = {
@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const readingProgressOrder = ["to_read", "reading", "finished"];
 
   const categoryTargets = [
-    { key: "entry_point", parentId: "entry-point-parent" },
-    { key: "canon", parentId: "canon-parent" },
-    { key: "problem_space", parentId: "problem-space-parent" },
-    { key: "technical_frontier", parentId: "technical-frontier-parent" },
-    { key: "speculative_fiction", parentId: "speculative-fiction-parent" },
+    { key: "books", parentId: "books-parent" },
+    { key: "academic_papers", parentId: "academic-papers-parent" },
+    { key: "films", parentId: "films-parent" },
+    { key: "podcasts", parentId: "podcasts-parent" },
+    { key: "websites", parentId: "websites-parent" },
   ];
 
   const knownPublicationYears = {
@@ -187,8 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "Karnofsky argues this era may be uniquely consequential because advanced AI decisions could shape civilization's entire long-term future.",
     "Introduction to AI Safety, Ethics, and Society":
       "Hendrycks' textbook surveys technical failures, governance constraints, and ethical trade-offs in deploying advanced AI systems.",
-    "The Risks of Artificial Intelligence":
-      "Bill Gates' essay sketches concrete social and safety risks from frontier AI while arguing for measured but proactive mitigation.",
     "Human Compatible":
       "Stuart Russell argues advanced AI should optimize for uncertain human preferences rather than fixed goals, making alignment the central design constraint.",
     "General intelligence from AI services":
@@ -288,10 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "The Coming Technological Singularity": {
       Image:
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vernor%20Vinge%20%28cropped%29.jpg",
-    },
-    "The Risks of Artificial Intelligence": {
-      Image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg/330px-Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg",
     },
     Superintelligence: {
       Image: "https://covers.openlibrary.org/b/id/8039542-L.jpg",
@@ -630,7 +624,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pages: normalizedPages ? `${normalizedPages}` : "",
       track: validTrackKeys.has((rawData && rawData.track) || "")
         ? rawData.track
-        : "entry_point",
+        : "books",
     };
   };
 
@@ -685,8 +679,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Prof_Nick_Bostrom_324-1.jpg/330px-Prof_Nick_Bostrom_324-1.jpg",
     "dario amodei":
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Dario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg/330px-Dario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg",
-    "bill gates":
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg/330px-Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg",
   };
 
   const verifiedAuthorAliasToCanonicalName = {
@@ -696,7 +688,6 @@ document.addEventListener("DOMContentLoaded", () => {
     eliezer: "eliezer yudkowsky",
     bostrom: "nick bostrom",
     dario: "dario amodei",
-    "bill gates": "bill gates",
   };
 
   const preferredOrganizationLogos = {
@@ -916,7 +907,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getSummaryReasonForEntry = (entry = {}) => {
     const normalizedCategory = (entry.Category || "").toString();
-    if (normalizedCategory === "speculative_fiction") {
+    if (normalizedCategory === "books") {
       return "it stress-tests alignment and governance assumptions through concrete narratives about advanced AI systems";
     }
 
@@ -1975,11 +1966,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     const categoryKeysFromData = {
-      entry_point: new Set(),
-      canon: new Set(),
-      problem_space: new Set(),
-      technical_frontier: new Set(),
-      speculative_fiction: new Set(),
+      books: new Set(),
+      academic_papers: new Set(),
+      films: new Set(),
+      podcasts: new Set(),
+      websites: new Set(),
     };
 
     allEntries.forEach((entry) => {
@@ -2276,7 +2267,7 @@ document.addEventListener("DOMContentLoaded", () => {
       email: (formData.get("email") || "").toString().trim(),
       link: (formData.get("link") || "").toString().trim(),
       pages: (formData.get("pages") || "").toString().trim(),
-      track: (formData.get("track") || "entry_point").toString(),
+      track: (formData.get("track") || "books").toString(),
     };
   };
 

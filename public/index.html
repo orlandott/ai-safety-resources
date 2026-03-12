@@ -28,15 +28,15 @@
   <header class="site-header sticky top-0 z-50">
     <nav class="site-nav container mx-auto flex justify-between items-center p-4">
       <a href="index.html" class="flex items-center" aria-current="page">
-        <img src="images/Group-55.png" width="209" alt="AI Safety Resources Logo" class="nav-logo" />
+        <img src="images/logo-ai-safety-resources.png" width="220" alt="AI Safety Resources" class="nav-logo" />
       </a>
-      <a href="mailto:esben@kran.ai?subject=Reading%20what%20we%20can" class="contact-button">Contact</a>
+      <a href="mailto:esben@kran.ai?subject=AI%20Safety%20Resources" class="contact-button">Contact</a>
     </nav>
   </header>
   <div class="section-3 py-12">
     <div class="container mx-auto">
       <h1 class="hero-title text-2xl font-bold text-center mb-2">AI Safety Resources
-        <span class="hero-subtitle block text-base italic">Reading lists for the future</span>
+        <span class="hero-subtitle block text-base italic">Books, papers, films, podcasts &amp; websites</span>
       </h1>
       <p class="hero-copy text-base text-center mb-6 max-w-2xl mx-auto">
         A curated list of resources for beginners who want to learn what AI safety and alignment are—and why they matter—through books, essays, papers, and fiction.
@@ -45,11 +45,11 @@
     <div class="container mx-auto">
       <div class="gauntlet-tabs flex flex-col md:flex-row gap-4">
         <div class="gauntlet-tabs-menu w-full md:w-1/4">
-          <a data-w-tab="entry-point" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition w--current">The Entry Point</a>
-          <a data-w-tab="canon" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">The Canon</a>
-          <a data-w-tab="problem-space" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">The Problem Space</a>
-          <a data-w-tab="technical-frontier" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">The Technical Frontier</a>
-          <a data-w-tab="speculative-fiction" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Speculative Fiction</a>
+          <a data-w-tab="books" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition w--current">Books</a>
+          <a data-w-tab="academic-papers" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Academic Papers</a>
+          <a data-w-tab="films" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Films</a>
+          <a data-w-tab="podcasts" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Podcasts</a>
+          <a data-w-tab="websites" class="gauntlet-tab block p-4 rounded-lg mb-2 text-center md:text-left transition">Websites</a>
           <div class="reading-dashboard" role="region" aria-label="Your reading list and progress">
             <details id="reading-list-collapsible" class="reading-dashboard-collapsible" open>
               <summary class="reading-dashboard-toggle">
@@ -102,45 +102,40 @@
               Reset filters
             </button>
           </div>
-          <div data-w-tab="entry-point" class="w-tab-pane w--tab-active">
+          <div data-w-tab="books" class="w-tab-pane w--tab-active">
             <div class="category-intro">
-              <h3 class="category-intro-title">The Entry Point (Primers & Essays)</h3>
-              <p class="category-intro-summary">Recent, high-impact essays and accessible books that define the current conversation.</p>
-              <p class="category-intro-audience"><strong>Best for:</strong> Beginners looking for a high-level understanding of the stakes without getting bogged down in math or dense academic jargon.</p>
+              <h3 class="category-intro-title">Books</h3>
+              <p class="category-intro-summary">Books on AI safety, alignment, and related topics—from primers to foundational texts and fiction.</p>
             </div>
-            <div id="entry-point-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <div id="books-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
           </div>
-          <div data-w-tab="canon" class="w-tab-pane">
+          <div data-w-tab="academic-papers" class="w-tab-pane">
             <div class="category-intro">
-              <h3 class="category-intro-title">The Canon (Foundational Books)</h3>
-              <p class="category-intro-summary">Major works that established the vocabulary and theoretical groundwork of the field.</p>
-              <p class="category-intro-audience"><strong>Best for:</strong> Readers who want a deep, comprehensive dive into the philosophy, strategy, and future scenarios of AGI.</p>
+              <h3 class="category-intro-title">Academic Papers</h3>
+              <p class="category-intro-summary">Research papers, preprints, and technical reports on alignment, interpretability, and safety.</p>
             </div>
-            <div id="canon-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <div id="academic-papers-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
           </div>
-          <div data-w-tab="problem-space" class="w-tab-pane">
+          <div data-w-tab="films" class="w-tab-pane">
             <div class="category-intro">
-              <h3 class="category-intro-title">The Problem Space (Research Agendas & Concepts)</h3>
-              <p class="category-intro-summary">Papers defining specific failure modes (misalignment, power-seeking, and gaming) and concrete research targets.</p>
-              <p class="category-intro-audience"><strong>Best for:</strong> Researchers and engineers wanting to understand specific definitions of safety, alignment, and risk factors proposed by the field.</p>
+              <h3 class="category-intro-title">Films</h3>
+              <p class="category-intro-summary">Films that explore AI, agency, and the future of intelligence.</p>
             </div>
-            <div id="problem-space-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <div id="films-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
           </div>
-          <div data-w-tab="technical-frontier" class="w-tab-pane">
+          <div data-w-tab="podcasts" class="w-tab-pane">
             <div class="category-intro">
-              <h3 class="category-intro-title">The Technical Frontier (Mechanisms & Interpretability)</h3>
-              <p class="category-intro-summary">Cutting-edge engineering work on making models safer, more honest, and more interpretable.</p>
-              <p class="category-intro-audience"><strong>Best for:</strong> ML engineers and practitioners looking for applied methodologies (like RLHF or Circuits) and current state-of-the-art research.</p>
+              <h3 class="category-intro-title">Podcasts</h3>
+              <p class="category-intro-summary">Podcast episodes and series on AI safety and alignment.</p>
             </div>
-            <div id="technical-frontier-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <div id="podcasts-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
           </div>
-          <div data-w-tab="speculative-fiction" class="w-tab-pane">
+          <div data-w-tab="websites" class="w-tab-pane">
             <div class="category-intro">
-              <h3 class="category-intro-title">Speculative Fiction (AI-Relevant Sci-Fi)</h3>
-              <p class="category-intro-summary">Narratives that explore the texture of living with advanced AI.</p>
-              <p class="category-intro-audience"><strong>Best for:</strong> Exploring alignment and long-term AI concepts through narrative and allegory.</p>
+              <h3 class="category-intro-title">Websites</h3>
+              <p class="category-intro-summary">Essays, blog posts, and online resources on AI safety and related ideas.</p>
             </div>
-            <div id="speculative-fiction-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <div id="websites-parent" class="gauntlet-wrapper grid grid-cols-1 md:grid-cols-2 gap-4"></div>
           </div>
         </div>
       </div>
@@ -181,13 +176,13 @@
                 <input id="suggestion-pages" name="pages" type="number" min="1" step="1" placeholder="Optional" />
               </label>
               <label class="field-label">
-                Reading track
+                Category
                 <select id="suggestion-track" name="track">
-                  <option value="entry_point">The Entry Point (Primers & Essays)</option>
-                  <option value="canon">The Canon (Foundational Books)</option>
-                  <option value="problem_space">The Problem Space (Research Agendas & Concepts)</option>
-                  <option value="technical_frontier">The Technical Frontier (Mechanisms & Interpretability)</option>
-                  <option value="speculative_fiction">Speculative Fiction (AI-Relevant Sci-Fi)</option>
+                  <option value="books">Books</option>
+                  <option value="academic_papers">Academic Papers</option>
+                  <option value="films">Films</option>
+                  <option value="podcasts">Podcasts</option>
+                  <option value="websites">Websites</option>
                 </select>
               </label>
             </div>
@@ -202,8 +197,8 @@
   </div>
   <div id="ai-gauntlet" class="section-2 py-12 site-footer-note">
     <div class="container mx-auto text-center">
-      <p class="text-lg max-w-3xl mx-auto">
-        AI Safety Resources began as The AI Safety Gauntlet and has evolved into a community map of ideas for understanding and shaping AI's trajectory. It remains an open, community-improvable project.
+      <p class="text-base max-w-3xl mx-auto">
+        This is a spinoff from <a href="https://readingwhatwecan.com" target="_blank" rel="noopener noreferrer" class="inline-link">Reading What We Can</a> created by Esben Kran.
       </p>
     </div>
   </div>

@@ -1,9 +1,9 @@
 const TRACK_LABELS = {
-  entry_point: "The Entry Point (Primers & Essays)",
-  canon: "The Canon (Foundational Books)",
-  problem_space: "The Problem Space (Research Agendas & Concepts)",
-  technical_frontier: "The Technical Frontier (Mechanisms & Interpretability)",
-  speculative_fiction: "Speculative Fiction (AI-Relevant Sci-Fi)",
+  books: "Books",
+  academic_papers: "Academic Papers",
+  films: "Films",
+  podcasts: "Podcasts",
+  websites: "Websites",
 };
 
 const DEFAULT_APPS_SCRIPT_URL =
@@ -95,7 +95,7 @@ export async function onRequestPost(context) {
     email: (data.email || "").trim(),
     link,
     pages: (data.pages ?? "").toString().trim(),
-    track: data.track || "entry_point",
+    track: data.track || "books",
   });
 
   try {
