@@ -1,5 +1,8 @@
 window.RWWC_SUGGESTION_SUBMISSION = {
-  mode: "apps_script",
+  mode: "email",
+  email: {
+    to: "contact@ai-safety-resources.com",
+  },
   appsScript: {
     endpointUrl:
       "https://script.google.com/macros/s/AKfycbwQY1XXNQxh1_6rxTrMEXlk3aDUidhsQM8hq5T0Qzbv8tfErjqldlDub98STgnHtXj9DA/exec",
@@ -12,7 +15,7 @@ window.RWWC_SUGGESTION_SUBMISSION = {
     fields: {
       name: "entry.1000000001",
       author: "entry.1000000002",
-      email: "entry.1000000006", // optional
+      email: "entry.1000000006",
       link: "entry.1000000003",
       pages: "entry.1000000004",
       track: "entry.1000000005",

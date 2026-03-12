@@ -408,19 +408,22 @@ document.addEventListener("DOMContentLoaded", () => {
       Image: "https://covers.openlibrary.org/b/id/10708874-L.jpg",
     },
     Cybernetics: {
-      Image: "https://covers.openlibrary.org/b/id/14428293-L.jpg",
+      Image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677814269i/27750961.jpg",
     },
     "Computing Machinery and Intelligence": {
       Image: "https://covers.openlibrary.org/b/id/14196301-L.jpg",
     },
     "Mind Children": {
-      Image: "https://covers.openlibrary.org/b/id/9315107-L.jpg",
+      Image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348471443i/648195.jpg",
     },
     "The Society of Mind": {
       Image: "https://covers.openlibrary.org/b/id/4170566-L.jpg",
     },
     "On Intelligence": {
-      Image: "https://covers.openlibrary.org/b/id/8731272-L.jpg",
+      Image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1441230921i/27539.jpg",
+    },
+    "2001: A Space Odyssey": {
+      Image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327890044i/117846.jpg",
     },
     "Homo Deus": {
       Image: "https://covers.openlibrary.org/b/isbn/9780062464316-L.jpg",
@@ -498,7 +501,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const defaultSubmissionConfig = {
-    mode: "google_form",
+    mode: "email",
+    email: {
+      to: "contact@ai-safety-resources.com",
+    },
     appsScript: {
       endpointUrl: "",
       sheetUrl: "",
@@ -522,6 +528,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const submissionConfig = {
     mode: rawSubmissionConfig.mode || defaultSubmissionConfig.mode,
+    email: {
+      ...defaultSubmissionConfig.email,
+      ...(rawSubmissionConfig.email || {}),
+    },
     appsScript: {
       ...defaultSubmissionConfig.appsScript,
       ...(rawSubmissionConfig.appsScript || {}),
@@ -664,14 +674,11 @@ document.addEventListener("DOMContentLoaded", () => {
     normalizeStringInput(value).slice(0, limit);
 
   const sanitizeSuggestionInput = (rawData) => {
-    const pagesValue = trimToLimit(rawData && rawData.pages, 10);
-    const normalizedPages = normalizePositiveInteger(pagesValue);
     return {
       name: trimToLimit(rawData && rawData.name, suggestionFieldLimits.name),
       author: trimToLimit(rawData && rawData.author, suggestionFieldLimits.author),
       email: trimToLimit(rawData && rawData.email, suggestionFieldLimits.email).toLowerCase(),
       link: trimToLimit(rawData && rawData.link, suggestionFieldLimits.link),
-      pages: normalizedPages ? `${normalizedPages}` : "",
       track: validTrackKeys.has((rawData && rawData.track) || "")
         ? rawData.track
         : "books",
@@ -690,12 +697,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (data.email && !isValidEmail(data.email)) {
       return "Please provide a valid email or leave it blank.";
-    }
-    if (data.pages && !normalizePositiveInteger(data.pages)) {
-      return "Pages must be a positive whole number.";
-    }
-    if (normalizePositiveInteger(data.pages) > 5000) {
-      return "Pages value looks too high. Please double-check it.";
     }
     return "";
   };
@@ -1053,7 +1054,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (seed.Image && (!entry.Image || !entry.Image.trim())) {
+    if (seed.Image && (!entry.Image || !entry.Image.trim()) && (entry.Category || "").toString() !== "films") {
       entry.Image = sanitizeImageUrl(seed.Image);
     }
     if (!normalizePositiveInteger(entry.page_count) && normalizePositiveInteger(seed.page_count)) {
@@ -1157,6 +1158,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const getTitleLookupKey = (title = "") => {
     const normalized = normalizeTitleForLookup(title);
     return titleAliasLookup[normalized] || normalized;
+  };
+
+  const getEntryLookupKey = (entry = {}) => {
+    const titleKey = getTitleLookupKey(entry.Name || "");
+    const category = (entry.Category || "").toString().trim();
+    return category ? `${titleKey}|${category}` : titleKey;
   };
 
   const isValidProgressStatus = (value = "") =>
@@ -1446,7 +1453,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!entry) {
       return true;
     }
-    if (lookupKey && disabledTitleKeys.has(lookupKey)) {
+    const titleOnlyKey = lookupKey && lookupKey.includes("|") ? lookupKey.replace(/\|[^|]*$/, "") : lookupKey;
+    if (titleOnlyKey && disabledTitleKeys.has(titleOnlyKey)) {
       return true;
     }
     const entryLink = getEntryPrimaryLink(entry);
@@ -2100,7 +2108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         prepareEntryForRender(entry);
-        const lookupKey = getTitleLookupKey(entry.Name);
+        const lookupKey = getEntryLookupKey(entry);
         if (!lookupKey || isEntryDisabledByGuardrails(entry, lookupKey)) {
           return;
         }
@@ -2391,7 +2399,6 @@ document.addEventListener("DOMContentLoaded", () => {
       author: (formData.get("author") || "").toString().trim(),
       email: (formData.get("email") || "").toString().trim(),
       link: (formData.get("link") || "").toString().trim(),
-      pages: (formData.get("pages") || "").toString().trim(),
       track: (formData.get("track") || "non_fiction_books").toString(),
     };
   };
@@ -2408,8 +2415,13 @@ document.addEventListener("DOMContentLoaded", () => {
     isHttpsUrl(submissionConfig.appsScript.endpointUrl) &&
     !hasPlaceholder(submissionConfig.appsScript.endpointUrl);
 
+  const isEmailConfigured = () => {
+    const to = (submissionConfig.email && submissionConfig.email.to || "").toString().trim();
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to);
+  };
+
   const isGoogleFormConfigured = () => {
-    const requiredFieldNames = ["name", "author", "link", "pages", "track"];
+    const requiredFieldNames = ["name", "author", "link", "track"];
     const configuredFields = submissionConfig.googleForm.fields || {};
 
     if (!submissionConfig.googleForm.formResponseUrl || hasPlaceholder(submissionConfig.googleForm.formResponseUrl)) {
@@ -2428,11 +2440,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const getSubmissionMode = () => {
     const requestedMode = (submissionConfig.mode || "").toLowerCase();
 
+    if (requestedMode === "email" && isEmailConfigured()) {
+      return "email";
+    }
     if (requestedMode === "apps_script" && isAppsScriptConfigured()) {
       return "apps_script";
     }
     if (requestedMode === "google_form" && isGoogleFormConfigured()) {
       return "google_form";
+    }
+    if (isEmailConfigured()) {
+      return "email";
     }
     if (isAppsScriptConfigured()) {
       return "apps_script";
@@ -2444,6 +2462,24 @@ document.addEventListener("DOMContentLoaded", () => {
     return null;
   };
 
+  const submitSuggestionViaEmail = (data) => {
+    const to = (submissionConfig.email && submissionConfig.email.to || "").toString().trim();
+    const subject = encodeURIComponent(`Suggestion: ${(data.name || "").trim() || "New resource"}`);
+    const trackLabel = trackLabels[data.track] || data.track;
+    const bodyLines = [
+      `Title: ${(data.name || "").trim()}`,
+      `Author (or director, host, etc.): ${(data.author || "").trim()}`,
+      `Link: ${(data.link || "").trim()}`,
+      `Category: ${trackLabel}`,
+    ];
+    if ((data.email || "").trim()) {
+      bodyLines.push(`Submitter email: ${(data.email || "").trim()}`);
+    }
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    const mailtoUrl = `mailto:${to}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoUrl;
+  };
+
   const submitSuggestionToGoogleForm = async (data) => {
     const { fields } = submissionConfig.googleForm;
     const payload = new URLSearchParams();
@@ -2453,7 +2489,7 @@ document.addEventListener("DOMContentLoaded", () => {
       payload.set(fields.email, data.email);
     }
     payload.set(fields.link, data.link);
-    payload.set(fields.pages, data.pages || "");
+    if (fields.pages) payload.set(fields.pages, "");
     payload.set(fields.track, trackLabels[data.track] || data.track);
 
     try {
@@ -2495,7 +2531,6 @@ document.addEventListener("DOMContentLoaded", () => {
     payload.set("submitter_email", data.email || "");
     payload.set("contact_email", data.email || "");
     payload.set("link", data.link);
-    payload.set("pages", data.pages || "");
     payload.set("track_label", trackLabel);
     payload.set("track", trackLabel);
     payload.set("reading_track", trackLabel);
@@ -2511,7 +2546,6 @@ document.addEventListener("DOMContentLoaded", () => {
         author: data.author,
         email: data.email || "",
         link: data.link,
-        pages: data.pages || "",
         track: trackLabel,
         reading_track: trackLabel,
         category: trackLabel,
@@ -2569,13 +2603,19 @@ document.addEventListener("DOMContentLoaded", () => {
           suggestionSubmitButton.textContent = "Sending...";
         }
 
-        if (submissionMode === "apps_script") {
+        if (submissionMode === "email") {
+          submitSuggestionViaEmail(data);
+          suggestionForm.reset();
+          setFeedback("Your email client should open with the suggestion. Send the email to submit. If it didn’t open, email contact@ai-safety-resources.com with the details.");
+        } else if (submissionMode === "apps_script") {
           await submitSuggestionToAppsScript(data);
+          suggestionForm.reset();
+          setFeedback("Thanks! Your suggestion was sent.");
         } else {
           await submitSuggestionToGoogleForm(data);
+          suggestionForm.reset();
+          setFeedback("Thanks! Your suggestion was sent.");
         }
-        suggestionForm.reset();
-        setFeedback("Thanks! Your suggestion was sent.");
       } catch (error) {
         logResilienceWarning(
           "suggestion_submission_failed",
