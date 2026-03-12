@@ -523,8 +523,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
   const rawSubmissionConfig = window.RWWC_SUGGESTION_SUBMISSION || {};
-  const legacyGoogleFormConfig = window.RWWC_GOOGLE_FORM || {};
-  const sourceGoogleFormConfig = rawSubmissionConfig.googleForm || legacyGoogleFormConfig;
+  const fallbackGoogleFormConfig = window.RWWC_GOOGLE_FORM || {};
+  const sourceGoogleFormConfig = rawSubmissionConfig.googleForm || fallbackGoogleFormConfig;
 
   const submissionConfig = {
     mode: rawSubmissionConfig.mode || defaultSubmissionConfig.mode,
@@ -1339,6 +1339,89 @@ document.addEventListener("DOMContentLoaded", () => {
     persistReadingListState();
   };
 
+  const keyIsCanonical = (key = "") => {
+    if (!key || typeof key !== "string" || !key.includes("|")) {
+      return false;
+    }
+    const category = key.split("|").pop();
+    return validTrackKeys.has((category || "").trim());
+  };
+
+  const normalizeReadingListKeys = (entryLookup) => {
+    if (!entryLookup || typeof entryLookup.forEach !== "function") {
+      return;
+    }
+    const keys = Object.keys(readingListState);
+    const toNormalize = keys.filter((k) => !keyIsCanonical(k));
+    if (!toNormalize.length) {
+      return;
+    }
+    let nextState = { ...readingListState };
+    let changed = false;
+    for (const oldKey of toNormalize) {
+      const record = nextState[oldKey];
+      if (!record) {
+        continue;
+      }
+      const titlePart = oldKey.includes("|")
+        ? oldKey.replace(/\|[^|]*$/, "").trim()
+        : oldKey.trim();
+      const normalizedTitle = getTitleLookupKey(titlePart);
+      if (!normalizedTitle) {
+        continue;
+      }
+      const candidates = [];
+      entryLookup.forEach((entry, canonicalKey) => {
+        if (!entry || !canonicalKey || !keyIsCanonical(canonicalKey)) {
+          return;
+        }
+        if (getTitleLookupKey(entry.Name || "") !== normalizedTitle) {
+          return;
+        }
+        candidates.push({ canonicalKey, entry });
+      });
+      if (candidates.length === 0) {
+        continue;
+      }
+      let targetKey = null;
+      if (candidates.length === 1) {
+        targetKey = candidates[0].canonicalKey;
+      } else {
+        const recordLink = (record.link || "").toString().trim();
+        if (recordLink) {
+          const byLink = candidates.find(
+            (c) => getEntryPrimaryLink(c.entry) === recordLink
+          );
+          if (byLink) {
+            targetKey = byLink.canonicalKey;
+          }
+        }
+        if (!targetKey && (oldKey.endsWith("|books") || !oldKey.includes("|"))) {
+          const bookEntry = candidates.find(
+            (c) =>
+              c.canonicalKey.endsWith("|fiction_books") ||
+              c.canonicalKey.endsWith("|non_fiction_books")
+          );
+          if (bookEntry) {
+            targetKey = bookEntry.canonicalKey;
+          }
+        }
+        if (!targetKey) {
+          targetKey = candidates[0].canonicalKey;
+        }
+      }
+      if (targetKey && targetKey !== oldKey) {
+        nextState = { ...nextState, [targetKey]: { ...record, lookupKey: targetKey } };
+        delete nextState[oldKey];
+        changed = true;
+      }
+    }
+    if (changed) {
+      readingListState = nextState;
+      persistReadingListState();
+    }
+  };
+
   const getSortedReadingListRecords = () =>
     Object.values(readingListState).sort(
       (left, right) => Date.parse(right.updatedAt || "") - Date.parse(left.updatedAt || "")
@@ -2114,6 +2197,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         prepareEntryForRender(entry);
+        let categoryKey = (entry.Category || "").toString();
+        if (categoryKey === "books") {
+          const isFiction = fictionBookTitles.has(entry.Name);
+          categoryKey = isFiction ? "fiction_books" : "non_fiction_books";
+          entry.Category = categoryKey;
+        }
         const lookupKey = getEntryLookupKey(entry);
         if (!lookupKey || isEntryDisabledByGuardrails(entry, lookupKey)) {
           return;
@@ -2133,12 +2222,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
-        let categoryKey = (entry.Category || "").toString();
-        if (categoryKey === "books") {
-          const isFiction = fictionBookTitles.has(entry.Name);
-          categoryKey = isFiction ? "fiction_books" : "non_fiction_books";
-          entry.Category = categoryKey;
-        }
         if (categoryKeysFromData[categoryKey]) {
           categoryKeysFromData[categoryKey].add(lookupKey);
         }
@@ -2286,6 +2369,12 @@ document.addEventListener("DOMContentLoaded", () => {
       entryLookup = lookupResult.byLookupKey;
       categoryKeysFromData = lookupResult.categoryKeysFromData;
       latestEntryLookup = entryLookup;
+      if (!window.localStorage.getItem("rwwc-reading-list-keys-normalized")) {
+        normalizeReadingListKeys(entryLookup);
+        try {
+          window.localStorage.setItem("rwwc-reading-list-keys-normalized", "1");
+        } catch (e) {}
+      }
       usedSummarySet.clear();
       entryLookup.forEach((entry) => {
         if (entry && entry.__resolvedSummary) {
