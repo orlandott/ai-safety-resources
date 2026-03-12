@@ -2748,33 +2748,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.addEventListener("click", (event) => {
-    const clickTarget = event.target;
-    if (!clickTarget || typeof clickTarget.closest !== "function") {
-      return;
-    }
-
-    const saveToggleButton = clickTarget.closest("[data-save-toggle]");
-    if (saveToggleButton) {
-      event.preventDefault();
-      const lookupKey = (saveToggleButton.getAttribute("data-save-toggle") || "").trim();
-      if (lookupKey) {
-        toggleReadingListRecord(lookupKey);
+  document.addEventListener(
+    "click",
+    (event) => {
+      const clickTarget = event.target;
+      if (!clickTarget || typeof clickTarget.closest !== "function") {
+        return;
       }
-      return;
-    }
 
-    const removeButton = clickTarget.closest("[data-reading-remove-key]");
-    if (removeButton) {
-      event.preventDefault();
-      const lookupKey = (removeButton.getAttribute("data-reading-remove-key") || "").trim();
-      if (lookupKey) {
-        removeReadingListRecord(lookupKey);
-        syncReadingRecordToRenderedCards(lookupKey);
-        renderReadingDashboard();
+      const saveToggleButton = clickTarget.closest("[data-save-toggle]");
+      if (saveToggleButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const lookupKey = (saveToggleButton.getAttribute("data-save-toggle") || "").trim();
+        if (lookupKey) {
+          toggleReadingListRecord(lookupKey);
+        }
+        return;
       }
-    }
-  });
+
+      const removeButton = clickTarget.closest("[data-reading-remove-key]");
+      if (removeButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const lookupKey = (removeButton.getAttribute("data-reading-remove-key") || "").trim();
+        if (lookupKey) {
+          removeReadingListRecord(lookupKey);
+          syncReadingRecordToRenderedCards(lookupKey);
+          renderReadingDashboard();
+        }
+      }
+    },
+    true
+  );
 
   document.addEventListener("change", (event) => {
     const changeTarget = event.target;
