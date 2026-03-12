@@ -1,3 +1,4 @@
+// Suggestion form opens the user's email client (mailto). Contact link in the header does the same.
 window.RWWC_SUGGESTION_SUBMISSION = {
   mode: "email",
   email: {

@@ -1,0 +1,7 @@
+# Standalone Worker for form submissions (suggestion + contact). Supports env vars / secrets.
+# Deploy: cd worker && npx wrangler deploy
+# Add Resend key: npx wrangler secret put RESEND_API_KEY
+
+name = "ai-safety-resources-submit"
+main = "index.js"
+compatibility_date = "2024-01-01"

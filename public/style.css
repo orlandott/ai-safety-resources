@@ -110,6 +110,10 @@ body.site-body {
   gap: 0.75rem;
 }
 
+.suggestion-grid-full {
+  grid-column: 1 / -1;
+}
+
 .field-label {
   display: flex;
   flex-direction: column;
@@ -120,7 +124,8 @@ body.site-body {
 }
 
 .field-label input,
-.field-label select {
+.field-label select,
+.field-label textarea {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -130,8 +135,14 @@ body.site-body {
   font-size: 0.95rem;
 }
 
+.field-label textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
 .field-label input:focus,
-.field-label select:focus {
+.field-label select:focus,
+.field-label textarea:focus {
   outline: 2px solid rgba(64, 157, 105, 0.2);
   border-color: var(--accent);
 }

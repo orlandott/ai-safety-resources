@@ -689,14 +689,14 @@ document.addEventListener("DOMContentLoaded", () => {
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.toString().trim());
 
   const validateSuggestionInput = (data = {}) => {
-    if (!data.name || !data.author || !data.link) {
-      return "Please fill title, author, and link before submitting.";
+    if (!data.name || !data.author || !data.link || !data.email) {
+      return "Please fill title, author, link, and your email before submitting.";
     }
     if (!isHttpsUrl(data.link) || !isValidHttpUrl(data.link)) {
       return "Please use a valid https:// link.";
     }
-    if (data.email && !isValidEmail(data.email)) {
-      return "Please provide a valid email or leave it blank.";
+    if (!isValidEmail(data.email)) {
+      return "Please provide a valid email address.";
     }
     return "";
   };
@@ -2471,10 +2471,8 @@ document.addEventListener("DOMContentLoaded", () => {
       `Author (or director, host, etc.): ${(data.author || "").trim()}`,
       `Link: ${(data.link || "").trim()}`,
       `Category: ${trackLabel}`,
+      `Your email: ${(data.email || "").trim()}`,
     ];
-    if ((data.email || "").trim()) {
-      bodyLines.push(`Submitter email: ${(data.email || "").trim()}`);
-    }
     const body = encodeURIComponent(bodyLines.join("\n"));
     const mailtoUrl = `mailto:${to}?subject=${subject}&body=${body}`;
     window.location.href = mailtoUrl;
@@ -2606,7 +2604,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submissionMode === "email") {
           submitSuggestionViaEmail(data);
           suggestionForm.reset();
-          setFeedback("Your email client should open with the suggestion. Send the email to submit. If it didn’t open, email contact@ai-safety-resources.com with the details.");
+          setFeedback("Your email client will open. Send the message to submit your suggestion.");
         } else if (submissionMode === "apps_script") {
           await submitSuggestionToAppsScript(data);
           suggestionForm.reset();
