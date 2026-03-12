@@ -646,10 +646,18 @@ body.site-body {
 }
 
 .film-score-logo {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+.film-score-label {
+  font-size: 0.8rem;
+}
+
+.film-score-value {
+  font-size: 0.8rem;
 }
 
 .resource-actions {

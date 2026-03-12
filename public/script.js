@@ -1886,21 +1886,44 @@ document.addEventListener("DOMContentLoaded", () => {
       const imdbScore = isFilm && (entry.imdb != null && entry.imdb !== "") ? String(entry.imdb) : "";
       const rtScore = isFilm && (entry.rt != null && entry.rt !== "") ? Number(entry.rt) : NaN;
       const hasFilmScores = Boolean(imdbScore || (Number.isFinite(rtScore) && rtScore >= 0));
-      const imdbLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/24px-IMDB_Logo_2016.svg.png";
-      const rtLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/24px-Rotten_Tomatoes.svg.png";
+      const imdbLogoUrl =
+        "https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg";
+      const rtLogoUrl =
+        "https://upload.wikimedia.org/wikipedia/commons/5/5b/Rotten_Tomatoes.svg";
       const filmScoresMarkup = hasFilmScores
         ? `<div class="film-scores">
-            ${imdbScore ? `<span class="film-score" title="IMDb rating"><img class="film-score-logo" src="${escapeHtml(imdbLogoUrl)}" alt="IMDb" />${escapeHtml(imdbScore)}</span>` : ""}
-            ${Number.isFinite(rtScore) && rtScore >= 0 ? `<span class="film-score" title="Rotten Tomatoes"><img class="film-score-logo" src="${escapeHtml(rtLogoUrl)}" alt="Rotten Tomatoes" />${escapeHtml(String(rtScore))}%</span>` : ""}
+            ${
+              imdbScore
+                ? `<span class="film-score" title="IMDb rating"><img class="film-score-logo" src="${escapeHtml(
+                    imdbLogoUrl
+                  )}" alt="IMDb logo" /><span class="film-score-label">IMDb</span><span class="film-score-value">${escapeHtml(
+                    imdbScore
+                  )}</span></span>`
+                : ""
+            }
+            ${
+              Number.isFinite(rtScore) && rtScore >= 0
+                ? `<span class="film-score" title="Rotten Tomatoes rating"><img class="film-score-logo" src="${escapeHtml(
+                    rtLogoUrl
+                  )}" alt="Rotten Tomatoes logo" /><span class="film-score-label">Rotten Tomatoes</span><span class="film-score-value">${escapeHtml(
+                    String(rtScore)
+                  )}%</span></span>`
+                : ""
+            }
           </div>`
         : "";
 
       const goodreadsScore = entry.goodreads != null && entry.goodreads !== "" ? String(entry.goodreads) : "";
       const hasBookScore = Boolean(goodreadsScore);
-      const goodreadsLogoUrl = "https://www.goodreads.com/favicon.ico";
+      const goodreadsLogoUrl =
+        "https://upload.wikimedia.org/wikipedia/commons/a/ae/Goodreads_logo_2025.svg";
       const bookScoresMarkup = hasBookScore
         ? `<div class="film-scores book-scores">
-            <span class="film-score" title="Goodreads rating"><img class="film-score-logo" src="${escapeHtml(goodreadsLogoUrl)}" alt="Goodreads" />${escapeHtml(goodreadsScore)}</span>
+            <span class="film-score" title="Goodreads rating"><img class="film-score-logo" src="${escapeHtml(
+              goodreadsLogoUrl
+            )}" alt="Goodreads logo" /><span class="film-score-label">Goodreads</span><span class="film-score-value">${escapeHtml(
+              goodreadsScore
+            )}</span></span>
           </div>`
         : "";
 
