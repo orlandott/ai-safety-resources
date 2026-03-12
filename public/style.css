@@ -431,9 +431,7 @@ body.site-body {
 
 .reading-list-item {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   gap: 0.5rem;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -442,7 +440,6 @@ body.site-body {
 }
 
 .reading-list-item-main {
-  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -470,9 +467,10 @@ body.site-body {
 
 .reading-list-item-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  flex-shrink: 0;
+  min-width: 0;
 }
 
 .reading-list-status-select {
