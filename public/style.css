@@ -944,10 +944,15 @@ body.site-body {
     margin-left: auto;
   }
 
-  /* On mobile, cards are full-width and narrow, so a 2-line clamp hides most
-     of the description. There's no hover to reveal the title tooltip either,
-     so show the full summary instead. */
+  /* On mobile, cards are full-width and narrow, so the 2-line clamp hides most
+     of the description and there's no hover to reveal the title tooltip. Use a
+     uniform 4-line clamp instead, and let a tap expand to the full text. */
   .resource-summary {
+    -webkit-line-clamp: 4;
+    cursor: pointer;
+  }
+
+  .resource-summary.is-expanded {
     -webkit-line-clamp: none;
     display: block;
     overflow: visible;

@@ -1954,7 +1954,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const safeAuthor = escapeHtml(entry.Author || "Unknown author");
       const safeSummary = escapeHtml(getEntrySummary(entry));
       const summaryMarkup = safeSummary
-        ? `<p class="resource-summary" title="${safeSummary}">${safeSummary}</p>`
+        ? `<p class="resource-summary" title="${safeSummary}" data-summary-toggle role="button" tabindex="0" aria-expanded="false">${safeSummary}</p>`
         : "";
       const safeLink = escapeHtml(normalizedLink);
       const category = (entry.Category || "").toString();
@@ -2761,11 +2761,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Mobile cards are full-width and narrow, so summaries are clamped to a
+  // uniform 4 lines. Tapping a clamped summary expands it to the full text.
+  const mobileSummaryQuery =
+    typeof window.matchMedia === "function"
+      ? window.matchMedia("(max-width: 767px)")
+      : null;
+  const isMobileSummaryViewport = () =>
+    mobileSummaryQuery ? mobileSummaryQuery.matches : false;
+  const toggleSummaryExpansion = (summaryElement) => {
+    const expanded = summaryElement.classList.toggle("is-expanded");
+    summaryElement.setAttribute("aria-expanded", expanded ? "true" : "false");
+  };
+
+  // Collapse any expanded summaries when leaving the mobile viewport so cards
+  // stay uniform on desktop.
+  if (mobileSummaryQuery && typeof mobileSummaryQuery.addEventListener === "function") {
+    mobileSummaryQuery.addEventListener("change", (event) => {
+      if (event.matches) {
+        return;
+      }
+      document
+        .querySelectorAll(".resource-summary.is-expanded")
+        .forEach((summaryElement) => {
+          summaryElement.classList.remove("is-expanded");
+          summaryElement.setAttribute("aria-expanded", "false");
+        });
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+    const keyTarget = event.target;
+    if (!keyTarget || typeof keyTarget.closest !== "function") {
+      return;
+    }
+    const summaryToggle = keyTarget.closest("[data-summary-toggle]");
+    if (summaryToggle && isMobileSummaryViewport()) {
+      event.preventDefault();
+      toggleSummaryExpansion(summaryToggle);
+    }
+  });
+
   document.addEventListener(
     "click",
     (event) => {
       const clickTarget = event.target;
       if (!clickTarget || typeof clickTarget.closest !== "function") {
+        return;
+      }
+
+      const summaryToggle = clickTarget.closest("[data-summary-toggle]");
+      if (summaryToggle && isMobileSummaryViewport()) {
+        event.preventDefault();
+        event.stopPropagation();
+        toggleSummaryExpansion(summaryToggle);
         return;
       }
 
