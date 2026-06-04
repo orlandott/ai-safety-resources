@@ -944,6 +944,15 @@ body.site-body {
     margin-left: auto;
   }
 
+  /* On mobile, cards are full-width and narrow, so a 2-line clamp hides most
+     of the description. There's no hover to reveal the title tooltip either,
+     so show the full summary instead. */
+  .resource-summary {
+    -webkit-line-clamp: none;
+    display: block;
+    overflow: visible;
+  }
+
   .resource-save-button,
   .resource-progress-select,
   .reading-list-status-select,
