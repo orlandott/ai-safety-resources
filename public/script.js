@@ -808,7 +808,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link: normalizeLinkInput(trimToLimit(rawData && rawData.link, suggestionFieldLimits.link)),
       track: validTrackKeys.has((rawData && rawData.track) || "")
         ? rawData.track
-        : "books",
+        : "non_fiction_books",
     };
   };
 
