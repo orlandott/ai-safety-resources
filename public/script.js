@@ -162,6 +162,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "Fall; or, Dodge in Hell",
     "Klara and the Sun",
     "Service Model",
+    "The Mechanical",
+    "Aurora Rising",
+    "Rose/House",
+    "I Am Pilgrim",
     "Infinity Gate",
     "Hyperion",
     "Logic Beach",
@@ -2616,7 +2620,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (heroResourceCountElement && entryLookup.size) {
       heroResourceCountElement.hidden = false;
-      heroResourceCountElement.textContent = `${entryLookup.size} hand-picked resources across six formats`;
+      heroResourceCountElement.textContent = `${entryLookup.size} curated resources across six formats`;
     }
 
     renderReadingDashboard();
