@@ -364,6 +364,7 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  min-width: 0;
 }
 
 .library-content {
@@ -1345,6 +1346,12 @@ textarea {
     --header-height: 56px;
   }
 
+  /* Safety net: clip (not hidden, so sticky still works) any stray horizontal
+     overflow so the page can never render wider than the phone screen. */
+  .page {
+    overflow-x: clip;
+  }
+
   .library-layout {
     grid-template-columns: 1fr;
     gap: 0.9rem;
@@ -1360,14 +1367,18 @@ textarea {
     align-items: flex-start;
   }
 
-  /* Horizontal, swipeable category pills instead of six stacked blocks. */
+  /* Horizontal, swipeable category pills instead of six stacked blocks.
+     Kept within the content box (no negative-margin bleed) so the row can
+     never push the page wider than the viewport. */
   .gauntlet-tabs-menu {
     flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    margin: 0 -1rem;
-    padding: 0.15rem 1rem 0.35rem;
+    margin: 0;
+    padding: 0.15rem 0 0.35rem;
   }
 
   .gauntlet-tabs-menu::-webkit-scrollbar {

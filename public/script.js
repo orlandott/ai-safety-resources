@@ -2259,14 +2259,13 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       wireCoverFallback(coverElementId, entry.Name || "Book");
 
-      // Resolve a real cover/poster for every book and film that lacks one
-      // (films from Wikipedia, books from OpenLibrary/Google Books), and keep
-      // filling missing year/page metadata for non-film entries.
-      const needsImageHydration =
+      // Only fetch on load for entries actually missing a cover/poster —
+      // books via OpenLibrary/Google Books, films via Wikipedia. Entries that
+      // already ship an image make no network request. Year and page counts
+      // are filled opportunistically from that same lookup.
+      const needsHydration =
         !entry.Image && !entry.__disableImage && (isBookCategory || isFilm);
-      const needsMetaHydration =
-        !isFilm && (!normalizePositiveInteger(entry.page_count) || !yearValue);
-      if (needsImageHydration || needsMetaHydration) {
+      if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
     } catch (error) {
