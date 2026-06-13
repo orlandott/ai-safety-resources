@@ -559,21 +559,112 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  const tabsMenu = document.querySelector(".gauntlet-tabs-menu");
+  const libraryContent = document.querySelector(".library-content");
+  const tabList = [...tabs];
+  const tabKeys = new Set(tabList.map((tab) => tab.getAttribute("data-w-tab")));
+
+  const prefersReducedMotion = () =>
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const motionSafeBehavior = () => (prefersReducedMotion() ? "auto" : "smooth");
+
+  const syncTabA11yState = () => {
+    tabList.forEach((tab) => {
+      const isCurrent = tab.classList.contains("w--current");
+      tab.setAttribute("aria-selected", isCurrent ? "true" : "false");
+      tab.setAttribute("tabindex", isCurrent ? "0" : "-1");
+    });
+  };
+
+  const activateTab = (targetKey, options = {}) => {
+    if (!targetKey || !tabKeys.has(targetKey)) {
+      return;
+    }
+    tabList.forEach((tab) => {
+      tab.classList.toggle("w--current", tab.getAttribute("data-w-tab") === targetKey);
+    });
+    panes.forEach((pane) => {
+      pane.classList.toggle("w--tab-active", pane.getAttribute("data-w-tab") === targetKey);
+    });
+    syncTabA11yState();
+
+    if (options.updateHash) {
+      try {
+        window.history.replaceState(null, "", `#${targetKey}`);
+      } catch (error) {
+        // Deep-linking is a nice-to-have; ignore environments that block it.
+      }
+    }
+
+    if (options.focusTab) {
+      const activeTab = tabList.find((tab) => tab.getAttribute("data-w-tab") === targetKey);
+      if (activeTab) {
+        activeTab.focus();
+      }
+    }
+
+    // When the user is deep in a long list, bring the top of the new category
+    // into view so the switch is actually visible.
+    if (
+      options.scrollContent &&
+      libraryContent &&
+      libraryContent.getBoundingClientRect().top < 0
+    ) {
+      libraryContent.scrollIntoView({ behavior: motionSafeBehavior(), block: "start" });
+    }
+  };
+
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      const targetTab = tab.getAttribute("data-w-tab");
-
-      tabs.forEach((t) => t.classList.remove("w--current"));
-      tab.classList.add("w--current");
-
-      panes.forEach((pane) => {
-        pane.classList.remove("w--tab-active");
-        if (pane.getAttribute("data-w-tab") === targetTab) {
-          pane.classList.add("w--tab-active");
-        }
-      });
+      activateTab(tab.getAttribute("data-w-tab"), { updateHash: true, scrollContent: true });
     });
   });
+
+  if (tabsMenu) {
+    tabsMenu.addEventListener("keydown", (event) => {
+      const navigationKeys = ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!navigationKeys.includes(event.key) || !tabList.length) {
+        return;
+      }
+      const currentIndex = Math.max(
+        tabList.findIndex((tab) => tab.classList.contains("w--current")),
+        0
+      );
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+        nextIndex = (currentIndex + 1) % tabList.length;
+      } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+        nextIndex = (currentIndex - 1 + tabList.length) % tabList.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else {
+        nextIndex = tabList.length - 1;
+      }
+      event.preventDefault();
+      activateTab(tabList[nextIndex].getAttribute("data-w-tab"), {
+        updateHash: true,
+        focusTab: true,
+      });
+    });
+  }
+
+  const applyTabFromLocationHash = () => {
+    let hashKey = "";
+    try {
+      hashKey = decodeURIComponent((window.location.hash || "").slice(1));
+    } catch (error) {
+      hashKey = "";
+    }
+    if (hashKey && tabKeys.has(hashKey)) {
+      activateTab(hashKey, { updateHash: false });
+    }
+  };
+
+  window.addEventListener("hashchange", applyTabFromLocationHash);
+  applyTabFromLocationHash();
+  syncTabA11yState();
 
   const escapeHtml = (value = "") =>
     value
@@ -1926,7 +2017,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="page-pill">Open suggestion</span>
           </div>
         </div>
-        <span class="open-link">Suggest <img class="link-icon" src="./images/arrow-up-outline.svg" /></span>
+        <span class="open-link">Suggest <span class="open-link-arrow" aria-hidden="true">↗</span></span>
       </a>`
     );
   };
@@ -2072,7 +2163,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </select>
             </div>
           </div>
-          <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="open-link resource-open-link">Open <img class="link-icon" src="./images/arrow-up-outline.svg" /></a>
+          <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="open-link resource-open-link">Open <span class="open-link-arrow" aria-hidden="true">↗</span></a>
         </article>`
       );
       wireCoverFallback(coverElementId, entry.Name || "Book");
@@ -2254,8 +2345,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearFromControl = document.getElementById("category-year-from-control");
   const yearToControl = document.getElementById("category-year-to-control");
   const filterResetButton = document.getElementById("category-filter-reset");
+  const searchControl = document.getElementById("category-search-control");
+  const searchClearButton = document.getElementById("category-search-clear");
+  const resultsNoteElement = document.getElementById("category-results-note");
+  const heroResourceCountElement = document.getElementById("hero-resource-count");
 
   const getSortMode = () => (sortControl && sortControl.value) || "year_desc";
+
+  const getSearchQuery = () =>
+    normalizeStringInput((searchControl && searchControl.value) || "").toLowerCase();
 
   const getFilterState = () => {
     let fromYear = normalizeYear((yearFromControl && yearFromControl.value) || "");
@@ -2267,14 +2365,17 @@ document.addEventListener("DOMContentLoaded", () => {
         yearToControl.value = `${toYear}`;
       }
     }
+    const query = getSearchQuery();
     return {
       fromYear,
       toYear,
+      query,
+      queryTokens: query ? query.split(" ") : [],
     };
   };
 
   const hasActiveFilters = (filters) =>
-    Boolean(filters && (filters.fromYear || filters.toYear));
+    Boolean(filters && (filters.fromYear || filters.toYear || filters.query));
 
   const updateYearSelectOptions = (control, years = []) => {
     if (!control) {
@@ -2301,9 +2402,28 @@ document.addEventListener("DOMContentLoaded", () => {
     updateYearSelectOptions(yearToControl, years);
   };
 
+  const getEntrySearchText = (entry = {}) => {
+    if (!entry.__searchText) {
+      const summary = (
+        entry.Summary ||
+        entry.summary ||
+        seededEntrySummaries[entry.Name] ||
+        ""
+      ).toString();
+      entry.__searchText = `${entry.Name || ""} ${entry.Author || ""} ${summary}`.toLowerCase();
+    }
+    return entry.__searchText;
+  };
+
   const entryMatchesFilters = (entry, filters) => {
     if (!entry) {
       return false;
+    }
+    if (filters.queryTokens && filters.queryTokens.length) {
+      const searchText = getEntrySearchText(entry);
+      if (!filters.queryTokens.every((token) => searchText.includes(token))) {
+        return false;
+      }
     }
     if (!filters.fromYear && !filters.toYear) {
       return true;
@@ -2415,6 +2535,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextTrackTotals = new Map(
       Object.keys(trackLabels).map((trackKey) => [trackKey, 0])
     );
+    let totalMatchingEntries = 0;
 
     categoryTargets.forEach(({ key, parentId }) => {
       try {
@@ -2442,6 +2563,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const filteredEntries = selectedEntries.filter((entry) =>
           entryMatchesFilters(entry, filterState)
         );
+        totalMatchingEntries += filteredEntries.length;
+
+        const tabCountElement = document.querySelector(
+          `.gauntlet-tab[data-w-tab="${parentId.replace(/-parent$/, "")}"] [data-tab-count]`
+        );
+        if (tabCountElement) {
+          tabCountElement.textContent = `${filteredEntries.length}`;
+        }
 
         const orderedEntries = sortSelectedEntries(filteredEntries, sortMode);
 
@@ -2449,8 +2578,8 @@ document.addEventListener("DOMContentLoaded", () => {
           if (usingFilters) {
             renderCategoryFallbackState(
               categoryParent,
-              "No resources match your filters",
-              "Try resetting type/year filters to broaden results."
+              "No matches in this category",
+              "Try a different search term, or reset the search and year filters."
             );
           } else {
             renderCategoryFallbackState(categoryParent);
@@ -2471,6 +2600,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     latestEntryCategoryLookup = nextEntryCategoryLookup;
     latestTrackTotals = nextTrackTotals;
+
+    if (resultsNoteElement) {
+      if (usingFilters) {
+        resultsNoteElement.hidden = false;
+        resultsNoteElement.textContent =
+          totalMatchingEntries === 1
+            ? "1 resource matches across all categories."
+            : `${totalMatchingEntries} resources match across all categories.`;
+      } else {
+        resultsNoteElement.hidden = true;
+        resultsNoteElement.textContent = "";
+      }
+    }
+
+    if (heroResourceCountElement && entryLookup.size) {
+      heroResourceCountElement.hidden = false;
+      heroResourceCountElement.textContent = `${entryLookup.size} hand-picked resources across six formats`;
+    }
+
     renderReadingDashboard();
   };
 
@@ -2749,6 +2897,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const syncSearchClearVisibility = () => {
+    if (searchClearButton) {
+      searchClearButton.hidden = !(searchControl && searchControl.value);
+    }
+  };
+
+  let searchRenderTimer = null;
+  const scheduleSearchRender = () => {
+    if (searchRenderTimer) {
+      clearTimeout(searchRenderTimer);
+    }
+    searchRenderTimer = setTimeout(() => {
+      searchRenderTimer = null;
+      renderAllBooks();
+    }, 140);
+  };
+
+  if (searchControl) {
+    searchControl.addEventListener("input", () => {
+      syncSearchClearVisibility();
+      scheduleSearchRender();
+    });
+    searchControl.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && searchControl.value) {
+        event.preventDefault();
+        searchControl.value = "";
+        syncSearchClearVisibility();
+        renderAllBooks();
+      }
+    });
+    syncSearchClearVisibility();
+  }
+
+  if (searchClearButton) {
+    searchClearButton.addEventListener("click", () => {
+      if (!searchControl) {
+        return;
+      }
+      searchControl.value = "";
+      syncSearchClearVisibility();
+      searchControl.focus();
+      renderAllBooks();
+    });
+  }
+
+  // Press "/" anywhere (outside form fields) to jump to the search box.
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) {
+      return;
+    }
+    const activeElement = event.target;
+    if (
+      activeElement &&
+      typeof activeElement.closest === "function" &&
+      (activeElement.closest("input, textarea, select") || activeElement.isContentEditable)
+    ) {
+      return;
+    }
+    if (searchControl) {
+      event.preventDefault();
+      searchControl.focus();
+      searchControl.select();
+    }
+  });
+
   if (filterResetButton) {
     filterResetButton.addEventListener("click", () => {
       if (yearFromControl) {
@@ -2757,8 +2970,80 @@ document.addEventListener("DOMContentLoaded", () => {
       if (yearToControl) {
         yearToControl.value = "";
       }
+      if (searchControl) {
+        searchControl.value = "";
+        syncSearchClearVisibility();
+      }
       renderAllBooks();
     });
+  }
+
+  const backToTopButton = document.getElementById("back-to-top");
+  if (backToTopButton) {
+    const syncBackToTopVisibility = () => {
+      backToTopButton.classList.toggle("is-visible", window.scrollY > 600);
+    };
+    window.addEventListener("scroll", syncBackToTopVisibility, { passive: true });
+    syncBackToTopVisibility();
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: motionSafeBehavior() });
+    });
+  }
+
+  const themeToggleButton = document.getElementById("theme-toggle");
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  const themeStorageKey = "rwwc-theme";
+  const themeColors = { light: "#f4f1ea", dark: "#15110d" };
+
+  const getActiveTheme = () =>
+    document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+
+  const applyThemePreference = (theme, persist = false) => {
+    const nextTheme = theme === "dark" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", themeColors[nextTheme]);
+    }
+    if (themeToggleButton) {
+      themeToggleButton.setAttribute(
+        "aria-label",
+        nextTheme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+    }
+    if (persist) {
+      try {
+        window.localStorage.setItem(themeStorageKey, nextTheme);
+      } catch (error) {
+        // Theme persistence is optional; the toggle still works for the session.
+      }
+    }
+  };
+
+  applyThemePreference(getActiveTheme());
+
+  if (themeToggleButton) {
+    themeToggleButton.addEventListener("click", () => {
+      applyThemePreference(getActiveTheme() === "dark" ? "light" : "dark", true);
+    });
+  }
+
+  // Follow the OS theme while the visitor hasn't picked one explicitly.
+  if (typeof window.matchMedia === "function") {
+    const systemDarkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const onSystemThemeChange = (event) => {
+      let storedTheme = null;
+      try {
+        storedTheme = window.localStorage.getItem(themeStorageKey);
+      } catch (error) {
+        storedTheme = null;
+      }
+      if (storedTheme !== "light" && storedTheme !== "dark") {
+        applyThemePreference(event.matches ? "dark" : "light");
+      }
+    };
+    if (typeof systemDarkQuery.addEventListener === "function") {
+      systemDarkQuery.addEventListener("change", onSystemThemeChange);
+    }
   }
 
   // Mobile cards are full-width and narrow, so summaries are clamped to a
