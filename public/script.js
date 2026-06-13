@@ -787,12 +787,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const trimToLimit = (value = "", limit = 255) =>
     normalizeStringInput(value).slice(0, limit);
 
+  // Accept links pasted without a scheme (e.g. "goodreads.com/...", "www.imdb.com/...")
+  // by defaulting to https://. Without this, the browser blocks scheme-less URLs.
+  const normalizeLinkInput = (value = "") => {
+    const trimmed = value.toString().trim();
+    if (!trimmed) {
+      return "";
+    }
+    if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed)) {
+      return `https://${trimmed.replace(/^\/+/, "")}`;
+    }
+    return trimmed;
+  };
+
   const sanitizeSuggestionInput = (rawData) => {
     return {
       name: trimToLimit(rawData && rawData.name, suggestionFieldLimits.name),
       author: trimToLimit(rawData && rawData.author, suggestionFieldLimits.author),
       email: trimToLimit(rawData && rawData.email, suggestionFieldLimits.email).toLowerCase(),
-      link: trimToLimit(rawData && rawData.link, suggestionFieldLimits.link),
+      link: normalizeLinkInput(trimToLimit(rawData && rawData.link, suggestionFieldLimits.link)),
       track: validTrackKeys.has((rawData && rawData.track) || "")
         ? rawData.track
         : "books",
@@ -806,8 +819,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!data.name || !data.author || !data.link || !data.email) {
       return "Please fill title, author, link, and your email before submitting.";
     }
-    if (!isHttpsUrl(data.link) || !isValidHttpUrl(data.link)) {
-      return "Please use a valid https:// link.";
+    if (!isValidHttpUrl(data.link)) {
+      return "Please enter a valid link, e.g. https://example.com.";
     }
     if (!isValidEmail(data.email)) {
       return "Please provide a valid email address.";
@@ -2719,6 +2732,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const suggestionSubmitButton = suggestionForm
     ? suggestionForm.querySelector('button[type="submit"]')
     : null;
+  const suggestionLinkInput = document.getElementById("suggestion-link");
+
+  if (suggestionLinkInput) {
+    // Reflect the normalized link back to the user (adds https:// to bare domains).
+    suggestionLinkInput.addEventListener("blur", () => {
+      const normalized = normalizeLinkInput(suggestionLinkInput.value);
+      if (normalized && normalized !== suggestionLinkInput.value) {
+        suggestionLinkInput.value = normalized;
+      }
+    });
+  }
 
   const setFeedback = (message) => {
     if (suggestionFeedback) {
