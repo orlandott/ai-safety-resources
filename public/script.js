@@ -1695,6 +1695,37 @@ document.addEventListener("DOMContentLoaded", () => {
     return trimmed.length ? trimmed[0].toUpperCase() : "R";
   };
 
+  // A deterministic, good-looking placeholder used whenever a cover/poster
+  // can't be loaded: up to two initials on a hue derived from the title.
+  const coverInitialStopWords = new Set([
+    "a", "an", "the", "of", "and", "or", "to", "for", "is", "in", "on",
+  ]);
+
+  const getCoverInitials = (title = "") => {
+    const words = title
+      .toString()
+      .replaceAll(/[^a-zA-Z0-9\s]+/g, " ")
+      .split(/\s+/)
+      .filter((word) => word && !coverInitialStopWords.has(word.toLowerCase()));
+    const source = words.length ? words : title.toString().trim().split(/\s+/).filter(Boolean);
+    const initials = source.slice(0, 2).map((word) => word[0].toUpperCase()).join("");
+    return initials || getFallbackInitial(title);
+  };
+
+  const getCoverHue = (title = "") => {
+    let hash = 0;
+    const text = title.toString();
+    for (let index = 0; index < text.length; index += 1) {
+      hash = (hash * 31 + text.charCodeAt(index)) % 360;
+    }
+    return Math.abs(hash);
+  };
+
+  const buildCoverPlaceholderMarkup = (title = "") =>
+    `<span class="cover-fallback" style="--cover-hue:${getCoverHue(title)}"><span class="cover-fallback-initials">${escapeHtml(
+      getCoverInitials(title)
+    )}</span></span>`;
+
   const toSafeDomId = (value = "") =>
     value.toString().replaceAll(/[^a-zA-Z0-9_-]/g, "-");
 
@@ -1707,11 +1738,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!imageElement) {
       return;
     }
-    const fallbackInitial = escapeHtml(getFallbackInitial(fallbackTitle));
     imageElement.addEventListener(
       "error",
       () => {
-        coverContainer.innerHTML = `<span class="cover-fallback">${fallbackInitial}</span>`;
+        coverContainer.innerHTML = buildCoverPlaceholderMarkup(fallbackTitle);
       },
       { once: true }
     );
@@ -1853,6 +1883,60 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
+  const extractWikipediaThumbnail = (payload) => {
+    const pages = payload && payload.query && payload.query.pages;
+    if (!pages || typeof pages !== "object") {
+      return "";
+    }
+    const match = Object.values(pages).find(
+      (page) => page && page.thumbnail && page.thumbnail.source
+    );
+    return match ? match.thumbnail.source : "";
+  };
+
+  // Films have no entry in OpenLibrary/Google Books, so resolve posters from
+  // Wikipedia. A search generator avoids title-disambiguation problems (e.g.
+  // "Alien", "Her", "Moon") and returns the film article's lead image (poster).
+  const queryWikipediaPoster = async (entry) => {
+    const title = (entry.Name || "").trim();
+    if (!title) {
+      return "";
+    }
+    const year = getEntryYear(entry);
+    const searchTerm = `${title}${year ? ` ${year}` : ""} film`;
+    const queryUrl =
+      "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
+      "&prop=pageimages&piprop=thumbnail&pithumbsize=500" +
+      `&generator=search&gsrlimit=1&gsrnamespace=0&gsrsearch=${encodeURIComponent(searchTerm)}`;
+
+    let response;
+    try {
+      response = await fetchWithTimeout(
+        queryUrl,
+        { headers: { Accept: "application/json" } },
+        metadataLookupTimeoutMs,
+        "Wikipedia poster lookup"
+      );
+    } catch (error) {
+      logResilienceWarning("wikipedia_poster_lookup_failed", { title }, error);
+      return "";
+    }
+    if (!response.ok) {
+      logResilienceWarning("wikipedia_poster_unexpected_status", {
+        title,
+        status: response.status,
+      });
+      return "";
+    }
+    try {
+      const payload = await response.json();
+      return sanitizeImageUrl(extractWikipediaThumbnail(payload));
+    } catch (error) {
+      logResilienceWarning("wikipedia_poster_parse_failed", { title }, error);
+      return "";
+    }
+  };
+
   const fetchEntryMetadata = async (entry) => {
     const key = `${(entry.Name || "").trim().toLowerCase()}::${(entry.Author || "").trim().toLowerCase()}`;
     if (!key || key === "::") {
@@ -1869,6 +1953,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
+      if ((entry.Category || "").toString() === "films") {
+        try {
+          metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
+        } catch (error) {
+          logResilienceWarning("film_poster_lookup_failed", { name: entry && entry.Name }, error);
+        }
+        entryMetadataCache.set(key, metadata);
+        pendingMetadataLookups.delete(key);
+        return metadata;
+      }
       try {
         const openLibraryMetadata = await queryOpenLibraryMetadata(entry);
         metadata.coverUrl = sanitizeImageUrl(openLibraryMetadata.coverUrl || "");
@@ -2053,13 +2147,10 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
       const safeLink = escapeHtml(normalizedLink);
       const category = (entry.Category || "").toString();
-      const isBook = category === "books";
       const isFilm = category === "films";
-      let safeImageUrl = sanitizeImageUrl(entry.Image || "");
-      if (!safeImageUrl && isBook) {
-        safeImageUrl =
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Books-aj.svg_aj_ashton_01.svg/330px-Books-aj.svg_aj_ashton_01.svg.png";
-      }
+      const isBookCategory =
+        category === "books" || category === "fiction_books" || category === "non_fiction_books";
+      const safeImageUrl = sanitizeImageUrl(entry.Image || "");
       if (entry.Image !== safeImageUrl) {
         entry.Image = safeImageUrl;
       }
@@ -2085,12 +2176,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const yearValue = getEntryYear(entry);
       const yearText = yearValue ? `${yearValue}` : "";
       const coverClassName = `book-image${entry.__coverIsLogo ? " is-logo" : ""}`;
-      const bookFallbackImg =
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Books-aj.svg_aj_ashton_01.svg/330px-Books-aj.svg_aj_ashton_01.svg.png";
-      const coverFallbackImg = isBook ? bookFallbackImg : "";
       const coverMarkup = safeImageUrl
-        ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover"${coverFallbackImg ? ` data-fallback="${escapeHtml(coverFallbackImg)}" onerror="if(this.dataset.fallback){this.onerror=null;this.src=this.dataset.fallback}"` : ""} />`
-        : `<span class="cover-fallback">${getFallbackInitial(entry.Name || "")}</span>`;
+        ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover" />`
+        : buildCoverPlaceholderMarkup(entry.Name || "");
 
       const imdbScore = isFilm && (entry.imdb != null && entry.imdb !== "") ? String(entry.imdb) : "";
       const rtScore = isFilm && (entry.rt != null && entry.rt !== "") ? Number(entry.rt) : NaN;
@@ -2122,7 +2210,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>`
         : "";
 
-      const isBookCategory = category === "books" || category === "fiction_books" || category === "non_fiction_books";
       const goodreadsScore = entry.goodreads != null && entry.goodreads !== "" ? String(entry.goodreads) : "";
       const hasBookScore = Boolean(isBookCategory && goodreadsScore);
       const goodreadsLogoUrl = "https://www.goodreads.com/favicon.ico";
@@ -2172,12 +2259,14 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       wireCoverFallback(coverElementId, entry.Name || "Book");
 
-      const needsHydration =
-        !isFilm &&
-        ((!entry.Image && !entry.__disableImage) ||
-          !normalizePositiveInteger(entry.page_count) ||
-          !yearValue);
-      if (needsHydration) {
+      // Resolve a real cover/poster for every book and film that lacks one
+      // (films from Wikipedia, books from OpenLibrary/Google Books), and keep
+      // filling missing year/page metadata for non-film entries.
+      const needsImageHydration =
+        !entry.Image && !entry.__disableImage && (isBookCategory || isFilm);
+      const needsMetaHydration =
+        !isFilm && (!normalizePositiveInteger(entry.page_count) || !yearValue);
+      if (needsImageHydration || needsMetaHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
     } catch (error) {

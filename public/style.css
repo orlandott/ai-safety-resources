@@ -692,9 +692,29 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(
+    150deg,
+    hsl(var(--cover-hue, 32) 36% 88%),
+    hsl(calc(var(--cover-hue, 32) + 26) 42% 76%)
+  );
+  color: #4a3f2f;
   font-family: "Hahmlet", Georgia, serif;
-  font-size: 1.15rem;
-  color: var(--muted);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .cover-fallback {
+  background: linear-gradient(
+    150deg,
+    hsl(var(--cover-hue, 32) 20% 28%),
+    hsl(calc(var(--cover-hue, 32) + 26) 24% 18%)
+  );
+  color: #e7dcc8;
+}
+
+.cover-fallback-initials {
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .book-main {
