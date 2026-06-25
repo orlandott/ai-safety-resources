@@ -1,9 +1,9 @@
 # [AI Safety Resources](https://ai-safety-resources.com)
 
-AI Safety Resources is a community-maintained reading hub focused on AI safety and alignment.  
-It curates books, essays, papers, and speculative fiction into learning tracks, with a submission form for new suggestions and guardrails to keep links and metadata reliable.
+AI Safety Resources is a community-maintained collection of resources for exploring and enjoying the questions of AI safety and alignment.  
+It curates books, papers, films, TV shows, documentaries, podcasts, and websites into browsable categories, with a submission form for new suggestions and guardrails to keep links and metadata reliable.
 
-📚📚📚📚📚📚📚📚📚 Reading everything
+📚🎬🎧📺📄 For the curious and the deeply engaged
 
 ### Deployment
 

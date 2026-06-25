@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     academic_papers: "Academic Papers",
     films: "Films",
     tv: "TV Shows",
+    documentaries: "Documentaries",
     podcasts: "Podcasts",
     websites: "Websites",
     youtube: "YouTube",
@@ -48,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const readingListStorageKey = "rwwc-reading-list-v1";
   const readingProgressLabels = {
     "": "No status",
-    to_read: "To read",
-    reading: "Reading",
+    to_read: "Up next",
+    reading: "In progress",
     finished: "Finished",
   };
   const readingProgressOrder = ["to_read", "reading", "finished"];
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { key: "academic_papers", parentId: "academic-papers-parent" },
     { key: "films", parentId: "films-parent" },
     { key: "tv", parentId: "tv-parent" },
+    { key: "documentaries", parentId: "documentaries-parent" },
     { key: "podcasts", parentId: "podcasts-parent" },
     { key: "websites", parentId: "websites-parent" },
     { key: "youtube", parentId: "youtube-parent" },
@@ -732,6 +734,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (category === "websites") return "Website";
     if (category === "tv") return "TV Series";
     if (category === "youtube") return "YouTube";
+    if (category === "documentaries") return "Documentary";
     return getSourceLabel(link);
   };
 
@@ -1918,19 +1921,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Films have no entry in OpenLibrary/Google Books, so resolve posters from
   // Wikipedia. A search generator avoids title-disambiguation problems (e.g.
   // "Alien", "Her", "Moon") and returns the film article's lead image (poster).
+  // When an entry pins an exact Wikipedia article via `Wikipedia`, we look that
+  // article up directly instead of searching — deterministic, so it returns the
+  // correct poster or nothing, never a mismatched image.
   const queryWikipediaPoster = async (entry) => {
     const title = (entry.Name || "").trim();
     if (!title) {
       return "";
     }
-    const year = getEntryYear(entry);
-    const isTvEntry = (entry.Category || "").toString() === "tv";
-    const mediaHint = isTvEntry ? "television series" : "film";
-    const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
-    const queryUrl =
+    const pinnedArticle = (entry.Wikipedia || "").toString().trim();
+    const baseUrl =
       "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
-      "&prop=pageimages&piprop=thumbnail&pithumbsize=500" +
-      `&generator=search&gsrlimit=1&gsrnamespace=0&gsrsearch=${encodeURIComponent(searchTerm)}`;
+      "&prop=pageimages&piprop=thumbnail&pithumbsize=500";
+    let queryUrl;
+    if (pinnedArticle) {
+      queryUrl = `${baseUrl}&titles=${encodeURIComponent(pinnedArticle)}`;
+    } else {
+      const year = getEntryYear(entry);
+      const isTvEntry = (entry.Category || "").toString() === "tv";
+      const mediaHint = isTvEntry ? "television series" : "film";
+      const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
+      queryUrl = `${baseUrl}&generator=search&gsrlimit=1&gsrnamespace=0&gsrsearch=${encodeURIComponent(searchTerm)}`;
+    }
 
     let response;
     try {
@@ -1977,7 +1989,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
       const lookupCategory = (entry.Category || "").toString();
-      if (lookupCategory === "films" || lookupCategory === "tv") {
+      if (
+        lookupCategory === "films" ||
+        lookupCategory === "tv" ||
+        lookupCategory === "documentaries"
+      ) {
         try {
           metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
         } catch (error) {
@@ -2171,7 +2187,8 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
       const safeLink = escapeHtml(normalizedLink);
       const category = (entry.Category || "").toString();
-      const isFilm = category === "films" || category === "tv";
+      const isFilm =
+        category === "films" || category === "tv" || category === "documentaries";
       const isBookCategory =
         category === "books" || category === "fiction_books" || category === "non_fiction_books";
       const safeImageUrl = sanitizeImageUrl(entry.Image || "");
@@ -2278,7 +2295,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <button type="button" class="resource-save-button${isSaved ? " is-saved" : ""}" data-save-toggle="${safeLookupKey}" aria-pressed="${isSaved ? "true" : "false"}">
                 ${isSaved ? "Saved" : "Save"}
               </button>
-              <select class="resource-progress-select" data-progress-select="${safeLookupKey}" aria-label="Reading progress for ${safeName}">
+              <select class="resource-progress-select" data-progress-select="${safeLookupKey}" aria-label="Progress for ${safeName}">
                 ${progressOptionsMarkup}
               </select>
             </div>
@@ -2292,8 +2309,17 @@ document.addEventListener("DOMContentLoaded", () => {
       // books via OpenLibrary/Google Books, films via Wikipedia. Entries that
       // already ship an image make no network request. Year and page counts
       // are filled opportunistically from that same lookup.
+      // Documentaries only hydrate when they pin an exact Wikipedia article
+      // (`Wikipedia`): fuzzy title search too often returns the wrong image for
+      // them (many share titles with fiction films), so without a pinned article
+      // we prefer the letter placeholder over a misleading poster.
+      const canHydrateDocumentary =
+        category !== "documentaries" || Boolean(entry.Wikipedia);
       const needsHydration =
-        !entry.Image && !entry.__disableImage && (isBookCategory || isFilm);
+        !entry.Image &&
+        !entry.__disableImage &&
+        (isBookCategory || isFilm) &&
+        canHydrateDocumentary;
       if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
@@ -2412,6 +2438,7 @@ document.addEventListener("DOMContentLoaded", () => {
       academic_papers: new Set(),
       films: new Set(),
       tv: new Set(),
+      documentaries: new Set(),
       podcasts: new Set(),
       websites: new Set(),
       youtube: new Set(),

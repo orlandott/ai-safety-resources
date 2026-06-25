@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <title>AI Safety Resources – Books, Papers, Films &amp; Podcasts on AI Safety &amp; Alignment</title>
-  <meta name="description" content="A curated list of resources for learning about AI safety and alignment: books, academic papers, films, podcasts, and websites. For beginners and researchers." />
+  <meta name="description" content="A curated collection of resources to explore and enjoy the questions of AI safety and alignment: books, academic papers, films, TV, documentaries, podcasts, and websites. For the curious and the deeply engaged." />
   <link rel="canonical" href="https://ai-safety-resources.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ai-safety-resources.com/" />
   <meta property="og:title" content="AI Safety Resources – Books, Papers, Films &amp; Podcasts on AI Safety &amp; Alignment" />
-  <meta property="og:description" content="A curated list of resources for learning about AI safety and alignment: books, academic papers, films, podcasts, and websites." />
+  <meta property="og:description" content="A curated collection of resources to explore and enjoy the questions of AI safety and alignment: books, academic papers, films, TV, documentaries, podcasts, and websites." />
   <meta property="og:image" content="https://ai-safety-resources.com/images/logo-ai-safety-resources.png" />
   <meta property="og:site_name" content="AI Safety Resources" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Safety Resources – Books, Papers, Films &amp; Podcasts on AI Safety &amp; Alignment" />
-  <meta name="twitter:description" content="A curated list of resources for learning about AI safety and alignment: books, papers, films, podcasts, and websites." />
+  <meta name="twitter:description" content="A curated collection of resources to explore and enjoy the questions of AI safety and alignment: books, papers, films, podcasts, and websites." />
   <meta name="twitter:image" content="https://ai-safety-resources.com/images/logo-ai-safety-resources.png" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#f4f1ea" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"AI Safety Resources","url":"https://ai-safety-resources.com/","description":"A curated list of resources for learning about AI safety and alignment: books, academic papers, films, podcasts, and websites.","publisher":{"@type":"Organization","name":"AI Safety Resources","url":"https://ai-safety-resources.com/"}}
+  {"@context":"https://schema.org","@type":"WebSite","name":"AI Safety Resources","url":"https://ai-safety-resources.com/","description":"A curated collection of resources to explore and enjoy the questions of AI safety and alignment: books, academic papers, films, TV, documentaries, podcasts, and websites.","publisher":{"@type":"Organization","name":"AI Safety Resources","url":"https://ai-safety-resources.com/"}}
   </script>
   <meta
     http-equiv="Content-Security-Policy"
@@ -67,7 +67,7 @@
       <h1 class="hero-title">AI Safety Resources</h1>
       <p class="hero-subtitle">Books, papers, films, podcasts &amp; websites</p>
       <p class="hero-copy">
-        A curated list of resources for beginners who want to learn what AI safety and alignment are—and why they matter.
+        A curated collection of books, films, papers, podcasts &amp; more to explore and enjoy the questions of AI safety and alignment—whether you're here to learn the basics, dig deeper, or just enjoy a good story about where AI is taking us.
       </p>
       <p class="hero-meta" id="hero-resource-count" hidden></p>
       <a href="https://aialignmentworld.com/" class="featured-banner" target="_blank" rel="noopener">
@@ -102,6 +102,10 @@
             <span class="gauntlet-tab-label">TV Shows</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
           </button>
+          <button type="button" id="tab-documentaries" role="tab" aria-selected="false" aria-controls="pane-documentaries" data-w-tab="documentaries" class="gauntlet-tab" tabindex="-1">
+            <span class="gauntlet-tab-label">Documentaries</span>
+            <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
+          </button>
           <button type="button" id="tab-podcasts" role="tab" aria-selected="false" aria-controls="pane-podcasts" data-w-tab="podcasts" class="gauntlet-tab" tabindex="-1">
             <span class="gauntlet-tab-label">Podcasts</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
@@ -115,10 +119,10 @@
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
           </button>
         </nav>
-        <div class="reading-dashboard" role="region" aria-label="Your reading list and progress">
+        <div class="reading-dashboard" role="region" aria-label="Your saved resources and progress">
           <details id="reading-list-collapsible" class="reading-dashboard-collapsible" open>
             <summary class="reading-dashboard-toggle">
-              <span class="reading-dashboard-title">Your reading list</span>
+              <span class="reading-dashboard-title">Your saved resources</span>
               <span id="reading-list-summary" class="reading-dashboard-summary">
                 Save resources to track progress.
               </span>
@@ -202,6 +206,13 @@
           </div>
           <div id="tv-parent" class="gauntlet-wrapper"></div>
         </div>
+        <div id="pane-documentaries" role="tabpanel" aria-labelledby="tab-documentaries" tabindex="0" data-w-tab="documentaries" class="w-tab-pane">
+          <div class="category-intro">
+            <h3 class="category-intro-title">Documentaries</h3>
+            <p class="category-intro-summary">Documentary films that examine artificial intelligence, its risks, and the people working on AI safety and alignment.</p>
+          </div>
+          <div id="documentaries-parent" class="gauntlet-wrapper"></div>
+        </div>
         <div id="pane-podcasts" role="tabpanel" aria-labelledby="tab-podcasts" tabindex="0" data-w-tab="podcasts" class="w-tab-pane">
           <div class="category-intro">
             <h3 class="category-intro-title">Podcasts</h3>
@@ -228,8 +239,8 @@
     <section id="suggestion-form-section" class="suggestion-section">
       <div class="suggestion-shell">
         <div>
-          <h2 class="suggestion-title">Suggest a new option</h2>
-          <p class="suggestion-copy">Share a book, film, or other resource and we’ll email your suggestion to the team.</p>
+          <h2 class="suggestion-title">Suggest a resource</h2>
+          <p class="suggestion-copy">Share a book, film, podcast, or any other resource and we’ll email your suggestion to the team.</p>
         </div>
         <form id="book-suggestion-form" class="suggestion-form">
           <div class="suggestion-grid">
@@ -257,6 +268,7 @@
                 <option value="academic_papers">Academic Papers</option>
                 <option value="films">Films</option>
                 <option value="tv">TV Shows</option>
+                <option value="documentaries">Documentaries</option>
                 <option value="podcasts">Podcasts</option>
                 <option value="websites">Websites</option>
                 <option value="youtube">YouTube</option>
@@ -276,7 +288,7 @@
       <div class="site-footer-brand">
         <p class="site-footer-title">AI Safety Resources</p>
         <p class="site-footer-copy">
-          A community-maintained library of books, papers, films, podcasts, and websites for learning about AI safety and alignment.
+          A community-maintained collection of books, papers, films, podcasts, and websites to explore and enjoy the questions of AI safety and alignment.
         </p>
       </div>
       <nav class="site-footer-links" aria-label="Footer">
@@ -286,7 +298,7 @@
         <a href="mailto:contact@ai-safety-resources.com">contact@ai-safety-resources.com</a>
       </nav>
     </div>
-    <p class="site-footer-fineprint">Free to read, forever. Your saved reading list lives only in your browser.</p>
+    <p class="site-footer-fineprint">Free, forever. Your saved resources live only in your browser.</p>
     <p class="site-footer-fineprint">Inspired by and drawing upon Esben Kran’s <a href="https://readingwhatwecan.com/" target="_blank" rel="noopener noreferrer">Reading What We Can</a>.</p>
   </footer>
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
