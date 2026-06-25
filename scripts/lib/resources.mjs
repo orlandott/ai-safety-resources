@@ -83,6 +83,14 @@ export const TRACKS = [
     intro:
       "Essays, blog posts, and online resources on AI safety and related ideas.",
   },
+  {
+    key: "youtube",
+    slug: "youtube",
+    label: "YouTube",
+    pane: "youtube-parent",
+    intro:
+      "Video explainers and talks on AI safety and alignment—whole channels devoted to the topic, plus standout individual videos.",
+  },
 ];
 
 export const TRACK_BY_KEY = new Map(TRACKS.map((t) => [t.key, t]));
@@ -97,6 +105,7 @@ export const VALID_CATEGORIES = new Set([
   "documentaries",
   "podcasts",
   "websites",
+  "youtube",
 ]);
 
 // Evaluate resources.js in a sandbox and return the `resources` array.
