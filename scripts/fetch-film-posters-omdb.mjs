@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Fetch official film titles and poster URLs from OMDB and update public/resources.js.
- * Only updates films that are missing Image or when --all is passed.
+ * Fetch official titles and poster URLs from OMDB and update public/resources.js.
+ * Covers both film (Category: "films") and television (Category: "tv") entries.
+ * Only updates entries that are missing Image or when --all is passed.
  *
  * Requires: OMDB_API_KEY (free at https://www.omdbapi.com/apikey.aspx)
  * Run from repo root: OMDB_API_KEY=yourkey node scripts/fetch-film-posters-omdb.mjs [--all]
@@ -9,6 +10,7 @@
 import { readFileSync, writeFileSync } from "fs";
 
 const RESOURCES_PATH = "public/resources.js";
+const POSTER_CATEGORY_RE = /Category:\s*["'](?:films|tv)["']/;
 const IMDB_LINK_RE = /Link:\s*["']https?:\/\/(?:www\.)?imdb\.com\/title\/(tt\d+)\/[^"']*["']/;
 const IMAGE_RE = /Image:\s*["']([^"']*)["']/;
 const NAME_RE = /Name:\s*["']([^"']*)["']/;
@@ -49,7 +51,7 @@ async function main() {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    if (!line.includes('Category: "films"')) continue;
+    if (!POSTER_CATEGORY_RE.test(line)) continue;
     const linkMatch = line.match(IMDB_LINK_RE);
     if (!linkMatch) continue;
     const imdbId = linkMatch[1];
@@ -92,7 +94,7 @@ async function main() {
 
   writeFileSync(RESOURCES_PATH, out.join("\n"), "utf8");
   console.log(
-    `Updated ${updated} film poster(s) in ${RESOURCES_PATH}${missing ? ` (${missing} had been missing)` : ""}.`
+    `Updated ${updated} film/TV poster(s) in ${RESOURCES_PATH}${missing ? ` (${missing} had been missing)` : ""}.`
   );
 }
 
