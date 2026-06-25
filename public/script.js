@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     academic_papers: "Academic Papers",
     films: "Films",
     tv: "TV Shows",
+    documentaries: "Documentaries",
     podcasts: "Podcasts",
     websites: "Websites",
   };
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { key: "academic_papers", parentId: "academic-papers-parent" },
     { key: "films", parentId: "films-parent" },
     { key: "tv", parentId: "tv-parent" },
+    { key: "documentaries", parentId: "documentaries-parent" },
     { key: "podcasts", parentId: "podcasts-parent" },
     { key: "websites", parentId: "websites-parent" },
   ];
@@ -727,6 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = (entry.Category || "").toString();
     if (category === "websites") return "Website";
     if (category === "tv") return "TV Series";
+    if (category === "documentaries") return "Documentary";
     return getSourceLabel(link);
   };
 
@@ -1184,7 +1187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (seed.Image && (!entry.Image || !entry.Image.trim()) && !["films", "tv"].includes((entry.Category || "").toString())) {
+    if (seed.Image && (!entry.Image || !entry.Image.trim()) && !["films", "tv", "documentaries"].includes((entry.Category || "").toString())) {
       entry.Image = sanitizeImageUrl(seed.Image);
     }
     if (!normalizePositiveInteger(entry.page_count) && normalizePositiveInteger(seed.page_count)) {
@@ -1919,8 +1922,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return "";
     }
     const year = getEntryYear(entry);
-    const isTvEntry = (entry.Category || "").toString() === "tv";
-    const mediaHint = isTvEntry ? "television series" : "film";
+    const entryCategory = (entry.Category || "").toString();
+    const mediaHint =
+      entryCategory === "tv"
+        ? "television series"
+        : entryCategory === "documentaries"
+        ? "documentary film"
+        : "film";
     const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
     const queryUrl =
       "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
@@ -1972,7 +1980,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
       const lookupCategory = (entry.Category || "").toString();
-      if (lookupCategory === "films" || lookupCategory === "tv") {
+      if (
+        lookupCategory === "films" ||
+        lookupCategory === "tv" ||
+        lookupCategory === "documentaries"
+      ) {
         try {
           metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
         } catch (error) {
@@ -2166,7 +2178,8 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
       const safeLink = escapeHtml(normalizedLink);
       const category = (entry.Category || "").toString();
-      const isFilm = category === "films" || category === "tv";
+      const isFilm =
+        category === "films" || category === "tv" || category === "documentaries";
       const isBookCategory =
         category === "books" || category === "fiction_books" || category === "non_fiction_books";
       const safeImageUrl = sanitizeImageUrl(entry.Image || "");
@@ -2407,6 +2420,7 @@ document.addEventListener("DOMContentLoaded", () => {
       academic_papers: new Set(),
       films: new Set(),
       tv: new Set(),
+      documentaries: new Set(),
       podcasts: new Set(),
       websites: new Set(),
     };

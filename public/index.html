@@ -102,6 +102,10 @@
             <span class="gauntlet-tab-label">TV Shows</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
           </button>
+          <button type="button" id="tab-documentaries" role="tab" aria-selected="false" aria-controls="pane-documentaries" data-w-tab="documentaries" class="gauntlet-tab" tabindex="-1">
+            <span class="gauntlet-tab-label">Documentaries</span>
+            <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
+          </button>
           <button type="button" id="tab-podcasts" role="tab" aria-selected="false" aria-controls="pane-podcasts" data-w-tab="podcasts" class="gauntlet-tab" tabindex="-1">
             <span class="gauntlet-tab-label">Podcasts</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
@@ -198,6 +202,13 @@
           </div>
           <div id="tv-parent" class="gauntlet-wrapper"></div>
         </div>
+        <div id="pane-documentaries" role="tabpanel" aria-labelledby="tab-documentaries" tabindex="0" data-w-tab="documentaries" class="w-tab-pane">
+          <div class="category-intro">
+            <h3 class="category-intro-title">Documentaries</h3>
+            <p class="category-intro-summary">Documentary films that examine artificial intelligence, its risks, and the people working on AI safety and alignment.</p>
+          </div>
+          <div id="documentaries-parent" class="gauntlet-wrapper"></div>
+        </div>
         <div id="pane-podcasts" role="tabpanel" aria-labelledby="tab-podcasts" tabindex="0" data-w-tab="podcasts" class="w-tab-pane">
           <div class="category-intro">
             <h3 class="category-intro-title">Podcasts</h3>
@@ -246,6 +257,7 @@
                 <option value="academic_papers">Academic Papers</option>
                 <option value="films">Films</option>
                 <option value="tv">TV Shows</option>
+                <option value="documentaries">Documentaries</option>
                 <option value="podcasts">Podcasts</option>
                 <option value="websites">Websites</option>
               </select>
