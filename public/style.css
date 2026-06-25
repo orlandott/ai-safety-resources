@@ -782,6 +782,20 @@ textarea {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text);
+  text-decoration: none;
+}
+
+a.film-score {
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+a.film-score:hover {
+  opacity: 0.7;
+}
+
+a.film-score:hover .film-score-value {
+  text-decoration: underline;
 }
 
 .film-score-logo {

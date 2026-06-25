@@ -2206,24 +2206,29 @@ document.addEventListener("DOMContentLoaded", () => {
         "https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg";
       const rtLogoUrl =
         "https://upload.wikimedia.org/wikipedia/commons/5/5b/Rotten_Tomatoes.svg";
+      const scoreLinkAttrs = 'target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"';
+      const imdbHref = /imdb\.com/i.test(normalizedLink) ? safeLink : "";
+      const rtHref = escapeHtml(
+        `https://www.rottentomatoes.com/search?search=${encodeURIComponent(entry.Name || "")}`
+      );
       const filmScoresMarkup = hasFilmScores
         ? `<div class="film-scores">
             ${
               imdbScore
-                ? `<span class="film-score" title="IMDb rating"><img class="film-score-logo" src="${escapeHtml(
+                ? `<a class="film-score" ${imdbHref ? `href="${imdbHref}" ${scoreLinkAttrs} ` : ""}title="View on IMDb"><img class="film-score-logo" src="${escapeHtml(
                     imdbLogoUrl
                   )}" alt="IMDb logo" /><span class="film-score-label">IMDb</span><span class="film-score-value">${escapeHtml(
                     imdbScore
-                  )}</span></span>`
+                  )}</span></a>`
                 : ""
             }
             ${
               Number.isFinite(rtScore) && rtScore >= 0
-                ? `<span class="film-score" title="Rotten Tomatoes rating"><img class="film-score-logo" src="${escapeHtml(
+                ? `<a class="film-score" href="${rtHref}" ${scoreLinkAttrs} title="Search on Rotten Tomatoes"><img class="film-score-logo" src="${escapeHtml(
                     rtLogoUrl
                   )}" alt="Rotten Tomatoes logo" /><span class="film-score-label">Rotten Tomatoes</span><span class="film-score-value">${escapeHtml(
                     String(rtScore)
-                  )}%</span></span>`
+                  )}%</span></a>`
                 : ""
             }
           </div>`
