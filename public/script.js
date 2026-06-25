@@ -2546,6 +2546,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateYearSelectOptions(yearToControl, years);
   };
 
+  const resourceTagsByName =
+    (typeof window !== "undefined" && window.RESOURCE_TAGS) || {};
+
   const getEntrySearchText = (entry = {}) => {
     if (!entry.__searchText) {
       const summary = (
@@ -2554,7 +2557,13 @@ document.addEventListener("DOMContentLoaded", () => {
         seededEntrySummaries[entry.Name] ||
         ""
       ).toString();
-      entry.__searchText = `${entry.Name || ""} ${entry.Author || ""} ${summary}`.toLowerCase();
+      // Fold derived topic tags into the search text so topic chips (and typed
+      // topic words) match resources even when the term isn't in the summary.
+      const tags = Array.isArray(resourceTagsByName[entry.Name])
+        ? resourceTagsByName[entry.Name].join(" ")
+        : "";
+      entry.__searchText =
+        `${entry.Name || ""} ${entry.Author || ""} ${summary} ${tags}`.toLowerCase();
     }
     return entry.__searchText;
   };
@@ -2716,6 +2725,13 @@ document.addEventListener("DOMContentLoaded", () => {
           tabCountElement.textContent = `${filteredEntries.length}`;
         }
 
+        // Mark the pane empty/non-empty so that, while searching across all
+        // categories, panes with no matches can be hidden via CSS.
+        const ownerPane = categoryParent.closest(".w-tab-pane");
+        if (ownerPane) {
+          ownerPane.dataset.empty = filteredEntries.length ? "false" : "true";
+        }
+
         const orderedEntries = sortSelectedEntries(filteredEntries, sortMode);
 
         if (!orderedEntries.length) {
@@ -2744,6 +2760,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     latestEntryCategoryLookup = nextEntryCategoryLookup;
     latestTrackTotals = nextTrackTotals;
+
+    // A text query turns the per-tab library into a single cross-category
+    // results view: every non-empty pane is shown stacked (its category intro
+    // acts as the section header). Year-only filters keep the normal tab view.
+    if (libraryContent) {
+      libraryContent.classList.toggle("is-searching", Boolean(filterState.query));
+    }
 
     if (resultsNoteElement) {
       if (usingFilters) {
@@ -3130,6 +3153,34 @@ document.addEventListener("DOMContentLoaded", () => {
         syncSearchClearVisibility();
       }
       renderAllBooks();
+    });
+  }
+
+  // Topic chips: clicking one runs a cross-category search for that topic by
+  // dropping the tag into the search box and re-rendering.
+  const topicChips = document.querySelectorAll(".topic-chip");
+  if (topicChips.length && searchControl) {
+    topicChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const query = chip.getAttribute("data-topic-query") || "";
+        const alreadyActive = searchControl.value === query;
+        searchControl.value = alreadyActive ? "" : query;
+        syncSearchClearVisibility();
+        topicChips.forEach((c) =>
+          c.classList.toggle("is-active", !alreadyActive && c === chip)
+        );
+        renderAllBooks();
+        if (!alreadyActive && libraryContent) {
+          libraryContent.scrollIntoView({ behavior: motionSafeBehavior(), block: "start" });
+        }
+      });
+    });
+    // Keep chip highlight in sync when the search box is edited directly.
+    searchControl.addEventListener("input", () => {
+      const value = searchControl.value;
+      topicChips.forEach((c) =>
+        c.classList.toggle("is-active", c.getAttribute("data-topic-query") === value)
+      );
     });
   }
 

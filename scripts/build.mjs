@@ -1,0 +1,373 @@
+#!/usr/bin/env node
+//
+// Build pipeline for ai-safety-resources.com.
+//
+// `public/resources.js` is the canonical, hand-edited source of truth. This
+// script derives everything else from it so the data stays in one place:
+//
+//   1. validates every entry against a small schema (fails the build on error)
+//   2. data/resources.json        - machine-readable export of the dataset
+//   3. data/search-index.json     - lightweight search index (title/author/...)
+//   4. public/index.html          - server-rendered resource cards injected into
+//                                    each category pane (SEO + no-JS fallback),
+//                                    plus an ItemList JSON-LD for the categories
+//   5. public/<slug>/index.html   - a static, crawlable page per category
+//   6. public/sitemap.xml         - homepage + one URL per category page
+//
+// Usage:
+//   node scripts/build.mjs          validate + write all outputs
+//   node scripts/build.mjs --check  validate only, no writes (CI gate)
+
+import fs from "node:fs";
+import path from "node:path";
+import {
+  workspaceRoot,
+  TRACKS,
+  TRACK_BY_KEY,
+  VALID_CATEGORIES,
+  SITE_ORIGIN,
+  loadResources,
+  loadFictionTitles,
+  bucketKey,
+  groupByTrack,
+  escapeHtml,
+  isValidHttpUrl,
+  tagsFor,
+  STARTERS,
+} from "./lib/resources.mjs";
+
+const CHECK_ONLY = process.argv.includes("--check");
+const publicDir = path.join(workspaceRoot, "public");
+const dataDir = path.join(workspaceRoot, "data");
+const indexPath = path.join(publicDir, "index.html");
+
+const writes = [];
+const queueWrite = (filePath, content) => writes.push({ filePath, content });
+
+// ── 1. Validation ───────────────────────────────────────────────────────────
+
+function validate(resources, fictionTitles) {
+  const errors = [];
+  const seenLinks = new Map();
+  resources.forEach((entry, i) => {
+    const where = `entry #${i} (${entry.Name || "<no Name>"})`;
+    if (!entry.Name || typeof entry.Name !== "string") {
+      errors.push(`${where}: missing or invalid "Name"`);
+    }
+    const track = bucketKey(entry, fictionTitles);
+    if (!isValidHttpUrl(entry.Link)) {
+      errors.push(`${where}: missing or invalid "Link" (${entry.Link})`);
+    } else {
+      // A resource may be cross-listed in two tracks (e.g. a film that is also
+      // a documentary); only the same link within the same track is a dupe.
+      const dupeKey = `${track}|${entry.Link}`;
+      const prev = seenLinks.get(dupeKey);
+      if (prev !== undefined) {
+        errors.push(`${where}: duplicate Link within track "${track}" also used by entry #${prev}`);
+      } else {
+        seenLinks.set(dupeKey, i);
+      }
+    }
+    if (!VALID_CATEGORIES.has((entry.Category || "").toString())) {
+      errors.push(`${where}: invalid "Category" (${entry.Category})`);
+    } else if (!track) {
+      errors.push(`${where}: Category "${entry.Category}" does not map to a track`);
+    }
+    if (entry.Year !== undefined) {
+      const y = Number(entry.Year);
+      if (!Number.isInteger(y) || y < 1800 || y > 2100) {
+        errors.push(`${where}: "Year" out of range (${entry.Year})`);
+      }
+    }
+    if (entry.page_count !== undefined) {
+      const p = Number(entry.page_count);
+      if (!Number.isInteger(p) || p < 0) {
+        errors.push(`${where}: "page_count" must be a non-negative integer (${entry.page_count})`);
+      }
+    }
+    if (entry.Summary !== undefined && typeof entry.Summary !== "string") {
+      errors.push(`${where}: "Summary" must be a string`);
+    }
+  });
+  return errors;
+}
+
+// ── 2/3. Data exports ───────────────────────────────────────────────────────
+
+function buildDataExports(resources, fictionTitles, groups) {
+  const tracks = TRACKS.map((t) => ({
+    key: t.key,
+    label: t.label,
+    slug: t.slug,
+    count: groups.get(t.key).length,
+  }));
+
+  const enriched = resources.map((entry) => {
+    const key = bucketKey(entry, fictionTitles);
+    return {
+      ...entry,
+      track: key,
+      trackLabel: TRACK_BY_KEY.get(key)?.label || "",
+      tags: tagsFor(entry, key),
+    };
+  });
+
+  queueWrite(
+    path.join(dataDir, "resources.json"),
+    JSON.stringify(
+      { count: enriched.length, generatedFrom: "public/resources.js", tracks, resources: enriched },
+      null,
+      2
+    ) + "\n"
+  );
+
+  const searchIndex = enriched.map((e) => ({
+    name: e.Name || "",
+    author: e.Author || "",
+    summary: e.Summary || "",
+    track: e.track,
+    trackLabel: e.trackLabel,
+    link: e.Link || "",
+    year: e.Year ?? null,
+    tags: e.tags,
+  }));
+  queueWrite(path.join(dataDir, "search-index.json"), JSON.stringify(searchIndex) + "\n");
+
+  // Client-side tag map (keyed by resource Name) so script.js can fold tags
+  // into its search text without bloating the canonical resources.js.
+  const tagMap = {};
+  for (const e of enriched) {
+    if (e.tags.length && e.Name) tagMap[e.Name] = e.tags;
+  }
+  queueWrite(
+    path.join(publicDir, "resource-tags.js"),
+    `// Generated by scripts/build.mjs — do not edit by hand.\n` +
+      `window.RESOURCE_TAGS = ${JSON.stringify(tagMap)};\n`
+  );
+}
+
+// ── 4/5. Server-rendered HTML ───────────────────────────────────────────────
+
+function ssrCard(entry) {
+  const name = escapeHtml(entry.Name || "Untitled");
+  const author = entry.Author ? `<span class="ssr-card-author">${escapeHtml(entry.Author)}</span>` : "";
+  const summary = entry.Summary ? `<p class="ssr-card-summary">${escapeHtml(entry.Summary)}</p>` : "";
+  const year = entry.Year ? `<span class="ssr-card-year">${escapeHtml(String(entry.Year))}</span>` : "";
+  const link = escapeHtml(entry.Link || "#");
+  return (
+    `<article class="ssr-card">` +
+    `<a class="ssr-card-link" href="${link}" target="_blank" rel="noopener noreferrer">${name}</a>` +
+    author +
+    summary +
+    year +
+    `</article>`
+  );
+}
+
+// No wrapping <div>: the injection below matches the pane's closing </div> with
+// a non-greedy pattern, so the server-rendered cards must not contain a <div>.
+function ssrPaneMarkup(entries) {
+  if (!entries.length) return "";
+  return entries.map(ssrCard).join("");
+}
+
+// Replace the inner HTML of a `<div id="PANE" class="gauntlet-wrapper">…</div>`.
+function injectPane(html, pane, inner) {
+  const re = new RegExp(`(<div id="${pane}" class="gauntlet-wrapper">)[\\s\\S]*?(</div>)`);
+  if (!re.test(html)) {
+    throw new Error(`Could not find pane container for "${pane}" in index.html`);
+  }
+  return html.replace(re, `$1${inner}$2`);
+}
+
+function categoryItemListJsonLd() {
+  const itemListElement = TRACKS.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `${SITE_ORIGIN}/${t.slug}/`,
+    name: t.label,
+  }));
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "AI Safety Resources categories",
+    itemListElement,
+  };
+}
+
+function injectHomepage(html, groups) {
+  for (const t of TRACKS) {
+    html = injectPane(html, t.pane, ssrPaneMarkup(groups.get(t.key)));
+  }
+  // Idempotently (re)insert the category ItemList JSON-LD before </head>.
+  // Single-line tag so the removal regex strips it exactly, leaving no residue.
+  const tag =
+    `  <script type="application/ld+json" data-build="category-list">` +
+    `${JSON.stringify(categoryItemListJsonLd())}</script>\n`;
+  html = html.replace(
+    /^[ \t]*<script type="application\/ld\+json" data-build="category-list">[\s\S]*?<\/script>\n/m,
+    ""
+  );
+  html = html.replace(/([ \t]*)<\/head>/, `${tag}$1</head>`);
+  return html;
+}
+
+function categoryPage(track, entries) {
+  const title = `${track.label} – AI Safety Resources`;
+  const desc = track.intro;
+  const url = `${SITE_ORIGIN}/${track.slug}/`;
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: track.label,
+    description: desc,
+    numberOfItems: entries.length,
+    itemListElement: entries.map((e, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: e.Link,
+      name: e.Name,
+    })),
+  };
+  const cards = entries.map(ssrCard).join("\n      ");
+  return `<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(desc)}" />
+  <link rel="canonical" href="${url}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${url}" />
+  <meta property="og:title" content="${escapeHtml(title)}" />
+  <meta property="og:description" content="${escapeHtml(desc)}" />
+  <meta property="og:image" content="${SITE_ORIGIN}/images/logo-ai-safety-resources.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <script type="application/ld+json">
+  ${JSON.stringify(itemList)}
+  </script>
+  <script src="/theme-init.js"></script>
+  <link href="/images/favicon.png" rel="icon" type="image/png" />
+  <link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="site-body">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" class="brand">
+        <img src="/images/logo-ai-safety-resources.png" width="128" alt="AI Safety Resources" class="nav-logo" />
+      </a>
+    </nav>
+  </header>
+  <main class="page category-page">
+    <nav class="category-page-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">All resources</a> / <span>${escapeHtml(track.label)}</span>
+    </nav>
+    <h1 class="hero-title">${escapeHtml(track.label)}</h1>
+    <p class="hero-copy">${escapeHtml(desc)}</p>
+    <p class="category-page-cta"><a href="/#tab-${track.pane.replace(/-parent$/, "")}">Browse this category in the interactive library →</a></p>
+    <div class="ssr-list" data-ssr>
+      ${cards}
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection.</p>
+  </footer>
+</body>
+</html>
+`;
+}
+
+// Resolve the curated STARTERS to real dataset entries (fails the build on a
+// name/track mismatch) and inject the cards into the index.html marker section.
+function injectStarters(html, resources, fictionTitles) {
+  const resolved = STARTERS.map((s) => {
+    const matches = resources.filter((e) => e.Name === s.name);
+    const entry = s.track
+      ? matches.find((e) => bucketKey(e, fictionTitles) === s.track)
+      : matches[0];
+    if (!entry) {
+      throw new Error(
+        `Start-here entry not found in dataset: "${s.name}"${s.track ? ` (track ${s.track})` : ""}`
+      );
+    }
+    return { ...s, entry, track: bucketKey(entry, fictionTitles) };
+  });
+
+  const cards = resolved
+    .map((s) => {
+      const label = escapeHtml(TRACK_BY_KEY.get(s.track)?.label || "");
+      return (
+        `<a class="starter-card" href="${escapeHtml(s.entry.Link)}" target="_blank" rel="noopener noreferrer">` +
+        `<span class="starter-card-kind">${label}</span>` +
+        `<span class="starter-card-title">${escapeHtml(s.entry.Name)}</span>` +
+        `<span class="starter-card-why">${escapeHtml(s.why)}</span>` +
+        `</a>`
+      );
+    })
+    .join("");
+
+  const re = /(<div class="starter-grid" data-build="starter">)[\s\S]*?(<\/div>)/;
+  if (!re.test(html)) {
+    throw new Error('Could not find the start-here container (data-build="starter") in index.html');
+  }
+  return html.replace(re, `$1${cards}$2`);
+}
+
+function sitemapXml() {
+  const urls = [
+    { loc: `${SITE_ORIGIN}/`, priority: "1.0" },
+    ...TRACKS.map((t) => ({ loc: `${SITE_ORIGIN}/${t.slug}/`, priority: "0.8" })),
+  ];
+  const body = urls
+    .map(
+      (u) =>
+        `  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+    )
+    .join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+}
+
+// ── Orchestration ───────────────────────────────────────────────────────────
+
+function main() {
+  const resources = loadResources();
+  const fictionTitles = loadFictionTitles();
+
+  const errors = validate(resources, fictionTitles);
+  if (errors.length) {
+    console.error(`✗ Validation failed (${errors.length} error(s)):`);
+    for (const e of errors) console.error(`  - ${e}`);
+    process.exit(1);
+  }
+  const groups = groupByTrack(resources, fictionTitles);
+  console.log(`✓ Validated ${resources.length} resources across ${TRACKS.length} tracks.`);
+
+  if (CHECK_ONLY) {
+    console.log("✓ Check passed (no files written).");
+    return;
+  }
+
+  buildDataExports(resources, fictionTitles, groups);
+
+  let html = fs.readFileSync(indexPath, "utf8");
+  html = injectHomepage(html, groups);
+  html = injectStarters(html, resources, fictionTitles);
+  queueWrite(indexPath, html);
+
+  for (const t of TRACKS) {
+    queueWrite(path.join(publicDir, t.slug, "index.html"), categoryPage(t, groups.get(t.key)));
+  }
+
+  queueWrite(path.join(publicDir, "sitemap.xml"), sitemapXml());
+
+  for (const { filePath, content } of writes) {
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, content);
+    console.log(`  wrote ${path.relative(workspaceRoot, filePath)}`);
+  }
+  console.log("✓ Build complete.");
+}
+
+main();

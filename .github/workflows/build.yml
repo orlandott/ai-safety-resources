@@ -1,0 +1,50 @@
+name: Build
+
+on:
+  pull_request:
+    paths:
+      - "public/resources.js"
+      - "public/script.js"
+      - "public/index.html"
+      - "scripts/**"
+      - "data/**"
+      - "package.json"
+  push:
+    branches:
+      - "**"
+    paths:
+      - "public/resources.js"
+      - "public/script.js"
+      - "public/index.html"
+      - "scripts/**"
+      - "data/**"
+      - "package.json"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Validates every resource against the schema and regenerates all derived
+      # artifacts (data exports, server-rendered HTML, per-category pages,
+      # sitemap, tag map).
+      - name: Build
+        run: node scripts/build.mjs
+
+      # Fails if the committed, generated files are out of sync with the source
+      # data — i.e. someone edited resources.js but didn't run `npm run build`.
+      - name: Verify generated files are committed
+        run: |
+          if ! git diff --exit-code; then
+            echo "::error::Generated files are out of date. Run 'npm run build' and commit the result."
+            exit 1
+          fi

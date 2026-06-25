@@ -1,0 +1,13 @@
+{
+  "name": "ai-safety-resources",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Curated collection of AI safety & alignment resources (static site).",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "guardrails": "node scripts/resource-guardrails.mjs"
+  },
+  "license": "MIT"
+}

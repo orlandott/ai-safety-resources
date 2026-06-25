@@ -1471,3 +1471,181 @@ a.film-score:hover .film-score-value {
     bottom: 0.85rem;
   }
 }
+
+/* ── Server-rendered resource cards (SEO + no-JS fallback) ──────────────────
+   On the homepage these are injected into each category pane and replaced by
+   the interactive cards once script.js runs. On the per-category static pages
+   (/films/, /podcasts/, …) they are the primary, JS-free content. */
+.ssr-card {
+  display: block;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+.ssr-card-link {
+  display: inline-block;
+  font-family: "Hahmlet", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.ssr-card-link:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+.ssr-card-author {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.ssr-card-summary {
+  margin: 0.45rem 0 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.ssr-card-year {
+  display: inline-block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Per-category static pages */
+.category-page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1.5rem 1.1rem 4rem;
+}
+.category-page-breadcrumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.category-page-breadcrumb a {
+  color: var(--link);
+}
+.category-page-cta {
+  margin: 0.5rem 0 1.5rem;
+}
+.category-page-cta a {
+  color: var(--link);
+  font-weight: 600;
+}
+.category-page .ssr-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+/* ── Cross-category search view ─────────────────────────────────────────────
+   While a text query is active, show every non-empty category pane stacked
+   (each pane's .category-intro acts as the section header) and hide the panes
+   that have no matches. */
+.library-content.is-searching .w-tab-pane {
+  display: block;
+  animation: none;
+}
+.library-content.is-searching .w-tab-pane[data-empty="true"] {
+  display: none;
+}
+
+/* ── Topic chips ────────────────────────────────────────────────────────── */
+.topic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+.topic-chips-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-right: 0.2rem;
+}
+.topic-chip {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.topic-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent-text);
+  background: var(--accent-soft);
+}
+.topic-chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.topic-chip:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ── "Start here" on-ramp ──────────────────────────────────────────────────*/
+.starter-section {
+  margin: 1.5rem auto 0;
+  max-width: 1100px;
+  padding: 1.25rem 1.1rem 0;
+}
+.starter-title {
+  font-family: "Hahmlet", Georgia, serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
+  color: var(--text);
+}
+.starter-copy {
+  color: var(--muted);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+.starter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+.starter-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.starter-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.starter-card-kind {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.starter-card-title {
+  font-family: "Hahmlet", Georgia, serif;
+  font-weight: 600;
+  color: var(--text);
+}
+.starter-card-why {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
