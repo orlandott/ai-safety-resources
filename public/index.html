@@ -98,6 +98,10 @@
             <span class="gauntlet-tab-label">Films</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
           </button>
+          <button type="button" id="tab-tv" role="tab" aria-selected="false" aria-controls="pane-tv" data-w-tab="tv" class="gauntlet-tab" tabindex="-1">
+            <span class="gauntlet-tab-label">TV Shows</span>
+            <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
+          </button>
           <button type="button" id="tab-podcasts" role="tab" aria-selected="false" aria-controls="pane-podcasts" data-w-tab="podcasts" class="gauntlet-tab" tabindex="-1">
             <span class="gauntlet-tab-label">Podcasts</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
@@ -187,6 +191,13 @@
           </div>
           <div id="films-parent" class="gauntlet-wrapper"></div>
         </div>
+        <div id="pane-tv" role="tabpanel" aria-labelledby="tab-tv" tabindex="0" data-w-tab="tv" class="w-tab-pane">
+          <div class="category-intro">
+            <h3 class="category-intro-title">TV Shows</h3>
+            <p class="category-intro-summary">Television series that dramatize machine intelligence, agency, and the alignment problem—from rogue superintelligences to conscious androids.</p>
+          </div>
+          <div id="tv-parent" class="gauntlet-wrapper"></div>
+        </div>
         <div id="pane-podcasts" role="tabpanel" aria-labelledby="tab-podcasts" tabindex="0" data-w-tab="podcasts" class="w-tab-pane">
           <div class="category-intro">
             <h3 class="category-intro-title">Podcasts</h3>
@@ -234,6 +245,7 @@
                 <option value="fiction_books">Fiction Books</option>
                 <option value="academic_papers">Academic Papers</option>
                 <option value="films">Films</option>
+                <option value="tv">TV Shows</option>
                 <option value="podcasts">Podcasts</option>
                 <option value="websites">Websites</option>
               </select>

@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fiction_books: "Fiction Books",
     academic_papers: "Academic Papers",
     films: "Films",
+    tv: "TV Shows",
     podcasts: "Podcasts",
     websites: "Websites",
   };
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { key: "fiction_books", parentId: "books-fiction-parent" },
     { key: "academic_papers", parentId: "academic-papers-parent" },
     { key: "films", parentId: "films-parent" },
+    { key: "tv", parentId: "tv-parent" },
     { key: "podcasts", parentId: "podcasts-parent" },
     { key: "websites", parentId: "websites-parent" },
   ];
@@ -724,6 +726,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getDisplaySourceLabel = (entry = {}, link = "") => {
     const category = (entry.Category || "").toString();
     if (category === "websites") return "Website";
+    if (category === "tv") return "TV Series";
     return getSourceLabel(link);
   };
 
@@ -1181,7 +1184,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (seed.Image && (!entry.Image || !entry.Image.trim()) && (entry.Category || "").toString() !== "films") {
+    if (seed.Image && (!entry.Image || !entry.Image.trim()) && !["films", "tv"].includes((entry.Category || "").toString())) {
       entry.Image = sanitizeImageUrl(seed.Image);
     }
     if (!normalizePositiveInteger(entry.page_count) && normalizePositiveInteger(seed.page_count)) {
@@ -1916,7 +1919,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return "";
     }
     const year = getEntryYear(entry);
-    const searchTerm = `${title}${year ? ` ${year}` : ""} film`;
+    const isTvEntry = (entry.Category || "").toString() === "tv";
+    const mediaHint = isTvEntry ? "television series" : "film";
+    const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
     const queryUrl =
       "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
       "&prop=pageimages&piprop=thumbnail&pithumbsize=500" +
@@ -1966,7 +1971,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
-      if ((entry.Category || "").toString() === "films") {
+      const lookupCategory = (entry.Category || "").toString();
+      if (lookupCategory === "films" || lookupCategory === "tv") {
         try {
           metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
         } catch (error) {
@@ -2160,7 +2166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
       const safeLink = escapeHtml(normalizedLink);
       const category = (entry.Category || "").toString();
-      const isFilm = category === "films";
+      const isFilm = category === "films" || category === "tv";
       const isBookCategory =
         category === "books" || category === "fiction_books" || category === "non_fiction_books";
       const safeImageUrl = sanitizeImageUrl(entry.Image || "");
@@ -2395,6 +2401,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fiction_books: new Set(),
       academic_papers: new Set(),
       films: new Set(),
+      tv: new Set(),
       podcasts: new Set(),
       websites: new Set(),
     };
