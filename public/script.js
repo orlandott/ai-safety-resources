@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const readingListStorageKey = "rwwc-reading-list-v1";
   const readingProgressLabels = {
     "": "No status",
-    to_read: "To read",
-    reading: "Reading",
+    to_read: "Up next",
+    reading: "In progress",
     finished: "Finished",
   };
   const readingProgressOrder = ["to_read", "reading", "finished"];
@@ -2277,7 +2277,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <button type="button" class="resource-save-button${isSaved ? " is-saved" : ""}" data-save-toggle="${safeLookupKey}" aria-pressed="${isSaved ? "true" : "false"}">
                 ${isSaved ? "Saved" : "Save"}
               </button>
-              <select class="resource-progress-select" data-progress-select="${safeLookupKey}" aria-label="Reading progress for ${safeName}">
+              <select class="resource-progress-select" data-progress-select="${safeLookupKey}" aria-label="Progress for ${safeName}">
                 ${progressOptionsMarkup}
               </select>
             </div>
