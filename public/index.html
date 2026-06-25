@@ -110,6 +110,10 @@
             <span class="gauntlet-tab-label">Websites</span>
             <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
           </button>
+          <button type="button" id="tab-youtube" role="tab" aria-selected="false" aria-controls="pane-youtube" data-w-tab="youtube" class="gauntlet-tab" tabindex="-1">
+            <span class="gauntlet-tab-label">YouTube</span>
+            <span class="gauntlet-tab-count" data-tab-count aria-hidden="true"></span>
+          </button>
         </nav>
         <div class="reading-dashboard" role="region" aria-label="Your reading list and progress">
           <details id="reading-list-collapsible" class="reading-dashboard-collapsible" open>
@@ -212,6 +216,13 @@
           </div>
           <div id="websites-parent" class="gauntlet-wrapper"></div>
         </div>
+        <div id="pane-youtube" role="tabpanel" aria-labelledby="tab-youtube" tabindex="0" data-w-tab="youtube" class="w-tab-pane">
+          <div class="category-intro">
+            <h3 class="category-intro-title">YouTube</h3>
+            <p class="category-intro-summary">Video explainers and talks on AI safety and alignment—whole channels devoted to the topic, plus standout individual videos.</p>
+          </div>
+          <div id="youtube-parent" class="gauntlet-wrapper"></div>
+        </div>
       </div>
     </div>
     <section id="suggestion-form-section" class="suggestion-section">
@@ -248,6 +259,7 @@
                 <option value="tv">TV Shows</option>
                 <option value="podcasts">Podcasts</option>
                 <option value="websites">Websites</option>
+                <option value="youtube">YouTube</option>
               </select>
             </label>
           </div>

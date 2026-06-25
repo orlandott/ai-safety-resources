@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { match: "lesswrong", label: "LessWrong" },
     { match: "arxiv", label: "ArXiv" },
     { match: "docs.google", label: "Google Docs" },
+    { match: "youtube.com", label: "YouTube" },
+    { match: "youtu.be", label: "YouTube" },
   ];
   const entryMetadataCache = new Map();
   const pendingMetadataLookups = new Map();
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tv: "TV Shows",
     podcasts: "Podcasts",
     websites: "Websites",
+    youtube: "YouTube",
   };
   const validTrackKeys = new Set(Object.keys(trackLabels));
   const suggestionFieldLimits = {
@@ -59,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { key: "tv", parentId: "tv-parent" },
     { key: "podcasts", parentId: "podcasts-parent" },
     { key: "websites", parentId: "websites-parent" },
+    { key: "youtube", parentId: "youtube-parent" },
   ];
 
   const knownPublicationYears = {
@@ -727,6 +731,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = (entry.Category || "").toString();
     if (category === "websites") return "Website";
     if (category === "tv") return "TV Series";
+    if (category === "youtube") return "YouTube";
     return getSourceLabel(link);
   };
 
@@ -2409,6 +2414,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tv: new Set(),
       podcasts: new Set(),
       websites: new Set(),
+      youtube: new Set(),
     };
 
     allEntries.forEach((entry) => {
