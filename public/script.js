@@ -1916,19 +1916,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Films have no entry in OpenLibrary/Google Books, so resolve posters from
   // Wikipedia. A search generator avoids title-disambiguation problems (e.g.
   // "Alien", "Her", "Moon") and returns the film article's lead image (poster).
+  // When an entry pins an exact Wikipedia article via `Wikipedia`, we look that
+  // article up directly instead of searching — deterministic, so it returns the
+  // correct poster or nothing, never a mismatched image.
   const queryWikipediaPoster = async (entry) => {
     const title = (entry.Name || "").trim();
     if (!title) {
       return "";
     }
-    const year = getEntryYear(entry);
-    const isTvEntry = (entry.Category || "").toString() === "tv";
-    const mediaHint = isTvEntry ? "television series" : "film";
-    const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
-    const queryUrl =
+    const pinnedArticle = (entry.Wikipedia || "").toString().trim();
+    const baseUrl =
       "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
-      "&prop=pageimages&piprop=thumbnail&pithumbsize=500" +
-      `&generator=search&gsrlimit=1&gsrnamespace=0&gsrsearch=${encodeURIComponent(searchTerm)}`;
+      "&prop=pageimages&piprop=thumbnail&pithumbsize=500";
+    let queryUrl;
+    if (pinnedArticle) {
+      queryUrl = `${baseUrl}&titles=${encodeURIComponent(pinnedArticle)}`;
+    } else {
+      const year = getEntryYear(entry);
+      const isTvEntry = (entry.Category || "").toString() === "tv";
+      const mediaHint = isTvEntry ? "television series" : "film";
+      const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
+      queryUrl = `${baseUrl}&generator=search&gsrlimit=1&gsrnamespace=0&gsrsearch=${encodeURIComponent(searchTerm)}`;
+    }
 
     let response;
     try {
@@ -1975,7 +1984,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
       const lookupCategory = (entry.Category || "").toString();
-      if (lookupCategory === "films" || lookupCategory === "tv") {
+      if (
+        lookupCategory === "films" ||
+        lookupCategory === "tv" ||
+        lookupCategory === "documentaries"
+      ) {
         try {
           metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
         } catch (error) {
@@ -2291,14 +2304,17 @@ document.addEventListener("DOMContentLoaded", () => {
       // books via OpenLibrary/Google Books, films via Wikipedia. Entries that
       // already ship an image make no network request. Year and page counts
       // are filled opportunistically from that same lookup.
-      // Documentaries are excluded: title-based poster lookup too often returns
-      // the wrong image (many share titles with fiction films), so we prefer the
-      // letter placeholder over a misleading poster.
+      // Documentaries only hydrate when they pin an exact Wikipedia article
+      // (`Wikipedia`): fuzzy title search too often returns the wrong image for
+      // them (many share titles with fiction films), so without a pinned article
+      // we prefer the letter placeholder over a misleading poster.
+      const canHydrateDocumentary =
+        category !== "documentaries" || Boolean(entry.Wikipedia);
       const needsHydration =
         !entry.Image &&
         !entry.__disableImage &&
         (isBookCategory || isFilm) &&
-        category !== "documentaries";
+        canHydrateDocumentary;
       if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
