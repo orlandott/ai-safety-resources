@@ -1187,7 +1187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (seed.Image && (!entry.Image || !entry.Image.trim()) && !["films", "tv", "documentaries"].includes((entry.Category || "").toString())) {
+    if (seed.Image && (!entry.Image || !entry.Image.trim()) && !["films", "tv"].includes((entry.Category || "").toString())) {
       entry.Image = sanitizeImageUrl(seed.Image);
     }
     if (!normalizePositiveInteger(entry.page_count) && normalizePositiveInteger(seed.page_count)) {
@@ -1922,13 +1922,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return "";
     }
     const year = getEntryYear(entry);
-    const entryCategory = (entry.Category || "").toString();
-    const mediaHint =
-      entryCategory === "tv"
-        ? "television series"
-        : entryCategory === "documentaries"
-        ? "documentary film"
-        : "film";
+    const isTvEntry = (entry.Category || "").toString() === "tv";
+    const mediaHint = isTvEntry ? "television series" : "film";
     const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
     const queryUrl =
       "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
@@ -1980,11 +1975,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
       const lookupCategory = (entry.Category || "").toString();
-      if (
-        lookupCategory === "films" ||
-        lookupCategory === "tv" ||
-        lookupCategory === "documentaries"
-      ) {
+      if (lookupCategory === "films" || lookupCategory === "tv") {
         try {
           metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
         } catch (error) {
@@ -2300,8 +2291,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // books via OpenLibrary/Google Books, films via Wikipedia. Entries that
       // already ship an image make no network request. Year and page counts
       // are filled opportunistically from that same lookup.
+      // Documentaries are excluded: title-based poster lookup too often returns
+      // the wrong image (many share titles with fiction films), so we prefer the
+      // letter placeholder over a misleading poster.
       const needsHydration =
-        !entry.Image && !entry.__disableImage && (isBookCategory || isFilm);
+        !entry.Image &&
+        !entry.__disableImage &&
+        (isBookCategory || isFilm) &&
+        category !== "documentaries";
       if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
