@@ -13,6 +13,21 @@ It curates books, papers, films, TV shows, documentaries, podcasts, and websites
 
 ### Add a new resource by editing the [resources.js](public/resources.js) file and submitting a pull request
 
+### Weekly automated resource discovery
+
+A scheduled GitHub Action runs once a week and proposes new resources to add:
+
+- Workflow: [`.github/workflows/weekly-new-resources.yml`](.github/workflows/weekly-new-resources.yml) (Mondays, `workflow_dispatch` enabled).
+- It runs [`scripts/fetch-new-resources.mjs`](scripts/fetch-new-resources.mjs), which queries the free [arXiv API](https://info.arxiv.org/help/api/index.html) for recently published AI-safety / alignment papers, filters out anything already in `public/resources.js`, and inserts up to five relevant new entries into the Academic Papers section.
+- The job opens a pull request (it never commits to `main` directly) so additions stay human-reviewed and run through the Resource Guardrails link checks.
+
+Run it locally to preview what it would add:
+
+```bash
+node scripts/fetch-new-resources.mjs --dry-run        # print candidates, write nothing
+node scripts/fetch-new-resources.mjs --max 3          # add up to 3 new papers
+```
+
 ### Suggestions submission endpoint
 
 Suggestions are submitted from the website based on the config in [`public/suggestion-form-config.js`](public/suggestion-form-config.js).

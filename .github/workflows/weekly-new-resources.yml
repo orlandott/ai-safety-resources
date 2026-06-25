@@ -1,0 +1,77 @@
+name: Weekly New Resources
+
+# Once a week, discover recently published AI-safety / alignment papers and open
+# a pull request that adds the relevant new ones to public/resources.js. A PR
+# (rather than a direct commit) keeps the curated list human-reviewed, and it
+# automatically runs through the existing Resource Guardrails link checks.
+
+on:
+  schedule:
+    # Mondays at 08:11 UTC (offset from the guardrails job at 06:23).
+    - cron: "11 8 * * 1"
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Max number of new resources to add"
+        required: false
+        default: "5"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  add-resources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Discover and add new resources
+        run: node scripts/fetch-new-resources.mjs --max "${MAX_NEW}"
+        env:
+          MAX_NEW: ${{ github.event.inputs.max || '5' }}
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- public/resources.js; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new resources found this week."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "added<<EOF" >> "$GITHUB_OUTPUT"
+            git diff --unified=0 -- public/resources.js \
+              | grep -E '^\+\s+\{ Name:' \
+              | sed -E 's/^\+\s+\{ Name: "([^"]+)".*/- \1/' >> "$GITHUB_OUTPUT"
+            echo "EOF" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bot/weekly-new-resources
+          base: main
+          commit-message: "Add new AI safety resources (weekly)"
+          title: "Weekly new AI safety resources"
+          body: |
+            Automated weekly discovery of recently published AI-safety / alignment
+            papers from the arXiv API.
+
+            ### Proposed additions
+            ${{ steps.diff.outputs.added }}
+
+            Please review titles, summaries, and links before merging. The
+            Resource Guardrails workflow will verify the links on this PR.
+          labels: |
+            resources
+            automated
+          delete-branch: true
