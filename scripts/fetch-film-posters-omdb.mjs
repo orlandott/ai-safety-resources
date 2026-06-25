@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Fetch official titles and poster URLs from OMDB and update public/resources.js.
- * Covers both film (Category: "films") and television (Category: "tv") entries.
+ * Covers film (Category: "films"), television (Category: "tv"), and
+ * documentary (Category: "documentaries") entries.
  * Only updates entries that are missing Image or when --all is passed.
  *
  * Requires: OMDB_API_KEY (free at https://www.omdbapi.com/apikey.aspx)
@@ -10,7 +11,7 @@
 import { readFileSync, writeFileSync } from "fs";
 
 const RESOURCES_PATH = "public/resources.js";
-const POSTER_CATEGORY_RE = /Category:\s*["'](?:films|tv)["']/;
+const POSTER_CATEGORY_RE = /Category:\s*["'](?:films|tv|documentaries)["']/;
 const IMDB_LINK_RE = /Link:\s*["']https?:\/\/(?:www\.)?imdb\.com\/title\/(tt\d+)\/[^"']*["']/;
 const IMAGE_RE = /Image:\s*["']([^"']*)["']/;
 const NAME_RE = /Name:\s*["']([^"']*)["']/;
