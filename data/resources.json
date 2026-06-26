@@ -1,5 +1,5 @@
 {
-  "count": 320,
+  "count": 319,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -48,7 +48,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 29
+      "count": 28
     },
     {
       "key": "youtube",
@@ -3857,19 +3857,6 @@
       "track": "websites",
       "trackLabel": "Websites",
       "tags": []
-    },
-    {
-      "Name": "Alignment Forum",
-      "Author": "Center for Applied Rationality",
-      "Link": "https://www.alignmentforum.org/",
-      "Category": "websites",
-      "page_count": 0,
-      "Summary": "The primary venue for technical AI alignment discussion, where researchers post and debate new ideas, proposals, and critiques.",
-      "track": "websites",
-      "trackLabel": "Websites",
-      "tags": [
-        "alignment"
-      ]
     },
     {
       "Name": "Alignment Newsletter",
