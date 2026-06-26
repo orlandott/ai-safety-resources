@@ -191,11 +191,10 @@ export function tagsFor(entry, track) {
 // the dataset so a typo fails the build rather than silently dropping a card.
 export const STARTERS = [
   { name: "Human Compatible", why: "The clearest book-length case for why control of advanced AI is hard—and a proposed fix." },
-  { name: "The Alignment Problem", why: "A reported tour of how modern ML goes wrong and the people trying to fix it." },
   { name: "Concrete problems in AI safety", why: "The paper that turned 'AI safety' into a concrete engineering agenda." },
   { name: "Ex Machina", why: "A tense, human-scale story about testing whether a machine is really aligned." },
   { name: "AlphaGo", track: "documentaries", why: "A documentary on the match that made superhuman AI feel suddenly real." },
-  { name: "Klara and the Sun", why: "A gentle, moving novel told from an artificial mind's point of view." },
+  { name: "I, Robot", track: "fiction_books", why: "Asimov's robot stories are the original alignment case studies—safety rules that break down under edge cases and literal interpretation." },
   { name: "LessWrong", why: "The community where many foundational alignment arguments were first worked out." },
 ];
 
