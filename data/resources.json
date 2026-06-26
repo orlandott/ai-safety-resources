@@ -1,5 +1,5 @@
 {
-  "count": 319,
+  "count": 321,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -48,7 +48,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 28
+      "count": 30
     },
     {
       "key": "youtube",
@@ -3848,6 +3848,19 @@
       ]
     },
     {
+      "Name": "AI Alignment World",
+      "Author": "AI Alignment World",
+      "Link": "https://aialignmentworld.com/",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "In-depth technical alignment resources—research, explainers, and references for the AI alignment problem.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "alignment"
+      ]
+    },
+    {
       "Name": "AI Safety Info (Stampy's FAQ)",
       "Author": "StampyAI",
       "Link": "https://aisafety.info/",
@@ -3857,6 +3870,19 @@
       "track": "websites",
       "trackLabel": "Websites",
       "tags": []
+    },
+    {
+      "Name": "Alignment Forum",
+      "Author": "Center for Applied Rationality",
+      "Link": "https://www.alignmentforum.org/",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "The primary venue for technical AI alignment discussion, where researchers post and debate new ideas, proposals, and critiques.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "alignment"
+      ]
     },
     {
       "Name": "Alignment Newsletter",
