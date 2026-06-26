@@ -195,6 +195,9 @@ export const STARTERS = [
   { name: "Ex Machina", why: "A tense, human-scale story about testing whether a machine is really aligned." },
   { name: "AlphaGo", track: "documentaries", why: "A documentary on the match that made superhuman AI feel suddenly real." },
   { name: "I, Robot", track: "fiction_books", why: "Asimov's robot stories are the original alignment case studies—safety rules that break down under edge cases and literal interpretation." },
+  { name: "Black Mirror", track: "tv", why: "An anthology that turns abstract AI risks—reward hacking, runaway optimization, digital minds—into visceral near-future stories." },
+  { name: "80,000 Hours Podcast", track: "podcasts", why: "Long-form interviews that map the AI risk landscape—alignment, governance, and how to actually work on it." },
+  { name: "Robert Miles AI Safety", track: "youtube", why: "The most popular alignment video series—clear, rigorous explainers of the core safety concepts." },
   { name: "LessWrong", why: "The community where many foundational alignment arguments were first worked out." },
 ];
 
