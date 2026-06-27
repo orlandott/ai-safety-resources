@@ -1649,3 +1649,248 @@ a.film-score:hover .film-score-value {
   color: var(--muted);
   line-height: 1.4;
 }
+
+/* ── Accounts: bar, local-only warning, and auth modal ───────────────────── */
+
+.account-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 0.7rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+.account-prompt {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.account-actions {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.account-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.account-email {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 16rem;
+}
+
+.account-sync {
+  font-size: 0.72rem;
+  color: var(--accent-text);
+}
+
+.account-sync.is-error {
+  color: #b4452f;
+}
+
+[data-theme="dark"] .account-sync.is-error {
+  color: #f0917c;
+}
+
+.account-button {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.account-button:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.account-button:disabled,
+.account-button.is-loading {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.account-button-secondary {
+  background: transparent;
+  color: var(--accent-text);
+  border-color: var(--accent-soft-border);
+}
+
+.account-button-secondary:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft-border);
+}
+
+.reading-list-warning {
+  margin: 0 0 0.7rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--accent-soft-border);
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.reading-list-warning-cta {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Modal */
+.account-modal[hidden] {
+  display: none;
+}
+
+.account-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.account-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 14, 8, 0.55);
+}
+
+.account-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.3rem 1.2rem;
+}
+
+.account-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  appearance: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.account-modal-title {
+  margin: 0 0 0.25rem;
+  font-family: "Hahmlet", Georgia, serif;
+  font-size: 1.2rem;
+}
+
+.account-modal-subtitle {
+  margin: 0 0 1rem;
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.account-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.account-field input {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+.account-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.account-form-error {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #b4452f;
+}
+
+[data-theme="dark"] .account-form-error {
+  color: #f0917c;
+}
+
+.account-form-error[hidden] {
+  display: none;
+}
+
+.account-form-submit {
+  margin-top: 0.2rem;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.86rem;
+}
+
+.account-modal-switch {
+  margin: 0.9rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.account-link {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+body.account-modal-open {
+  overflow: hidden;
+}

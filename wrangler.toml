@@ -7,3 +7,19 @@ pages_build_output_dir = "public"
 
 [assets]
 directory = "./public"
+
+# Accounts API (functions/api/account/*) needs a KV namespace bound as ACCOUNTS.
+# It stores users, sessions, and each account's synced reading list. Until this
+# is configured the site runs in local-only mode (progress stays in the browser).
+#
+# Set it up once:
+#   npx wrangler kv namespace create ACCOUNTS
+#   npx wrangler kv namespace create ACCOUNTS --preview
+# then uncomment and fill in the IDs it prints (or add the binding in the
+# Cloudflare dashboard under Pages → Settings → Functions → KV namespace
+# bindings). See docs/accounts.md for the full walkthrough.
+#
+# [[kv_namespaces]]
+# binding = "ACCOUNTS"
+# id = "<your-kv-namespace-id>"
+# preview_id = "<your-preview-kv-namespace-id>"

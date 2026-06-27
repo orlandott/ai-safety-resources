@@ -46,6 +46,15 @@ Suggestions are submitted from the website based on the config in [`public/sugge
 
 Keep config changes in git so submission routing is reviewable in pull requests.
 
+### Accounts & cross-device sync (optional)
+
+Reading-list progress is stored in the browser (`localStorage`) by default, so it
+can be lost if a visitor clears site data or switches devices. Optional accounts
+let visitors back up that progress and sync it across devices via Cloudflare Pages
+Functions ([`functions/api/account/`](functions/api/account)) backed by a KV
+namespace. It is off until configured and degrades gracefully to local-only mode.
+See [docs/accounts.md](docs/accounts.md) for setup.
+
 ### Resource guardrails
 
 To prevent a single bad entry from breaking the page and to catch dead links early:

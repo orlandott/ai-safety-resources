@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const metadataLookupTimeoutMs = 12000;
   const metadataHydrationConcurrency = 6;
   const readingListStorageKey = "rwwc-reading-list-v1";
+  // Optional hook invoked after the reading list is persisted locally. The
+  // accounts module assigns it to push changes to the server when signed in.
+  let onReadingListPersisted = null;
   const readingProgressLabels = {
     "": "No status",
     to_read: "Up next",
@@ -1395,6 +1398,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       logResilienceWarning("reading_list_persist_failed", {}, error);
     }
+    if (typeof onReadingListPersisted === "function") {
+      onReadingListPersisted();
+    }
   };
 
   const getReadingListRecord = (lookupKey = "") =>
@@ -1563,6 +1569,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!readingListSummaryElement || !readingListPreviewElement) {
       return;
     }
+    updateAccountLocalWarning();
     const priorSectionOpenState = {};
     readingListPreviewElement
       .querySelectorAll("details[data-reading-track]")
@@ -1659,6 +1666,449 @@ document.addEventListener("DOMContentLoaded", () => {
 
     readingListPreviewElement.innerHTML = sectionsMarkup;
   };
+
+  // ── Accounts & cross-device sync ───────────────────────────────────────────
+  // Reading progress lives in localStorage by default. Creating an account syncs
+  // it to a small KV-backed API (functions/api/account/*) so it survives cleared
+  // site data and follows the visitor across devices. When the API is not
+  // configured on a deployment, the UI quietly stays in local-only mode.
+
+  const accountBarElement = document.getElementById("account-bar");
+  const accountLocalWarningElement = document.getElementById(
+    "reading-list-local-warning"
+  );
+
+  // status: "loading" | "signed_out" | "authenticated" | "unavailable"
+  let accountState = { status: "loading", email: null };
+  // syncStatus: "idle" | "saving" | "saved" | "error"
+  let accountSyncStatus = "idle";
+  let accountSyncTimer = null;
+  let accountSyncQueued = false;
+  let accountModalMode = "signup";
+
+  const accountApi = async (path, options = {}) => {
+    const response = await fetch(path, {
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      ...options,
+    });
+    let payload = {};
+    try {
+      payload = await response.json();
+    } catch (error) {
+      payload = {};
+    }
+    return { ok: response.ok, status: response.status, payload: payload || {} };
+  };
+
+  const normalizeRemoteReadingList = (remote) => {
+    const normalized = {};
+    if (remote && typeof remote === "object") {
+      Object.entries(remote).forEach(([lookupKey, record]) => {
+        if (lookupKey && record && typeof record === "object") {
+          normalized[lookupKey] = normalizeReadingListRecord(lookupKey, record);
+        }
+      });
+    }
+    return normalized;
+  };
+
+  const recordTimestamp = (record) =>
+    Date.parse((record && (record.updatedAt || record.savedAt)) || "") || 0;
+
+  // Union both lists, keeping whichever copy of a shared entry was touched last.
+  const mergeReadingListStates = (localState, remoteState) => {
+    const merged = { ...remoteState };
+    Object.entries(localState).forEach(([lookupKey, record]) => {
+      const existing = merged[lookupKey];
+      if (!existing || recordTimestamp(record) >= recordTimestamp(existing)) {
+        merged[lookupKey] = record;
+      }
+    });
+    return merged;
+  };
+
+  const setAccountSyncStatus = (status) => {
+    accountSyncStatus = status;
+    renderAccountBar();
+  };
+
+  const flushReadingListSync = async () => {
+    if (accountState.status !== "authenticated") {
+      return;
+    }
+    window.clearTimeout(accountSyncTimer);
+    accountSyncQueued = false;
+    setAccountSyncStatus("saving");
+    try {
+      const { ok } = await accountApi("/api/account/reading-list", {
+        method: "PUT",
+        body: JSON.stringify({ readingList: readingListState }),
+      });
+      if (ok) {
+        setAccountSyncStatus("saved");
+      } else {
+        accountSyncQueued = true;
+        setAccountSyncStatus("error");
+      }
+    } catch (error) {
+      accountSyncQueued = true;
+      setAccountSyncStatus("error");
+    }
+  };
+
+  const scheduleReadingListSync = () => {
+    if (accountState.status !== "authenticated") {
+      return;
+    }
+    accountSyncQueued = true;
+    window.clearTimeout(accountSyncTimer);
+    accountSyncTimer = window.setTimeout(() => {
+      flushReadingListSync();
+    }, 800);
+  };
+
+  const updateAccountLocalWarning = () => {
+    if (!accountLocalWarningElement) {
+      return;
+    }
+    const savedCount = Object.keys(readingListState).length;
+    const shouldShow = accountState.status === "signed_out" && savedCount > 0;
+    accountLocalWarningElement.hidden = !shouldShow;
+    accountLocalWarningElement.innerHTML = shouldShow
+      ? `Your progress is saved only in this browser, so it can disappear if you ` +
+        `clear site data or switch devices. ` +
+        `<button type="button" class="reading-list-warning-cta" data-account-open="signup">` +
+        `Create a free account</button> to back it up.`
+      : "";
+  };
+
+  function renderAccountBar() {
+    if (!accountBarElement) {
+      return;
+    }
+    if (accountState.status === "loading" || accountState.status === "unavailable") {
+      accountBarElement.hidden = true;
+      accountBarElement.innerHTML = "";
+      updateAccountLocalWarning();
+      return;
+    }
+    accountBarElement.hidden = false;
+    if (accountState.status === "authenticated") {
+      const safeEmail = escapeHtml(accountState.email || "");
+      const syncLabel =
+        {
+          saving: "Syncing…",
+          saved: "Synced",
+          error: "Sync failed — will retry",
+        }[accountSyncStatus] || "Synced";
+      const syncClass =
+        accountSyncStatus === "error" ? "account-sync is-error" : "account-sync";
+      accountBarElement.innerHTML =
+        `<div class="account-identity">` +
+        `<span class="account-email" title="${safeEmail}">${safeEmail}</span>` +
+        `<span class="${syncClass}">${syncLabel}</span>` +
+        `</div>` +
+        `<button type="button" class="account-button account-button-secondary" data-account-action="logout">Sign out</button>`;
+    } else {
+      accountBarElement.innerHTML =
+        `<span class="account-prompt">Save your progress across devices</span>` +
+        `<span class="account-actions">` +
+        `<button type="button" class="account-button account-button-secondary" data-account-open="login">Sign in</button>` +
+        `<button type="button" class="account-button" data-account-open="signup">Create account</button>` +
+        `</span>`;
+    }
+    updateAccountLocalWarning();
+  }
+
+  const clearAccountError = () => {
+    const errorElement = document.querySelector("#account-modal [data-account-error]");
+    if (errorElement) {
+      errorElement.hidden = true;
+      errorElement.textContent = "";
+    }
+  };
+
+  const showAccountError = (message) => {
+    const errorElement = document.querySelector("#account-modal [data-account-error]");
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.hidden = false;
+    }
+  };
+
+  const ensureAccountModal = () => {
+    if (document.getElementById("account-modal")) {
+      return;
+    }
+    const modal = document.createElement("div");
+    modal.id = "account-modal";
+    modal.className = "account-modal";
+    modal.hidden = true;
+    modal.innerHTML =
+      `<div class="account-modal-backdrop" data-account-close></div>` +
+      `<div class="account-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="account-modal-title">` +
+      `<button type="button" class="account-modal-close" data-account-close aria-label="Close">×</button>` +
+      `<h2 id="account-modal-title" class="account-modal-title">Create your account</h2>` +
+      `<p class="account-modal-subtitle">Sync your saved resources and reading progress across devices.</p>` +
+      `<form class="account-form" novalidate>` +
+      `<label class="account-field"><span>Email</span>` +
+      `<input type="email" name="email" autocomplete="email" required /></label>` +
+      `<label class="account-field"><span>Password</span>` +
+      `<input type="password" name="password" autocomplete="new-password" minlength="8" required /></label>` +
+      `<p class="account-form-error" data-account-error hidden></p>` +
+      `<button type="submit" class="account-button account-form-submit">Create account</button>` +
+      `</form>` +
+      `<p class="account-modal-switch">` +
+      `<span data-account-switch-text>Already have an account?</span> ` +
+      `<button type="button" class="account-link" data-account-switch>Sign in</button>` +
+      `</p>` +
+      `</div>`;
+    document.body.appendChild(modal);
+  };
+
+  const setAccountModalMode = (mode) => {
+    accountModalMode = mode === "login" ? "login" : "signup";
+    const modal = document.getElementById("account-modal");
+    if (!modal) {
+      return;
+    }
+    const isLogin = accountModalMode === "login";
+    modal.querySelector(".account-modal-title").textContent = isLogin
+      ? "Welcome back"
+      : "Create your account";
+    modal.querySelector(".account-modal-subtitle").textContent = isLogin
+      ? "Sign in to load and sync your saved resources."
+      : "Sync your saved resources and reading progress across devices.";
+    modal.querySelector(".account-form-submit").textContent = isLogin
+      ? "Sign in"
+      : "Create account";
+    modal.querySelector("[data-account-switch-text]").textContent = isLogin
+      ? "New here?"
+      : "Already have an account?";
+    modal.querySelector("[data-account-switch]").textContent = isLogin
+      ? "Create an account"
+      : "Sign in";
+    const passwordInput = modal.querySelector('input[name="password"]');
+    if (passwordInput) {
+      passwordInput.setAttribute(
+        "autocomplete",
+        isLogin ? "current-password" : "new-password"
+      );
+    }
+    clearAccountError();
+  };
+
+  const openAccountModal = (mode) => {
+    ensureAccountModal();
+    setAccountModalMode(mode);
+    const modal = document.getElementById("account-modal");
+    if (!modal) {
+      return;
+    }
+    modal.hidden = false;
+    document.body.classList.add("account-modal-open");
+    const emailInput = modal.querySelector('input[name="email"]');
+    if (emailInput) {
+      window.setTimeout(() => emailInput.focus(), 30);
+    }
+  };
+
+  const closeAccountModal = () => {
+    const modal = document.getElementById("account-modal");
+    if (!modal) {
+      return;
+    }
+    modal.hidden = true;
+    document.body.classList.remove("account-modal-open");
+    const form = modal.querySelector("form");
+    if (form) {
+      form.reset();
+    }
+    clearAccountError();
+  };
+
+  // Pull the server copy, union it with the local copy, then push the result.
+  const syncReadingListWithServer = async () => {
+    setAccountSyncStatus("saving");
+    try {
+      const { ok, payload } = await accountApi("/api/account/reading-list");
+      if (ok && payload && payload.readingList) {
+        const remoteState = normalizeRemoteReadingList(payload.readingList);
+        const merged = mergeReadingListStates(readingListState, remoteState);
+        const changed =
+          JSON.stringify(merged) !== JSON.stringify(readingListState);
+        readingListState = merged;
+        if (changed) {
+          persistReadingListState();
+          renderReadingDashboard();
+        }
+      }
+    } catch (error) {
+      logResilienceWarning("account_pull_failed", {}, error);
+    }
+    await flushReadingListSync();
+  };
+
+  const submitAccountForm = async (form) => {
+    const emailInput = form.querySelector('input[name="email"]');
+    const passwordInput = form.querySelector('input[name="password"]');
+    const submitButton = form.querySelector(".account-form-submit");
+    const email = ((emailInput && emailInput.value) || "").trim();
+    const password = (passwordInput && passwordInput.value) || "";
+    clearAccountError();
+    if (!email || !password) {
+      showAccountError("Email and password are required.");
+      return;
+    }
+    if (password.length < 8) {
+      showAccountError("Password must be at least 8 characters.");
+      return;
+    }
+    const endpoint =
+      accountModalMode === "login" ? "/api/account/login" : "/api/account/signup";
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add("is-loading");
+    }
+    let result;
+    try {
+      result = await accountApi(endpoint, {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+    } catch (error) {
+      result = { ok: false, payload: {} };
+    }
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.classList.remove("is-loading");
+    }
+    if (!result.ok) {
+      showAccountError(
+        (result.payload && result.payload.error) ||
+          "Something went wrong. Please try again."
+      );
+      return;
+    }
+    accountState = {
+      status: "authenticated",
+      email: (result.payload && result.payload.email) || email,
+    };
+    closeAccountModal();
+    renderAccountBar();
+    await syncReadingListWithServer();
+  };
+
+  const handleAccountLogout = async () => {
+    try {
+      await accountApi("/api/account/logout", { method: "POST" });
+    } catch (error) {
+      logResilienceWarning("account_logout_failed", {}, error);
+    }
+    // Local data stays in localStorage, so this device keeps its list.
+    accountState = { status: "signed_out", email: null };
+    accountSyncStatus = "idle";
+    renderAccountBar();
+  };
+
+  const refreshAccountState = async () => {
+    let payload = { available: false, authenticated: false };
+    try {
+      const result = await accountApi("/api/account/me");
+      payload = result.payload || payload;
+    } catch (error) {
+      payload = { available: false, authenticated: false };
+    }
+    if (!payload.available) {
+      accountState = { status: "unavailable", email: null };
+      renderAccountBar();
+      return;
+    }
+    if (payload.authenticated) {
+      accountState = { status: "authenticated", email: payload.email || null };
+      renderAccountBar();
+      await syncReadingListWithServer();
+    } else {
+      accountState = { status: "signed_out", email: null };
+      renderAccountBar();
+    }
+  };
+
+  const initAccounts = () => {
+    if (!accountBarElement) {
+      return;
+    }
+    onReadingListPersisted = scheduleReadingListSync;
+    renderAccountBar();
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!target || typeof target.closest !== "function") {
+        return;
+      }
+      const opener = target.closest("[data-account-open]");
+      if (opener) {
+        event.preventDefault();
+        openAccountModal(opener.getAttribute("data-account-open"));
+        return;
+      }
+      const actionEl = target.closest("[data-account-action]");
+      if (actionEl) {
+        event.preventDefault();
+        if (actionEl.getAttribute("data-account-action") === "logout") {
+          handleAccountLogout();
+        }
+        return;
+      }
+      if (target.closest("[data-account-close]")) {
+        event.preventDefault();
+        closeAccountModal();
+        return;
+      }
+      if (target.closest("[data-account-switch]")) {
+        event.preventDefault();
+        setAccountModalMode(accountModalMode === "login" ? "signup" : "login");
+      }
+    });
+
+    document.addEventListener("submit", (event) => {
+      const form = event.target;
+      if (form && form.classList && form.classList.contains("account-form")) {
+        event.preventDefault();
+        submitAccountForm(form);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") {
+        return;
+      }
+      const modal = document.getElementById("account-modal");
+      if (modal && !modal.hidden) {
+        closeAccountModal();
+      }
+    });
+
+    window.addEventListener("beforeunload", () => {
+      if (accountState.status === "authenticated" && accountSyncQueued) {
+        try {
+          fetch("/api/account/reading-list", {
+            method: "PUT",
+            credentials: "same-origin",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ readingList: readingListState }),
+            keepalive: true,
+          });
+        } catch (error) {
+          /* best effort on unload */
+        }
+      }
+    });
+
+    refreshAccountState();
+  };
+
   const disabledTitleKeys = new Set(
     resourceGuardrails.disabledTitles
       .map((title) => getTitleLookupKey(title))
@@ -3367,4 +3817,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   renderAllBooks();
+  initAccounts();
 });
