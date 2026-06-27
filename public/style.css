@@ -234,10 +234,13 @@ textarea {
 }
 
 .contact-button {
+  border: none;
+  cursor: pointer;
   border-radius: 999px;
   padding: 0.5rem 1rem;
   font-weight: 600;
   font-size: 0.9rem;
+  font-family: inherit;
   color: var(--on-accent);
   background: var(--accent);
   text-decoration: none;
@@ -247,6 +250,85 @@ textarea {
 .contact-button:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
+}
+
+/* Footer "Contact us" trigger styled to match the adjacent footer links. */
+.footer-link-button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--link);
+  font-weight: 600;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.footer-link-button:hover {
+  text-decoration: underline;
+}
+
+/* ── Contact modal ─────────────────────────────────────────────────────── */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.contact-modal[hidden] {
+  display: none;
+}
+
+.contact-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.contact-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(32rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  padding: 1.4rem;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.7rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.contact-modal-close:hover {
+  color: var(--text);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
 }
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */

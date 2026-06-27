@@ -57,7 +57,7 @@
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
           </svg>
         </button>
-        <a href="mailto:contact@ai-safety-resources.com" class="contact-button">Contact</a>
+        <button type="button" class="contact-button" data-contact-open>Contact</button>
       </div>
     </nav>
   </header>
@@ -254,7 +254,7 @@
       <div class="suggestion-shell">
         <div>
           <h2 class="suggestion-title">Suggest a resource</h2>
-          <p class="suggestion-copy">Share a book, film, podcast, or any other resource and we’ll email your suggestion to the team.</p>
+          <p class="suggestion-copy">Share a book, film, podcast, or any other resource and we’ll review your suggestion. No email client required — it submits right here.</p>
         </div>
         <form id="book-suggestion-form" class="suggestion-form">
           <div class="suggestion-grid">
@@ -308,12 +308,40 @@
       <nav class="site-footer-links" aria-label="Footer">
         <a href="#suggestion-form-section">Suggest a resource</a>
         <a href="https://github.com/orlandott/ai-safety-resources" target="_blank" rel="noopener noreferrer">Contribute on GitHub</a>
-        <a href="mailto:contact@ai-safety-resources.com">contact@ai-safety-resources.com</a>
+        <button type="button" class="footer-link-button" data-contact-open>Contact us</button>
       </nav>
     </div>
     <p class="site-footer-fineprint">Free, forever. Your saved resources live only in your browser.</p>
     <p class="site-footer-fineprint">Inspired by and drawing upon Esben Kran’s <a href="https://readingwhatwecan.com/" target="_blank" rel="noopener noreferrer">Reading What We Can</a>.</p>
   </footer>
+  <div id="contact-modal" class="contact-modal" hidden>
+    <div class="contact-modal-backdrop" data-contact-dismiss></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button type="button" class="contact-modal-close" data-contact-dismiss aria-label="Close contact form">×</button>
+      <h2 id="contact-modal-title" class="suggestion-title">Contact us</h2>
+      <p class="suggestion-copy">Questions, corrections, or feedback? Send us a message and we’ll get back to you.</p>
+      <form id="contact-form" class="suggestion-form" novalidate>
+        <div class="contact-grid">
+          <label class="field-label">
+            Your name
+            <input id="contact-name" name="name" type="text" maxlength="120" autocomplete="name" placeholder="Optional" />
+          </label>
+          <label class="field-label">
+            Your email
+            <input id="contact-email" name="email" type="email" required maxlength="160" autocomplete="email" placeholder="name@example.com" />
+          </label>
+          <label class="field-label">
+            Message
+            <textarea id="contact-message" name="message" required maxlength="4000" rows="5" placeholder="How can we help?"></textarea>
+          </label>
+        </div>
+        <div class="suggestion-actions">
+          <button type="submit" class="suggestion-submit">Send message</button>
+        </div>
+        <p id="contact-feedback" class="suggestion-feedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="m18 15-6-6-6 6" />

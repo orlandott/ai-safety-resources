@@ -1,6 +1,12 @@
-// Suggestion form opens the user's email client (mailto). Contact link in the header does the same.
+// Suggestion + contact forms POST directly to the site's own /api/submit endpoint
+// (a Cloudflare Pages Function / Worker that emails the team via Resend). Visitors
+// stay on the page and get instant feedback instead of opening their email client.
 window.RWWC_SUGGESTION_SUBMISSION = {
-  mode: "email",
+  mode: "endpoint",
+  endpoint: {
+    // Same-origin API route handled by functions/api/submit.js (or the standalone worker).
+    url: "/api/submit",
+  },
   email: {
     to: "contact@ai-safety-resources.com",
   },

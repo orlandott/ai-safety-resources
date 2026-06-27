@@ -526,7 +526,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const defaultSubmissionConfig = {
-    mode: "email",
+    mode: "endpoint",
+    endpoint: {
+      url: "/api/submit",
+    },
     email: {
       to: "contact@ai-safety-resources.com",
     },
@@ -553,6 +556,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const submissionConfig = {
     mode: rawSubmissionConfig.mode || defaultSubmissionConfig.mode,
+    endpoint: {
+      ...defaultSubmissionConfig.endpoint,
+      ...(rawSubmissionConfig.endpoint || {}),
+    },
     email: {
       ...defaultSubmissionConfig.email,
       ...(rawSubmissionConfig.email || {}),
@@ -2841,6 +2848,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const isEntryField = (value = "") =>
     /^entry\.\d+$/.test(value.toString());
 
+  const isEndpointConfigured = () => {
+    const url = ((submissionConfig.endpoint && submissionConfig.endpoint.url) || "")
+      .toString()
+      .trim();
+    return url.length > 0 && !hasPlaceholder(url);
+  };
+
   const isAppsScriptConfigured = () =>
     isHttpsUrl(submissionConfig.appsScript.endpointUrl) &&
     !hasPlaceholder(submissionConfig.appsScript.endpointUrl);
@@ -2870,6 +2884,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const getSubmissionMode = () => {
     const requestedMode = (submissionConfig.mode || "").toLowerCase();
 
+    if (requestedMode === "endpoint" && isEndpointConfigured()) {
+      return "endpoint";
+    }
     if (requestedMode === "email" && isEmailConfigured()) {
       return "email";
     }
@@ -2879,8 +2896,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (requestedMode === "google_form" && isGoogleFormConfigured()) {
       return "google_form";
     }
-    if (isEmailConfigured()) {
-      return "email";
+    // Fallbacks, preferring real server-side submission over the mailto handoff.
+    if (isEndpointConfigured()) {
+      return "endpoint";
     }
     if (isAppsScriptConfigured()) {
       return "apps_script";
@@ -2888,8 +2906,63 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isGoogleFormConfigured()) {
       return "google_form";
     }
+    if (isEmailConfigured()) {
+      return "email";
+    }
 
     return null;
+  };
+
+  // POST submissions (suggestion + contact) to the site's own API endpoint, read
+  // the JSON response, and surface accurate success/failure. Shared by both forms.
+  const submitToEndpoint = async (payload, operationName) => {
+    let response;
+    try {
+      response = await fetchWithTimeout(
+        submissionConfig.endpoint.url,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+        submissionTimeoutMs,
+        operationName
+      );
+    } catch (error) {
+      logResilienceError("endpoint_submission_failed", { operationName }, error);
+      throw error;
+    }
+
+    if (!response.ok) {
+      const out = await response.json().catch(() => ({}));
+      const error = new Error(
+        out.error || out.message || `Submission failed (${response.status})`
+      );
+      logResilienceError(
+        "endpoint_submission_rejected",
+        { operationName, status: response.status },
+        error
+      );
+      throw error;
+    }
+  };
+
+  const submitSuggestionToEndpoint = async (data) => {
+    const trackLabel = trackLabels[data.track] || data.track;
+    await submitToEndpoint(
+      {
+        _subject: `Suggestion: ${(data.name || "").trim() || "New resource"}`,
+        title: data.name,
+        name: data.name,
+        author: data.author,
+        link: data.link,
+        category: trackLabel,
+        track: data.track,
+        email: data.email || "",
+        submitter_email: data.email || "",
+      },
+      "Endpoint suggestion submission"
+    );
   };
 
   const submitSuggestionViaEmail = (data) => {
@@ -3031,7 +3104,11 @@ document.addEventListener("DOMContentLoaded", () => {
           suggestionSubmitButton.textContent = "Sending...";
         }
 
-        if (submissionMode === "email") {
+        if (submissionMode === "endpoint") {
+          await submitSuggestionToEndpoint(data);
+          suggestionForm.reset();
+          setFeedback("Thanks! Your suggestion was sent.");
+        } else if (submissionMode === "email") {
           submitSuggestionViaEmail(data);
           suggestionForm.reset();
           setFeedback("Your email client will open. Send the message to submit your suggestion.");
@@ -3058,6 +3135,128 @@ document.addEventListener("DOMContentLoaded", () => {
         if (suggestionSubmitButton) {
           suggestionSubmitButton.disabled = false;
           suggestionSubmitButton.textContent = "Send suggestion";
+        }
+      }
+    });
+  }
+
+  // ── Contact form (modal) ────────────────────────────────────────────────
+  // The header/footer "Contact" triggers open a dialog that POSTs to the same
+  // /api/submit endpoint instead of opening the visitor's email client.
+  const contactModal = document.getElementById("contact-modal");
+  const contactForm = document.getElementById("contact-form");
+  const contactFeedback = document.getElementById("contact-feedback");
+  const contactSubmitButton = contactForm
+    ? contactForm.querySelector('button[type="submit"]')
+    : null;
+  const contactOpeners = document.querySelectorAll("[data-contact-open]");
+
+  if (contactModal && contactForm) {
+    let lastFocusedBeforeModal = null;
+
+    const setContactFeedback = (message) => {
+      if (contactFeedback) {
+        contactFeedback.textContent = message;
+      }
+    };
+
+    const openContactModal = () => {
+      lastFocusedBeforeModal =
+        document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      contactModal.hidden = false;
+      document.body.classList.add("modal-open");
+      const firstField = contactForm.querySelector("input, textarea");
+      if (firstField) {
+        firstField.focus();
+      }
+    };
+
+    const closeContactModal = () => {
+      contactModal.hidden = true;
+      document.body.classList.remove("modal-open");
+      if (lastFocusedBeforeModal) {
+        lastFocusedBeforeModal.focus();
+      }
+    };
+
+    contactOpeners.forEach((opener) => {
+      opener.addEventListener("click", (event) => {
+        event.preventDefault();
+        openContactModal();
+      });
+    });
+
+    contactModal.querySelectorAll("[data-contact-dismiss]").forEach((dismiss) => {
+      dismiss.addEventListener("click", (event) => {
+        event.preventDefault();
+        closeContactModal();
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !contactModal.hidden) {
+        closeContactModal();
+      }
+    });
+
+    const getContactValues = () => {
+      const formData = new FormData(contactForm);
+      return {
+        name: (formData.get("name") || "").toString().trim().slice(0, 120),
+        email: (formData.get("email") || "").toString().trim().slice(0, 160),
+        message: (formData.get("message") || "").toString().trim().slice(0, 4000),
+      };
+    };
+
+    const submissionMode = getSubmissionMode();
+
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const data = getContactValues();
+
+      if (!data.email || !data.message) {
+        setContactFeedback("Please add your email and a message before sending.");
+        return;
+      }
+      if (!isValidEmail(data.email)) {
+        setContactFeedback("Please provide a valid email address.");
+        return;
+      }
+      if (submissionMode !== "endpoint" || !isEndpointConfigured()) {
+        // Graceful fallback to mailto when no server endpoint is configured.
+        const to = (submissionConfig.email && submissionConfig.email.to || "").toString().trim();
+        const subject = encodeURIComponent("Contact from AI Safety Resources");
+        const body = encodeURIComponent(
+          [`Name: ${data.name || "(not provided)"}`, `Email: ${data.email}`, "", data.message].join("\n")
+        );
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        setContactFeedback("Your email client will open. Send the message to reach us.");
+        return;
+      }
+
+      try {
+        if (contactSubmitButton) {
+          contactSubmitButton.disabled = true;
+          contactSubmitButton.textContent = "Sending...";
+        }
+        await submitToEndpoint(
+          {
+            _subject: "Contact from AI Safety Resources",
+            name: data.name,
+            email: data.email,
+            message: data.message,
+          },
+          "Endpoint contact submission"
+        );
+        contactForm.reset();
+        setContactFeedback("Thanks! Your message was sent — we'll be in touch.");
+      } catch (error) {
+        logResilienceWarning("contact_submission_failed", {}, error);
+        setContactFeedback("Unable to send your message right now. Please try again.");
+      } finally {
+        if (contactSubmitButton) {
+          contactSubmitButton.disabled = false;
+          contactSubmitButton.textContent = "Send message";
         }
       }
     });

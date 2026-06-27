@@ -37,11 +37,20 @@ Curated lists live in code: the **Start here** picks and the **topic tag** keywo
 
 ### Suggestions submission endpoint
 
-Suggestions are submitted from the website based on the config in [`public/suggestion-form-config.js`](public/suggestion-form-config.js).
+Both the **Suggest a resource** form and the **Contact** form submit directly to the
+site's own API endpoint and show inline success/failure — visitors never have to open
+their email client. Routing is configured in [`public/suggestion-form-config.js`](public/suggestion-form-config.js).
 
-- Current default mode is an Apps Script web app endpoint writing to a Google Sheet.
-- If you use Apps Script, deploy it with public access ("Anyone") so website visitors can submit.
-- You can also switch to Google Form mode using `formResponseUrl` + `entry.*` mappings.
+- Current default mode is `endpoint`: the forms POST JSON to `/api/submit`, handled by
+  [`functions/api/submit.js`](functions/api/submit.js) (a Cloudflare Pages Function) or the
+  standalone [`worker/index.js`](worker/index.js). Both forward the submission to your inbox via
+  [Resend](https://resend.com).
+  - Set `RESEND_API_KEY` (and optionally `CONTACT_EMAIL`) in your Cloudflare Pages/Worker
+    environment. Pages: **Settings → Environment variables**. Worker: `npx wrangler secret put RESEND_API_KEY`.
+- Other supported modes (set `mode` accordingly): `email` (mailto handoff), `apps_script`
+  (Apps Script web app writing to a Google Sheet — deploy with "Anyone" access), and
+  `google_form` (`formResponseUrl` + `entry.*` mappings). If the configured mode isn't usable,
+  the form falls back to the next available one, preferring real server-side submission over mailto.
 - Use [`docs/google-form-copy.md`](docs/google-form-copy.md) as the canonical Google Form copy template.
 
 Keep config changes in git so submission routing is reviewable in pull requests.
