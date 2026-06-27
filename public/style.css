@@ -1242,10 +1242,83 @@ a.film-score:hover .film-score-value {
 
 /* ── Footer ────────────────────────────────────────────────────────────── */
 
+/* ── Support band ──────────────────────────────────────────────────────── */
+
+.support-band {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--accent-soft-border);
+  background: var(--accent-soft);
+}
+
+.support-inner {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 2.4rem;
+  text-align: center;
+}
+
+.support-eyebrow {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.support-title {
+  margin: 0.5rem 0 0;
+  font-family: "Hahmlet", Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.support-copy {
+  max-width: 36rem;
+  margin: 0.65rem auto 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.support-button {
+  display: inline-block;
+  margin-top: 1.2rem;
+  border-radius: 999px;
+  padding: 0.62rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--on-accent);
+  background: var(--accent);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.support-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.support-note {
+  margin: 1rem auto 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.support-note a {
+  color: var(--link);
+  font-weight: 600;
+}
+
 .site-footer {
   margin-top: 2.5rem;
   border-top: 1px solid var(--border);
   background: var(--surface-soft);
+}
+
+.support-band + .site-footer {
+  margin-top: 0;
 }
 
 .site-footer-inner {
