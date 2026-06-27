@@ -1508,11 +1508,25 @@ a.film-score:hover .film-score-value {
   font-size: 0.9rem;
   line-height: 1.45;
 }
-.ssr-card-year {
-  display: inline-block;
-  margin-top: 0.4rem;
+.ssr-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+}
+.ssr-card-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  padding: 0.18rem 0.55rem;
+  font-size: 0.74rem;
   color: var(--muted);
-  font-size: 0.8rem;
+}
+.ssr-card-pill-level,
+.level-pill {
+  border-color: var(--accent-soft-border);
+  background: var(--accent-soft);
+  color: var(--accent-text);
 }
 
 /* Per-category static pages */
@@ -1570,13 +1584,20 @@ a.film-score:hover .film-score-value {
 .topic-chip {
   font: inherit;
   font-size: 0.82rem;
+  display: inline-block;
   padding: 0.32rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--border-strong);
   background: var(--surface);
   color: var(--text);
+  text-decoration: none;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.topic-chip-all {
+  font-weight: 600;
+  color: var(--accent-text);
+  border-style: dashed;
 }
 .topic-chip:hover {
   border-color: var(--accent);
@@ -1648,4 +1669,159 @@ a.film-score:hover .film-score-value {
   font-size: 0.85rem;
   color: var(--muted);
   line-height: 1.4;
+}
+
+/* ── "Where do I start?" path chooser (homepage) ───────────────────────────*/
+.paths-section {
+  margin: 1.75rem auto 0;
+  max-width: 1100px;
+  padding: 0 1.1rem;
+}
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+.path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.path-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.path-card-kind {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.path-card-title {
+  font-family: "Hahmlet", Georgia, serif;
+  font-weight: 600;
+  color: var(--text);
+}
+.path-card-why {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── Hub pages (/topics/, /paths/) ─────────────────────────────────────────*/
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.hub-card-kind {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.hub-card-title {
+  font-family: "Hahmlet", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.hub-card-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.hub-card-desc {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ── Learning-path page (ordered steps) ────────────────────────────────────*/
+.path-steps {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+.path-step {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+.path-step-num {
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.path-step-body {
+  min-width: 0;
+}
+.path-step-link {
+  font-family: "Hahmlet", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.path-step-link:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+.path-step-kind {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.path-step-why {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
 }

@@ -34,6 +34,12 @@ import {
   isValidHttpUrl,
   tagsFor,
   STARTERS,
+  VALID_LEVELS,
+  levelFor,
+  timeLabelFor,
+  metaPillsFor,
+  TOPIC_PAGES,
+  PATHS,
 } from "./lib/resources.mjs";
 
 const CHECK_ONLY = process.argv.includes("--check");
@@ -88,29 +94,44 @@ function validate(resources, fictionTitles) {
     if (entry.Summary !== undefined && typeof entry.Summary !== "string") {
       errors.push(`${where}: "Summary" must be a string`);
     }
+    if (entry.Level !== undefined && !VALID_LEVELS.includes(entry.Level)) {
+      errors.push(`${where}: "Level" must be one of ${VALID_LEVELS.join(", ")} (${entry.Level})`);
+    }
+    if (entry.Minutes !== undefined) {
+      const m = Number(entry.Minutes);
+      if (!Number.isInteger(m) || m < 0) {
+        errors.push(`${where}: "Minutes" must be a non-negative integer (${entry.Minutes})`);
+      }
+    }
   });
   return errors;
 }
 
 // ── 2/3. Data exports ───────────────────────────────────────────────────────
 
-function buildDataExports(resources, fictionTitles, groups) {
-  const tracks = TRACKS.map((t) => ({
-    key: t.key,
-    label: t.label,
-    slug: t.slug,
-    count: groups.get(t.key).length,
-  }));
-
-  const enriched = resources.map((entry) => {
+// Augment every entry with its derived track, tags, level, and time label.
+// Computed once and reused by the data exports and the topic pages.
+function enrichResources(resources, fictionTitles) {
+  return resources.map((entry) => {
     const key = bucketKey(entry, fictionTitles);
     return {
       ...entry,
       track: key,
       trackLabel: TRACK_BY_KEY.get(key)?.label || "",
       tags: tagsFor(entry, key),
+      level: levelFor(entry, key),
+      timeLabel: timeLabelFor(entry, key),
     };
   });
+}
+
+function buildDataExports(enriched, groups) {
+  const tracks = TRACKS.map((t) => ({
+    key: t.key,
+    label: t.label,
+    slug: t.slug,
+    count: groups.get(t.key).length,
+  }));
 
   queueWrite(
     path.join(dataDir, "resources.json"),
@@ -130,6 +151,8 @@ function buildDataExports(resources, fictionTitles, groups) {
     link: e.Link || "",
     year: e.Year ?? null,
     tags: e.tags,
+    level: e.level,
+    timeLabel: e.timeLabel,
   }));
   queueWrite(path.join(dataDir, "search-index.json"), JSON.stringify(searchIndex) + "\n");
 
@@ -148,27 +171,34 @@ function buildDataExports(resources, fictionTitles, groups) {
 
 // ── 4/5. Server-rendered HTML ───────────────────────────────────────────────
 
-function ssrCard(entry) {
+// `track` lets the card derive its metadata pills (difficulty + time). It is
+// optional so callers without a known track still render a valid card.
+function ssrCard(entry, track) {
   const name = escapeHtml(entry.Name || "Untitled");
   const author = entry.Author ? `<span class="ssr-card-author">${escapeHtml(entry.Author)}</span>` : "";
   const summary = entry.Summary ? `<p class="ssr-card-summary">${escapeHtml(entry.Summary)}</p>` : "";
-  const year = entry.Year ? `<span class="ssr-card-year">${escapeHtml(String(entry.Year))}</span>` : "";
   const link = escapeHtml(entry.Link || "#");
+  const pills = track ? metaPillsFor(entry, track) : [];
+  const year = entry.Year ? [{ kind: "year", text: String(entry.Year) }] : [];
+  const meta = [...pills, ...year]
+    .map((p) => `<span class="ssr-card-pill ssr-card-pill-${p.kind}">${escapeHtml(p.text)}</span>`)
+    .join("");
+  const metaRow = meta ? `<span class="ssr-card-meta">${meta}</span>` : "";
   return (
     `<article class="ssr-card">` +
     `<a class="ssr-card-link" href="${link}" target="_blank" rel="noopener noreferrer">${name}</a>` +
     author +
     summary +
-    year +
+    metaRow +
     `</article>`
   );
 }
 
 // No wrapping <div>: the injection below matches the pane's closing </div> with
 // a non-greedy pattern, so the server-rendered cards must not contain a <div>.
-function ssrPaneMarkup(entries) {
+function ssrPaneMarkup(entries, track) {
   if (!entries.length) return "";
-  return entries.map(ssrCard).join("");
+  return entries.map((e) => ssrCard(e, track)).join("");
 }
 
 // Replace the inner HTML of a `<div id="PANE" class="gauntlet-wrapper">…</div>`.
@@ -197,7 +227,7 @@ function categoryItemListJsonLd() {
 
 function injectHomepage(html, groups) {
   for (const t of TRACKS) {
-    html = injectPane(html, t.pane, ssrPaneMarkup(groups.get(t.key)));
+    html = injectPane(html, t.pane, ssrPaneMarkup(groups.get(t.key), t.key));
   }
   // Idempotently (re)insert the category ItemList JSON-LD before </head>.
   // Single-line tag so the removal regex strips it exactly, leaving no residue.
@@ -212,43 +242,29 @@ function injectHomepage(html, groups) {
   return html;
 }
 
-function categoryPage(track, entries) {
-  const title = `${track.label} – AI Safety Resources`;
-  const desc = track.intro;
-  const url = `${SITE_ORIGIN}/${track.slug}/`;
-  const itemList = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: track.label,
-    description: desc,
-    numberOfItems: entries.length,
-    itemListElement: entries.map((e, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      url: e.Link,
-      name: e.Name,
-    })),
-  };
-  const cards = entries.map(ssrCard).join("\n      ");
+// Shared chrome for every server-rendered standalone page (category, topic,
+// path, and the hubs). `main` is the inner <main> markup; `jsonLd` is an
+// optional structured-data object embedded before </head>.
+function renderPage({ title, description, url, jsonLd, mainClass, main }) {
+  const ld = jsonLd
+    ? `  <script type="application/ld+json">\n  ${JSON.stringify(jsonLd)}\n  </script>\n`
+    : "";
   return `<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <title>${escapeHtml(title)}</title>
-  <meta name="description" content="${escapeHtml(desc)}" />
+  <meta name="description" content="${escapeHtml(description)}" />
   <link rel="canonical" href="${url}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${url}" />
   <meta property="og:title" content="${escapeHtml(title)}" />
-  <meta property="og:description" content="${escapeHtml(desc)}" />
+  <meta property="og:description" content="${escapeHtml(description)}" />
   <meta property="og:image" content="${SITE_ORIGIN}/images/logo-ai-safety-resources.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta name="theme-color" content="#f4f1ea" />
-  <script type="application/ld+json">
-  ${JSON.stringify(itemList)}
-  </script>
-  <script src="/theme-init.js"></script>
+${ld}  <script src="/theme-init.js"></script>
   <link href="/images/favicon.png" rel="icon" type="image/png" />
   <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -260,40 +276,252 @@ function categoryPage(track, entries) {
       </a>
     </nav>
   </header>
-  <main class="page category-page">
-    <nav class="category-page-breadcrumb" aria-label="Breadcrumb">
-      <a href="/">All resources</a> / <span>${escapeHtml(track.label)}</span>
-    </nav>
-    <h1 class="hero-title">${escapeHtml(track.label)}</h1>
-    <p class="hero-copy">${escapeHtml(desc)}</p>
-    <p class="category-page-cta"><a href="/#tab-${track.pane.replace(/-parent$/, "")}">Browse this category in the interactive library →</a></p>
-    <div class="ssr-list" data-ssr>
-      ${cards}
-    </div>
+  <main class="page ${mainClass}">
+${main}
   </main>
   <footer class="site-footer">
-    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection.</p>
+    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection. <a href="/paths/">Learning paths</a> · <a href="/topics/">Topics</a></p>
   </footer>
 </body>
 </html>
 `;
 }
 
+function itemListJsonLd(name, description, entries) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    description,
+    numberOfItems: entries.length,
+    itemListElement: entries.map((e, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: e.Link,
+      name: e.Name,
+    })),
+  };
+}
+
+function breadcrumbMarkup(trail) {
+  const parts = trail.map((t, i) => {
+    const last = i === trail.length - 1;
+    return last
+      ? `<span>${escapeHtml(t.label)}</span>`
+      : `<a href="${t.href}">${escapeHtml(t.label)}</a>`;
+  });
+  return `    <nav class="category-page-breadcrumb" aria-label="Breadcrumb">\n      ${parts.join(" / ")}\n    </nav>`;
+}
+
+function categoryPage(track, entries) {
+  const title = `${track.label} – AI Safety Resources`;
+  const desc = track.intro;
+  const url = `${SITE_ORIGIN}/${track.slug}/`;
+  const cards = entries.map((e) => ssrCard(e, track.key)).join("\n      ");
+  const main = [
+    breadcrumbMarkup([{ label: "All resources", href: "/" }, { label: track.label }]),
+    `    <h1 class="hero-title">${escapeHtml(track.label)}</h1>`,
+    `    <p class="hero-copy">${escapeHtml(desc)}</p>`,
+    `    <p class="category-page-cta"><a href="/#tab-${track.pane.replace(/-parent$/, "")}">Browse this category in the interactive library →</a></p>`,
+    `    <div class="ssr-list" data-ssr>\n      ${cards}\n    </div>`,
+  ].join("\n");
+  return renderPage({
+    title,
+    description: desc,
+    url,
+    jsonLd: itemListJsonLd(track.label, desc, entries),
+    mainClass: "category-page",
+    main,
+  });
+}
+
+// ── Topic landing pages ─────────────────────────────────────────────────────
+
+function topicPage(topic, entries) {
+  const title = `${topic.seoTitle} – AI Safety Resources`;
+  const url = `${SITE_ORIGIN}/topics/${topic.slug}/`;
+  const cards = entries.map((e) => ssrCard(e, e.track)).join("\n      ");
+  const body = entries.length
+    ? `    <div class="ssr-list" data-ssr>\n      ${cards}\n    </div>`
+    : `    <p class="hero-copy">No resources tagged yet—check back soon.</p>`;
+  const main = [
+    breadcrumbMarkup([
+      { label: "All resources", href: "/" },
+      { label: "Topics", href: "/topics/" },
+      { label: topic.h1 },
+    ]),
+    `    <h1 class="hero-title">${escapeHtml(topic.h1)}</h1>`,
+    `    <p class="hero-copy">${escapeHtml(topic.description)}</p>`,
+    `    <p class="category-page-cta"><a href="/#tab-academic-papers">Browse the full interactive library →</a></p>`,
+    body,
+  ].join("\n");
+  return renderPage({
+    title,
+    description: topic.description,
+    url,
+    jsonLd: itemListJsonLd(topic.seoTitle, topic.description, entries),
+    mainClass: "category-page",
+    main,
+  });
+}
+
+function topicsHub(topicsWithCounts) {
+  const title = "AI Safety Topics – Browse by Subject";
+  const desc =
+    "Browse AI safety resources by topic: interpretability, alignment, governance, existential risk, deception, forecasting, and more.";
+  const url = `${SITE_ORIGIN}/topics/`;
+  const cards = topicsWithCounts
+    .map(
+      (t) =>
+        `<a class="hub-card" href="/topics/${t.slug}/">` +
+        `<span class="hub-card-title">${escapeHtml(t.h1)}</span>` +
+        `<span class="hub-card-meta">${t.count} resource${t.count === 1 ? "" : "s"}</span>` +
+        `<span class="hub-card-desc">${escapeHtml(t.description)}</span>` +
+        `</a>`
+    )
+    .join("\n      ");
+  const main = [
+    breadcrumbMarkup([{ label: "All resources", href: "/" }, { label: "Topics" }]),
+    `    <h1 class="hero-title">Browse by topic</h1>`,
+    `    <p class="hero-copy">${escapeHtml(desc)}</p>`,
+    `    <div class="hub-grid">\n      ${cards}\n    </div>`,
+  ].join("\n");
+  return renderPage({ title, description: desc, url, mainClass: "category-page", main });
+}
+
+// ── Learning path pages ─────────────────────────────────────────────────────
+
+function pathPage(pathDef, steps) {
+  const title = `${pathDef.title} – A Learning Path | AI Safety Resources`;
+  const url = `${SITE_ORIGIN}/paths/${pathDef.slug}/`;
+  const items = steps
+    .map((s, i) => {
+      const label = escapeHtml(TRACK_BY_KEY.get(s.track)?.label || "");
+      const pills = metaPillsFor(s.entry, s.track)
+        .map((p) => `<span class="ssr-card-pill ssr-card-pill-${p.kind}">${escapeHtml(p.text)}</span>`)
+        .join("");
+      return (
+        `<li class="path-step">` +
+        `<span class="path-step-num" aria-hidden="true">${i + 1}</span>` +
+        `<div class="path-step-body">` +
+        `<a class="path-step-link" href="${escapeHtml(s.entry.Link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.entry.Name)}</a>` +
+        `<span class="path-step-kind">${label}${pills ? ` <span class="ssr-card-meta">${pills}</span>` : ""}</span>` +
+        `<p class="path-step-why">${escapeHtml(s.why)}</p>` +
+        `</div></li>`
+      );
+    })
+    .join("\n      ");
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: pathDef.title,
+    description: pathDef.description,
+    numberOfItems: steps.length,
+    itemListElement: steps.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: s.entry.Link,
+      name: s.entry.Name,
+    })),
+  };
+  const main = [
+    breadcrumbMarkup([
+      { label: "All resources", href: "/" },
+      { label: "Learning paths", href: "/paths/" },
+      { label: pathDef.title },
+    ]),
+    `    <h1 class="hero-title">${escapeHtml(pathDef.title)}</h1>`,
+    `    <p class="hero-copy">${escapeHtml(pathDef.description)}</p>`,
+    `    <ol class="path-steps">\n      ${items}\n    </ol>`,
+    `    <p class="category-page-cta"><a href="/paths/">See all learning paths →</a></p>`,
+  ].join("\n");
+  return renderPage({
+    title,
+    description: pathDef.description,
+    url,
+    jsonLd: itemList,
+    mainClass: "category-page path-page",
+    main,
+  });
+}
+
+function pathsHub(paths) {
+  const title = "AI Safety Learning Paths – Where to Start";
+  const desc =
+    "Curated, step-by-step learning paths into AI safety for newcomers, ML practitioners, engineers, policymakers, and the simply curious.";
+  const url = `${SITE_ORIGIN}/paths/`;
+  const cards = paths
+    .map(
+      (p) =>
+        `<a class="hub-card" href="/paths/${p.slug}/">` +
+        `<span class="hub-card-kind">${escapeHtml(p.audience)}</span>` +
+        `<span class="hub-card-title">${escapeHtml(p.title)}</span>` +
+        `<span class="hub-card-desc">${escapeHtml(p.blurb)}</span>` +
+        `</a>`
+    )
+    .join("\n      ");
+  const main = [
+    breadcrumbMarkup([{ label: "All resources", href: "/" }, { label: "Learning paths" }]),
+    `    <h1 class="hero-title">Where do I start?</h1>`,
+    `    <p class="hero-copy">${escapeHtml(desc)}</p>`,
+    `    <div class="hub-grid">\n      ${cards}\n    </div>`,
+  ].join("\n");
+  return renderPage({ title, description: desc, url, mainClass: "category-page", main });
+}
+
+// Resolve a curated reference ({name, track?}) to a real dataset entry, failing
+// the build on a name/track mismatch so a typo is caught at build time rather
+// than silently dropping a card. Shared by the start-here on-ramp and the
+// learning paths.
+function resolveReference(ref, label, resources, fictionTitles) {
+  const matches = resources.filter((e) => e.Name === ref.name);
+  const entry = ref.track
+    ? matches.find((e) => bucketKey(e, fictionTitles) === ref.track)
+    : matches[0];
+  if (!entry) {
+    throw new Error(
+      `${label} not found in dataset: "${ref.name}"${ref.track ? ` (track ${ref.track})` : ""}`
+    );
+  }
+  return { ...ref, entry, track: bucketKey(entry, fictionTitles) };
+}
+
+// Resolve every learning path's steps against the dataset. Returns the PATHS
+// definitions augmented with a resolved `steps` array.
+function resolvePaths(resources, fictionTitles) {
+  return PATHS.map((p) => ({
+    ...p,
+    steps: p.steps.map((s) =>
+      resolveReference(s, `Learning-path step (${p.slug})`, resources, fictionTitles)
+    ),
+  }));
+}
+
+// Inject the "Choose your path" chooser cards into the homepage marker section.
+function injectPaths(html, resolvedPaths) {
+  const cards = resolvedPaths
+    .map(
+      (p) =>
+        `<a class="path-card" href="/paths/${p.slug}/">` +
+        `<span class="path-card-kind">${escapeHtml(p.audience)}</span>` +
+        `<span class="path-card-title">${escapeHtml(p.title)}</span>` +
+        `<span class="path-card-why">${escapeHtml(p.blurb)}</span>` +
+        `</a>`
+    )
+    .join("");
+  const re = /(<div class="paths-grid" data-build="paths">)[\s\S]*?(<\/div>)/;
+  if (!re.test(html)) {
+    throw new Error('Could not find the paths container (data-build="paths") in index.html');
+  }
+  return html.replace(re, `$1${cards}$2`);
+}
+
 // Resolve the curated STARTERS to real dataset entries (fails the build on a
 // name/track mismatch) and inject the cards into the index.html marker section.
 function injectStarters(html, resources, fictionTitles) {
-  const resolved = STARTERS.map((s) => {
-    const matches = resources.filter((e) => e.Name === s.name);
-    const entry = s.track
-      ? matches.find((e) => bucketKey(e, fictionTitles) === s.track)
-      : matches[0];
-    if (!entry) {
-      throw new Error(
-        `Start-here entry not found in dataset: "${s.name}"${s.track ? ` (track ${s.track})` : ""}`
-      );
-    }
-    return { ...s, entry, track: bucketKey(entry, fictionTitles) };
-  });
+  const resolved = STARTERS.map((s) =>
+    resolveReference(s, "Start-here entry", resources, fictionTitles)
+  );
 
   const cards = resolved
     .map((s) => {
@@ -318,6 +546,10 @@ function injectStarters(html, resources, fictionTitles) {
 function sitemapXml() {
   const urls = [
     { loc: `${SITE_ORIGIN}/`, priority: "1.0" },
+    { loc: `${SITE_ORIGIN}/paths/`, priority: "0.9" },
+    ...PATHS.map((p) => ({ loc: `${SITE_ORIGIN}/paths/${p.slug}/`, priority: "0.8" })),
+    { loc: `${SITE_ORIGIN}/topics/`, priority: "0.9" },
+    ...TOPIC_PAGES.map((t) => ({ loc: `${SITE_ORIGIN}/topics/${t.slug}/`, priority: "0.8" })),
     ...TRACKS.map((t) => ({ loc: `${SITE_ORIGIN}/${t.slug}/`, priority: "0.8" })),
   ];
   const body = urls
@@ -349,16 +581,38 @@ function main() {
     return;
   }
 
-  buildDataExports(resources, fictionTitles, groups);
+  const enriched = enrichResources(resources, fictionTitles);
+  buildDataExports(enriched, groups);
+
+  const resolvedPaths = resolvePaths(resources, fictionTitles);
 
   let html = fs.readFileSync(indexPath, "utf8");
   html = injectHomepage(html, groups);
   html = injectStarters(html, resources, fictionTitles);
+  html = injectPaths(html, resolvedPaths);
   queueWrite(indexPath, html);
 
   for (const t of TRACKS) {
     queueWrite(path.join(publicDir, t.slug, "index.html"), categoryPage(t, groups.get(t.key)));
   }
+
+  // Topic landing pages: one per topic plus a hub. Entries are every resource
+  // carrying the matching derived tag, in source order.
+  const topicsWithCounts = TOPIC_PAGES.map((topic) => {
+    const entries = enriched.filter((e) => e.tags.includes(topic.tag));
+    queueWrite(
+      path.join(publicDir, "topics", topic.slug, "index.html"),
+      topicPage(topic, entries)
+    );
+    return { ...topic, count: entries.length };
+  });
+  queueWrite(path.join(publicDir, "topics", "index.html"), topicsHub(topicsWithCounts));
+
+  // Learning-path pages: one per path plus a hub.
+  for (const p of resolvedPaths) {
+    queueWrite(path.join(publicDir, "paths", p.slug, "index.html"), pathPage(p, p.steps));
+  }
+  queueWrite(path.join(publicDir, "paths", "index.html"), pathsHub(resolvedPaths));
 
   queueWrite(path.join(publicDir, "sitemap.xml"), sitemapXml());
 

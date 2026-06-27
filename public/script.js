@@ -1060,6 +1060,46 @@ document.addEventListener("DOMContentLoaded", () => {
     return pageCount ? `${pageCount} pages` : "";
   };
 
+  // Resource metadata pills (difficulty + time to consume). Mirrors
+  // levelFor()/timeLabelFor() in scripts/lib/resources.mjs so the runtime cards
+  // match the server-rendered cards; keep the two in sync.
+  const validLevels = ["Beginner", "Intermediate", "Advanced"];
+  const levelByTrack = {
+    non_fiction_books: "Intermediate",
+    fiction_books: "Beginner",
+    academic_papers: "Advanced",
+    films: "Beginner",
+    tv: "Beginner",
+    documentaries: "Beginner",
+    podcasts: "Beginner",
+    websites: "Intermediate",
+    youtube: "Beginner",
+  };
+  const getEntryLevel = (entry = {}) => {
+    if (typeof entry.Level === "string" && validLevels.includes(entry.Level)) {
+      return entry.Level;
+    }
+    return levelByTrack[getEntryBucketKey(entry)] || "";
+  };
+  const humanizeMinutes = (minutes, verb) => {
+    if (!Number.isFinite(minutes) || minutes <= 0) return "";
+    if (minutes < 90) return `~${Math.round(minutes / 5) * 5 || 5} min ${verb}`;
+    const hours = minutes / 60;
+    const rounded = hours < 10 ? Math.round(hours * 2) / 2 : Math.round(hours);
+    return `~${rounded} hr ${verb}`;
+  };
+  const getEntryTimeLabel = (entry = {}) => {
+    const pages = normalizePositiveInteger(entry.page_count);
+    if (pages) return humanizeMinutes(pages * 1.8, "read");
+    const minutes = normalizePositiveInteger(entry.Minutes);
+    if (minutes) {
+      const track = getEntryBucketKey(entry);
+      const verb = track === "podcasts" || track === "youtube" ? "listen" : "watch";
+      return humanizeMinutes(minutes, verb);
+    }
+    return "";
+  };
+
   const usedSummarySet = new Set();
   const summaryReasonRules = [
     {
@@ -2214,6 +2254,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const yearElementId = `book-year-${toSafeDomId(target)}-${entryDomKey}`;
       const statusElementId = `book-status-${toSafeDomId(target)}-${entryDomKey}`;
       const pageCountText = getPageCountLabel(entry);
+      const levelText = getEntryLevel(entry);
+      const timeText = getEntryTimeLabel(entry);
       const yearValue = getEntryYear(entry);
       const yearText = yearValue ? `${yearValue}` : "";
       const coverClassName = `book-image${entry.__coverIsLogo ? " is-logo" : ""}`;
@@ -2286,6 +2328,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="book-meta">
               <span class="source-pill">${getDisplaySourceLabel(entry, normalizedLink)}</span>
               <span id="${statusElementId}" class="page-pill status-pill${progressValue ? "" : " is-hidden"}">${escapeHtml(getReadingProgressLabel(progressValue))}</span>
+              <span class="page-pill level-pill${levelText ? "" : " is-hidden"}">${escapeHtml(levelText)}</span>
+              <span class="page-pill time-pill${timeText ? "" : " is-hidden"}">${escapeHtml(timeText)}</span>
               <span id="${yearElementId}" class="page-pill year-pill${yearText ? "" : " is-hidden"}">${yearText}</span>
               <span id="${pageElementId}" class="page-pill${pageCountText ? "" : " is-hidden"}">${pageCountText}</span>
             </div>
@@ -3163,11 +3207,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Topic chips: clicking one runs a cross-category search for that topic by
-  // dropping the tag into the search box and re-rendering.
-  const topicChips = document.querySelectorAll(".topic-chip");
+  // dropping the tag into the search box and re-rendering. The chips are real
+  // links to /topics/<slug>/ (so no-JS visitors and crawlers reach the landing
+  // pages); with JS we intercept the click and filter in place instead. The
+  // "All topics" chip carries no data-topic-query and is left to navigate.
+  const topicChips = document.querySelectorAll(".topic-chip[data-topic-query]");
   if (topicChips.length && searchControl) {
     topicChips.forEach((chip) => {
-      chip.addEventListener("click", () => {
+      chip.addEventListener("click", (event) => {
+        event.preventDefault();
         const query = chip.getAttribute("data-topic-query") || "";
         const alreadyActive = searchControl.value === query;
         searchControl.value = alreadyActive ? "" : query;
