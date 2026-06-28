@@ -1,5 +1,5 @@
 {
-  "count": 321,
+  "count": 329,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -48,7 +48,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 30
+      "count": 38
     },
     {
       "key": "youtube",
@@ -4355,6 +4355,123 @@
       "trackLabel": "Websites",
       "tags": [
         "alignment"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: Technical AI Safety",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/technical-ai-safety",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Free online course building a working understanding of the major open problems in technical AI safety—alignment and RLHF, mechanistic interpretability, evaluations and red-teaming, AI control, and scalable oversight.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "interpretability",
+        "alignment"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: The Future of AI",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/future-of-ai",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Free introductory online course replacing scattered articles with clear explanations of what is actually happening with AI and where it is headed, including interactive demos of cutting-edge systems.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: Technical AI Safety Project Sprint",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/technical-ai-safety-project",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Online follow-on program where graduates of the technical course work with an AI safety expert to produce a real contribution to the field and build a first portfolio piece in safety research or engineering.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: AI Safety Operations Bootcamp",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/ops",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Intensive online bootcamp preparing early-to-mid-career professionals for operational roles at organisations working to make AI go well.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "Lens Academy",
+      "Author": "Lens Academy",
+      "Link": "https://lensacademy.org/",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Free, nonprofit AI safety course focused on misaligned superintelligence—why it is the central risk and why alignment is hard—delivered online with a 1-on-1 AI tutor, guided group discussions, and no application process.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "alignment",
+        "existential-risk"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "ARENA (Alignment Research Engineer Accelerator)",
+      "Author": "ARENA",
+      "Link": "https://www.arena.education/",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Hands-on technical curriculum for skilling up in AI alignment research engineering, freely available online and covering deep learning fundamentals, transformer mechanistic interpretability, reinforcement learning, and LLM evaluations.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "interpretability",
+        "alignment",
+        "rl",
+        "llms"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "Intro to ML Safety",
+      "Author": "Center for AI Safety",
+      "Link": "https://course.mlsafety.org/",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Dan Hendrycks' online course introducing students with a deep learning background to empirical ML safety research—robustness, monitoring, control, and systemic safety—with public lectures, readings, and coding assignments.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "AI Safety, Ethics, and Society",
+      "Author": "Center for AI Safety",
+      "Link": "https://www.aisafetybook.com/virtual-course",
+      "Category": "websites",
+      "page_count": 0,
+      "Summary": "Fully online, non-technical CAIS course based on the textbook of the same name, covering how AI systems work, why advanced AI could pose societal-scale risks, and how society can manage and mitigate them—no prior ML experience required.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "ethics"
       ],
       "level": "Intermediate",
       "timeLabel": ""
