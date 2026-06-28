@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     non_fiction_books: "Non-fiction Books",
     fiction_books: "Fiction Books",
     academic_papers: "Academic Papers",
+    courses: "Courses",
     films: "Films",
     tv: "TV Shows",
     documentaries: "Documentaries",
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { key: "non_fiction_books", parentId: "books-non-fiction-parent" },
     { key: "fiction_books", parentId: "books-fiction-parent" },
     { key: "academic_papers", parentId: "academic-papers-parent" },
+    { key: "courses", parentId: "courses-parent" },
     { key: "films", parentId: "films-parent" },
     { key: "tv", parentId: "tv-parent" },
     { key: "documentaries", parentId: "documentaries-parent" },
@@ -732,6 +734,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getDisplaySourceLabel = (entry = {}, link = "") => {
     const category = (entry.Category || "").toString();
     if (category === "websites") return "Website";
+    if (category === "courses") return "Course";
     if (category === "tv") return "TV Series";
     if (category === "youtube") return "YouTube";
     if (category === "documentaries") return "Documentary";
@@ -1068,6 +1071,7 @@ document.addEventListener("DOMContentLoaded", () => {
     non_fiction_books: "Intermediate",
     fiction_books: "Beginner",
     academic_papers: "Advanced",
+    courses: "Beginner",
     films: "Beginner",
     tv: "Beginner",
     documentaries: "Beginner",
@@ -2480,6 +2484,7 @@ document.addEventListener("DOMContentLoaded", () => {
       non_fiction_books: new Set(),
       fiction_books: new Set(),
       academic_papers: new Set(),
+      courses: new Set(),
       films: new Set(),
       tv: new Set(),
       documentaries: new Set(),

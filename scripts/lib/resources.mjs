@@ -46,6 +46,14 @@ export const TRACKS = [
       "Research papers, preprints, and technical reports on alignment, interpretability, and safety.",
   },
   {
+    key: "courses",
+    slug: "courses",
+    label: "Courses",
+    pane: "courses-parent",
+    intro:
+      "Free online courses and structured curricula for learning AI safety and alignment—from non-technical introductions to hands-on research engineering.",
+  },
+  {
     key: "films",
     slug: "films",
     label: "Films",
@@ -100,6 +108,7 @@ export const TRACK_BY_KEY = new Map(TRACKS.map((t) => [t.key, t]));
 export const VALID_CATEGORIES = new Set([
   "academic_papers",
   "books",
+  "courses",
   "films",
   "tv",
   "documentaries",
@@ -200,6 +209,7 @@ const LEVEL_BY_TRACK = {
   non_fiction_books: "Intermediate",
   fiction_books: "Beginner",
   academic_papers: "Advanced",
+  courses: "Beginner",
   films: "Beginner",
   tv: "Beginner",
   documentaries: "Beginner",
