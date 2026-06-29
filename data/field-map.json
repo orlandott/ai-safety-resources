@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "title": "The AI Safety field, by the numbers",
+    "updated": "2025",
+    "defaultMetric": "people",
+    "metrics": {
+      "people": {
+        "label": "People (FTEs)",
+        "unit": "FTEs",
+        "note": "Full-time-equivalent researchers. Hand-curated yearly snapshots from the field-growth analyses below; the field is small (~1,100 FTEs in 2025) and per-bucket splits are approximate, so totals don't sum exactly. Buckets marked 'estimated' are back-of-envelope.",
+        "auto": false
+      },
+      "papers": {
+        "label": "Papers / year",
+        "unit": "papers",
+        "note": "A research-VOLUME proxy: arXiv papers per year matching each branch's search terms. Auto-refreshed monthly by scripts/fetch-field-map.mjs. Noisy and over-counts where terms are broad — read it as relative effort, not a headcount.",
+        "auto": true
+      }
+    },
+    "sources": [
+      { "label": "AI Safety Field Growth Analysis 2025", "url": "https://www.lesswrong.com/posts/8QjAnWyuE9fktPRgS/ai-safety-field-growth-analysis-2025" },
+      { "label": "Estimating the Number of AI Safety Researchers", "url": "https://www.lesswrong.com/posts/mC3oeq62DWeqxiNBx/estimating-the-current-and-future-number-of-ai-safety" },
+      { "label": "80,000 Hours – AI safety technical research", "url": "https://80000hours.org/career-reviews/ai-safety-technical-research/" },
+      { "label": "Emerging Technology Observatory – AI safety almanac", "url": "https://almanac.eto.tech/topics/ai-safety/" }
+    ],
+    "groups": [
+      { "key": "technical", "label": "Technical alignment" },
+      { "key": "governance", "label": "Governance & policy" },
+      { "key": "crosscutting", "label": "Cross-cutting" }
+    ]
+  },
+  "buckets": [
+    {
+      "slug": "interpretability",
+      "label": "Mechanistic interpretability",
+      "group": "technical",
+      "topic": "/topics/mechanistic-interpretability/",
+      "blurb": "Reverse-engineering model internals: circuits, features, sparse autoencoders.",
+      "arxiv": "(\"mechanistic interpretability\" OR \"sparse autoencoder\" OR \"superposition\") AND (neural OR transformer OR language model)",
+      "people": [
+        { "year": 2022, "value": 25, "estimated": true },
+        { "year": 2025, "value": 80, "estimated": false }
+      ]
+    },
+    {
+      "slug": "scalable-oversight",
+      "label": "Scalable oversight",
+      "group": "technical",
+      "topic": "/topics/ai-alignment/",
+      "blurb": "RLHF, RLAIF, debate, recursive reward modeling, weak-to-strong generalization.",
+      "arxiv": "(\"scalable oversight\" OR RLHF OR \"reinforcement learning from human feedback\" OR \"weak-to-strong\" OR \"AI debate\")",
+      "people": [
+        { "year": 2022, "value": 45, "estimated": true },
+        { "year": 2025, "value": 110, "estimated": false }
+      ]
+    },
+    {
+      "slug": "robustness",
+      "label": "Robustness & jailbreaks",
+      "group": "technical",
+      "topic": null,
+      "blurb": "Adversarial robustness, jailbreak resistance, distribution shift.",
+      "arxiv": "(jailbreak OR \"adversarial robustness\" OR \"adversarial examples\") AND (\"language model\" OR LLM OR neural)",
+      "people": [
+        { "year": 2022, "value": 30, "estimated": true },
+        { "year": 2025, "value": 80, "estimated": false }
+      ]
+    },
+    {
+      "slug": "llm-safety",
+      "label": "LLM safety",
+      "group": "technical",
+      "topic": "/topics/large-language-models/",
+      "blurb": "Safety work focused specifically on large language models.",
+      "arxiv": "(\"LLM safety\" OR \"language model safety\" OR \"safe language model\" OR \"harmlessness\")",
+      "people": [
+        { "year": 2022, "value": 20, "estimated": true },
+        { "year": 2025, "value": 75, "estimated": false }
+      ]
+    },
+    {
+      "slug": "evals",
+      "label": "Evals & dangerous-capability testing",
+      "group": "technical",
+      "topic": null,
+      "blurb": "Capability and propensity evals — bio, cyber, autonomy, persuasion (AISI, METR, Apollo).",
+      "arxiv": "(\"dangerous capabilities\" OR \"capability evaluation\" OR \"model evaluation\" OR \"red teaming\") AND (\"language model\" OR LLM OR \"frontier model\")",
+      "people": [
+        { "year": 2022, "value": 15, "estimated": true },
+        { "year": 2025, "value": 100, "estimated": false }
+      ]
+    },
+    {
+      "slug": "deceptive-alignment",
+      "label": "Deceptive alignment & scheming",
+      "group": "technical",
+      "topic": "/topics/deceptive-alignment-and-scheming/",
+      "blurb": "Sleeper agents, mesa-optimization, scheming, models hiding their objectives.",
+      "arxiv": "(\"deceptive alignment\" OR \"sleeper agent\" OR scheming OR \"mesa-optimization\" OR \"mesa optimizer\")",
+      "people": [
+        { "year": 2022, "value": 8, "estimated": true },
+        { "year": 2025, "value": 25, "estimated": false }
+      ]
+    },
+    {
+      "slug": "reward-hacking",
+      "label": "RL & reward hacking",
+      "group": "technical",
+      "topic": "/topics/reinforcement-learning-and-reward-hacking/",
+      "blurb": "Reward hacking, specification gaming, goal misgeneralization.",
+      "arxiv": "(\"reward hacking\" OR \"specification gaming\" OR \"goal misgeneralization\" OR \"reward misspecification\")",
+      "people": [
+        { "year": 2022, "value": 15, "estimated": true },
+        { "year": 2025, "value": 22, "estimated": false }
+      ]
+    },
+    {
+      "slug": "agent-foundations",
+      "label": "Agent foundations",
+      "group": "technical",
+      "topic": "/topics/ai-alignment/",
+      "blurb": "Decision theory, embedded agency, corrigibility (MIRI-lineage theory).",
+      "arxiv": "(\"agent foundations\" OR corrigibility OR \"embedded agency\" OR \"decision theory\") AND (AI OR agent)",
+      "people": [
+        { "year": 2022, "value": 25, "estimated": true },
+        { "year": 2025, "value": 18, "estimated": false }
+      ]
+    },
+    {
+      "slug": "ai-control",
+      "label": "AI control",
+      "group": "technical",
+      "topic": null,
+      "blurb": "Containing misaligned-but-capable models — distinct from aligning them.",
+      "arxiv": "(\"AI control\" OR \"controlling untrusted\" OR \"control evaluations\") AND (AI OR \"language model\" OR model)",
+      "people": [
+        { "year": 2022, "value": 1, "estimated": true },
+        { "year": 2025, "value": 11, "estimated": false }
+      ]
+    },
+    {
+      "slug": "ai-security",
+      "label": "AI security",
+      "group": "technical",
+      "topic": null,
+      "blurb": "Model-weight security, data poisoning, misuse and uplift pathways.",
+      "arxiv": "(\"model weight\" OR \"data poisoning\" OR \"backdoor attack\" OR \"model extraction\") AND (neural OR \"language model\")",
+      "people": [
+        { "year": 2022, "value": 5, "estimated": true },
+        { "year": 2025, "value": 18, "estimated": false }
+      ]
+    },
+    {
+      "slug": "forecasting",
+      "label": "Forecasting & timelines",
+      "group": "technical",
+      "topic": "/topics/ai-forecasting-and-timelines/",
+      "blurb": "Scaling laws, takeoff dynamics, timeline forecasting (incl. Epoch AI).",
+      "arxiv": "(\"scaling laws\" OR \"compute trends\" OR \"AI timelines\" OR \"emergent abilities\")",
+      "people": [
+        { "year": 2022, "value": 10, "estimated": true },
+        { "year": 2025, "value": 25, "estimated": false }
+      ]
+    },
+    {
+      "slug": "theory",
+      "label": "Learning theory & guarantees",
+      "group": "technical",
+      "topic": null,
+      "blurb": "Formal guarantees, singular learning theory, theoretical safety.",
+      "arxiv": "(\"singular learning theory\" OR \"provable safety\" OR \"formal verification\") AND (neural OR \"deep learning\")",
+      "people": [
+        { "year": 2022, "value": 5, "estimated": true },
+        { "year": 2025, "value": 4, "estimated": false }
+      ]
+    },
+    {
+      "slug": "compute-governance",
+      "label": "Compute governance",
+      "group": "governance",
+      "topic": "/topics/ai-governance-and-policy/",
+      "blurb": "Tracking/controlling training compute, export controls, on-chip mechanisms.",
+      "arxiv": "(\"compute governance\" OR \"hardware governance\" OR \"on-chip\" OR \"export controls\") AND (AI OR chip OR semiconductor)",
+      "people": [
+        { "year": 2022, "value": 15, "estimated": true },
+        { "year": 2025, "value": 70, "estimated": true }
+      ]
+    },
+    {
+      "slug": "policy-standards",
+      "label": "Policy & standards",
+      "group": "governance",
+      "topic": "/topics/ai-governance-and-policy/",
+      "blurb": "Frontier-model regulation, evals-based policy, standards, law (EU AI Act, RSPs).",
+      "arxiv": "(\"AI regulation\" OR \"AI policy\" OR \"AI governance\" OR \"frontier AI\") AND (policy OR regulation OR standard)",
+      "people": [
+        { "year": 2022, "value": 40, "estimated": true },
+        { "year": 2025, "value": 150, "estimated": true }
+      ]
+    },
+    {
+      "slug": "intl-coordination",
+      "label": "International coordination",
+      "group": "governance",
+      "topic": "/topics/ai-governance-and-policy/",
+      "blurb": "Treaties, arms-race dynamics, international institutions for AI.",
+      "arxiv": "(\"international governance\" OR \"AI treaty\" OR \"arms race\" OR \"international coordination\") AND AI",
+      "people": [
+        { "year": 2022, "value": 15, "estimated": true },
+        { "year": 2025, "value": 70, "estimated": true }
+      ]
+    },
+    {
+      "slug": "lab-governance",
+      "label": "Lab governance & RSPs",
+      "group": "governance",
+      "topic": "/topics/ai-governance-and-policy/",
+      "blurb": "Responsible scaling policies, internal lab governance and commitments.",
+      "arxiv": "(\"responsible scaling\" OR \"responsible AI\" OR \"AI safety levels\" OR \"corporate governance\") AND AI",
+      "people": [
+        { "year": 2022, "value": 5, "estimated": true },
+        { "year": 2025, "value": 40, "estimated": true }
+      ]
+    },
+    {
+      "slug": "advocacy",
+      "label": "Advocacy & field-building",
+      "group": "crosscutting",
+      "topic": null,
+      "blurb": "Public engagement, awareness, talent pipelines and field-building.",
+      "arxiv": "(\"public attitudes\" OR \"AI awareness\" OR \"field building\") AND (AI OR \"artificial intelligence\")",
+      "people": [
+        { "year": 2022, "value": 15, "estimated": true },
+        { "year": 2025, "value": 90, "estimated": true }
+      ]
+    },
+    {
+      "slug": "ethics-society",
+      "label": "Ethics & societal impact",
+      "group": "crosscutting",
+      "topic": "/topics/ai-ethics-and-society/",
+      "blurb": "Fairness, bias, model welfare, and broader social impact of advanced AI.",
+      "arxiv": "(\"AI ethics\" OR \"AI fairness\" OR \"algorithmic bias\" OR \"model welfare\")",
+      "people": [
+        { "year": 2022, "value": 10, "estimated": true },
+        { "year": 2025, "value": 50, "estimated": true }
+      ]
+    }
+  ]
+}

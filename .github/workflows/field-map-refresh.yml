@@ -1,0 +1,59 @@
+name: Refresh field map
+
+# Auto-pulls the "papers / year" proxy for the AI safety field map from arXiv,
+# rebuilds the site, and commits any changes. The hand-curated "people" (FTE)
+# numbers in data/field-map.json are never touched by this job.
+
+on:
+  schedule:
+    # 06:17 UTC on the 1st of each month (public figures move slowly).
+    - cron: "17 6 1 * *"
+  workflow_dispatch:
+    inputs:
+      from_year:
+        description: "Backfill paper counts from this year (blank = current year only)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: field-map-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch arXiv paper counts
+        run: |
+          if [ -n "${{ github.event.inputs.from_year }}" ]; then
+            node scripts/fetch-field-map.mjs --from "${{ github.event.inputs.from_year }}"
+          else
+            node scripts/fetch-field-map.mjs
+          fi
+
+      - name: Rebuild site
+        run: node scripts/build.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git add data/field-map.json public/field-map/index.html
+          git commit -m "chore: refresh field-map paper counts from arXiv"
+          git push

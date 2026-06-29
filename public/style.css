@@ -31,6 +31,9 @@
   --shadow-soft: 0 4px 14px rgba(56, 33, 16, 0.07);
   --focus-ring: rgba(64, 157, 105, 0.35);
   --header-height: 64px;
+  --fm-technical: #409d69;
+  --fm-governance: #c98a2b;
+  --fm-crosscutting: #7a6cc4;
 }
 
 [data-theme="dark"] {
@@ -59,6 +62,9 @@
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
   --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.35);
   --focus-ring: rgba(79, 184, 126, 0.45);
+  --fm-technical: #4fb87e;
+  --fm-governance: #e0a94a;
+  --fm-crosscutting: #9a8ce0;
 }
 
 /* ── Base ──────────────────────────────────────────────────────────────── */
@@ -1824,4 +1830,247 @@ a.film-score:hover .film-score-value {
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.45;
+}
+
+/* ── Field map ─────────────────────────────────────────────────────────── */
+.field-map-page .hero-title {
+  margin-bottom: 0.25rem;
+}
+.field-map {
+  margin: 1.5rem 0 2rem;
+}
+.field-map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.field-map-metric {
+  display: inline-flex;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.field-map-metric-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.field-map-metric-btn.is-active {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.field-map-metric-btn:not(.is-active):hover {
+  color: var(--text);
+}
+.field-map-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1 1 240px;
+  min-width: 220px;
+}
+.field-map-play {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.7rem;
+  line-height: 1;
+  flex: none;
+}
+.field-map-play.is-playing {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft-border);
+}
+.field-map-slider {
+  flex: 1 1 auto;
+  accent-color: var(--accent);
+}
+.field-map-year {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 3ch;
+  text-align: right;
+}
+.field-map-legend {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.field-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.field-map-legend-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+.field-map-legend-item[data-group="technical"] .field-map-legend-dot {
+  background: var(--fm-technical);
+}
+.field-map-legend-item[data-group="governance"] .field-map-legend-dot {
+  background: var(--fm-governance);
+}
+.field-map-legend-item[data-group="crosscutting"] .field-map-legend-dot {
+  background: var(--fm-crosscutting);
+}
+.field-map-stage {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-soft);
+  overflow: hidden;
+}
+.field-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fm-node {
+  cursor: default;
+  transition: opacity 0.4s ease;
+}
+.fm-node[data-href] {
+  cursor: pointer;
+}
+.fm-bubble {
+  stroke: var(--surface);
+  stroke-width: 1.5;
+  fill-opacity: 0.82;
+  transition: fill-opacity 0.15s;
+}
+.fm-node:hover .fm-bubble,
+.fm-node:focus .fm-bubble {
+  fill-opacity: 1;
+}
+.fm-node:focus {
+  outline: none;
+}
+.fm-node:focus .fm-bubble {
+  stroke: var(--accent-text);
+  stroke-width: 2.5;
+}
+.fm-node[data-group="technical"] .fm-bubble {
+  fill: var(--fm-technical);
+}
+.fm-node[data-group="governance"] .fm-bubble {
+  fill: var(--fm-governance);
+}
+.fm-node[data-group="crosscutting"] .fm-bubble {
+  fill: var(--fm-crosscutting);
+}
+.fm-label {
+  fill: #fff;
+  font-weight: 600;
+  pointer-events: none;
+  paint-order: stroke;
+}
+.field-map-tip {
+  position: absolute;
+  z-index: 5;
+  max-width: 16rem;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  padding: 0.6rem 0.7rem;
+  font-size: 0.82rem;
+  color: var(--text);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.field-map-tip-num {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.field-map-tip-blurb {
+  color: var(--muted);
+  line-height: 1.35;
+}
+.field-map-tip-cta {
+  color: var(--link);
+  font-weight: 600;
+}
+.field-map-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+.field-map-note strong {
+  color: var(--text);
+}
+.field-map-sources {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+.field-map-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+.field-map-table caption {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.field-map-table th,
+.field-map-table td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.field-map-table .field-map-num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.field-map-group-row th {
+  color: var(--accent-text);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 0.9rem;
+}
+.field-map-est {
+  color: var(--muted);
+  font-weight: 400;
+}
+/* When JS is active the interactive map is shown and the table becomes a
+   supplementary data view; keep it but de-emphasise. */
+.field-map:not([hidden]) ~ .field-map-table {
+  opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fm-node,
+  .fm-bubble {
+    transition: none;
+  }
 }

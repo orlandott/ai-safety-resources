@@ -280,7 +280,7 @@ ${ld}  <script src="/theme-init.js"></script>
 ${main}
   </main>
   <footer class="site-footer">
-    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection. <a href="/paths/">Learning paths</a> · <a href="/topics/">Topics</a></p>
+    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection. <a href="/paths/">Learning paths</a> · <a href="/topics/">Topics</a> · <a href="/field-map/">Field map</a></p>
   </footer>
 </body>
 </html>
@@ -543,6 +543,78 @@ function injectStarters(html, resources, fictionTitles) {
   return html.replace(re, `$1${cards}$2`);
 }
 
+// ── Field map ───────────────────────────────────────────────────────────────
+
+// Interactive "state of the field" page: every research branch as a bubble
+// sized by a chosen metric (people/FTEs or papers/year), with a year slider
+// that animates the bubbles growing. The JS in public/field-map.js reads the
+// JSON we inline below; this function also emits a no-JS fallback table so the
+// page is crawlable and works without scripts.
+function fieldMapPage(fieldMap) {
+  const title = "AI Safety Field Map – Who's Working on What";
+  const desc =
+    "An interactive map of AI safety research: each branch — interpretability, scalable oversight, evals, compute governance, and more — sized by the number of people and papers, with a slider to watch the field grow over time.";
+  const url = `${SITE_ORIGIN}/field-map/`;
+  const groupLabel = new Map(fieldMap.meta.groups.map((g) => [g.key, g.label]));
+
+  // No-JS fallback: latest-year people figure per branch, grouped.
+  const latestPeople = (b) => b.people[b.people.length - 1];
+  const rows = fieldMap.meta.groups
+    .map((g) => {
+      const items = fieldMap.buckets
+        .filter((b) => b.group === g.key)
+        .sort((a, b) => latestPeople(b).value - latestPeople(a).value)
+        .map((b) => {
+          const p = latestPeople(b);
+          const name = b.topic
+            ? `<a href="${b.topic}">${escapeHtml(b.label)}</a>`
+            : escapeHtml(b.label);
+          const est = p.estimated ? ' <span class="field-map-est">(est.)</span>' : "";
+          return `<tr><td>${name}</td><td class="field-map-num">${p.value}${est}</td><td>${escapeHtml(b.blurb)}</td></tr>`;
+        })
+        .join("\n        ");
+      return (
+        `      <tr class="field-map-group-row"><th colspan="3">${escapeHtml(groupLabel.get(g.key) || g.key)}</th></tr>\n        ` +
+        items
+      );
+    })
+    .join("\n");
+
+  const fallbackTable =
+    `    <table class="field-map-table" data-field-map-fallback>\n` +
+    `      <caption>People (FTEs) per branch, ${escapeHtml(fieldMap.meta.updated)} snapshot</caption>\n` +
+    `      <thead><tr><th>Branch</th><th>People (FTEs)</th><th>What it covers</th></tr></thead>\n` +
+    `      <tbody>\n${rows}\n      </tbody>\n    </table>`;
+
+  const sources = fieldMap.meta.sources
+    .map((s) => `<a href="${s.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.label)}</a>`)
+    .join(" · ");
+
+  const main = [
+    breadcrumbMarkup([{ label: "All resources", href: "/" }, { label: "Field map" }]),
+    `    <h1 class="hero-title">AI safety, by the numbers</h1>`,
+    `    <p class="hero-copy">${escapeHtml(desc)}</p>`,
+    `    <div class="field-map" data-field-map hidden>`,
+    `      <div class="field-map-controls" data-field-map-controls></div>`,
+    `      <div class="field-map-stage" data-field-map-stage></div>`,
+    `      <p class="field-map-note" data-field-map-note></p>`,
+    `    </div>`,
+    `    <noscript><p class="field-map-note">Interactive map needs JavaScript. Here is the underlying data:</p></noscript>`,
+    fallbackTable,
+    `    <p class="field-map-sources">Sources: ${sources}. The whole field is small — roughly 1,100 full-time-equivalent people in 2025 — and per-branch splits are approximate. Figures marked “est.” are rough estimates.</p>`,
+    `    <script type="application/json" id="field-map-data">${JSON.stringify(fieldMap)}</script>`,
+    `    <script src="/field-map.js" defer></script>`,
+  ].join("\n");
+
+  return renderPage({
+    title,
+    description: desc,
+    url,
+    mainClass: "field-map-page",
+    main,
+  });
+}
+
 function sitemapXml() {
   const urls = [
     { loc: `${SITE_ORIGIN}/`, priority: "1.0" },
@@ -550,6 +622,7 @@ function sitemapXml() {
     ...PATHS.map((p) => ({ loc: `${SITE_ORIGIN}/paths/${p.slug}/`, priority: "0.8" })),
     { loc: `${SITE_ORIGIN}/topics/`, priority: "0.9" },
     ...TOPIC_PAGES.map((t) => ({ loc: `${SITE_ORIGIN}/topics/${t.slug}/`, priority: "0.8" })),
+    { loc: `${SITE_ORIGIN}/field-map/`, priority: "0.8" },
     ...TRACKS.map((t) => ({ loc: `${SITE_ORIGIN}/${t.slug}/`, priority: "0.8" })),
   ];
   const body = urls
@@ -607,6 +680,10 @@ function main() {
     return { ...topic, count: entries.length };
   });
   queueWrite(path.join(publicDir, "topics", "index.html"), topicsHub(topicsWithCounts));
+
+  // Field map: interactive "state of the field" page driven by data/field-map.json.
+  const fieldMap = JSON.parse(fs.readFileSync(path.join(dataDir, "field-map.json"), "utf8"));
+  queueWrite(path.join(publicDir, "field-map", "index.html"), fieldMapPage(fieldMap));
 
   // Learning-path pages: one per path plus a hub.
   for (const p of resolvedPaths) {
