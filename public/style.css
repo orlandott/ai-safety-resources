@@ -1631,45 +1631,6 @@ a.film-score:hover .film-score-value {
   margin: 0 0 1rem;
   font-size: 0.95rem;
 }
-.starter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.75rem;
-}
-.starter-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding: 0.85rem 0.95rem;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
-  text-decoration: none;
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-}
-.starter-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
-}
-.starter-card-kind {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--accent-text);
-  font-weight: 700;
-}
-.starter-card-title {
-  font-family: "Hahmlet", Georgia, serif;
-  font-weight: 600;
-  color: var(--text);
-}
-.starter-card-why {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.4;
-}
 
 /* ── "Where do I start?" path chooser (homepage) ───────────────────────────*/
 .paths-section {

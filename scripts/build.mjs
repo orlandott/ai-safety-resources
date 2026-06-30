@@ -33,7 +33,6 @@ import {
   escapeHtml,
   isValidHttpUrl,
   tagsFor,
-  STARTERS,
   VALID_LEVELS,
   levelFor,
   timeLabelFor,
@@ -516,33 +515,6 @@ function injectPaths(html, resolvedPaths) {
   return html.replace(re, `$1${cards}$2`);
 }
 
-// Resolve the curated STARTERS to real dataset entries (fails the build on a
-// name/track mismatch) and inject the cards into the index.html marker section.
-function injectStarters(html, resources, fictionTitles) {
-  const resolved = STARTERS.map((s) =>
-    resolveReference(s, "Start-here entry", resources, fictionTitles)
-  );
-
-  const cards = resolved
-    .map((s) => {
-      const label = escapeHtml(TRACK_BY_KEY.get(s.track)?.label || "");
-      return (
-        `<a class="starter-card" href="${escapeHtml(s.entry.Link)}" target="_blank" rel="noopener noreferrer">` +
-        `<span class="starter-card-kind">${label}</span>` +
-        `<span class="starter-card-title">${escapeHtml(s.entry.Name)}</span>` +
-        `<span class="starter-card-why">${escapeHtml(s.why)}</span>` +
-        `</a>`
-      );
-    })
-    .join("");
-
-  const re = /(<div class="starter-grid" data-build="starter">)[\s\S]*?(<\/div>)/;
-  if (!re.test(html)) {
-    throw new Error('Could not find the start-here container (data-build="starter") in index.html');
-  }
-  return html.replace(re, `$1${cards}$2`);
-}
-
 function sitemapXml() {
   const urls = [
     { loc: `${SITE_ORIGIN}/`, priority: "1.0" },
@@ -588,7 +560,6 @@ function main() {
 
   let html = fs.readFileSync(indexPath, "utf8");
   html = injectHomepage(html, groups);
-  html = injectStarters(html, resources, fictionTitles);
   html = injectPaths(html, resolvedPaths);
   queueWrite(indexPath, html);
 

@@ -265,22 +265,6 @@ export function metaPillsFor(entry, track) {
   return pills;
 }
 
-// ── "Start here" on-ramp ─────────────────────────────────────────────────
-// A short, hand-picked path for newcomers. Each entry references an existing
-// resource by its exact Name; the build resolves and validates these against
-// the dataset so a typo fails the build rather than silently dropping a card.
-export const STARTERS = [
-  { name: "Human Compatible", why: "The clearest book-length case for why control of advanced AI is hard—and a proposed fix." },
-  { name: "Concrete problems in AI safety", why: "The paper that turned 'AI safety' into a concrete engineering agenda." },
-  { name: "Ex Machina", why: "A tense, human-scale story about testing whether a machine is really aligned." },
-  { name: "AlphaGo", track: "documentaries", why: "A documentary on the match that made superhuman AI feel suddenly real." },
-  { name: "I, Robot", track: "fiction_books", why: "Asimov's robot stories are the original alignment case studies—safety rules that break down under edge cases and literal interpretation." },
-  { name: "Humans", track: "tv", why: "A grounded near-future drama where self-aware machines hidden among ordinary domestic robots force the question of personhood, control, and who we make minds for." },
-  { name: "80,000 Hours Podcast", track: "podcasts", why: "Long-form interviews that map the AI risk landscape—alignment, governance, and how to actually work on it." },
-  { name: "Robert Miles AI Safety", track: "youtube", why: "The most popular alignment video series—clear, rigorous explainers of the core safety concepts." },
-  { name: "LessWrong", why: "The community where many foundational alignment arguments were first worked out." },
-];
-
 // ── Topic landing pages (SEO) ─────────────────────────────────────────────
 // Each topic compiles a crawlable page at /topics/<slug>/ listing every
 // resource carrying the matching derived tag (see TOPIC_TAGS), across all
