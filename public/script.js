@@ -2,6 +2,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".gauntlet-tab");
   const panes = document.querySelectorAll(".w-tab-pane");
   const ensureArray = (value) => (Array.isArray(value) ? value : []);
+  // Spell out small counts for prose ("nine formats"); fall back to digits
+  // beyond the table so the copy still reads correctly if more are added.
+  const numberToWord = (n) => {
+    const words = [
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+      "eleven",
+      "twelve",
+    ];
+    return words[n] || String(n);
+  };
   const rawResourceGuardrails = window.RWWC_RESOURCE_GUARDRAILS || {};
   const resourceGuardrails = {
     disabledTitles: ensureArray(rawResourceGuardrails.disabledTitles),
@@ -2838,7 +2858,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (heroResourceCountElement && entryLookup.size) {
       heroResourceCountElement.hidden = false;
-      heroResourceCountElement.textContent = `${entryLookup.size} curated resources across six formats`;
+      // Count distinct formats actually present, collapsing the two book tracks
+      // (fiction/non-fiction) into a single "books" format. Derived from the
+      // data so the copy never goes stale as new tracks are added.
+      const formatsWithResources = new Set();
+      nextTrackTotals.forEach((count, trackKey) => {
+        if (count > 0) {
+          formatsWithResources.add(
+            trackKey === "non_fiction_books" || trackKey === "fiction_books"
+              ? "books"
+              : trackKey
+          );
+        }
+      });
+      const formatCountLabel = numberToWord(formatsWithResources.size);
+      heroResourceCountElement.textContent = `${entryLookup.size} curated resources across ${formatCountLabel} formats`;
     }
 
     renderReadingDashboard();
