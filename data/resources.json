@@ -1,5 +1,5 @@
 {
-  "count": 327,
+  "count": 323,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -30,7 +30,7 @@
       "key": "films",
       "label": "Films",
       "slug": "films",
-      "count": 52
+      "count": 49
     },
     {
       "key": "tv",
@@ -60,7 +60,7 @@
       "key": "youtube",
       "label": "YouTube",
       "slug": "youtube",
-      "count": 37
+      "count": 36
     }
   ],
   "resources": [
@@ -3223,22 +3223,6 @@
       "timeLabel": ""
     },
     {
-      "Name": "AlphaGo",
-      "Author": "Greg Kohs",
-      "Link": "https://www.imdb.com/title/tt6700846/",
-      "Category": "films",
-      "Year": 2017,
-      "page_count": 0,
-      "Summary": "This documentary captures the moment AI surpassed the best human Go player, making abstract capability discussions concrete and showing the emotional impact of machines exceeding human mastery.",
-      "imdb": "7.9",
-      "rt": 100,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [],
-      "level": "Beginner",
-      "timeLabel": ""
-    },
-    {
       "Name": "Marjorie Prime",
       "Author": "Michael Almereyda",
       "Link": "https://www.imdb.com/title/tt5592248/",
@@ -3302,42 +3286,6 @@
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Archive_%282020_film%29_poster.jpg/330px-Archive_%282020_film%29_poster.jpg",
       "imdb": "6.8",
       "rt": 72,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
-        "ethics"
-      ],
-      "level": "Beginner",
-      "timeLabel": ""
-    },
-    {
-      "Name": "The Social Dilemma",
-      "Author": "Jeff Orlowski",
-      "Link": "https://www.imdb.com/title/tt11464826/",
-      "Category": "films",
-      "Year": 2020,
-      "page_count": 0,
-      "Summary": "Former tech insiders explain how recommendation algorithms optimize for engagement over wellbeing, a documentary case study of misaligned AI already deployed at scale.",
-      "imdb": "7.6",
-      "rt": 85,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
-        "alignment"
-      ],
-      "level": "Beginner",
-      "timeLabel": ""
-    },
-    {
-      "Name": "Coded Bias",
-      "Author": "Shalini Kantayya",
-      "Link": "https://www.imdb.com/title/tt11394170/",
-      "Category": "films",
-      "Year": 2020,
-      "page_count": 0,
-      "Summary": "Documents how facial recognition and algorithmic systems encode racial and gender bias, showing that AI safety failures are not hypothetical but actively harming people today.",
-      "imdb": "7.2",
-      "rt": 94,
       "track": "films",
       "trackLabel": "Films",
       "tags": [
@@ -5302,24 +5250,6 @@
       "tags": [
         "existential-risk",
         "deception"
-      ],
-      "level": "Beginner",
-      "timeLabel": ""
-    },
-    {
-      "Name": "Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization | Lex Fridman Podcast #368",
-      "Author": "Lex Fridman",
-      "Link": "https://www.youtube.com/watch?v=AaTRHFaaPG8",
-      "Category": "youtube",
-      "Year": 2023,
-      "page_count": 0,
-      "Summary": "A long-form conversation in which Yudkowsky makes his case that humanity is unprepared for superintelligence, probing why alignment is so hard and why he expects catastrophe by default.",
-      "track": "youtube",
-      "trackLabel": "YouTube",
-      "tags": [
-        "interpretability",
-        "alignment",
-        "existential-risk"
       ],
       "level": "Beginner",
       "timeLabel": ""
