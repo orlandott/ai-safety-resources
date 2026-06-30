@@ -2592,6 +2592,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortControl = document.getElementById("category-sort-control");
   const yearFromControl = document.getElementById("category-year-from-control");
   const yearToControl = document.getElementById("category-year-to-control");
+  const levelControl = document.getElementById("category-level-control");
   const filterResetButton = document.getElementById("category-filter-reset");
   const searchControl = document.getElementById("category-search-control");
   const searchClearButton = document.getElementById("category-search-clear");
@@ -2614,16 +2615,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     const query = getSearchQuery();
+    const level =
+      levelControl && validLevels.includes(levelControl.value)
+        ? levelControl.value
+        : "";
     return {
       fromYear,
       toYear,
       query,
+      level,
       queryTokens: query ? query.split(" ") : [],
     };
   };
 
   const hasActiveFilters = (filters) =>
-    Boolean(filters && (filters.fromYear || filters.toYear || filters.query));
+    Boolean(
+      filters &&
+        (filters.fromYear || filters.toYear || filters.query || filters.level)
+    );
 
   const updateYearSelectOptions = (control, years = []) => {
     if (!control) {
@@ -2681,6 +2690,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!filters.queryTokens.every((token) => searchText.includes(token))) {
         return false;
       }
+    }
+    if (filters.level && getEntryLevel(entry) !== filters.level) {
+      return false;
     }
     if (!filters.fromYear && !filters.toYear) {
       return true;
@@ -3193,6 +3205,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (levelControl) {
+    levelControl.addEventListener("change", () => {
+      renderAllBooks();
+    });
+  }
+
   const syncSearchClearVisibility = () => {
     if (searchClearButton) {
       searchClearButton.hidden = !(searchControl && searchControl.value);
@@ -3265,6 +3283,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (yearToControl) {
         yearToControl.value = "";
+      }
+      if (levelControl) {
+        levelControl.value = "";
       }
       if (searchControl) {
         searchControl.value = "";
