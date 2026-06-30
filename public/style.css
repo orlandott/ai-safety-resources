@@ -928,6 +928,11 @@ a.film-score:hover .film-score-value {
   border-radius: 12px;
   background: var(--surface);
   overflow: hidden;
+  /* The sidebar is a height-constrained flex column (sticky, overflow-y:auto).
+     Without this, the box is a shrinkable flex child and collapses to a thin
+     clipped stripe on shorter screens; keep its natural height and let the
+     sidebar scroll instead. */
+  flex-shrink: 0;
 }
 
 .reading-dashboard-collapsible {
