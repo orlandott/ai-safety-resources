@@ -34,9 +34,23 @@ Your site will be available at `https://<project-name>.pages.dev`. You can add a
 The repo includes a `/functions` directory so the project is not purely static:
 
 - **GET /api/health** – returns JSON `{ ok, time, service }` (server-side).
-- **POST /api/submit** – accepts the suggestion form payload (JSON or `application/x-www-form-urlencoded`), validates it, and forwards to the Apps Script endpoint. The site’s suggestion form is configured to use this by default (`suggestion-form-config.js` → `endpointUrl: "/api/submit"`). Optional env var `APPS_SCRIPT_ENDPOINT_URL` overrides the forwarding target.
+- **POST /api/submit** – accepts the suggestion and contact form payloads (JSON), and emails them to the team via [Resend](https://resend.com). Both the **Suggest a resource** form and the **Contact** modal post here by default (`suggestion-form-config.js` → `mode: "endpoint"`, `url: "/api/submit"`).
 
 Add more files under `functions/` for extra routes; see [Cloudflare Pages Functions](https://developers.cloudflare.com/pages/functions/get-started/).
+
+## Environment variables (required for the forms)
+
+`/api/submit` sends email through Resend, so set these under **your Pages project → Settings → Environment variables** (add them for both **Production** and **Preview**):
+
+| Variable | Required | Notes |
+|----------|----------|-------|
+| `RESEND_API_KEY` | Yes | Resend API key (starts with `re_`). Create one at [resend.com](https://resend.com). Until it is set, `/api/submit` returns `503 Email not configured` and the forms show an error. |
+| `CONTACT_EMAIL` | No | Destination inbox. Defaults to `contact@ai-safety-resources.com`. |
+
+After adding or changing variables, redeploy (Pages → **Deployments** → **Retry**/**Create deployment**) so the new values take effect.
+
+> **Seeing "Variables cannot be added to a Worker that only has static assets"?**
+> Your project was created as a **Worker** (via `npx wrangler deploy`), not a Pages project. A static-assets-only Worker has no script, so it can neither run `functions/api/submit.js` nor hold the `RESEND_API_KEY` secret. Re-create the project as **Pages** (Workers & Pages → **Create** → **Pages** → **Connect to Git**) with **Build command** empty and **Build output directory** `public`, then add the variables there.
 
 ## Deploy from the CLI
 

@@ -1,9 +1,16 @@
-# Cloudflare Pages – static site from public/
-# If the dashboard runs "npx wrangler deploy", this [assets] section lets it succeed
-# and serve the public/ folder. Prefer: Build command = empty, output dir = public.
+# Cloudflare Pages – static site from public/ + Pages Functions in functions/.
+#
+# Deploy as a Cloudflare PAGES project (not a Worker):
+#   Build command: (empty)   Build output directory: public
+# Pages automatically runs functions/api/*.js (e.g. /api/submit, /api/health).
+#
+# Do NOT run "npx wrangler deploy" — that creates a static-assets-only Worker,
+# which cannot run the form endpoint and cannot hold secrets
+# ("Variables cannot be added to a Worker that only has static assets").
+# For CLI deploys use:  npx wrangler pages deploy public
+#
+# Set RESEND_API_KEY (and optional CONTACT_EMAIL) in the Pages project under
+# Settings → Environment variables so /api/submit can send the emails.
 name = "ai-safety-resources"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "public"
-
-[assets]
-directory = "./public"
