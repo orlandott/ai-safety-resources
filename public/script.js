@@ -1656,6 +1656,30 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const renderReadingItemMarkup = (record) => {
+      const safeName = escapeHtml(record.name || "Untitled");
+      const safeAuthor = escapeHtml(record.author || "Unknown author");
+      const safeLink = escapeHtml(record.link || "#");
+      const safeLookupKey = escapeHtml(record.lookupKey || "");
+      const progressMarkup = getProgressOptionsMarkup(record.status || "");
+      return `
+        <li class="reading-list-item">
+          <div class="reading-list-item-main">
+            <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="reading-list-item-link">${safeName}</a>
+            <span class="reading-list-item-meta">${safeAuthor}</span>
+          </div>
+          <div class="reading-list-item-actions">
+            <select class="reading-list-status-select" data-dashboard-progress-select="${safeLookupKey}" aria-label="Progress for ${safeName}">
+              ${progressMarkup}
+            </select>
+            <button type="button" class="reading-list-remove" data-reading-remove-key="${safeLookupKey}">
+              Remove
+            </button>
+          </div>
+        </li>
+      `;
+    };
+
     const sectionsMarkup = Object.entries(trackLabels)
       .map(([trackKey, trackLabel]) => {
         const safeTrackKey = escapeHtml(trackKey);
@@ -1675,31 +1699,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const sectionContentMarkup = trackRecords.length
           ? `
             <ul class="reading-list-items">
-              ${trackRecords
-                .map((record) => {
-                  const safeName = escapeHtml(record.name || "Untitled");
-                  const safeAuthor = escapeHtml(record.author || "Unknown author");
-                  const safeLink = escapeHtml(record.link || "#");
-                  const safeLookupKey = escapeHtml(record.lookupKey || "");
-                  const progressMarkup = getProgressOptionsMarkup(record.status || "");
-                  return `
-                    <li class="reading-list-item">
-                      <div class="reading-list-item-main">
-                        <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="reading-list-item-link">${safeName}</a>
-                        <span class="reading-list-item-meta">${safeAuthor}</span>
-                      </div>
-                      <div class="reading-list-item-actions">
-                        <select class="reading-list-status-select" data-dashboard-progress-select="${safeLookupKey}" aria-label="Progress for ${safeName}">
-                          ${progressMarkup}
-                        </select>
-                        <button type="button" class="reading-list-remove" data-reading-remove-key="${safeLookupKey}">
-                          Remove
-                        </button>
-                      </div>
-                    </li>
-                  `;
-                })
-                .join("")}
+              ${trackRecords.map(renderReadingItemMarkup).join("")}
             </ul>
           `
           : `<p class="reading-section-empty">No saved resources in this track yet.</p>`;
@@ -1721,7 +1721,36 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .join("");
 
-    readingListPreviewElement.innerHTML = sectionsMarkup;
+    // Records whose category cannot be resolved to a known track (e.g. a
+    // resource that was later removed or renamed in the dataset) would
+    // otherwise be counted in the summary but never rendered in any section,
+    // leaving them invisible and impossible to remove. Surface them in a
+    // dedicated "Other" section so every saved record stays actionable.
+    const otherRecords = records.filter(
+      (record) => !validTrackKeys.has(getResolvedRecordCategory(record))
+    );
+    const otherFinished = otherRecords.filter((record) => record.status === "finished").length;
+    const otherSectionMarkup = otherRecords.length
+      ? `
+        <details class="reading-section" data-reading-track="__other"${
+          Object.prototype.hasOwnProperty.call(priorSectionOpenState, "__other")
+            ? priorSectionOpenState["__other"]
+              ? " open"
+              : ""
+            : " open"
+        }>
+          <summary class="reading-section-summary">
+            <span class="reading-section-name">Other</span>
+            <span class="reading-section-count">${otherFinished}/${otherRecords.length}</span>
+          </summary>
+          <ul class="reading-list-items">
+            ${otherRecords.map(renderReadingItemMarkup).join("")}
+          </ul>
+        </details>
+      `
+      : "";
+
+    readingListPreviewElement.innerHTML = sectionsMarkup + otherSectionMarkup;
   };
   const disabledTitleKeys = new Set(
     resourceGuardrails.disabledTitles
