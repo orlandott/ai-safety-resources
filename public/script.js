@@ -1112,16 +1112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const rounded = hours < 10 ? Math.round(hours * 2) / 2 : Math.round(hours);
     return `~${rounded} hr ${verb}`;
   };
-  // Estimated minutes to consume an entry: ~1.8 min/page for things with a
-  // page_count, or the explicit Minutes runtime for audio-visual tracks.
-  // Returns 0 when there is nothing to estimate.
-  const getEntryMinutes = (entry = {}) => {
-    const pages = normalizePositiveInteger(entry.page_count);
-    if (pages) return pages * 1.8;
-    const minutes = normalizePositiveInteger(entry.Minutes);
-    if (minutes) return minutes;
-    return 0;
-  };
   const getEntryTimeLabel = (entry = {}) => {
     const pages = normalizePositiveInteger(entry.page_count);
     if (pages) return humanizeMinutes(pages * 1.8, "read");
@@ -1132,16 +1122,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return humanizeMinutes(minutes, verb);
     }
     return "";
-  };
-  // Coarse time-to-consume bucket used by the library filter. Entries with no
-  // length estimate return "" and are excluded when a time filter is active.
-  const validTimeBuckets = ["short", "medium", "long"];
-  const getEntryTimeBucket = (entry = {}) => {
-    const minutes = getEntryMinutes(entry);
-    if (!minutes) return "";
-    if (minutes < 60) return "short";
-    if (minutes < 240) return "medium";
-    return "long";
   };
 
   const usedSummarySet = new Set();
@@ -2613,7 +2593,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearFromControl = document.getElementById("category-year-from-control");
   const yearToControl = document.getElementById("category-year-to-control");
   const levelControl = document.getElementById("category-level-control");
-  const timeControl = document.getElementById("category-time-control");
   const filterResetButton = document.getElementById("category-filter-reset");
   const searchControl = document.getElementById("category-search-control");
   const searchClearButton = document.getElementById("category-search-clear");
@@ -2640,16 +2619,11 @@ document.addEventListener("DOMContentLoaded", () => {
       levelControl && validLevels.includes(levelControl.value)
         ? levelControl.value
         : "";
-    const time =
-      timeControl && validTimeBuckets.includes(timeControl.value)
-        ? timeControl.value
-        : "";
     return {
       fromYear,
       toYear,
       query,
       level,
-      time,
       queryTokens: query ? query.split(" ") : [],
     };
   };
@@ -2657,11 +2631,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hasActiveFilters = (filters) =>
     Boolean(
       filters &&
-        (filters.fromYear ||
-          filters.toYear ||
-          filters.query ||
-          filters.level ||
-          filters.time)
+        (filters.fromYear || filters.toYear || filters.query || filters.level)
     );
 
   const updateYearSelectOptions = (control, years = []) => {
@@ -2722,9 +2692,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     if (filters.level && getEntryLevel(entry) !== filters.level) {
-      return false;
-    }
-    if (filters.time && getEntryTimeBucket(entry) !== filters.time) {
       return false;
     }
     if (!filters.fromYear && !filters.toYear) {
@@ -3244,12 +3211,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (timeControl) {
-    timeControl.addEventListener("change", () => {
-      renderAllBooks();
-    });
-  }
-
   const syncSearchClearVisibility = () => {
     if (searchClearButton) {
       searchClearButton.hidden = !(searchControl && searchControl.value);
@@ -3325,9 +3286,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (levelControl) {
         levelControl.value = "";
-      }
-      if (timeControl) {
-        timeControl.value = "";
       }
       if (searchControl) {
         searchControl.value = "";
