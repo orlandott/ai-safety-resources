@@ -7,6 +7,7 @@
 :root {
   color-scheme: light;
   --bg: #f4f1ea;
+  --bg-ombre: linear-gradient(180deg, rgba(64, 157, 105, 0.16) 0%, rgba(64, 157, 105, 0.06) 28%, rgba(244, 241, 234, 0) 62%);
   --surface: #ffffff;
   --surface-soft: #f9f7f1;
   --surface-raised: #fbf9f5;
@@ -36,6 +37,7 @@
 [data-theme="dark"] {
   color-scheme: dark;
   --bg: #15110d;
+  --bg-ombre: linear-gradient(180deg, rgba(79, 184, 126, 0.2) 0%, rgba(79, 184, 126, 0.08) 30%, rgba(21, 17, 13, 0) 64%);
   --surface: #1f1913;
   --surface-soft: #251e17;
   --surface-raised: #2a221a;
@@ -77,6 +79,9 @@ body.site-body {
   margin: 0;
   font-family: "Sora", "Open Sans", sans-serif;
   background: var(--bg);
+  background-image: var(--bg-ombre);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--text);
   transition: background 0.25s ease, color 0.25s ease;
 }
@@ -181,7 +186,7 @@ textarea {
 
 .nav-logo {
   display: block;
-  height: 28px;
+  height: 36px;
   width: auto;
   filter: invert(14%) sepia(17%) saturate(996%) hue-rotate(356deg) brightness(95%) contrast(88%);
 }
