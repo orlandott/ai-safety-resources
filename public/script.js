@@ -696,7 +696,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.addEventListener("hashchange", applyTabFromLocationHash);
+  window.addEventListener("hashchange", () => {
+    applyTabFromLocationHash();
+    applyResourceHighlightFromHash();
+  });
   applyTabFromLocationHash();
   syncTabA11yState();
 
@@ -809,6 +812,38 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       return false;
     }
+  };
+
+  // Only links that point at a single playable video can be embedded inline;
+  // channel/handle links (e.g. youtube.com/@RobertMilesAI) have no video id
+  // and keep the normal "open externally" behavior.
+  const getYoutubeVideoId = (link = "") => {
+    try {
+      const url = new URL(link.toString().trim());
+      const host = url.hostname.replace(/^www\./, "").replace(/^m\./, "");
+      const isVideoId = (value) => /^[\w-]{6,}$/.test(value || "");
+      if (host === "youtu.be") {
+        const id = url.pathname.split("/").filter(Boolean)[0] || "";
+        return isVideoId(id) ? id : "";
+      }
+      if (host === "youtube.com" || host === "music.youtube.com") {
+        if (url.pathname === "/watch") {
+          const id = url.searchParams.get("v") || "";
+          return isVideoId(id) ? id : "";
+        }
+        const embedMatch = url.pathname.match(/^\/embed\/([\w-]{6,})/);
+        if (embedMatch) {
+          return embedMatch[1];
+        }
+        const shortsMatch = url.pathname.match(/^\/shorts\/([\w-]{6,})/);
+        if (shortsMatch) {
+          return shortsMatch[1];
+        }
+      }
+    } catch (error) {
+      // Not a parseable URL — no embed.
+    }
+    return "";
   };
 
   const normalizeStringInput = (value = "") =>
@@ -1752,6 +1787,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
     readingListPreviewElement.innerHTML = sectionsMarkup + otherSectionMarkup;
   };
+
+  const fallbackCopyTextToClipboard = (text, onDone) => {
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      onDone();
+    } catch (error) {
+      logResilienceWarning("copy_link_fallback_failed", {}, error);
+    }
+  };
+
+  const copyResourceLink = (buttonElement, lookupKey) => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}#r-${encodeURIComponent(
+      lookupKey
+    )}`;
+    const showCopiedFeedback = () => {
+      if (!buttonElement) {
+        return;
+      }
+      const originalLabel = buttonElement.textContent;
+      buttonElement.textContent = "Copied!";
+      buttonElement.classList.add("is-copied");
+      window.setTimeout(() => {
+        buttonElement.textContent = originalLabel;
+        buttonElement.classList.remove("is-copied");
+      }, 1600);
+    };
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      navigator.clipboard
+        .writeText(shareUrl)
+        .then(showCopiedFeedback)
+        .catch(() => fallbackCopyTextToClipboard(shareUrl, showCopiedFeedback));
+    } else {
+      fallbackCopyTextToClipboard(shareUrl, showCopiedFeedback);
+    }
+  };
+
+  // Scrolls to and briefly spotlights a rendered card. Used by both the
+  // "Surprise me" button and incoming `#r-<lookupKey>` share links. Switches
+  // to the entry's tab first (its card exists in the DOM even off-screen, but
+  // the owning tab pane must be visible for scrollIntoView to do anything).
+  const highlightCardByLookupKey = (lookupKey) => {
+    if (!lookupKey) {
+      return;
+    }
+    const trackKey = latestEntryCategoryLookup.get(lookupKey);
+    if (trackKey) {
+      activateTab(trackKey, { updateHash: false });
+    }
+    const card = [...document.querySelectorAll(".resource-card[data-lookup-key]")].find(
+      (element) => element.getAttribute("data-lookup-key") === lookupKey
+    );
+    if (!card) {
+      return;
+    }
+    card.scrollIntoView({ behavior: motionSafeBehavior(), block: "center" });
+    card.classList.add("is-spotlighted");
+    window.setTimeout(() => card.classList.remove("is-spotlighted"), 2200);
+  };
+
+  const parseResourceHashKey = () => {
+    const rawHash = (window.location.hash || "").slice(1);
+    if (!rawHash.startsWith("r-")) {
+      return "";
+    }
+    try {
+      return decodeURIComponent(rawHash.slice(2));
+    } catch (error) {
+      return "";
+    }
+  };
+
+  const applyResourceHighlightFromHash = () => {
+    const lookupKey = parseResourceHashKey();
+    if (lookupKey) {
+      highlightCardByLookupKey(lookupKey);
+    }
+  };
+
   const disabledTitleKeys = new Set(
     resourceGuardrails.disabledTitles
       .map((title) => getTitleLookupKey(title))
@@ -2315,6 +2436,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const coverMarkup = safeImageUrl
         ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover" />`
         : buildCoverPlaceholderMarkup(entry.Name || "");
+      const youtubeVideoId = category === "youtube" ? getYoutubeVideoId(normalizedLink) : "";
+      const youtubeThumbnailUrl = youtubeVideoId
+        ? `https://i.ytimg.com/vi/${escapeHtml(youtubeVideoId)}/hqdefault.jpg`
+        : "";
+      const playBadgeMarkup = `<span class="youtube-play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>`;
+      const coverElementMarkup = youtubeVideoId
+        ? `<span id="${coverElementId}" class="book-cover resource-cover-link youtube-cover" data-youtube-id="${escapeHtml(youtubeVideoId)}" role="button" tabindex="0" aria-label="Play ${safeName} inline">
+            <img class="book-image" src="${youtubeThumbnailUrl}" loading="lazy" alt="${safeName} video thumbnail" />
+            ${playBadgeMarkup}
+          </span>`
+        : `<a id="${coverElementId}" href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="book-cover resource-cover-link" aria-label="Open ${safeName}">
+            ${coverMarkup}
+          </a>`;
 
       const imdbScore = isFilm && (entry.imdb != null && entry.imdb !== "") ? String(entry.imdb) : "";
       const rtScore = isFilm && (entry.rt != null && entry.rt !== "") ? Number(entry.rt) : NaN;
@@ -2369,9 +2503,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `
         <article class="hypothesis book resource-card responsive w-inline-block${isSaved ? " is-saved" : ""}" data-lookup-key="${safeLookupKey}">
           <span class="book-rank">${formatRank(index)}</span>
-          <a id="${coverElementId}" href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="book-cover resource-cover-link" aria-label="Open ${safeName}">
-            ${coverMarkup}
-          </a>
+          ${coverElementMarkup}
           <div class="book-main">
             <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="resource-title-link">
               <h4 class="idea-header book">${safeName}</h4>
@@ -2395,6 +2527,9 @@ document.addEventListener("DOMContentLoaded", () => {
               <select class="resource-progress-select" data-progress-select="${safeLookupKey}" aria-label="Progress for ${safeName}">
                 ${progressOptionsMarkup}
               </select>
+              <button type="button" class="resource-save-button resource-share-button" data-share-toggle="${safeLookupKey}" aria-label="Copy link to ${safeName}">
+                Copy link
+              </button>
             </div>
           </div>
           <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="open-link resource-open-link">Open <span class="open-link-arrow" aria-hidden="true">↗</span></a>
@@ -2590,6 +2725,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const sortControl = document.getElementById("category-sort-control");
+  const levelControl = document.getElementById("category-level-control");
   const yearFromControl = document.getElementById("category-year-from-control");
   const yearToControl = document.getElementById("category-year-to-control");
   const filterResetButton = document.getElementById("category-filter-reset");
@@ -2597,6 +2733,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchClearButton = document.getElementById("category-search-clear");
   const resultsNoteElement = document.getElementById("category-results-note");
   const heroResourceCountElement = document.getElementById("hero-resource-count");
+  const libraryEmptyStateElement = document.getElementById("library-empty-state");
+  const libraryEmptyStateResetButton = document.getElementById("library-empty-state-reset");
 
   const getSortMode = () => (sortControl && sortControl.value) || "year_desc";
 
@@ -2614,16 +2752,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     const query = getSearchQuery();
+    const level = validLevels.includes((levelControl && levelControl.value) || "")
+      ? levelControl.value
+      : "";
     return {
       fromYear,
       toYear,
       query,
+      level,
       queryTokens: query ? query.split(" ") : [],
     };
   };
 
   const hasActiveFilters = (filters) =>
-    Boolean(filters && (filters.fromYear || filters.toYear || filters.query));
+    Boolean(filters && (filters.fromYear || filters.toYear || filters.query || filters.level));
 
   const updateYearSelectOptions = (control, years = []) => {
     if (!control) {
@@ -2681,6 +2823,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!filters.queryTokens.every((token) => searchText.includes(token))) {
         return false;
       }
+    }
+    if (filters.level && getEntryLevel(entry) !== filters.level) {
+      return false;
     }
     if (!filters.fromYear && !filters.toYear) {
       return true;
@@ -2870,6 +3015,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // acts as the section header). Year-only filters keep the normal tab view.
     if (libraryContent) {
       libraryContent.classList.toggle("is-searching", Boolean(filterState.query));
+    }
+
+    if (libraryEmptyStateElement) {
+      libraryEmptyStateElement.hidden = !(
+        filterState.query && totalMatchingEntries === 0
+      );
     }
 
     if (resultsNoteElement) {
@@ -3181,6 +3332,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (levelControl) {
+    levelControl.addEventListener("change", () => {
+      renderAllBooks();
+    });
+  }
+
   if (yearFromControl) {
     yearFromControl.addEventListener("change", () => {
       renderAllBooks();
@@ -3193,10 +3350,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const searchShortcutHint = document.getElementById("search-shortcut-hint");
+  const syncSearchShortcutHint = () => {
+    if (searchShortcutHint) {
+      searchShortcutHint.hidden = Boolean(
+        (searchControl && searchControl.value) || document.activeElement === searchControl
+      );
+    }
+  };
+
   const syncSearchClearVisibility = () => {
     if (searchClearButton) {
       searchClearButton.hidden = !(searchControl && searchControl.value);
     }
+    syncSearchShortcutHint();
   };
 
   let searchRenderTimer = null;
@@ -3223,6 +3390,8 @@ document.addEventListener("DOMContentLoaded", () => {
         renderAllBooks();
       }
     });
+    searchControl.addEventListener("focus", syncSearchShortcutHint);
+    searchControl.addEventListener("blur", syncSearchShortcutHint);
     syncSearchClearVisibility();
   }
 
@@ -3258,19 +3427,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const resetLibraryFilters = () => {
+    if (yearFromControl) {
+      yearFromControl.value = "";
+    }
+    if (yearToControl) {
+      yearToControl.value = "";
+    }
+    if (levelControl) {
+      levelControl.value = "";
+    }
+    if (searchControl) {
+      searchControl.value = "";
+      syncSearchClearVisibility();
+    }
+    renderAllBooks();
+  };
+
   if (filterResetButton) {
     filterResetButton.addEventListener("click", () => {
-      if (yearFromControl) {
-        yearFromControl.value = "";
-      }
-      if (yearToControl) {
-        yearToControl.value = "";
-      }
+      resetLibraryFilters();
+    });
+  }
+
+  if (libraryEmptyStateResetButton) {
+    libraryEmptyStateResetButton.addEventListener("click", () => {
+      resetLibraryFilters();
       if (searchControl) {
-        searchControl.value = "";
-        syncSearchClearVisibility();
+        searchControl.focus();
       }
-      renderAllBooks();
     });
   }
 
@@ -3415,6 +3600,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (summaryToggle && isMobileSummaryViewport()) {
       event.preventDefault();
       toggleSummaryExpansion(summaryToggle);
+      return;
+    }
+    const youtubeTrigger = keyTarget.closest("[data-youtube-id]");
+    if (youtubeTrigger && !youtubeTrigger.classList.contains("is-embedded")) {
+      event.preventDefault();
+      youtubeTrigger.click();
     }
   });
 
@@ -3441,6 +3632,33 @@ document.addEventListener("DOMContentLoaded", () => {
         const lookupKey = (saveToggleButton.getAttribute("data-save-toggle") || "").trim();
         if (lookupKey) {
           toggleReadingListRecord(lookupKey);
+        }
+        return;
+      }
+
+      const shareButton = clickTarget.closest("[data-share-toggle]");
+      if (shareButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const lookupKey = (shareButton.getAttribute("data-share-toggle") || "").trim();
+        if (lookupKey) {
+          copyResourceLink(shareButton, lookupKey);
+        }
+        return;
+      }
+
+      const youtubeTrigger = clickTarget.closest("[data-youtube-id]");
+      if (youtubeTrigger && !youtubeTrigger.classList.contains("is-embedded")) {
+        event.preventDefault();
+        event.stopPropagation();
+        const videoId = (youtubeTrigger.getAttribute("data-youtube-id") || "").trim();
+        if (videoId) {
+          youtubeTrigger.classList.add("is-embedded");
+          youtubeTrigger.removeAttribute("role");
+          youtubeTrigger.removeAttribute("tabindex");
+          youtubeTrigger.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(
+            videoId
+          )}?autoplay=1&amp;rel=0" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         }
         return;
       }
@@ -3482,5 +3700,120 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const surpriseMeButton = document.getElementById("surprise-me");
+  if (surpriseMeButton) {
+    surpriseMeButton.addEventListener("click", () => {
+      const keys = [...latestEntryLookup.keys()];
+      if (!keys.length) {
+        return;
+      }
+      const lookupKey = keys[Math.floor(Math.random() * keys.length)];
+      const hadActiveFilters = hasActiveFilters(getFilterState());
+      if (hadActiveFilters) {
+        resetLibraryFilters();
+      }
+      highlightCardByLookupKey(lookupKey);
+    });
+  }
+
+  const readingListExportButton = document.getElementById("reading-list-export");
+  const readingListImportButton = document.getElementById("reading-list-import");
+  const readingListImportInput = document.getElementById("reading-list-import-input");
+  const readingListIoFeedback = document.getElementById("reading-list-io-feedback");
+
+  const showReadingListIoFeedback = (message) => {
+    if (!readingListIoFeedback) {
+      return;
+    }
+    readingListIoFeedback.textContent = message;
+    readingListIoFeedback.hidden = false;
+    window.setTimeout(() => {
+      readingListIoFeedback.hidden = true;
+    }, 5000);
+  };
+
+  if (readingListExportButton) {
+    readingListExportButton.addEventListener("click", () => {
+      const recordCount = Object.keys(readingListState).length;
+      if (!recordCount) {
+        showReadingListIoFeedback("No saved resources to export yet.");
+        return;
+      }
+      const payload = JSON.stringify(
+        { version: 1, exportedAt: new Date().toISOString(), records: readingListState },
+        null,
+        2
+      );
+      const blob = new Blob([payload], { type: "application/json" });
+      const blobUrl = URL.createObjectURL(blob);
+      const downloadLink = document.createElement("a");
+      downloadLink.href = blobUrl;
+      downloadLink.download = "ai-safety-reading-list.json";
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      URL.revokeObjectURL(blobUrl);
+      showReadingListIoFeedback(
+        `Exported ${recordCount} saved resource${recordCount === 1 ? "" : "s"}.`
+      );
+    });
+  }
+
+  if (readingListImportButton && readingListImportInput) {
+    readingListImportButton.addEventListener("click", () => {
+      readingListImportInput.click();
+    });
+    readingListImportInput.addEventListener("change", () => {
+      const file = readingListImportInput.files && readingListImportInput.files[0];
+      readingListImportInput.value = "";
+      if (!file) {
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result || ""));
+          const incomingRecords =
+            parsed && typeof parsed === "object" && parsed.records && typeof parsed.records === "object"
+              ? parsed.records
+              : parsed && typeof parsed === "object"
+                ? parsed
+                : null;
+          if (!incomingRecords) {
+            throw new Error("Invalid reading list file.");
+          }
+          const nextState = { ...readingListState };
+          let importedCount = 0;
+          Object.entries(incomingRecords).forEach(([lookupKey, record]) => {
+            if (!lookupKey || !record || typeof record !== "object") {
+              return;
+            }
+            nextState[lookupKey] = normalizeReadingListRecord(lookupKey, record);
+            importedCount += 1;
+          });
+          if (!importedCount) {
+            throw new Error("No valid records found.");
+          }
+          readingListState = nextState;
+          persistReadingListState();
+          Object.keys(nextState).forEach((lookupKey) => {
+            syncReadingRecordToRenderedCards(lookupKey);
+          });
+          renderReadingDashboard();
+          showReadingListIoFeedback(
+            `Imported ${importedCount} saved resource${importedCount === 1 ? "" : "s"}.`
+          );
+        } catch (error) {
+          logResilienceWarning("reading_list_import_failed", {}, error);
+          showReadingListIoFeedback(
+            "Could not import that file — make sure it's a reading list exported from this site."
+          );
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
   renderAllBooks();
+  applyResourceHighlightFromHash();
 });

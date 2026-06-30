@@ -24,7 +24,7 @@
   </script>
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://openlibrary.org https://www.googleapis.com https://en.wikipedia.org https://docs.google.com https://script.google.com https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com https://formspree.io https://*.formspree.io; frame-src https://docs.google.com; form-action 'self' https://docs.google.com https://script.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    content="default-src 'self'; script-src 'self' https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://openlibrary.org https://www.googleapis.com https://en.wikipedia.org https://docs.google.com https://script.google.com https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com https://formspree.io https://*.formspree.io; frame-src https://docs.google.com https://www.youtube-nocookie.com; form-action 'self' https://docs.google.com https://script.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
   />
   <script src="./theme-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,6 +48,17 @@
         <img src="images/logo-ai-safety-resources.png" width="128" alt="AI Safety Resources" class="nav-logo" />
       </a>
       <div class="nav-actions">
+        <button id="surprise-me" class="surprise-me-button" type="button" aria-label="Jump to a random resource">
+          <svg class="surprise-me-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <circle cx="8" cy="8" r="1" fill="currentColor" stroke="none" />
+            <circle cx="16" cy="8" r="1" fill="currentColor" stroke="none" />
+            <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+            <circle cx="8" cy="16" r="1" fill="currentColor" stroke="none" />
+            <circle cx="16" cy="16" r="1" fill="currentColor" stroke="none" />
+          </svg>
+          <span class="surprise-me-label">Surprise me</span>
+        </button>
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme">
           <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
@@ -150,6 +161,12 @@
             </summary>
             <div class="reading-dashboard-body">
               <div id="reading-list-preview" class="reading-list-preview" aria-live="polite"></div>
+              <div class="reading-list-io" role="group" aria-label="Export or import your saved resources">
+                <button id="reading-list-export" type="button" class="reading-list-io-button">Export</button>
+                <button id="reading-list-import" type="button" class="reading-list-io-button">Import</button>
+                <input id="reading-list-import-input" type="file" accept="application/json" hidden />
+              </div>
+              <p id="reading-list-io-feedback" class="reading-list-io-feedback" aria-live="polite" hidden></p>
             </div>
           </details>
         </div>
@@ -164,6 +181,7 @@
                 <path d="m21 21-4.3-4.3" />
               </svg>
               <input id="category-search-control" class="category-control-input" type="search" placeholder="Title, author, or topic…" autocomplete="off" spellcheck="false" />
+              <kbd id="search-shortcut-hint" class="search-shortcut-hint" aria-hidden="true">/</kbd>
               <button id="category-search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
             </span>
           </label>
@@ -173,6 +191,15 @@
               <option value="year_desc">Newest publication year</option>
               <option value="year_asc">Oldest publication year</option>
               <option value="title_asc">Title (A-Z)</option>
+            </select>
+          </label>
+          <label class="category-control-label" for="category-level-control">
+            Level
+            <select id="category-level-control" class="category-control-input">
+              <option value="">Any</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
             </select>
           </label>
           <label class="category-control-label" for="category-year-from-control">
@@ -192,6 +219,11 @@
           </button>
         </div>
         <p id="category-results-note" class="category-results-note" aria-live="polite" hidden></p>
+        <div id="library-empty-state" class="resource-empty-state library-empty-state" role="status" aria-live="polite" hidden>
+          <h4 class="resource-empty-state-title">No resources match your filters</h4>
+          <p class="resource-empty-state-copy">Try a different search term, widen the year range, or change the level filter.</p>
+          <button id="library-empty-state-reset" type="button" class="resource-save-button">Clear filters</button>
+        </div>
         <div id="pane-books-non-fiction" role="tabpanel" aria-labelledby="tab-books-non-fiction" tabindex="0" data-w-tab="books-non-fiction" class="w-tab-pane w--tab-active">
           <div class="category-intro">
             <h3 class="category-intro-title">Non-fiction Books</h3>
