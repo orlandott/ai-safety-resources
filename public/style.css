@@ -1578,58 +1578,7 @@ a.film-score:hover .film-score-value {
   display: none;
 }
 
-/* ── Topic chips ────────────────────────────────────────────────────────── */
-.topic-chips {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem;
-  margin-top: 1rem;
-}
-.topic-chips-label {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-right: 0.2rem;
-}
-.topic-chip {
-  font: inherit;
-  font-size: 0.82rem;
-  display: inline-block;
-  padding: 0.32rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: var(--surface);
-  color: var(--text);
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-}
-.topic-chip-all {
-  font-weight: 600;
-  color: var(--accent-text);
-  border-style: dashed;
-}
-.topic-chip:hover {
-  border-color: var(--accent);
-  color: var(--accent-text);
-  background: var(--accent-soft);
-}
-.topic-chip.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
-}
-.topic-chip:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
-}
-
 /* ── "Start here" on-ramp ──────────────────────────────────────────────────*/
-.starter-section {
-  margin: 1.5rem auto 0;
-  max-width: 1100px;
-  padding: 1.25rem 1.1rem 0;
-}
 .starter-title {
   font-family: "Hahmlet", Georgia, serif;
   font-size: 1.25rem;
@@ -1688,7 +1637,7 @@ a.film-score:hover .film-score-value {
   line-height: 1.4;
 }
 
-/* ── Hub pages (/topics/, /paths/) ─────────────────────────────────────────*/
+/* ── Hub pages (/paths/) ────────────────────────────────────────────────────*/
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

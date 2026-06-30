@@ -2650,9 +2650,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateYearSelectOptions(yearToControl, years);
   };
 
-  const resourceTagsByName =
-    (typeof window !== "undefined" && window.RESOURCE_TAGS) || {};
-
   const getEntrySearchText = (entry = {}) => {
     if (!entry.__searchText) {
       const summary = (
@@ -2661,13 +2658,8 @@ document.addEventListener("DOMContentLoaded", () => {
         seededEntrySummaries[entry.Name] ||
         ""
       ).toString();
-      // Fold derived topic tags into the search text so topic chips (and typed
-      // topic words) match resources even when the term isn't in the summary.
-      const tags = Array.isArray(resourceTagsByName[entry.Name])
-        ? resourceTagsByName[entry.Name].join(" ")
-        : "";
       entry.__searchText =
-        `${entry.Name || ""} ${entry.Author || ""} ${summary} ${tags}`.toLowerCase();
+        `${entry.Name || ""} ${entry.Author || ""} ${summary}`.toLowerCase();
     }
     return entry.__searchText;
   };
@@ -3271,38 +3263,6 @@ document.addEventListener("DOMContentLoaded", () => {
         syncSearchClearVisibility();
       }
       renderAllBooks();
-    });
-  }
-
-  // Topic chips: clicking one runs a cross-category search for that topic by
-  // dropping the tag into the search box and re-rendering. The chips are real
-  // links to /topics/<slug>/ (so no-JS visitors and crawlers reach the landing
-  // pages); with JS we intercept the click and filter in place instead. The
-  // "All topics" chip carries no data-topic-query and is left to navigate.
-  const topicChips = document.querySelectorAll(".topic-chip[data-topic-query]");
-  if (topicChips.length && searchControl) {
-    topicChips.forEach((chip) => {
-      chip.addEventListener("click", (event) => {
-        event.preventDefault();
-        const query = chip.getAttribute("data-topic-query") || "";
-        const alreadyActive = searchControl.value === query;
-        searchControl.value = alreadyActive ? "" : query;
-        syncSearchClearVisibility();
-        topicChips.forEach((c) =>
-          c.classList.toggle("is-active", !alreadyActive && c === chip)
-        );
-        renderAllBooks();
-        if (!alreadyActive && libraryContent) {
-          libraryContent.scrollIntoView({ behavior: motionSafeBehavior(), block: "start" });
-        }
-      });
-    });
-    // Keep chip highlight in sync when the search box is edited directly.
-    searchControl.addEventListener("input", () => {
-      const value = searchControl.value;
-      topicChips.forEach((c) =>
-        c.classList.toggle("is-active", c.getAttribute("data-topic-query") === value)
-      );
     });
   }
 

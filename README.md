@@ -22,16 +22,15 @@ npm run check     # validate only (CI gate), no files written
 
 `node scripts/build.mjs` validates every entry against a lightweight schema (required `Name`/`Link`, valid category, sane `Year`/`page_count`, no duplicate link within a track) and then regenerates:
 
-- `data/resources.json` — machine-readable export of the full dataset (with derived `track` and `tags`).
+- `data/resources.json` — machine-readable export of the full dataset (with derived `track`).
 - `data/search-index.json` — lightweight search index.
-- `public/resource-tags.js` — derived topic tags (keyed by title) folded into client-side search.
 - `public/index.html` — server-rendered resource cards injected into each category pane (for SEO and a no-JS fallback), a category `ItemList` JSON-LD, and the curated **Start here** cards.
 - `public/<category>/index.html` — a static, crawlable page per category with its own `ItemList` JSON-LD.
 - `public/sitemap.xml` — homepage + one URL per category page.
 
 After editing `public/resources.js`, run `npm run build` and commit the regenerated files. CI (`.github/workflows/build.yml`) runs the build and fails if the committed output is out of sync.
 
-Curated lists live in code: the **Start here** picks and the **topic tag** keyword map are in [`scripts/lib/resources.mjs`](scripts/lib/resources.mjs).
+Curated lists live in code: the **Start here** picks are in [`scripts/lib/resources.mjs`](scripts/lib/resources.mjs).
 
 ### Add a new resource by editing the [resources.js](public/resources.js) file, running `npm run build`, and submitting a pull request
 

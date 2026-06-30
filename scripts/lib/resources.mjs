@@ -161,39 +161,6 @@ export function bucketKey(entry, fictionTitles) {
   return TRACK_BY_KEY.has(key) ? key : "";
 }
 
-// ── Topic tags ───────────────────────────────────────────────────────────
-// Tags are derived (not hand-maintained per entry) from keyword matches against
-// each resource's title + author + summary, plus its track. They are used to
-// augment search text and to power the topic chips, so a resource tagged
-// "governance" is found by the governance chip even if that exact word never
-// appears in its summary. `label` is the chip text; `keywords` are matched
-// case-insensitively as substrings.
-export const TOPIC_TAGS = [
-  { tag: "interpretability", label: "Interpretability", keywords: ["interpretab", "mechanistic", "circuits", "superposition", "latent knowledge", "probing", "feature visualization"] },
-  { tag: "alignment", label: "Alignment", keywords: ["alignment", "aligned", "rlhf", "constitutional ai", "human feedback", "preference", "scalable oversight", "reward model"] },
-  { tag: "governance", label: "Governance & policy", keywords: ["governance", "policy", "regulation", "windfall", "international", "treaty", "compute govern", "standards", "law"] },
-  { tag: "existential-risk", label: "Existential risk", keywords: ["existential", "x-risk", "extinction", "catastroph", "doom", "takeover", "power-seeking", "vulnerable world", "superintelligence"] },
-  { tag: "deception", label: "Deception & scheming", keywords: ["decepti", "sleeper", "mesa-optim", "mesa optim", "scheming", "treacherous", "deceptive alignment", "learned optimization"] },
-  { tag: "rl", label: "Reinforcement learning", keywords: ["reinforcement", "ppo", "policy gradient", "reward hacking", "imitation learning", "specification gaming"] },
-  { tag: "forecasting", label: "Forecasting & timelines", keywords: ["forecast", "timelines", "scaling law", "takeoff", "emergent abilities", "compute-optimal", "ai impacts"] },
-  { tag: "ethics", label: "Ethics & society", keywords: ["ethic", "welfare", "moral", "fairness", "bias", "rights", "society", "discrimination"] },
-  { tag: "llms", label: "Language models", keywords: ["language model", " gpt", "llm", "transformer", "chatbot", "chain-of-thought", "few-shot", "instruct"] },
-  { tag: "fiction", label: "Fiction & story", keywords: [] }, // assigned by track below
-];
-
-export function tagsFor(entry, track) {
-  const haystack = `${entry.Name || ""} ${entry.Author || ""} ${entry.Summary || ""}`.toLowerCase();
-  const tags = [];
-  for (const t of TOPIC_TAGS) {
-    if (t.tag === "fiction") {
-      if (track === "fiction_books") tags.push(t.tag);
-      continue;
-    }
-    if (t.keywords.some((kw) => haystack.includes(kw))) tags.push(t.tag);
-  }
-  return tags;
-}
-
 // ── Resource metadata (difficulty + time to consume) ──────────────────────
 // Two lightweight, mostly-derived signals that answer a newcomer's first two
 // questions: "is this over my head?" and "can I get through it tonight?".
@@ -264,95 +231,6 @@ export function metaPillsFor(entry, track) {
   if (time) pills.push({ kind: "time", text: time });
   return pills;
 }
-
-// ── Topic landing pages (SEO) ─────────────────────────────────────────────
-// Each topic compiles a crawlable page at /topics/<slug>/ listing every
-// resource carrying the matching derived tag (see TOPIC_TAGS), across all
-// formats. `tag` ties the page to both the tag map and the homepage topic chip
-// (data-topic-query); `slug` is the intent-optimized URL; `seoTitle`/`h1`/
-// `description` target real search queries instead of internal category names.
-export const TOPIC_PAGES = [
-  {
-    tag: "interpretability",
-    slug: "mechanistic-interpretability",
-    seoTitle: "Best Mechanistic Interpretability Resources",
-    h1: "Mechanistic interpretability",
-    description:
-      "The best papers, talks, and explainers on mechanistic interpretability—reverse-engineering what neural networks actually compute.",
-  },
-  {
-    tag: "alignment",
-    slug: "ai-alignment",
-    seoTitle: "Best AI Alignment Resources",
-    h1: "AI alignment",
-    description:
-      "Foundational and current work on aligning AI systems with human intent—RLHF, scalable oversight, constitutional AI, and more.",
-  },
-  {
-    tag: "governance",
-    slug: "ai-governance-and-policy",
-    seoTitle: "Best AI Governance & Policy Resources",
-    h1: "AI governance & policy",
-    description:
-      "Reading on AI governance, regulation, and policy: compute governance, international coordination, standards, and law.",
-  },
-  {
-    tag: "existential-risk",
-    slug: "ai-existential-risk",
-    seoTitle: "Best Resources on AI Existential Risk",
-    h1: "AI existential risk",
-    description:
-      "The case for and against catastrophic risk from advanced AI—power-seeking, takeover, and superintelligence—across books, papers, and film.",
-  },
-  {
-    tag: "deception",
-    slug: "deceptive-alignment-and-scheming",
-    seoTitle: "Best Resources on Deceptive Alignment & Scheming",
-    h1: "Deceptive alignment & scheming",
-    description:
-      "Work on deception, sleeper agents, mesa-optimization, and treacherous turns—how models can learn to hide their true objectives.",
-  },
-  {
-    tag: "rl",
-    slug: "reinforcement-learning-and-reward-hacking",
-    seoTitle: "Best Resources on Reinforcement Learning & Reward Hacking",
-    h1: "Reinforcement learning & reward hacking",
-    description:
-      "Reinforcement learning as it bears on safety: reward hacking, specification gaming, imitation learning, and policy optimization.",
-  },
-  {
-    tag: "forecasting",
-    slug: "ai-forecasting-and-timelines",
-    seoTitle: "Best Resources on AI Forecasting & Timelines",
-    h1: "AI forecasting & timelines",
-    description:
-      "Scaling laws, takeoff dynamics, emergent abilities, and timeline forecasting for transformative AI.",
-  },
-  {
-    tag: "ethics",
-    slug: "ai-ethics-and-society",
-    seoTitle: "Best Resources on AI Ethics & Society",
-    h1: "AI ethics & society",
-    description:
-      "AI ethics, fairness, bias, model welfare, rights, and the broader social impact of advanced AI systems.",
-  },
-  {
-    tag: "llms",
-    slug: "large-language-models",
-    seoTitle: "Best Resources on Large Language Models & Safety",
-    h1: "Large language models",
-    description:
-      "Key papers and explainers on large language models—how they work, what they can do, and why that matters for safety.",
-  },
-  {
-    tag: "fiction",
-    slug: "ai-in-fiction",
-    seoTitle: "Best AI Fiction: Novels & Stories About Machine Minds",
-    h1: "AI in fiction",
-    description:
-      "Speculative and science fiction that explores AI, agency, and long-term futures through story.",
-  },
-];
 
 // ── Learning paths ("Where do I start?") ──────────────────────────────────
 // Audience-shaped, ordered on-ramps. Each step references an existing resource
