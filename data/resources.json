@@ -70,13 +70,14 @@
       "Link": "https://courses.cs.umbc.edu/471/papers/turing.pdf",
       "Category": "academic_papers",
       "Year": 1950,
+      "Level": "Intermediate",
       "Summary": "Turing's imitation game paper launched the field by asking whether machines can think, setting the philosophical and technical agenda for every alignment debate that followed.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -86,6 +87,7 @@
       "page_count": 15,
       "Category": "academic_papers",
       "Year": 1993,
+      "Level": "Intermediate",
       "Summary": "Vinge coined the Singularity as a near-term horizon beyond which superhuman intelligence makes prediction impossible, framing the urgency that drives alignment timelines today.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
@@ -93,7 +95,7 @@
         "alignment",
         "forecasting"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": "~25 min read"
     },
     {
@@ -103,11 +105,12 @@
       "page_count": 9,
       "Category": "academic_papers",
       "Year": 2015,
+      "Level": "Intermediate",
       "Summary": "The Puerto Rico letter unified the AI research community around the goal of building systems that are robust and beneficial, not merely capable.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": "~15 min read"
     },
     {
@@ -229,6 +232,7 @@
       "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Prof_Nick_Bostrom_324-1.jpg/330px-Prof_Nick_Bostrom_324-1.jpg",
       "Category": "academic_papers",
       "Year": 2019,
+      "Level": "Intermediate",
       "Summary": "Bostrom argues that some technologies are civilizational black balls, requiring unprecedented global governance to prevent collapse, with AI as a leading candidate.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
@@ -236,7 +240,7 @@
         "governance",
         "existential-risk"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -275,13 +279,14 @@
       "Link": "https://arxiv.org/abs/2002.08484",
       "Category": "academic_papers",
       "Year": 2020,
+      "Level": "Intermediate",
       "Summary": "This proposal for sharing extreme AI profits aims to reduce competitive race dynamics and broaden societal benefit, addressing the governance gap around transformative AI wealth.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "governance"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -417,13 +422,14 @@
       "page_count": 0,
       "Category": "academic_papers",
       "Year": 2021,
+      "Level": "Intermediate",
       "Summary": "Hendrycks et al. enumerate concrete unresolved failure classes including robustness, monitoring, alignment, and systemic safety that still block dependable deployment of advanced AI.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -573,13 +579,14 @@
       "page_count": 0,
       "Category": "academic_papers",
       "Year": 2022,
+      "Level": "Intermediate",
       "Summary": "Carlsmith builds a step-by-step argument for why sufficiently capable AI systems may converge on power-seeking behavior, making the x-risk case rigorous and actionable.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "existential-risk"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -589,13 +596,14 @@
       "page_count": 0,
       "Category": "academic_papers",
       "Year": 2023,
+      "Level": "Intermediate",
       "Summary": "This work constructs tractable laboratory settings where AI models learn misaligned strategies, enabling researchers to study alignment failures empirically rather than theoretically.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -748,6 +756,7 @@
       "page_count": 210,
       "Category": "academic_papers",
       "Year": 2019,
+      "Level": "Intermediate",
       "Summary": "Drexler challenges monolithic AGI assumptions and proposes that advanced AI could emerge as an ecosystem of specialized services, changing the risk landscape and governance strategies.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
@@ -755,7 +764,7 @@
         "governance",
         "existential-risk"
       ],
-      "level": "Advanced",
+      "level": "Intermediate",
       "timeLabel": "~6.5 hr read"
     },
     {
@@ -904,6 +913,7 @@
       "Category": "books",
       "goodreads": "4.15",
       "Year": 2014,
+      "Level": "Advanced",
       "Summary": "Bostrom's definitive academic text rigorously maps the strategies, kinetics, and dangers of an intelligence explosion, making the case that alignment is civilization-critical.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -911,7 +921,7 @@
         "alignment",
         "existential-risk"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": "~11 hr read"
     },
     {
@@ -922,6 +932,7 @@
       "Category": "books",
       "goodreads": "3.93",
       "Year": 2005,
+      "Level": "Intermediate",
       "Summary": "Kurzweil presents a maximalist case for merging with machines backed by decades of exponential trend data, shaping how the public and policymakers think about AI timelines.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -941,11 +952,12 @@
       "Category": "books",
       "goodreads": "3.44",
       "Year": 2016,
+      "Level": "Advanced",
       "Summary": "Hanson applies rigorous economics to a world of brain emulations, modeling how AI-era wages, wars, and social structures could actually function.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": "~13 hr read"
     },
     {
@@ -956,6 +968,7 @@
       "goodreads": "4.22",
       "Year": 2019,
       "page_count": 352,
+      "Level": "Intermediate",
       "Summary": "Russell argues the standard AI paradigm of optimizing fixed objectives is fundamentally dangerous, proposing instead that machines should defer to uncertain human preferences.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -973,6 +986,7 @@
       "Category": "books",
       "goodreads": "4.29",
       "Year": 2020,
+      "Level": "Intermediate",
       "Summary": "Christian traces the technical and historical roots of alignment, showing why objective misspecification keeps recurring across every AI paradigm from expert systems to deep learning.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -990,6 +1004,7 @@
       "Category": "books",
       "goodreads": "4.09",
       "Year": 2017,
+      "Level": "Intermediate",
       "Summary": "Tegmark maps concrete governance and alignment choices that determine whether advanced AI expands human agency or permanently concentrates power.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1008,6 +1023,7 @@
       "Category": "books",
       "goodreads": "4.00",
       "Year": 2024,
+      "Level": "Advanced",
       "Summary": "Hendrycks' textbook surveys technical failure modes, governance constraints, and ethical trade-offs in deploying advanced AI, suitable as a first course in the field.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1015,7 +1031,7 @@
         "governance",
         "ethics"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1026,6 +1042,7 @@
       "Category": "books",
       "goodreads": "4.19",
       "Year": 2023,
+      "Level": "Beginner",
       "Summary": "McKee synthesizes the core x-risk arguments into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1034,7 +1051,7 @@
         "governance",
         "existential-risk"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1045,13 +1062,14 @@
       "Category": "books",
       "goodreads": "4.14",
       "Year": 2019,
+      "Level": "Beginner",
       "Summary": "Shane uses concrete and often hilarious ML failures to explain why AI systems can be impressive yet brittle, biased, and dangerously easy to mis-specify.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "ethics"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1062,11 +1080,12 @@
       "Category": "books",
       "goodreads": "4.12",
       "Year": 2018,
+      "Level": "Beginner",
       "Summary": "Fry examines real algorithmic decision systems in justice, medicine, and transport to show where AI improves outcomes and where accountability structures fail.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1077,11 +1096,12 @@
       "Category": "books",
       "goodreads": "4.15",
       "Year": 2018,
+      "Level": "Beginner",
       "Summary": "Lee maps the US-China AI race and explains how geopolitical competition can accelerate deployment well before safety institutions are ready.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1092,6 +1112,7 @@
       "Category": "books",
       "goodreads": "3.95",
       "Year": 2020,
+      "Level": "Intermediate",
       "Summary": "Ord situates AI among existential risks and argues our current governance capacity is dangerously inadequate for the transformative systems being built.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1110,13 +1131,14 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2019,
+      "Level": "Advanced",
       "Summary": "Kearns and Roth give technical foundations for fairness, privacy, and accountability in algorithms, prerequisites for any credible AI safety framework.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "ethics"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1128,6 +1150,7 @@
       "Category": "books",
       "goodreads": "3.80",
       "Year": 2018,
+      "Level": "Intermediate",
       "Summary": "Scharre details how military AI autonomy changes escalation dynamics and why human-in-the-loop control mechanisms consistently lag behind battlefield capability.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1143,6 +1166,7 @@
       "Category": "books",
       "goodreads": "3.90",
       "Year": 1999,
+      "Level": "Intermediate",
       "Summary": "Kurzweil's early timeline forecasts shaped modern discourse on AI trajectories and remain a key reference point for evaluating long-horizon predictions.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1160,13 +1184,14 @@
       "Category": "books",
       "goodreads": "4.44",
       "Year": 2016,
+      "Level": "Advanced",
       "Summary": "The standard technical reference for deep learning, essential context for understanding the architectures and training methods that alignment research targets.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1176,11 +1201,12 @@
       "Category": "books",
       "goodreads": "4.35",
       "Year": 2019,
+      "Level": "Beginner",
       "Summary": "Mitchell offers a grounded, skeptical look at current AI capabilities, countering hype with hard limits and clarifying what today's systems actually can and cannot do.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1190,6 +1216,7 @@
       "Category": "books",
       "goodreads": "3.82",
       "Year": 2021,
+      "Level": "Beginner",
       "Summary": "Gawdat frames the alignment problem through the emotional lens of parenting a superintelligent child, making existential risk visceral for a general audience.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1197,7 +1224,7 @@
         "alignment",
         "existential-risk"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1207,11 +1234,12 @@
       "Category": "books",
       "goodreads": "3.83",
       "Year": 2023,
+      "Level": "Beginner",
       "Summary": "Suleyman argues that containing omni-use technologies like AI is the defining geopolitical challenge of the century, proposing a containment framework from inside the industry.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1221,6 +1249,7 @@
       "Category": "books",
       "goodreads": "4.08",
       "Year": 2015,
+      "Level": "Beginner",
       "Summary": "Tetlock teaches the cognitive tools needed to predict technological risks with better-than-random accuracy, directly useful for AI timeline and governance forecasting.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1228,7 +1257,7 @@
         "governance",
         "forecasting"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1240,11 +1269,12 @@
       "Year": 2021,
       "page_count": 288,
       "Image": "https://covers.openlibrary.org/b/isbn/9780735217553-L.jpg",
+      "Level": "Beginner",
       "Summary": "Galef explains how to seek truth over comfort, a critical psychological stance for honestly confronting AI risks without retreating into denial or panic.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": "~8.5 hr read"
     },
     {
@@ -1254,6 +1284,7 @@
       "Category": "books",
       "goodreads": "4.18",
       "Year": 2011,
+      "Level": "Intermediate",
       "Summary": "Kahneman reveals the cognitive biases that prevent humans from intuitively grasping exponential growth, tail risks, and the kind of strategic thinking AI safety demands.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1270,13 +1301,14 @@
       "Category": "books",
       "goodreads": "4.01",
       "Year": 2024,
+      "Level": "Beginner",
       "Summary": "Mollick offers a practical guide for working alongside current LLMs while understanding their jagged capability frontiers and failure modes.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "llms"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1286,11 +1318,12 @@
       "Category": "books",
       "goodreads": "4.31",
       "Year": 1979,
+      "Level": "Advanced",
       "Summary": "Hofstadter explores how consciousness and meaning can emerge from formal systems that look meaningless locally, the deepest conceptual puzzle behind machine intelligence.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1302,6 +1335,7 @@
       "Year": 2024,
       "page_count": 561,
       "Image": "https://covers.openlibrary.org/b/isbn/9780063286368-L.jpg",
+      "Level": "Beginner",
       "Summary": "Bennett traces the evolution of intelligence from single-celled organisms to modern brains, clarifying what makes aligned cognition biologically difficult and computationally treacherous.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1309,7 +1343,7 @@
         "alignment",
         "deception"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": "~17 hr read"
     },
     {
@@ -1319,13 +1353,14 @@
       "Category": "books",
       "goodreads": "4.18",
       "Year": 2011,
+      "Level": "Advanced",
       "Summary": "Deutsch argues that knowledge creation is unbounded and all problems are solvable in principle, grounding the optimistic case that alignment is achievable.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1335,11 +1370,12 @@
       "Category": "books",
       "goodreads": "4.27",
       "Year": 2021,
+      "Level": "Beginner",
       "Summary": "Metz provides the definitive narrative history of the deep learning revolution and the personalities, rivalries, and safety concerns that shaped it.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1349,13 +1385,14 @@
       "Category": "books",
       "goodreads": "4.00",
       "Year": 1948,
+      "Level": "Advanced",
       "Summary": "Wiener founded the study of feedback and control systems, anticipating by decades the governance problems that arise when intelligent machines act on their own models of the world.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1365,6 +1402,7 @@
       "Category": "books",
       "goodreads": "4.05",
       "Year": 1988,
+      "Level": "Intermediate",
       "Summary": "Moravec predicts a future in which robotic descendants supersede humans through technological evolution, an early and influential take on the human obsolescence scenario.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1379,6 +1417,7 @@
       "Category": "books",
       "goodreads": "4.04",
       "Year": 1986,
+      "Level": "Intermediate",
       "Summary": "Minsky proposes that intelligence emerges from many small non-intelligent processes coordinated at scale, a framework that anticipated multi-agent AI architectures.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1395,6 +1434,7 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2004,
+      "Level": "Intermediate",
       "Summary": "Hawkins argues that hierarchical prediction is the core organizing principle of biological intelligence, offering a lens for evaluating how artificial systems differ.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1409,11 +1449,12 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 2015,
+      "Level": "Beginner",
       "Summary": "Harari explores the transition toward data-driven authority where algorithms may know us better than we know ourselves, eroding the basis for human autonomy.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1423,6 +1464,7 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 2018,
+      "Level": "Beginner",
       "Summary": "Pinker argues that reason and science have historically improved human welfare, grounding the optimistic counterpoint to doomer narratives about AI.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1430,7 +1472,7 @@
         "existential-risk",
         "ethics"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1440,13 +1482,14 @@
       "Category": "books",
       "goodreads": "4.14",
       "Year": 1997,
+      "Level": "Advanced",
       "Summary": "Deutsch unifies physics, evolution, epistemology, and computation into a single worldview about what is possible, providing deep context for reasoning about superintelligence.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "existential-risk"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1456,11 +1499,12 @@
       "Category": "books",
       "goodreads": "4.00",
       "Year": 1981,
+      "Level": "Advanced",
       "Summary": "Baudrillard explains how representations can displace reality entirely, a prescient lens for understanding generative AI media saturation and epistemic erosion.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1470,6 +1514,7 @@
       "Category": "books",
       "goodreads": "3.77",
       "Year": 1986,
+      "Level": "Intermediate",
       "Summary": "Carse distinguishes short-horizon winning from preserving the long game, a useful framing for AI governance where the goal is keeping options open, not racing to win.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1486,6 +1531,7 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2009,
+      "Level": "Intermediate",
       "Summary": "Mitchell explains how complex behavior emerges from simple rules, foundational for understanding why adaptive AI systems resist top-down control.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1500,6 +1546,7 @@
       "Category": "books",
       "goodreads": "4.23",
       "Year": 1994,
+      "Level": "Intermediate",
       "Summary": "Kelly argues that the most powerful systems must be cultivated rather than rigidly engineered, anticipating challenges in controlling emergent AI behavior.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1514,13 +1561,14 @@
       "Category": "books",
       "goodreads": "4.01",
       "Year": 2009,
+      "Level": "Beginner",
       "Summary": "Brand argues for responsible stewardship of high-powered technologies rather than blanket rejection, a pragmatic stance applicable to AI governance.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1530,6 +1578,7 @@
       "Category": "books",
       "goodreads": "3.97",
       "Year": 1962,
+      "Level": "Beginner",
       "Summary": "Clarke's forecasting framework, including his famous three laws, remains a classic guide to thinking clearly about radical technological change.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1537,7 +1586,7 @@
         "governance",
         "forecasting"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -1547,6 +1596,7 @@
       "Category": "books",
       "goodreads": "3.96",
       "Year": 2008,
+      "Level": "Advanced",
       "Summary": "The foundational edited volume on existential and global risks, including AI, widely cited in alignment curricula as the starting point for cross-risk thinking.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -1554,7 +1604,7 @@
         "alignment",
         "existential-risk"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -1802,6 +1852,7 @@
       "Category": "books",
       "goodreads": "4.26",
       "Year": 1988,
+      "Level": "Intermediate",
       "Summary": "Banks' Culture novels depict a post-scarcity civilization governed by benevolent superintelligent Minds, the most detailed fictional exploration of what aligned AI stewardship could look like.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1809,7 +1860,7 @@
         "alignment",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -1835,6 +1886,7 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1992,
+      "Level": "Intermediate",
       "Summary": "Vinge's zones of thought model a universe where superintelligence is possible in some regions and impossible in others, providing intuition for capability thresholds and containment.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1842,7 +1894,7 @@
         "existential-risk",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -1887,6 +1939,7 @@
       "Category": "books",
       "goodreads": "4.27",
       "Year": 1995,
+      "Level": "Intermediate",
       "Summary": "Egan's stories probe identity, value drift, and radical cognitive modification under advanced technology, raising alignment-relevant questions about stable preferences.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1894,7 +1947,7 @@
         "alignment",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -1904,6 +1957,7 @@
       "Category": "books",
       "goodreads": "4.06",
       "Year": 1994,
+      "Level": "Intermediate",
       "Summary": "Egan examines uploaded minds and simulated realities with rigorous logic, raising alignment-relevant questions about identity, value persistence, and digital welfare.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1912,7 +1966,7 @@
         "ethics",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -1922,13 +1976,14 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1997,
+      "Level": "Intermediate",
       "Summary": "Egan explores post-biological civilization in software and the physics of digital existence, the hardest science fiction about what minds without bodies could become.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -1939,13 +1994,14 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1996,
+      "Level": "Intermediate",
       "Summary": "Banks explores how even superintelligent Culture Minds face strategic dilemmas and factional conflict when confronting something truly beyond their comprehension.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -1971,6 +2027,7 @@
       "Category": "books",
       "goodreads": "3.87",
       "Year": 2005,
+      "Level": "Intermediate",
       "Summary": "Stross depicts rapid recursive technological acceleration outpacing institutional response, a narrative model of hard-to-govern AI takeoff dynamics across three generations.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1978,7 +2035,7 @@
         "forecasting",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2004,6 +2061,7 @@
       "Category": "books",
       "goodreads": "4.05",
       "Year": 2006,
+      "Level": "Intermediate",
       "Summary": "Watts argues that intelligence and consciousness are separable, that an alien mind could be vastly competent without any inner experience, a fundamental challenge to alignment through empathy.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2011,7 +2069,7 @@
         "alignment",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2021,6 +2079,7 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2012,
+      "Level": "Intermediate",
       "Summary": "Ra frames reality control as a compromised computational interface with catastrophic failure modes, showing how containment and access control break down at civilizational scale.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2028,7 +2087,7 @@
         "existential-risk",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2225,6 +2284,7 @@
       "Category": "books",
       "goodreads": "4.27",
       "Year": 1989,
+      "Level": "Intermediate",
       "Summary": "Simmons' TechnoCore arc depicts AI factions with independent strategic goals, providing intuition for reasoning about multipolar AI scenarios and coordination failures between superintelligences.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2232,7 +2292,7 @@
         "existential-risk",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -4222,6 +4282,7 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Deep technical conversations with alignment researchers on interpretability, governance, superalignment, and the specific open problems in reducing existential risk from AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4231,7 +4292,7 @@
         "governance",
         "existential-risk"
       ],
-      "level": "Beginner",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4241,13 +4302,14 @@
       "Category": "podcasts",
       "Year": 2018,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "FLI's dedicated alignment series covers recursive reward modeling, RLHF, scalable oversight, and long-form interviews with leading safety researchers.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "alignment"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -4257,6 +4319,7 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Aimed at computer scientists: deep dives into alignment papers with the authors, covering formal methods, reward modeling, and mechanistic interpretability.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4264,7 +4327,7 @@
         "interpretability",
         "alignment"
       ],
-      "level": "Beginner",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4274,6 +4337,7 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Focused on career paths into AI safety: fellowship applications, research programs, and practical advice on transitioning into the field.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4288,6 +4352,7 @@
       "Category": "podcasts",
       "Year": 2016,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Long-form interviews on the world's most pressing problems, with extensive coverage of AI risk, governance, alignment research, and how to build a career that reduces existential threats.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4306,13 +4371,14 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "ML research interviews with recurring coverage of interpretability, robustness, provably safe AI, and the intersection of capabilities and safety research.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "interpretability"
       ],
-      "level": "Beginner",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4322,13 +4388,14 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Covers the intersection of AI governance, legislation, and safety, with expert guests on regulatory frameworks, international coordination, and policy strategies for advanced AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "governance"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -4338,6 +4405,7 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A four-hour conversation on AI existential risk, the difficulty of alignment, intelligence versus optimization, and why Yudkowsky believes the default outcome is catastrophic.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4345,7 +4413,7 @@
         "alignment",
         "existential-risk"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -4355,6 +4423,7 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "OpenAI's CEO discusses the company's safety philosophy, AGI governance, compute scaling, and the tension between moving fast and getting alignment right.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4372,13 +4441,14 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "In-depth technical interviews with AI leaders including Dario Amodei on Anthropic's safety philosophy, Paul Christiano on iterated amplification, and others on scaling and alignment.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "alignment"
       ],
-      "level": "Beginner",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4388,6 +4458,7 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Episodes on AI risk, timelines, and decision-making under deep uncertainty, with a rationalist focus on calibrating beliefs about transformative AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4404,6 +4475,7 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Technical ML interviews with regular deep dives into interpretability, scaling laws, emergent capabilities, and the safety implications of frontier model development.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4412,7 +4484,7 @@
         "governance",
         "forecasting"
       ],
-      "level": "Beginner",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4422,13 +4494,14 @@
       "Category": "podcasts",
       "Year": 2018,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Applied ML and engineering, with episodes on responsible deployment, bias mitigation, red teaming, and the safety challenges that emerge when AI systems meet real-world constraints.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "ethics"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -4438,6 +4511,7 @@
       "Category": "podcasts",
       "Year": 2016,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Industry and research perspectives with occasional safety and ethics episodes, useful for understanding how capability-focused organizations think about risk.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -4453,6 +4527,7 @@
       "Author": "Leopold Aschenbrenner",
       "page_count": 0,
       "Category": "websites",
+      "Level": "Intermediate",
       "Summary": "Aschenbrenner's comprehensive analysis of near-term scaling dynamics, capability trajectories, and the strategic implications of rapid AI progress for labs and states.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4466,11 +4541,12 @@
       "Author": "Jürgen Schmidhuber",
       "page_count": 0,
       "Category": "websites",
+      "Level": "Advanced",
       "Summary": "Research on how agents can learn internal world models to plan complex behavior, relevant to understanding how AI systems develop representations of their environment.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4479,13 +4555,14 @@
       "Link": "https://agentmodels.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Formal models of agents and decision theory with alignment-relevant curriculum, covering utility, planning, and the theoretical foundations of agent behavior.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4494,6 +4571,7 @@
       "Link": "https://aialignmentworld.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "In-depth technical alignment resources—research, explainers, and references for the AI alignment problem.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4509,11 +4587,12 @@
       "Link": "https://aisafety.info/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Community-maintained FAQ covering AI safety questions at every level, from basics to technical details, with links to source material.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -4522,13 +4601,14 @@
       "Link": "https://www.alignmentforum.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "The primary venue for technical AI alignment discussion, where researchers post and debate new ideas, proposals, and critiques.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4537,6 +4617,7 @@
       "Link": "https://rohinshah.com/alignment-newsletter/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Weekly summaries of alignment research with commentary, the best way to stay current on the field's output without reading every paper.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4552,6 +4633,7 @@
       "Link": "https://arbital.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Hyperlinked explainers on rationality, AI risk, and alignment concepts, designed for building understanding incrementally.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4567,6 +4649,7 @@
       "Link": "https://www.yudkowsky.net/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Essays on rationality, decision theory, and AI risk from the researcher who shaped the field's early arguments and threat models.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4580,13 +4663,14 @@
       "Link": "https://vkrakovna.wordpress.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Research notes on specification gaming, side effects, and AI safety from a DeepMind safety researcher, including the widely-cited specification gaming examples list.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "rl"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4595,6 +4679,7 @@
       "Link": "https://openai.com/research",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "OpenAI's research blog covering capabilities and safety, including superalignment updates, red teaming results, and governance thinking.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4611,6 +4696,7 @@
       "Link": "https://transformer-circuits.pub/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "The home of mechanistic interpretability research, publishing detailed analyses of how transformer models represent and process information internally.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4618,7 +4704,7 @@
         "interpretability",
         "llms"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4627,6 +4713,7 @@
       "Link": "https://newsletter.mlsafety.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Newsletter on ML safety covering robustness, monitoring, alignment, and systemic risk with links to recent papers and commentary.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4642,13 +4729,14 @@
       "Link": "https://jsteinhardt.wordpress.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Research and commentary on ML safety, forecasting, and robustness from a Berkeley professor working on practical safety problems.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "forecasting"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4657,13 +4745,14 @@
       "Link": "https://intelligence.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "The research institute focused on mathematical foundations of aligned AI, publishing on agent foundations, decision theory, and logical uncertainty.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4672,6 +4761,7 @@
       "Link": "https://importai.substack.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Weekly newsletter by Anthropic's co-founder covering AI research, policy, and industry developments with consistent attention to safety implications.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4687,6 +4777,7 @@
       "Link": "https://gwern.net/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Deeply researched essays on ML, scaling, AI art, and technology forecasting, known for rigorous analysis and independent thinking.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4702,6 +4793,7 @@
       "Link": "https://generative.ink/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Essays on AI, alignment, and the philosophical implications of language models and generative systems.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4709,7 +4801,7 @@
         "alignment",
         "llms"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4718,13 +4810,14 @@
       "Link": "https://blog.eleuther.ai/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Open-source ML research covering language model training, evaluation, and the safety considerations of making powerful models widely available.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "llms"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4733,6 +4826,7 @@
       "Link": "https://deepmindsafetyresearch.medium.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "DeepMind's safety team blog covering specification gaming, reward modeling, scalable oversight, and their technical safety research agenda.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4740,7 +4834,7 @@
         "alignment",
         "rl"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4749,6 +4843,7 @@
       "Link": "https://www.deepmind.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "DeepMind's main research site with publications on capabilities and safety, including Gemini evaluations, alignment research, and responsible scaling.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4764,11 +4859,12 @@
       "Link": "https://www.cold-takes.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Karnofsky's essays on AI risk, longtermism, and cause prioritization, including the influential Most Important Century series on transformative AI.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -4777,13 +4873,14 @@
       "Link": "https://carado.moe/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Technical AI safety writing and alignment research notes.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4792,6 +4889,7 @@
       "Link": "https://aisafety.camp/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Intensive research program for people entering AI safety, with project-based learning and mentorship from established researchers.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4805,6 +4903,7 @@
       "Link": "https://aiimpacts.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Empirical research on AI timelines, historical technology analogies, and quantitative estimates of AI progress and impact.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4820,13 +4919,14 @@
       "Link": "https://distill.pub/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Pioneering interactive journal for ML interpretability and visualization, setting the standard for making neural network internals understandable.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "interpretability"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -4835,13 +4935,14 @@
       "Link": "https://forum.effectivealtruism.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Forum for effective altruism with substantial AI risk discussion, including cause prioritization, career advice, and policy analysis.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "governance"
       ],
-      "level": "Intermediate",
+      "level": "Beginner",
       "timeLabel": ""
     },
     {
@@ -4850,6 +4951,7 @@
       "Link": "https://www.lesswrong.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "The original community blog on rationality and AI alignment, where many foundational safety arguments were first developed and debated.",
       "track": "websites",
       "trackLabel": "Websites",
@@ -4865,13 +4967,14 @@
       "Link": "https://huggingface.co/datasets/StampyAI/alignment-research-dataset",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Curated dataset of alignment and safety documents from papers, books, and blogs, useful for training and evaluating AI safety knowledge.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
       ],
-      "level": "Intermediate",
+      "level": "Advanced",
       "timeLabel": ""
     },
     {
@@ -5249,13 +5352,14 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A widely praised technical primer on how LLMs work, ending with a clear tour of the security challenges—jailbreaks, prompt injection, and data poisoning—that make these systems hard to secure.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "llms"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -5265,13 +5369,14 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "The Royal Institution lecture in which Russell lays out why the standard model of AI—optimizing fixed objectives—is dangerous, and how building machines uncertain about human preferences could keep them controllable.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "alignment"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -5281,13 +5386,14 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A structured debate on whether AI poses an existential threat, with Yoshua Bengio and Max Tegmark arguing for the resolution against Melanie Mitchell and Yann LeCun—an unusually direct airing of the core cruxes.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "existential-risk"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -5342,6 +5448,7 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A long-form conversation in which Yudkowsky makes his case that humanity is unprepared for superintelligence, probing why alignment is so hard and why he expects catastrophe by default.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5350,7 +5457,7 @@
         "alignment",
         "existential-risk"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -5388,13 +5495,14 @@
       "Category": "youtube",
       "Year": 2024,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Anthropic researchers explain mechanistic interpretability—reading the millions of concepts represented inside a production model like Claude—as a path to understanding and steering AI behavior.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "interpretability"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
