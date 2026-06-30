@@ -1,5 +1,5 @@
 {
-  "count": 329,
+  "count": 327,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -60,7 +60,7 @@
       "key": "youtube",
       "label": "YouTube",
       "slug": "youtube",
-      "count": 39
+      "count": 37
     }
   ],
   "resources": [
@@ -5037,37 +5037,6 @@
       "Year": 2017,
       "page_count": 0,
       "Summary": "Kurzgesagt argues that information-age automation differs fundamentally from past waves, with machine learning encroaching on cognitive work and reshaping the future of employment.",
-      "track": "youtube",
-      "trackLabel": "YouTube",
-      "tags": [],
-      "level": "Beginner",
-      "timeLabel": ""
-    },
-    {
-      "Name": "Deadly Truth of General AI? – Computerphile",
-      "Author": "Robert Miles",
-      "Link": "https://www.youtube.com/watch?v=tcdVC4e6EV4",
-      "Category": "youtube",
-      "Year": 2015,
-      "page_count": 0,
-      "Summary": "Rob Miles uses the 'deadly stamp collector' thought experiment to show why a general AI pursuing a simple objective could be catastrophic if its goals aren't aligned with ours.",
-      "track": "youtube",
-      "trackLabel": "YouTube",
-      "tags": [
-        "alignment",
-        "existential-risk"
-      ],
-      "level": "Beginner",
-      "timeLabel": ""
-    },
-    {
-      "Name": "AI \"Stop Button\" Problem – Computerphile",
-      "Author": "Robert Miles",
-      "Link": "https://www.youtube.com/watch?v=3TYT1QfdfsM",
-      "Category": "youtube",
-      "Year": 2017,
-      "page_count": 0,
-      "Summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds, illustrating corrigibility and the incentives an agent has to resist being stopped.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
