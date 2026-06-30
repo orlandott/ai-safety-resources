@@ -4849,6 +4849,7 @@
       "Author": "LessWrong",
       "Link": "https://www.lesswrong.com/",
       "Category": "websites",
+      "Level": "Intermediate",
       "page_count": 0,
       "Summary": "The original community blog on rationality and AI alignment, where many foundational safety arguments were first developed and debated.",
       "track": "websites",
@@ -4880,6 +4881,7 @@
       "Link": "https://www.youtube.com/@RobertMilesAI",
       "Category": "youtube",
       "Year": 2017,
+      "Level": "Intermediate",
       "page_count": 0,
       "Summary": "The single most popular AI alignment video series, explaining technical safety concepts like the orthogonality thesis, instrumental convergence, inner misalignment, and reward hacking in clear, rigorous terms.",
       "track": "youtube",
@@ -4888,7 +4890,7 @@
         "alignment",
         "rl"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
