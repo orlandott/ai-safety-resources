@@ -7,3 +7,14 @@ pages_build_output_dir = "public"
 
 [assets]
 directory = "./public"
+
+# Powers the /api/ratings and /api/recommendations Pages Functions (star
+# ratings + recommendations). Create it with:
+#   npx wrangler d1 create ai-safety-ratings
+# then replace database_id below with the id it prints, and apply the schema:
+#   npx wrangler d1 execute ai-safety-ratings --file=migrations/0001_ratings.sql
+# See docs/ratings-recommendations.md for the full setup + local dev workflow.
+[[d1_databases]]
+binding = "RATINGS_DB"
+database_name = "ai-safety-ratings"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"

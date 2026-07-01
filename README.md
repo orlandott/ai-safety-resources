@@ -46,6 +46,13 @@ Suggestions are submitted from the website based on the config in [`public/sugge
 
 Keep config changes in git so submission routing is reviewable in pull requests.
 
+### Ratings & recommendations
+
+Every resource card has a 1–5 star rating, and rating things powers a
+"Recommended for you" panel. Ratings are stored in Cloudflare D1; see
+[docs/ratings-recommendations.md](docs/ratings-recommendations.md) for setup
+and how the recommendation algorithm (and its cold-start fallback) works.
+
 ### Resource guardrails
 
 To prevent a single bad entry from breaking the page and to catch dead links early:

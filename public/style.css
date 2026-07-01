@@ -967,6 +967,43 @@ a.film-score:hover .film-score-value {
   color: var(--accent-text);
 }
 
+.resource-rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-stars {
+  display: inline-flex;
+  gap: 0.1rem;
+}
+
+.rating-star {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--border-strong);
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.rating-star:hover {
+  color: var(--accent);
+  transform: scale(1.12);
+}
+
+.rating-star.is-filled {
+  color: var(--accent);
+}
+
+.rating-summary {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
 .resource-card.is-spotlighted {
   outline: 3px solid var(--accent);
   outline-offset: 4px;

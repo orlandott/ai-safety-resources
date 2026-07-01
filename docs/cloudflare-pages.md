@@ -35,6 +35,7 @@ The repo includes a `/functions` directory so the project is not purely static:
 
 - **GET /api/health** – returns JSON `{ ok, time, service }` (server-side).
 - **POST /api/submit** – accepts the suggestion form payload (JSON or `application/x-www-form-urlencoded`), validates it, and forwards to the Apps Script endpoint. The site’s suggestion form is configured to use this by default (`suggestion-form-config.js` → `endpointUrl: "/api/submit"`). Optional env var `APPS_SCRIPT_ENDPOINT_URL` overrides the forwarding target.
+- **GET/POST /api/ratings** and **GET /api/recommendations** – star ratings and the recommendations they power. These need a D1 database bound as `RATINGS_DB`; see [docs/ratings-recommendations.md](ratings-recommendations.md) for setup. Without that binding, both endpoints return `503` and the site falls back to browser-local-only ratings (see that doc).
 
 Add more files under `functions/` for extra routes; see [Cloudflare Pages Functions](https://developers.cloudflare.com/pages/functions/get-started/).
 

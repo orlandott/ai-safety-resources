@@ -1499,6 +1499,313 @@ document.addEventListener("DOMContentLoaded", () => {
   const getReadingListRecord = (lookupKey = "") =>
     (lookupKey && readingListState[lookupKey]) || null;
 
+  // ── Ratings ────────────────────────────────────────────────────────────
+  // The site has no accounts, so ratings are tied to an anonymous id kept in
+  // localStorage (same pattern as the reading list). Star widgets always
+  // work off that local copy first, then reconcile with the shared /api
+  // aggregate once it loads — so rating still works (as a personal-only
+  // rating) if the backend isn't configured for this deployment, e.g. on
+  // GitHub Pages or Netlify, which don't run Cloudflare Pages Functions.
+  const userIdStorageKey = "rwwc-user-id-v1";
+  const ratingsStorageKey = "rwwc-ratings-v1";
+
+  const getUserId = () => {
+    try {
+      let userId = window.localStorage.getItem(userIdStorageKey);
+      if (!userId) {
+        userId = (crypto.randomUUID && crypto.randomUUID()) || `u-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        window.localStorage.setItem(userIdStorageKey, userId);
+      }
+      return userId;
+    } catch (error) {
+      logResilienceWarning("user_id_unavailable", {}, error);
+      return "";
+    }
+  };
+
+  const loadLocalRatings = () => {
+    try {
+      const storedValue = window.localStorage.getItem(ratingsStorageKey);
+      const parsed = storedValue ? JSON.parse(storedValue) : {};
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (error) {
+      logResilienceWarning("ratings_load_local_failed", {}, error);
+      return {};
+    }
+  };
+
+  let localRatings = loadLocalRatings();
+  const remoteRatingAggregates = new Map();
+
+  const persistLocalRatings = () => {
+    try {
+      window.localStorage.setItem(ratingsStorageKey, JSON.stringify(localRatings));
+    } catch (error) {
+      logResilienceWarning("ratings_persist_local_failed", {}, error);
+    }
+  };
+
+  const getRatedLinks = (minStars = 1) =>
+    Object.entries(localRatings)
+      .filter(([, stars]) => stars >= minStars)
+      .sort((a, b) => b[1] - a[1])
+      .map(([link]) => link);
+
+  const applyRatingToWidget = (widgetElement) => {
+    const link = widgetElement.getAttribute("data-rating-widget") || "";
+    const userValue = Number(localRatings[link]) || 0;
+    const aggregate = remoteRatingAggregates.get(link);
+    const displayValue = userValue || (aggregate ? Math.round(aggregate.average) : 0);
+
+    widgetElement.querySelectorAll("[data-rate-value]").forEach((starButton) => {
+      const starValue = Number(starButton.getAttribute("data-rate-value"));
+      starButton.classList.toggle("is-filled", starValue <= displayValue);
+      starButton.setAttribute("aria-checked", starValue === userValue ? "true" : "false");
+    });
+
+    const summaryElement = widgetElement.querySelector("[data-rating-summary]");
+    if (summaryElement) {
+      const parts = [];
+      if (userValue) {
+        parts.push(`You rated it ${userValue}★`);
+      }
+      if (aggregate && aggregate.count) {
+        parts.push(`${aggregate.average.toFixed(1)}★ avg (${aggregate.count})`);
+      }
+      summaryElement.textContent = parts.join(" · ");
+    }
+  };
+
+  const applyRatingsToAllRenderedWidgets = () => {
+    document.querySelectorAll("[data-rating-widget]").forEach(applyRatingToWidget);
+  };
+
+  const submitRating = (link, stars) => {
+    if (!link || !Number.isInteger(stars) || stars < 1 || stars > 5) {
+      return;
+    }
+    localRatings = { ...localRatings, [link]: stars };
+    persistLocalRatings();
+    applyRatingsToAllRenderedWidgets();
+    refreshRecommendations();
+
+    fetch("/api/ratings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ resourceLink: link, userId: getUserId(), stars }),
+    })
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`status ${response.status}`))))
+      .then((data) => {
+        remoteRatingAggregates.set(link, { average: data.average, count: data.count });
+        applyRatingsToAllRenderedWidgets();
+      })
+      .catch((error) => {
+        logResilienceWarning("rating_submit_failed", { link }, error);
+      });
+  };
+
+  const loadRemoteRatings = () => {
+    const userId = getUserId();
+    const query = userId ? `?userId=${encodeURIComponent(userId)}` : "";
+    fetch(`/api/ratings${query}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`status ${response.status}`))))
+      .then((data) => {
+        Object.entries(data.ratings || {}).forEach(([link, aggregate]) => {
+          remoteRatingAggregates.set(link, aggregate);
+        });
+        if (data.userRatings) {
+          localRatings = { ...localRatings, ...data.userRatings };
+          persistLocalRatings();
+        }
+        applyRatingsToAllRenderedWidgets();
+        refreshRecommendations();
+      })
+      .catch((error) => {
+        // No backend on this deployment (e.g. static hosting without
+        // Cloudflare Pages Functions) or the request failed — ratings still
+        // work locally, they just won't show a shared community average.
+        logResilienceWarning("ratings_load_remote_failed", {}, error);
+        refreshRecommendations();
+      });
+  };
+
+  const renderStarWidgetMarkup = (safeLink, safeName) => {
+    const starsMarkup = [1, 2, 3, 4, 5]
+      .map(
+        (value) =>
+          `<button type="button" class="rating-star" data-rate-link="${safeLink}" data-rate-value="${value}" role="radio" aria-checked="false" aria-label="Rate ${value} star${value > 1 ? "s" : ""}">★</button>`
+      )
+      .join("");
+    return `
+      <div class="resource-rating" data-rating-widget="${safeLink}">
+        <div class="rating-stars" role="radiogroup" aria-label="Your rating for ${safeName}">
+          ${starsMarkup}
+        </div>
+        <span class="rating-summary" data-rating-summary aria-live="polite"></span>
+      </div>
+    `;
+  };
+
+  // ── Recommendations ───────────────────────────────────────────────────
+  const recommendationsSummaryElement = document.getElementById("recommendations-summary");
+  const recommendationsPreviewElement = document.getElementById("recommendations-preview");
+  const maxRecommendations = 6;
+
+  const scoreByContent = (seedEntry, candidateEntry) => {
+    let score = 0;
+    const seedTags = new Set(seedEntry.tags || []);
+    (candidateEntry.tags || []).forEach((tag) => {
+      if (seedTags.has(tag)) {
+        score += 1;
+      }
+    });
+    if (seedEntry.Category && seedEntry.Category === candidateEntry.Category) {
+      score += 2;
+    }
+    if (seedEntry.Author && seedEntry.Author === candidateEntry.Author) {
+      score += 3;
+    }
+    return score;
+  };
+
+  // Used only when /api/recommendations is unreachable (no backend
+  // configured for this deployment, e.g. GitHub Pages/Netlify, or the
+  // request failed): a content-based fallback computed entirely from the
+  // resources already loaded on the page. It answers the same cold-start
+  // question the server-side algorithm does, just without the
+  // collaborative-filtering tier, which needs ratings shared across users.
+  const computeClientRecommendations = (limit) => {
+    const allEntries = [...latestEntryLookup.values()].filter(
+      (entry) => entry && isValidHttpUrl(getEntryPrimaryLink(entry))
+    );
+    const ratedLinks = new Set(Object.keys(localRatings));
+    const candidates = allEntries.filter((entry) => !ratedLinks.has(getEntryPrimaryLink(entry)));
+    const seedLinks = getRatedLinks(4);
+
+    if (seedLinks.length) {
+      const seedEntries = seedLinks
+        .map((link) => allEntries.find((entry) => getEntryPrimaryLink(entry) === link))
+        .filter(Boolean);
+      const scored = candidates
+        .map((entry) => ({
+          entry,
+          score: seedEntries.length ? Math.max(...seedEntries.map((seed) => scoreByContent(seed, entry))) : 0,
+        }))
+        .filter(({ score }) => score > 0)
+        .sort((a, b) => b.score - a.score);
+      if (scored.length) {
+        return scored.slice(0, limit).map(({ entry }) => ({
+          name: entry.Name || "",
+          author: entry.Author || "",
+          link: getEntryPrimaryLink(entry),
+          reason: "content",
+        }));
+      }
+    }
+
+    // No ratings yet, or nothing matched by content — fall back to a
+    // deterministic, diverse sample (one pick per track, newest first) so
+    // the panel is never empty.
+    const byTrack = new Map();
+    candidates.forEach((entry) => {
+      const track = getEntryBucketKey(entry) || entry.Category || "other";
+      if (!byTrack.has(track)) {
+        byTrack.set(track, []);
+      }
+      byTrack.get(track).push(entry);
+    });
+    byTrack.forEach((list) => list.sort((a, b) => (getEntryYear(b) || 0) - (getEntryYear(a) || 0)));
+    const tracks = [...byTrack.keys()];
+    const result = [];
+    let cursor = 0;
+    while (result.length < limit && tracks.some((track) => byTrack.get(track).length)) {
+      const track = tracks[cursor % tracks.length];
+      const list = byTrack.get(track);
+      if (list.length) {
+        const entry = list.shift();
+        result.push({
+          name: entry.Name || "",
+          author: entry.Author || "",
+          link: getEntryPrimaryLink(entry),
+          reason: "diverse",
+        });
+      }
+      cursor += 1;
+    }
+    return result;
+  };
+
+  const recommendationReasonLabels = {
+    collaborative: "Because you liked similar resources",
+    content: "Similar to something you rated",
+    popularity: "Highly rated by the community",
+    diverse: "Something new to explore",
+  };
+
+  const renderRecommendations = (items) => {
+    if (!recommendationsPreviewElement || !recommendationsSummaryElement) {
+      return;
+    }
+    if (!items.length) {
+      recommendationsSummaryElement.textContent = "Rate a few resources to get picks.";
+      recommendationsPreviewElement.innerHTML = `
+        <p class="reading-list-empty">No recommendations yet — rate a resource you like.</p>
+      `;
+      return;
+    }
+    recommendationsSummaryElement.textContent = `${items.length} pick${items.length === 1 ? "" : "s"} for you`;
+    recommendationsPreviewElement.innerHTML = `
+      <ul class="reading-list-items">
+        ${items
+          .map((item) => {
+            const safeName = escapeHtml(item.name || "Untitled");
+            const safeAuthor = escapeHtml(item.author || "");
+            const safeLink = escapeHtml(item.link || "#");
+            const safeReason = escapeHtml(recommendationReasonLabels[item.reason] || "Recommended");
+            return `
+              <li class="reading-list-item">
+                <div class="reading-list-item-main">
+                  <a href="${safeLink}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="reading-list-item-link">${safeName}</a>
+                  <span class="reading-list-item-meta">${safeAuthor ? `${safeAuthor} · ` : ""}${safeReason}</span>
+                </div>
+              </li>
+            `;
+          })
+          .join("")}
+      </ul>
+    `;
+  };
+
+  let recommendationsRequestToken = 0;
+
+  const refreshRecommendations = () => {
+    if (!recommendationsPreviewElement) {
+      return;
+    }
+    const requestToken = ++recommendationsRequestToken;
+    const seedLinks = getRatedLinks(4);
+    const params = new URLSearchParams({ limit: String(maxRecommendations), userId: getUserId() });
+    if (seedLinks[0]) {
+      params.set("resourceLink", seedLinks[0]);
+    }
+
+    fetch(`/api/recommendations?${params.toString()}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`status ${response.status}`))))
+      .then((data) => {
+        if (requestToken !== recommendationsRequestToken) {
+          return;
+        }
+        renderRecommendations(data.recommendations || []);
+      })
+      .catch((error) => {
+        if (requestToken !== recommendationsRequestToken) {
+          return;
+        }
+        logResilienceWarning("recommendations_load_failed", {}, error);
+        renderRecommendations(computeClientRecommendations(maxRecommendations));
+      });
+  };
+
   const resolveTrackCategory = (value = "") =>
     validTrackKeys.has(value.toString()) ? value.toString() : "";
 
@@ -2520,6 +2827,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             ${filmScoresMarkup}
             ${bookScoresMarkup}
+            ${renderStarWidgetMarkup(safeLink, safeName)}
             <div class="resource-actions">
               <button type="button" class="resource-save-button${isSaved ? " is-saved" : ""}" data-save-toggle="${safeLookupKey}" aria-pressed="${isSaved ? "true" : "false"}">
                 ${isSaved ? "Saved" : "Save"}
@@ -3056,6 +3364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderReadingDashboard();
+    applyRatingsToAllRenderedWidgets();
   };
 
   const suggestionForm = document.getElementById("book-suggestion-form");
@@ -3636,6 +3945,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      const ratingStarButton = clickTarget.closest("[data-rate-value]");
+      if (ratingStarButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const link = (ratingStarButton.getAttribute("data-rate-link") || "").trim();
+        const value = parseInt(ratingStarButton.getAttribute("data-rate-value") || "", 10);
+        if (link) {
+          submitRating(link, value);
+        }
+        return;
+      }
+
       const shareButton = clickTarget.closest("[data-share-toggle]");
       if (shareButton) {
         event.preventDefault();
@@ -3816,4 +4137,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderAllBooks();
   applyResourceHighlightFromHash();
+  loadRemoteRatings();
 });

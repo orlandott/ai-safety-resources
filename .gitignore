@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Local Wrangler/D1 dev state
+.wrangler/
