@@ -803,15 +803,49 @@ textarea {
   background: rgba(0, 0, 0, 0.42);
 }
 
-.youtube-cover.is-embedded {
-  cursor: default;
+/* Expanded inline player: the card wraps and the player takes a full-width
+   16:9 row beneath the usual card content. */
+.resource-card.is-playing {
+  flex-wrap: wrap;
 }
 
-.youtube-cover.is-embedded iframe {
+.resource-card.is-playing .youtube-play-badge {
+  display: none;
+}
+
+.youtube-player-region {
+  flex-basis: 100%;
+  width: 100%;
+  min-width: 0;
+  margin-top: 0.35rem;
+}
+
+.youtube-player-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: #000;
+}
+
+.youtube-player-frame iframe {
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.youtube-player-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 0.55rem;
+}
+
+.youtube-player-close {
+  cursor: pointer;
 }
 
 .cover-fallback {

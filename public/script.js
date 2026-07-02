@@ -2444,7 +2444,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
       const playBadgeMarkup = `<span class="youtube-play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>`;
       const coverElementMarkup = youtubeVideoId
-        ? `<span id="${coverElementId}" class="book-cover resource-cover-link youtube-cover" data-youtube-id="${escapeHtml(youtubeVideoId)}" role="button" tabindex="0" aria-label="Play ${safeName} inline">
+        ? `<span id="${coverElementId}" class="book-cover resource-cover-link youtube-cover" data-youtube-id="${escapeHtml(youtubeVideoId)}" role="button" tabindex="0" aria-expanded="false" aria-label="Play ${safeName} inline">
             <img class="book-image" src="${youtubeThumbnailUrl}" loading="lazy" alt="${safeName} video thumbnail" />
             ${playBadgeMarkup}
           </span>`
@@ -3764,6 +3764,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Inline YouTube playback expands into a full-width 16:9 player inside the
+  // card (rather than the small thumbnail) so people can watch here instead
+  // of leaving for YouTube.
+  const openInlineYoutubePlayer = (trigger) => {
+    const videoId = (trigger.getAttribute("data-youtube-id") || "").trim();
+    const card = trigger.closest(".resource-card");
+    if (!videoId || !card) {
+      return;
+    }
+    const existingRegion = card.querySelector(".youtube-player-region");
+    if (existingRegion) {
+      existingRegion.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      return;
+    }
+    const safeVideoId = escapeHtml(videoId);
+    const titleElement = card.querySelector(".idea-header");
+    const videoTitle = (titleElement && titleElement.textContent
+      ? titleElement.textContent
+      : "YouTube video"
+    ).trim();
+    const region = document.createElement("div");
+    region.className = "youtube-player-region";
+    region.innerHTML = `
+      <div class="youtube-player-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/${safeVideoId}?autoplay=1&amp;rel=0" title="YouTube video player: ${escapeHtml(videoTitle)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="youtube-player-bar">
+        <a class="open-link youtube-player-external" href="https://www.youtube.com/watch?v=${safeVideoId}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Watch on YouTube <span class="open-link-arrow" aria-hidden="true">↗</span></a>
+        <button type="button" class="resource-save-button youtube-player-close" data-youtube-close aria-label="Close video player for ${escapeHtml(videoTitle)}">Close player</button>
+      </div>`;
+    card.classList.add("is-playing");
+    card.appendChild(region);
+    trigger.setAttribute("aria-expanded", "true");
+    region.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  };
+
+  const closeInlineYoutubePlayer = (closeButton) => {
+    const card = closeButton.closest(".resource-card");
+    if (!card) {
+      return;
+    }
+    const region = card.querySelector(".youtube-player-region");
+    if (region) {
+      region.remove();
+    }
+    card.classList.remove("is-playing");
+    const trigger = card.querySelector("[data-youtube-id]");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.focus();
+    }
+  };
+
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") {
       return;
@@ -3779,7 +3832,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     const youtubeTrigger = keyTarget.closest("[data-youtube-id]");
-    if (youtubeTrigger && !youtubeTrigger.classList.contains("is-embedded")) {
+    if (youtubeTrigger) {
       event.preventDefault();
       youtubeTrigger.click();
     }
@@ -3823,19 +3876,19 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const youtubeTrigger = clickTarget.closest("[data-youtube-id]");
-      if (youtubeTrigger && !youtubeTrigger.classList.contains("is-embedded")) {
+      const youtubeCloseButton = clickTarget.closest("[data-youtube-close]");
+      if (youtubeCloseButton) {
         event.preventDefault();
         event.stopPropagation();
-        const videoId = (youtubeTrigger.getAttribute("data-youtube-id") || "").trim();
-        if (videoId) {
-          youtubeTrigger.classList.add("is-embedded");
-          youtubeTrigger.removeAttribute("role");
-          youtubeTrigger.removeAttribute("tabindex");
-          youtubeTrigger.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(
-            videoId
-          )}?autoplay=1&amp;rel=0" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        }
+        closeInlineYoutubePlayer(youtubeCloseButton);
+        return;
+      }
+
+      const youtubeTrigger = clickTarget.closest("[data-youtube-id]");
+      if (youtubeTrigger) {
+        event.preventDefault();
+        event.stopPropagation();
+        openInlineYoutubePlayer(youtubeTrigger);
         return;
       }
 
