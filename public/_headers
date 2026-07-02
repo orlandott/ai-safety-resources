@@ -1,0 +1,10 @@
+# Cloudflare Pages security headers, applied to every route (including the
+# generated category/topic/path pages and the 404 page, which cannot carry a
+# CSP <meta> reliably). Keep the CSP in sync with the meta tag in index.html.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://openlibrary.org https://www.googleapis.com https://en.wikipedia.org https://docs.google.com https://script.google.com https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com https://formspree.io https://*.formspree.io; frame-src https://docs.google.com https://www.youtube-nocookie.com; form-action 'self' https://docs.google.com https://script.google.com; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

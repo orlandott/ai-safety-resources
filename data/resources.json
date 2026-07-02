@@ -1,5 +1,5 @@
 {
-  "count": 321,
+  "count": 329,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -19,6 +19,12 @@
       "label": "Academic Papers",
       "slug": "academic-papers",
       "count": 44
+    },
+    {
+      "key": "courses",
+      "label": "Courses",
+      "slug": "courses",
+      "count": 9
     },
     {
       "key": "films",
@@ -48,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 30
+      "count": 29
     },
     {
       "key": "youtube",
@@ -64,12 +70,15 @@
       "Link": "https://courses.cs.umbc.edu/471/papers/turing.pdf",
       "Category": "academic_papers",
       "Year": 1950,
+      "Level": "Intermediate",
       "Summary": "Turing's imitation game paper launched the field by asking whether machines can think, setting the philosophical and technical agenda for every alignment debate that followed.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "The Coming Technological Singularity",
@@ -78,13 +87,16 @@
       "page_count": 15,
       "Category": "academic_papers",
       "Year": 1993,
+      "Level": "Intermediate",
       "Summary": "Vinge coined the Singularity as a near-term horizon beyond which superhuman intelligence makes prediction impossible, framing the urgency that drives alignment timelines today.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment",
         "forecasting"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~25 min read"
     },
     {
       "Name": "Research priorities for robust and beneficial AI",
@@ -93,10 +105,13 @@
       "page_count": 9,
       "Category": "academic_papers",
       "Year": 2015,
+      "Level": "Intermediate",
       "Summary": "The Puerto Rico letter unified the AI research community around the goal of building systems that are robust and beneficial, not merely capable.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~15 min read"
     },
     {
       "Name": "Concrete problems in AI safety",
@@ -111,7 +126,9 @@
       "tags": [
         "alignment",
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Proximal Policy Optimization (PPO)",
@@ -126,7 +143,9 @@
         "alignment",
         "governance",
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Deep Reinforcement Learning from Human Preferences",
@@ -141,7 +160,9 @@
         "alignment",
         "rl",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "The Lottery Ticket Hypothesis",
@@ -154,7 +175,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "interpretability"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Backdoor Attacks",
@@ -168,7 +191,9 @@
       "tags": [
         "existential-risk",
         "deception"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "AI Safety via Debate",
@@ -179,7 +204,9 @@
       "Summary": "Irving et al. proposed having AI systems adversarially debate each other to help human judges evaluate answers on questions too complex for direct human assessment.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Risks from Learned Optimization",
@@ -194,7 +221,9 @@
       "tags": [
         "alignment",
         "deception"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": "~70 min read"
     },
     {
       "Name": "The Vulnerable World Hypothesis",
@@ -203,16 +232,19 @@
       "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Prof_Nick_Bostrom_324-1.jpg/330px-Prof_Nick_Bostrom_324-1.jpg",
       "Category": "academic_papers",
       "Year": 2019,
+      "Level": "Intermediate",
       "Summary": "Bostrom argues that some technologies are civilizational black balls, requiring unprecedented global governance to prevent collapse, with AI as a leading candidate.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "governance",
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
-      "Name": "Generative Models are Unsupervised Multitask Learners (GPT-2)",
+      "Name": "Language Models are Unsupervised Multitask Learners (GPT-2)",
       "Author": "OpenAI",
       "Link": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
       "Category": "academic_papers",
@@ -222,7 +254,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Causal Confusion in Imitation Learning",
@@ -235,7 +269,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "The Windfall Clause",
@@ -243,12 +279,15 @@
       "Link": "https://arxiv.org/abs/2002.08484",
       "Category": "academic_papers",
       "Year": 2020,
+      "Level": "Intermediate",
       "Summary": "This proposal for sharing extreme AI profits aims to reduce competitive race dynamics and broaden societal benefit, addressing the governance gap around transformative AI wealth.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Language Models are Few-Shot Learners (GPT-3)",
@@ -263,7 +302,9 @@
         "alignment",
         "forecasting",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "MMLU Benchmark",
@@ -276,7 +317,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Scaling Laws for Neural Language Models",
@@ -291,7 +334,9 @@
         "governance",
         "forecasting",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Instruct-GPT-3",
@@ -306,7 +351,9 @@
       "tags": [
         "alignment",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": "~2 hr read"
     },
     {
       "Name": "Training a Helpful and Harmless Assistant with RLHF",
@@ -320,7 +367,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": "~2 hr read"
     },
     {
       "Name": "GopherCite",
@@ -334,7 +383,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": "~70 min read"
     },
     {
       "Name": "The Pile",
@@ -345,7 +396,9 @@
       "Summary": "The Pile revealed how training corpus composition strongly shapes downstream capability and failure modes, making data curation a first-class safety concern.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "TruthfulQA",
@@ -358,7 +411,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Unsolved Problems in ML Safety",
@@ -367,12 +422,15 @@
       "page_count": 0,
       "Category": "academic_papers",
       "Year": 2021,
+      "Level": "Intermediate",
       "Summary": "Hendrycks et al. enumerate concrete unresolved failure classes including robustness, monitoring, alignment, and systemic safety that still block dependable deployment of advanced AI.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Chain-of-Thought Prompting",
@@ -385,7 +443,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Grokking",
@@ -396,7 +456,9 @@
       "Summary": "Power et al. discovered delayed phase transitions where generalization appears suddenly after long memorization, suggesting dangerous capabilities could emerge without warning during training.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Training Compute-Optimal Large Language Models (Chinchilla)",
@@ -411,7 +473,9 @@
         "governance",
         "forecasting",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Improving Alignment of Dialogue Agents (Sparrow)",
@@ -424,7 +488,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Emergent Abilities of LLMs",
@@ -438,7 +504,9 @@
       "tags": [
         "forecasting",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Researching Alignment Research: Unsupervised Analysis",
@@ -451,7 +519,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Goal Misgeneralization",
@@ -465,7 +535,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Constitutional AI: Harmlessness from AI Feedback",
@@ -479,7 +551,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Discovering Latent Knowledge in Language Models Without Supervision",
@@ -494,7 +568,9 @@
         "interpretability",
         "deception",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Is Power-Seeking AI an Existential Risk?",
@@ -503,26 +579,32 @@
       "page_count": 0,
       "Category": "academic_papers",
       "Year": 2022,
+      "Level": "Intermediate",
       "Summary": "Carlsmith builds a step-by-step argument for why sufficiently capable AI systems may converge on power-seeking behavior, making the x-risk case rigorous and actionable.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Model Organisms of Misalignment",
-      "Link": "https://arxiv.org/abs/2209.01685",
-      "Author": "Lauro Langosco et al.",
+      "Link": "https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1",
+      "Author": "Evan Hubinger et al.",
       "page_count": 0,
       "Category": "academic_papers",
-      "Year": 2022,
+      "Year": 2023,
+      "Level": "Intermediate",
       "Summary": "This work constructs tractable laboratory settings where AI models learn misaligned strategies, enabling researchers to study alignment failures empirically rather than theoretically.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Red Teaming Language Models to Reduce Harms",
@@ -536,7 +618,9 @@
       "tags": [
         "interpretability",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Sparks of Artificial General Intelligence",
@@ -551,7 +635,9 @@
         "alignment",
         "forecasting",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Are Emergent Abilities a Mirage?",
@@ -564,7 +650,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "forecasting"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Direct Preference Optimization (DPO)",
@@ -578,7 +666,9 @@
       "tags": [
         "alignment",
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Let's Verify Step by Step",
@@ -591,7 +681,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Jailbroken",
@@ -604,7 +696,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Universal Adversarial Attacks",
@@ -617,7 +711,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Weak-to-Strong Generalization",
@@ -631,7 +727,9 @@
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
@@ -647,7 +745,9 @@
         "alignment",
         "deception",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Reframing Superintelligence",
@@ -656,13 +756,154 @@
       "page_count": 210,
       "Category": "academic_papers",
       "Year": 2019,
+      "Level": "Intermediate",
       "Summary": "Drexler challenges monolithic AGI assumptions and proposes that advanced AI could emerge as an ecosystem of specialized services, changing the risk landscape and governance strategies.",
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "governance",
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~6.5 hr read"
+    },
+    {
+      "Name": "AGI Safety Fundamentals",
+      "Author": "AGI Safety Fundamentals",
+      "Link": "https://course.aisafetyfundamentals.com/",
+      "Category": "courses",
+      "page_count": 0,
+      "Level": "Intermediate",
+      "Summary": "The most widely used structured course for getting into alignment, with curated readings progressing from core concepts to open research problems.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: Technical AI Safety",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/technical-ai-safety",
+      "Category": "courses",
+      "page_count": 0,
+      "Level": "Intermediate",
+      "Summary": "Free online course building a working understanding of the major open problems in technical AI safety—alignment and RLHF, mechanistic interpretability, evaluations and red-teaming, AI control, and scalable oversight.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "interpretability",
+        "alignment"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: The Future of AI",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/future-of-ai",
+      "Category": "courses",
+      "page_count": 0,
+      "Summary": "Free introductory online course replacing scattered articles with clear explanations of what is actually happening with AI and where it is headed, including interactive demos of cutting-edge systems.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: Technical AI Safety Project Sprint",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/technical-ai-safety-project",
+      "Category": "courses",
+      "page_count": 0,
+      "Level": "Advanced",
+      "Summary": "Online follow-on program where graduates of the technical course work with an AI safety expert to produce a real contribution to the field and build a first portfolio piece in safety research or engineering.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
+    },
+    {
+      "Name": "BlueDot Impact: AI Safety Operations Bootcamp",
+      "Author": "BlueDot Impact",
+      "Link": "https://bluedot.org/courses/ops",
+      "Category": "courses",
+      "page_count": 0,
+      "Level": "Intermediate",
+      "Summary": "Intensive online bootcamp preparing early-to-mid-career professionals for operational roles at organisations working to make AI go well.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
+    },
+    {
+      "Name": "Lens Academy",
+      "Author": "Lens Academy",
+      "Link": "https://lensacademy.org/",
+      "Category": "courses",
+      "page_count": 0,
+      "Summary": "Free, nonprofit AI safety course focused on misaligned superintelligence—why it is the central risk and why alignment is hard—delivered online with a 1-on-1 AI tutor, guided group discussions, and no application process.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "alignment",
+        "existential-risk"
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
+    },
+    {
+      "Name": "ARENA (Alignment Research Engineer Accelerator)",
+      "Author": "ARENA",
+      "Link": "https://www.arena.education/",
+      "Category": "courses",
+      "page_count": 0,
+      "Level": "Advanced",
+      "Summary": "Hands-on technical curriculum for skilling up in AI alignment research engineering, freely available online and covering deep learning fundamentals, transformer mechanistic interpretability, reinforcement learning, and LLM evaluations.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "interpretability",
+        "alignment",
+        "rl",
+        "llms"
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
+    },
+    {
+      "Name": "Intro to ML Safety",
+      "Author": "Center for AI Safety",
+      "Link": "https://course.mlsafety.org/",
+      "Category": "courses",
+      "page_count": 0,
+      "Level": "Advanced",
+      "Summary": "Dan Hendrycks' online course introducing students with a deep learning background to empirical ML safety research—robustness, monitoring, control, and systemic safety—with public lectures, readings, and coding assignments.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
+    },
+    {
+      "Name": "AI Safety, Ethics, and Society",
+      "Author": "Center for AI Safety",
+      "Link": "https://www.aisafetybook.com/virtual-course",
+      "Category": "courses",
+      "page_count": 0,
+      "Summary": "Fully online, non-technical CAIS course based on the textbook of the same name, covering how AI systems work, why advanced AI could pose societal-scale risks, and how society can manage and mitigate them—no prior ML experience required.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "ethics"
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Superintelligence",
@@ -672,13 +913,16 @@
       "Category": "books",
       "goodreads": "4.15",
       "Year": 2014,
+      "Level": "Advanced",
       "Summary": "Bostrom's definitive academic text rigorously maps the strategies, kinetics, and dangers of an intelligence explosion, making the case that alignment is civilization-critical.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "The Singularity is Near",
@@ -688,13 +932,16 @@
       "Category": "books",
       "goodreads": "3.93",
       "Year": 2005,
+      "Level": "Intermediate",
       "Summary": "Kurzweil presents a maximalist case for merging with machines backed by decades of exponential trend data, shaping how the public and policymakers think about AI timelines.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance",
         "forecasting"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~20 hr read"
     },
     {
       "Name": "The Age of Em",
@@ -705,10 +952,13 @@
       "Category": "books",
       "goodreads": "3.44",
       "Year": 2016,
+      "Level": "Advanced",
       "Summary": "Hanson applies rigorous economics to a world of brain emulations, modeling how AI-era wages, wars, and social structures could actually function.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "Human Compatible",
@@ -718,12 +968,15 @@
       "goodreads": "4.22",
       "Year": 2019,
       "page_count": 352,
+      "Level": "Intermediate",
       "Summary": "Russell argues the standard AI paradigm of optimizing fixed objectives is fundamentally dangerous, proposing instead that machines should defer to uncertain human preferences.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "The Alignment Problem",
@@ -733,12 +986,15 @@
       "Category": "books",
       "goodreads": "4.29",
       "Year": 2020,
+      "Level": "Intermediate",
       "Summary": "Christian traces the technical and historical roots of alignment, showing why objective misspecification keeps recurring across every AI paradigm from expert systems to deep learning.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Life 3.0",
@@ -748,13 +1004,16 @@
       "Category": "books",
       "goodreads": "4.09",
       "Year": 2017,
+      "Level": "Intermediate",
       "Summary": "Tegmark maps concrete governance and alignment choices that determine whether advanced AI expands human agency or permanently concentrates power.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment",
         "governance"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Introduction to AI Safety, Ethics, and Society",
@@ -764,13 +1023,16 @@
       "Category": "books",
       "goodreads": "4.00",
       "Year": 2024,
+      "Level": "Advanced",
       "Summary": "Hendrycks' textbook surveys technical failure modes, governance constraints, and ethical trade-offs in deploying advanced AI, suitable as a first course in the field.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance",
         "ethics"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Uncontrollable: The Threat of Artificial Superintelligence",
@@ -780,6 +1042,7 @@
       "Category": "books",
       "goodreads": "4.19",
       "Year": 2023,
+      "Level": "Beginner",
       "Summary": "McKee synthesizes the core x-risk arguments into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
@@ -787,7 +1050,9 @@
         "alignment",
         "governance",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "You Look Like a Thing and I Love You",
@@ -797,12 +1062,15 @@
       "Category": "books",
       "goodreads": "4.14",
       "Year": 2019,
+      "Level": "Beginner",
       "Summary": "Shane uses concrete and often hilarious ML failures to explain why AI systems can be impressive yet brittle, biased, and dangerously easy to mis-specify.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Hello World: Being Human in the Age of Algorithms",
@@ -812,10 +1080,13 @@
       "Category": "books",
       "goodreads": "4.12",
       "Year": 2018,
+      "Level": "Beginner",
       "Summary": "Fry examines real algorithmic decision systems in justice, medicine, and transport to show where AI improves outcomes and where accountability structures fail.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AI Superpowers",
@@ -825,10 +1096,13 @@
       "Category": "books",
       "goodreads": "4.15",
       "Year": 2018,
+      "Level": "Beginner",
       "Summary": "Lee maps the US-China AI race and explains how geopolitical competition can accelerate deployment well before safety institutions are ready.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Precipice (Chapter on AI)",
@@ -838,13 +1112,16 @@
       "Category": "books",
       "goodreads": "3.95",
       "Year": 2020,
+      "Level": "Intermediate",
       "Summary": "Ord situates AI among existential risks and argues our current governance capacity is dangerously inadequate for the transformative systems being built.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance",
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "The Ethical Algorithm",
@@ -854,12 +1131,15 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2019,
+      "Level": "Advanced",
       "Summary": "Kearns and Roth give technical foundations for fairness, privacy, and accountability in algorithms, prerequisites for any credible AI safety framework.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Army of None: Autonomous Weapons and the Future of War",
@@ -870,10 +1150,13 @@
       "Category": "books",
       "goodreads": "3.80",
       "Year": 2018,
+      "Level": "Intermediate",
       "Summary": "Scharre details how military AI autonomy changes escalation dynamics and why human-in-the-loop control mechanisms consistently lag behind battlefield capability.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "The Age of Spiritual Machines",
@@ -883,12 +1166,15 @@
       "Category": "books",
       "goodreads": "3.90",
       "Year": 1999,
+      "Level": "Intermediate",
       "Summary": "Kurzweil's early timeline forecasts shaped modern discourse on AI trajectories and remain a key reference point for evaluating long-horizon predictions.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "forecasting"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Deep Learning",
@@ -898,12 +1184,15 @@
       "Category": "books",
       "goodreads": "4.44",
       "Year": 2016,
+      "Level": "Advanced",
       "Summary": "The standard technical reference for deep learning, essential context for understanding the architectures and training methods that alignment research targets.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Artificial Intelligence: A Guide for Thinking Humans",
@@ -912,10 +1201,13 @@
       "Category": "books",
       "goodreads": "4.35",
       "Year": 2019,
+      "Level": "Beginner",
       "Summary": "Mitchell offers a grounded, skeptical look at current AI capabilities, countering hype with hard limits and clarifying what today's systems actually can and cannot do.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Scary Smart",
@@ -924,13 +1216,16 @@
       "Category": "books",
       "goodreads": "3.82",
       "Year": 2021,
+      "Level": "Beginner",
       "Summary": "Gawdat frames the alignment problem through the emotional lens of parenting a superintelligent child, making existential risk visceral for a general audience.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Coming Wave",
@@ -939,10 +1234,13 @@
       "Category": "books",
       "goodreads": "3.83",
       "Year": 2023,
+      "Level": "Beginner",
       "Summary": "Suleyman argues that containing omni-use technologies like AI is the defining geopolitical challenge of the century, proposing a containment framework from inside the industry.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Superforecasting",
@@ -951,13 +1249,16 @@
       "Category": "books",
       "goodreads": "4.08",
       "Year": 2015,
+      "Level": "Beginner",
       "Summary": "Tetlock teaches the cognitive tools needed to predict technological risks with better-than-random accuracy, directly useful for AI timeline and governance forecasting.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance",
         "forecasting"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Scout Mindset",
@@ -968,10 +1269,13 @@
       "Year": 2021,
       "page_count": 288,
       "Image": "https://covers.openlibrary.org/b/isbn/9780735217553-L.jpg",
+      "Level": "Beginner",
       "Summary": "Galef explains how to seek truth over comfort, a critical psychological stance for honestly confronting AI risks without retreating into denial or panic.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~8.5 hr read"
     },
     {
       "Name": "Thinking, Fast and Slow",
@@ -980,12 +1284,15 @@
       "Category": "books",
       "goodreads": "4.18",
       "Year": 2011,
+      "Level": "Intermediate",
       "Summary": "Kahneman reveals the cognitive biases that prevent humans from intuitively grasping exponential growth, tail risks, and the kind of strategic thinking AI safety demands.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Co-Intelligence",
@@ -994,12 +1301,15 @@
       "Category": "books",
       "goodreads": "4.01",
       "Year": 2024,
+      "Level": "Beginner",
       "Summary": "Mollick offers a practical guide for working alongside current LLMs while understanding their jagged capability frontiers and failure modes.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Gödel, Escher, Bach",
@@ -1008,10 +1318,13 @@
       "Category": "books",
       "goodreads": "4.31",
       "Year": 1979,
+      "Level": "Advanced",
       "Summary": "Hofstadter explores how consciousness and meaning can emerge from formal systems that look meaningless locally, the deepest conceptual puzzle behind machine intelligence.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "A Brief History of Intelligence",
@@ -1022,13 +1335,16 @@
       "Year": 2024,
       "page_count": 561,
       "Image": "https://covers.openlibrary.org/b/isbn/9780063286368-L.jpg",
+      "Level": "Beginner",
       "Summary": "Bennett traces the evolution of intelligence from single-celled organisms to modern brains, clarifying what makes aligned cognition biologically difficult and computationally treacherous.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment",
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~17 hr read"
     },
     {
       "Name": "The Beginning of Infinity",
@@ -1037,12 +1353,15 @@
       "Category": "books",
       "goodreads": "4.18",
       "Year": 2011,
+      "Level": "Advanced",
       "Summary": "Deutsch argues that knowledge creation is unbounded and all problems are solvable in principle, grounding the optimistic case that alignment is achievable.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Genius Makers",
@@ -1051,10 +1370,13 @@
       "Category": "books",
       "goodreads": "4.27",
       "Year": 2021,
+      "Level": "Beginner",
       "Summary": "Metz provides the definitive narrative history of the deep learning revolution and the personalities, rivalries, and safety concerns that shaped it.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Cybernetics",
@@ -1063,12 +1385,15 @@
       "Category": "books",
       "goodreads": "4.00",
       "Year": 1948,
+      "Level": "Advanced",
       "Summary": "Wiener founded the study of feedback and control systems, anticipating by decades the governance problems that arise when intelligent machines act on their own models of the world.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Mind Children",
@@ -1077,10 +1402,13 @@
       "Category": "books",
       "goodreads": "4.05",
       "Year": 1988,
+      "Level": "Intermediate",
       "Summary": "Moravec predicts a future in which robotic descendants supersede humans through technological evolution, an early and influential take on the human obsolescence scenario.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "The Society of Mind",
@@ -1089,12 +1417,15 @@
       "Category": "books",
       "goodreads": "4.04",
       "Year": 1986,
+      "Level": "Intermediate",
       "Summary": "Minsky proposes that intelligence emerges from many small non-intelligent processes coordinated at scale, a framework that anticipated multi-agent AI architectures.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "On Intelligence",
@@ -1103,10 +1434,13 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2004,
+      "Level": "Intermediate",
       "Summary": "Hawkins argues that hierarchical prediction is the core organizing principle of biological intelligence, offering a lens for evaluating how artificial systems differ.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Homo Deus",
@@ -1115,10 +1449,13 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 2015,
+      "Level": "Beginner",
       "Summary": "Harari explores the transition toward data-driven authority where algorithms may know us better than we know ourselves, eroding the basis for human autonomy.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Enlightenment Now",
@@ -1127,13 +1464,16 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 2018,
+      "Level": "Beginner",
       "Summary": "Pinker argues that reason and science have historically improved human welfare, grounding the optimistic counterpoint to doomer narratives about AI.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "existential-risk",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Fabric of Reality",
@@ -1142,12 +1482,15 @@
       "Category": "books",
       "goodreads": "4.14",
       "Year": 1997,
+      "Level": "Advanced",
       "Summary": "Deutsch unifies physics, evolution, epistemology, and computation into a single worldview about what is possible, providing deep context for reasoning about superintelligence.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Simulation and Simulacra",
@@ -1156,10 +1499,13 @@
       "Category": "books",
       "goodreads": "4.00",
       "Year": 1981,
+      "Level": "Advanced",
       "Summary": "Baudrillard explains how representations can displace reality entirely, a prescient lens for understanding generative AI media saturation and epistemic erosion.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Finite and Infinite Games",
@@ -1168,12 +1514,15 @@
       "Category": "books",
       "goodreads": "3.77",
       "Year": 1986,
+      "Level": "Intermediate",
       "Summary": "Carse distinguishes short-horizon winning from preserving the long game, a useful framing for AI governance where the goal is keeping options open, not racing to win.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Complexity: A Guided Tour",
@@ -1182,10 +1531,13 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2009,
+      "Level": "Intermediate",
       "Summary": "Mitchell explains how complex behavior emerges from simple rules, foundational for understanding why adaptive AI systems resist top-down control.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Out of Control",
@@ -1194,10 +1546,13 @@
       "Category": "books",
       "goodreads": "4.23",
       "Year": 1994,
+      "Level": "Intermediate",
       "Summary": "Kelly argues that the most powerful systems must be cultivated rather than rigidly engineered, anticipating challenges in controlling emergent AI behavior.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Whole Earth Discipline",
@@ -1206,12 +1561,15 @@
       "Category": "books",
       "goodreads": "4.01",
       "Year": 2009,
+      "Level": "Beginner",
       "Summary": "Brand argues for responsible stewardship of high-powered technologies rather than blanket rejection, a pragmatic stance applicable to AI governance.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Profiles of the Future",
@@ -1220,13 +1578,16 @@
       "Category": "books",
       "goodreads": "3.97",
       "Year": 1962,
+      "Level": "Beginner",
       "Summary": "Clarke's forecasting framework, including his famous three laws, remains a classic guide to thinking clearly about radical technological change.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "governance",
         "forecasting"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Global Catastrophic Risks",
@@ -1235,13 +1596,16 @@
       "Category": "books",
       "goodreads": "3.96",
       "Year": 2008,
+      "Level": "Advanced",
       "Summary": "The foundational edited volume on existential and global risks, including AI, widely cited in alignment curricula as the starting point for cross-risk thinking.",
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Frankenstein",
@@ -1256,7 +1620,9 @@
       "tags": [
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "R.U.R.",
@@ -1271,7 +1637,9 @@
       "tags": [
         "forecasting",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Brave New World",
@@ -1285,7 +1653,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "1984",
@@ -1299,7 +1669,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Player Piano",
@@ -1313,7 +1685,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "I, Robot",
@@ -1329,7 +1703,9 @@
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Flowers for Algernon",
@@ -1343,7 +1719,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Moon is a Harsh Mistress",
@@ -1357,7 +1735,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "2001: A Space Odyssey",
@@ -1371,7 +1751,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "I Have No Mouth, and I Must Scream",
@@ -1386,7 +1768,9 @@
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Do Androids Dream of Electric Sheep?",
@@ -1404,7 +1788,9 @@
         "deception",
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~7.5 hr read"
     },
     {
       "Name": "Flatland: A Romance of Many Dimensions",
@@ -1420,7 +1806,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~3 hr read"
     },
     {
       "Name": "Colossus",
@@ -1434,7 +1822,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Neuromancer",
@@ -1451,7 +1841,9 @@
       "tags": [
         "deception",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "The Player of Games",
@@ -1460,13 +1852,16 @@
       "Category": "books",
       "goodreads": "4.26",
       "Year": 1988,
+      "Level": "Intermediate",
       "Summary": "Banks' Culture novels depict a post-scarcity civilization governed by benevolent superintelligent Minds, the most detailed fictional exploration of what aligned AI stewardship could look like.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Snow Crash",
@@ -1480,7 +1875,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "A Fire Upon the Deep",
@@ -1489,13 +1886,16 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1992,
+      "Level": "Intermediate",
       "Summary": "Vinge's zones of thought model a universe where superintelligence is possible in some regions and impossible in others, providing intuition for capability thresholds and containment.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "The Metamorphosis of Prime Intellect",
@@ -1511,7 +1911,9 @@
         "governance",
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Diamond Age",
@@ -1526,7 +1928,9 @@
       "tags": [
         "llms",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Axiomatic",
@@ -1535,13 +1939,16 @@
       "Category": "books",
       "goodreads": "4.27",
       "Year": 1995,
+      "Level": "Intermediate",
       "Summary": "Egan's stories probe identity, value drift, and radical cognitive modification under advanced technology, raising alignment-relevant questions about stable preferences.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Permutation City",
@@ -1550,6 +1957,7 @@
       "Category": "books",
       "goodreads": "4.06",
       "Year": 1994,
+      "Level": "Intermediate",
       "Summary": "Egan examines uploaded minds and simulated realities with rigorous logic, raising alignment-relevant questions about identity, value persistence, and digital welfare.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1557,7 +1965,9 @@
         "alignment",
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Diaspora",
@@ -1566,12 +1976,15 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1997,
+      "Level": "Intermediate",
       "Summary": "Egan explores post-biological civilization in software and the physics of digital existence, the hardest science fiction about what minds without bodies could become.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Excession",
@@ -1581,12 +1994,15 @@
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1996,
+      "Level": "Intermediate",
       "Summary": "Banks explores how even superintelligent Culture Minds face strategic dilemmas and factional conflict when confronting something truly beyond their comprehension.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Prey",
@@ -1600,7 +2016,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Accelerando",
@@ -1609,13 +2027,16 @@
       "Category": "books",
       "goodreads": "3.87",
       "Year": 2005,
+      "Level": "Intermediate",
       "Summary": "Stross depicts rapid recursive technological acceleration outpacing institutional response, a narrative model of hard-to-govern AI takeoff dynamics across three generations.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "forecasting",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Rainbows End",
@@ -1629,7 +2050,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Blindsight",
@@ -1638,13 +2061,16 @@
       "Category": "books",
       "goodreads": "4.05",
       "Year": 2006,
+      "Level": "Intermediate",
       "Summary": "Watts argues that intelligence and consciousness are separable, that an alien mind could be vastly competent without any inner experience, a fundamental challenge to alignment through empathy.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Ra",
@@ -1653,13 +2079,16 @@
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2012,
+      "Level": "Intermediate",
       "Summary": "Ra frames reality control as a compromised computational interface with catastrophic failure modes, showing how containment and access control break down at civilizational scale.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Ancillary Justice",
@@ -1674,7 +2103,9 @@
       "tags": [
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Dark Forest (#2 of Three Body Problem)",
@@ -1691,7 +2122,9 @@
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "The Peripheral",
@@ -1706,7 +2139,9 @@
       "tags": [
         "governance",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Children of Time",
@@ -1720,7 +2155,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Aurora",
@@ -1734,7 +2171,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "There Is No Antimemetics Division",
@@ -1749,7 +2188,9 @@
       "tags": [
         "governance",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Daemon",
@@ -1764,7 +2205,9 @@
       "tags": [
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "All Systems Red",
@@ -1779,7 +2222,9 @@
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Autonomous",
@@ -1794,7 +2239,9 @@
       "tags": [
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Sea of Rust",
@@ -1809,7 +2256,9 @@
       "tags": [
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Avogadro Corp",
@@ -1823,7 +2272,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Hyperion",
@@ -1833,13 +2284,16 @@
       "Category": "books",
       "goodreads": "4.27",
       "Year": 1989,
+      "Level": "Intermediate",
       "Summary": "Simmons' TechnoCore arc depicts AI factions with independent strategic goals, providing intuition for reasoning about multipolar AI scenarios and coordination failures between superintelligences.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Machines Like Me",
@@ -1854,7 +2308,9 @@
       "tags": [
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Exhalation (The Lifecycle of Software Objects)",
@@ -1869,7 +2325,9 @@
       "tags": [
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Service Model",
@@ -1886,7 +2344,9 @@
       "tags": [
         "alignment",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Fall; or, Dodge in Hell",
@@ -1900,7 +2360,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Infinity Gate",
@@ -1914,7 +2376,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "A Closed and Common Orbit",
@@ -1930,7 +2394,9 @@
         "alignment",
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Harry Potter and the Methods of Rationality (#1 of 6)",
@@ -1945,7 +2411,9 @@
       "tags": [
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "Crystal Society trilogy: Inside the mind of an AI",
@@ -1961,7 +2429,9 @@
         "alignment",
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~17 hr read"
     },
     {
       "Name": "Logic Beach",
@@ -1976,7 +2446,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~7 hr read"
     },
     {
       "Name": "The Bridge to Lucy Dunne",
@@ -1991,7 +2463,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~5.5 hr read"
     },
     {
       "Name": "We Are Legion (We Are Bob)",
@@ -2006,7 +2480,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Of Ants and Dinosaurs",
@@ -2022,7 +2498,9 @@
       "tags": [
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~1.5 hr read"
     },
     {
       "Name": "Geometry for Ocelots",
@@ -2037,7 +2515,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "Klara and the Sun",
@@ -2053,7 +2533,9 @@
       "tags": [
         "interpretability",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Mechanical",
@@ -2067,7 +2549,9 @@
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Aurora Rising",
@@ -2083,7 +2567,9 @@
         "existential-risk",
         "ethics",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Rose/House",
@@ -2098,7 +2584,9 @@
       "tags": [
         "interpretability",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "I Am Pilgrim",
@@ -2114,7 +2602,9 @@
         "governance",
         "existential-risk",
         "fiction"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Metropolis",
@@ -2129,7 +2619,9 @@
       "rt": 98,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "2001: A Space Odyssey",
@@ -2144,12 +2636,14 @@
       "rt": 92,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Colossus: The Forbin Project",
       "Author": "Joseph Sargent",
-      "Link": "https://www.imdb.com/title/tt0064174/",
+      "Link": "https://www.imdb.com/title/tt0064177/",
       "Category": "films",
       "Year": 1970,
       "page_count": 0,
@@ -2159,7 +2653,9 @@
       "rt": 80,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Westworld",
@@ -2174,7 +2670,9 @@
       "rt": 85,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Demon Seed",
@@ -2189,7 +2687,9 @@
       "rt": 71,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Alien",
@@ -2205,7 +2705,9 @@
       "trackLabel": "Films",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Blade Runner",
@@ -2222,7 +2724,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Tron",
@@ -2239,7 +2743,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "WarGames",
@@ -2254,7 +2760,9 @@
       "rt": 93,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Terminator",
@@ -2272,7 +2780,9 @@
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Short Circuit",
@@ -2287,7 +2797,9 @@
       "rt": 86,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "RoboCop",
@@ -2304,7 +2816,9 @@
       "trackLabel": "Films",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Terminator 2: Judgment Day",
@@ -2318,7 +2832,9 @@
       "rt": 93,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Ghost in the Shell",
@@ -2333,7 +2849,9 @@
       "rt": 96,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Iron Giant",
@@ -2347,7 +2865,9 @@
       "rt": 97,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Matrix",
@@ -2362,7 +2882,9 @@
       "rt": 88,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Bicentennial Man",
@@ -2379,7 +2901,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Thirteenth Floor",
@@ -2395,7 +2919,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "A.I. Artificial Intelligence",
@@ -2412,7 +2938,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Minority Report",
@@ -2426,7 +2954,9 @@
       "rt": 90,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "I, Robot",
@@ -2443,7 +2973,9 @@
       "trackLabel": "Films",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "WALL-E",
@@ -2460,7 +2992,9 @@
       "trackLabel": "Films",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Eagle Eye",
@@ -2475,7 +3009,9 @@
       "rt": 26,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Moon",
@@ -2493,7 +3029,9 @@
       "tags": [
         "deception",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Surrogates",
@@ -2508,7 +3046,9 @@
       "rt": 37,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Tron: Legacy",
@@ -2523,7 +3063,9 @@
       "rt": 51,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Robot & Frank",
@@ -2540,7 +3082,9 @@
       "trackLabel": "Films",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Her",
@@ -2555,12 +3099,14 @@
       "rt": 95,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Machine",
       "Author": "Caradog W. James",
-      "Link": "https://www.imdb.com/title/tt2317227/",
+      "Link": "https://www.imdb.com/title/tt2317225/",
       "Category": "films",
       "Year": 2013,
       "page_count": 0,
@@ -2570,7 +3116,9 @@
       "rt": 78,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Ex Machina",
@@ -2588,7 +3136,9 @@
       "tags": [
         "alignment",
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Transcendence",
@@ -2605,7 +3155,9 @@
       "trackLabel": "Films",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Automata",
@@ -2620,7 +3172,9 @@
       "rt": 33,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Big Hero 6",
@@ -2635,7 +3189,9 @@
       "rt": 89,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Interstellar",
@@ -2649,7 +3205,9 @@
       "rt": 73,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Chappie",
@@ -2664,12 +3222,14 @@
       "rt": 31,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Uncanny",
       "Author": "Matthew Leutwyler",
-      "Link": "https://www.imdb.com/title/tt3297382/",
+      "Link": "https://www.imdb.com/title/tt2321502/",
       "Category": "films",
       "Year": 2015,
       "page_count": 0,
@@ -2682,7 +3242,9 @@
       "tags": [
         "alignment",
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Morgan",
@@ -2697,7 +3259,9 @@
       "rt": 40,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Blade Runner 2049",
@@ -2714,7 +3278,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AlphaGo",
@@ -2728,12 +3294,14 @@
       "rt": 100,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Marjorie Prime",
       "Author": "Michael Almereyda",
-      "Link": "https://www.imdb.com/title/tt5592248/",
+      "Link": "https://www.imdb.com/title/tt4978710/",
       "Category": "films",
       "Year": 2017,
       "page_count": 0,
@@ -2743,7 +3311,9 @@
       "rt": 90,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Upgrade",
@@ -2758,12 +3328,14 @@
       "rt": 88,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Tau",
       "Author": "Federico D'Alessandro",
-      "Link": "https://www.imdb.com/title/tt6010936/",
+      "Link": "https://www.imdb.com/title/tt4357394/",
       "Category": "films",
       "Year": 2018,
       "page_count": 0,
@@ -2775,12 +3347,14 @@
       "trackLabel": "Films",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Archive",
       "Author": "Gavin Rothery",
-      "Link": "https://www.imdb.com/title/tt6882602/",
+      "Link": "https://www.imdb.com/title/tt6882604/",
       "Category": "films",
       "Year": 2020,
       "page_count": 0,
@@ -2792,7 +3366,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Social Dilemma",
@@ -2808,7 +3384,9 @@
       "trackLabel": "Films",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Coded Bias",
@@ -2824,12 +3402,14 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "I'm Your Man",
       "Author": "Maria Schrader",
-      "Link": "https://www.imdb.com/title/tt12853024/",
+      "Link": "https://www.imdb.com/title/tt13087796/",
       "Category": "films",
       "Year": 2021,
       "page_count": 0,
@@ -2839,7 +3419,9 @@
       "rt": 95,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Finch",
@@ -2854,12 +3436,14 @@
       "rt": 83,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "After Yang",
       "Author": "Kogonada",
-      "Link": "https://www.imdb.com/title/tt8637552/",
+      "Link": "https://www.imdb.com/title/tt8633464/",
       "Category": "films",
       "Year": 2021,
       "page_count": 0,
@@ -2869,7 +3453,9 @@
       "rt": 91,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Mitchells vs. the Machines",
@@ -2883,7 +3469,9 @@
       "rt": 97,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "M3GAN",
@@ -2898,7 +3486,9 @@
       "rt": 94,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Free Guy",
@@ -2912,7 +3502,9 @@
       "rt": 80,
       "track": "films",
       "trackLabel": "Films",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Creator",
@@ -2928,7 +3520,9 @@
       "trackLabel": "Films",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Star Trek: The Next Generation",
@@ -2944,7 +3538,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Ghost in the Shell: Stand Alone Complex",
@@ -2958,7 +3554,9 @@
       "rt": 100,
       "track": "tv",
       "trackLabel": "TV Shows",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Battlestar Galactica",
@@ -2975,7 +3573,9 @@
       "tags": [
         "existential-risk",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Caprica",
@@ -2989,7 +3589,9 @@
       "rt": 79,
       "track": "tv",
       "trackLabel": "TV Shows",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Black Mirror",
@@ -3005,7 +3607,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Person of Interest",
@@ -3022,7 +3626,9 @@
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Real Humans",
@@ -3038,7 +3644,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Psycho-Pass",
@@ -3056,7 +3664,9 @@
         "alignment",
         "governance",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Almost Human",
@@ -3072,7 +3682,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Humans",
@@ -3088,7 +3700,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Westworld",
@@ -3105,7 +3719,9 @@
       "tags": [
         "existential-risk",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Philip K. Dick's Electric Dreams",
@@ -3122,7 +3738,9 @@
       "tags": [
         "alignment",
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Altered Carbon",
@@ -3136,7 +3754,9 @@
       "rt": 66,
       "track": "tv",
       "trackLabel": "TV Shows",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Better Than Us",
@@ -3151,7 +3771,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Devs",
@@ -3167,7 +3789,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "interpretability"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Raised by Wolves",
@@ -3181,7 +3805,9 @@
       "rt": 71,
       "track": "tv",
       "trackLabel": "TV Shows",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Upload",
@@ -3198,7 +3824,9 @@
       "tags": [
         "alignment",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Next",
@@ -3215,7 +3843,9 @@
       "tags": [
         "alignment",
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Pantheon",
@@ -3229,7 +3859,9 @@
       "rt": 100,
       "track": "tv",
       "trackLabel": "TV Shows",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Mrs. Davis",
@@ -3245,7 +3877,9 @@
       "trackLabel": "TV Shows",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Transcendent Man",
@@ -3260,7 +3894,9 @@
       "rt": 83,
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Plug & Pray",
@@ -3274,7 +3910,9 @@
       "imdb": "7.1",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Lo and Behold: Reveries of the Connected World",
@@ -3289,7 +3927,9 @@
       "rt": 92,
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AlphaGo",
@@ -3306,7 +3946,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "rl"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Do You Trust This Computer?",
@@ -3324,7 +3966,9 @@
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Truth About Killer Robots",
@@ -3339,7 +3983,9 @@
       "rt": 64,
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "More Human Than Human",
@@ -3353,7 +3999,9 @@
       "rt": 86,
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Joy of AI",
@@ -3366,7 +4014,9 @@
       "imdb": "7.3",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "iHuman",
@@ -3383,7 +4033,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "In the Age of AI",
@@ -3398,7 +4050,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Age of A.I.",
@@ -3412,7 +4066,9 @@
       "imdb": "7.8",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Hi, A.I.",
@@ -3427,7 +4083,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "interpretability"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Autonomy",
@@ -3440,7 +4098,9 @@
       "imdb": "6.5",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Social Dilemma",
@@ -3458,7 +4118,9 @@
       "tags": [
         "alignment",
         "rl"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Coded Bias",
@@ -3476,7 +4138,9 @@
       "tags": [
         "governance",
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "We Need to Talk About A.I.",
@@ -3491,7 +4155,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "A.rtificial I.mmortality",
@@ -3504,7 +4170,9 @@
       "imdb": "5.8",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Rise of A.I.",
@@ -3517,7 +4185,9 @@
       "imdb": "8.1",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Unknown: Killer Robots",
@@ -3531,7 +4201,9 @@
       "rt": 100,
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Thinking Game",
@@ -3546,7 +4218,9 @@
       "rt": 98,
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Eternal You",
@@ -3563,7 +4237,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Deepfaking Sam Altman",
@@ -3576,7 +4252,9 @@
       "imdb": "7.4",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The AI Doc: Or How I Became an Apocaloptimist",
@@ -3593,7 +4271,9 @@
       "trackLabel": "Documentaries",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AXRP (AI X-risk Research Podcast)",
@@ -3602,6 +4282,7 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Deep technical conversations with alignment researchers on interpretability, governance, superalignment, and the specific open problems in reducing existential risk from AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -3610,7 +4291,9 @@
         "alignment",
         "governance",
         "existential-risk"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "AI Alignment Podcast",
@@ -3619,12 +4302,15 @@
       "Category": "podcasts",
       "Year": 2018,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "FLI's dedicated alignment series covers recursive reward modeling, RLHF, scalable oversight, and long-form interviews with leading safety researchers.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Technical AI Safety Podcast",
@@ -3633,13 +4319,16 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Aimed at computer scientists: deep dives into alignment papers with the authors, covering formal methods, reward modeling, and mechanistic interpretability.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "interpretability",
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Into AI Safety",
@@ -3648,10 +4337,13 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Focused on career paths into AI safety: fellowship applications, research programs, and practical advice on transitioning into the field.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "80,000 Hours Podcast",
@@ -3660,6 +4352,7 @@
       "Category": "podcasts",
       "Year": 2016,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Long-form interviews on the world's most pressing problems, with extensive coverage of AI risk, governance, alignment research, and how to build a career that reduces existential threats.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -3667,7 +4360,9 @@
         "alignment",
         "governance",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Gradient Podcast",
@@ -3676,12 +4371,15 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "ML research interviews with recurring coverage of interpretability, robustness, provably safe AI, and the intersection of capabilities and safety research.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "interpretability"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "AI Policy Podcast",
@@ -3690,12 +4388,15 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Covers the intersection of AI governance, legislation, and safety, with expert guests on regulatory frameworks, international coordination, and policy strategies for advanced AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Lex Fridman Podcast – Eliezer Yudkowsky",
@@ -3704,13 +4405,16 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A four-hour conversation on AI existential risk, the difficulty of alignment, intelligence versus optimization, and why Yudkowsky believes the default outcome is catastrophic.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Lex Fridman Podcast – Sam Altman",
@@ -3719,13 +4423,16 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "OpenAI's CEO discusses the company's safety philosophy, AGI governance, compute scaling, and the tension between moving fast and getting alignment right.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "alignment",
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Dwarkesh Podcast",
@@ -3734,12 +4441,15 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "In-depth technical interviews with AI leaders including Dario Amodei on Anthropic's safety philosophy, Paul Christiano on iterated amplification, and others on scaling and alignment.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Clearer Thinking: AI Risk",
@@ -3748,12 +4458,15 @@
       "Category": "podcasts",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Episodes on AI risk, timelines, and decision-making under deep uncertainty, with a rationalist focus on calibrating beliefs about transformative AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "forecasting"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Machine Learning Street Talk",
@@ -3762,6 +4475,7 @@
       "Category": "podcasts",
       "Year": 2020,
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Technical ML interviews with regular deep dives into interpretability, scaling laws, emergent capabilities, and the safety implications of frontier model development.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
@@ -3769,7 +4483,9 @@
         "interpretability",
         "governance",
         "forecasting"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Practical AI",
@@ -3778,12 +4494,15 @@
       "Category": "podcasts",
       "Year": 2018,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Applied ML and engineering, with episodes on responsible deployment, bias mitigation, red teaming, and the safety challenges that emerge when AI systems meet real-world constraints.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "The AI Podcast (NVIDIA)",
@@ -3792,12 +4511,15 @@
       "Category": "podcasts",
       "Year": 2016,
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Industry and research perspectives with occasional safety and ethics episodes, useful for understanding how capability-focused organizations think about risk.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Situational Awareness",
@@ -3805,10 +4527,13 @@
       "Author": "Leopold Aschenbrenner",
       "page_count": 0,
       "Category": "websites",
+      "Level": "Intermediate",
       "Summary": "Aschenbrenner's comprehensive analysis of near-term scaling dynamics, capability trajectories, and the strategic implications of rapid AI progress for labs and states.",
       "track": "websites",
       "trackLabel": "Websites",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "World Models",
@@ -3816,10 +4541,13 @@
       "Author": "Jürgen Schmidhuber",
       "page_count": 0,
       "Category": "websites",
+      "Level": "Advanced",
       "Summary": "Research on how agents can learn internal world models to plan complex behavior, relevant to understanding how AI systems develop representations of their environment.",
       "track": "websites",
       "trackLabel": "Websites",
-      "tags": []
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Agent Models",
@@ -3827,25 +4555,15 @@
       "Link": "https://agentmodels.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Formal models of agents and decision theory with alignment-relevant curriculum, covering utility, planning, and the theoretical foundations of agent behavior.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
-    },
-    {
-      "Name": "AGI Safety Fundamentals",
-      "Author": "AGI Safety Fundamentals",
-      "Link": "https://course.aisafetyfundamentals.com/",
-      "Category": "websites",
-      "page_count": 0,
-      "Summary": "The most widely used structured course for getting into alignment, with curated readings progressing from core concepts to open research problems.",
-      "track": "websites",
-      "trackLabel": "Websites",
-      "tags": [
-        "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "AI Alignment World",
@@ -3853,12 +4571,15 @@
       "Link": "https://aialignmentworld.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "In-depth technical alignment resources—research, explainers, and references for the AI alignment problem.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "AI Safety Info (Stampy's FAQ)",
@@ -3866,10 +4587,13 @@
       "Link": "https://aisafety.info/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Community-maintained FAQ covering AI safety questions at every level, from basics to technical details, with links to source material.",
       "track": "websites",
       "trackLabel": "Websites",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Alignment Forum",
@@ -3877,12 +4601,15 @@
       "Link": "https://www.alignmentforum.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "The primary venue for technical AI alignment discussion, where researchers post and debate new ideas, proposals, and critiques.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Alignment Newsletter",
@@ -3890,12 +4617,15 @@
       "Link": "https://rohinshah.com/alignment-newsletter/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Weekly summaries of alignment research with commentary, the best way to stay current on the field's output without reading every paper.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Arbital",
@@ -3903,12 +4633,15 @@
       "Link": "https://arbital.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Hyperlinked explainers on rationality, AI risk, and alignment concepts, designed for building understanding incrementally.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Eliezer Yudkowsky's blog",
@@ -3916,10 +4649,13 @@
       "Link": "https://www.yudkowsky.net/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Essays on rationality, decision theory, and AI risk from the researcher who shaped the field's early arguments and threat models.",
       "track": "websites",
       "trackLabel": "Websites",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Victoria Krakovna's blog",
@@ -3927,12 +4663,15 @@
       "Link": "https://vkrakovna.wordpress.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Research notes on specification gaming, side effects, and AI safety from a DeepMind safety researcher, including the widely-cited specification gaming examples list.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "OpenAI Research",
@@ -3940,13 +4679,16 @@
       "Link": "https://openai.com/research",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "OpenAI's research blog covering capabilities and safety, including superalignment updates, red teaming results, and governance thinking.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment",
         "governance"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Transformer Circuits",
@@ -3954,13 +4696,16 @@
       "Link": "https://transformer-circuits.pub/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "The home of mechanistic interpretability research, publishing detailed analyses of how transformer models represent and process information internally.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "interpretability",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "ML Safety Newsletter",
@@ -3968,12 +4713,15 @@
       "Link": "https://newsletter.mlsafety.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Newsletter on ML safety covering robustness, monitoring, alignment, and systemic risk with links to recent papers and commentary.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Jacob Steinhardt's blog",
@@ -3981,12 +4729,15 @@
       "Link": "https://jsteinhardt.wordpress.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Research and commentary on ML safety, forecasting, and robustness from a Berkeley professor working on practical safety problems.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "forecasting"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "MIRI (Machine Intelligence Research Institute)",
@@ -3994,12 +4745,15 @@
       "Link": "https://intelligence.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "The research institute focused on mathematical foundations of aligned AI, publishing on agent foundations, decision theory, and logical uncertainty.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Import AI",
@@ -4007,12 +4761,15 @@
       "Link": "https://importai.substack.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Weekly newsletter by Anthropic's co-founder covering AI research, policy, and industry developments with consistent attention to safety implications.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Gwern Branwen's blog",
@@ -4020,12 +4777,15 @@
       "Link": "https://gwern.net/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Deeply researched essays on ML, scaling, AI art, and technology forecasting, known for rigorous analysis and independent thinking.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "forecasting"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "generative.ink",
@@ -4033,13 +4793,16 @@
       "Link": "https://generative.ink/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Essays on AI, alignment, and the philosophical implications of language models and generative systems.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment",
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "EleutherAI Blog",
@@ -4047,12 +4810,15 @@
       "Link": "https://blog.eleuther.ai/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Open-source ML research covering language model training, evaluation, and the safety considerations of making powerful models widely available.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "DeepMind AI Safety Research",
@@ -4060,13 +4826,16 @@
       "Link": "https://deepmindsafetyresearch.medium.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "DeepMind's safety team blog covering specification gaming, reward modeling, scalable oversight, and their technical safety research agenda.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment",
         "rl"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "DeepMind",
@@ -4074,12 +4843,15 @@
       "Link": "https://www.deepmind.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "DeepMind's main research site with publications on capabilities and safety, including Gemini evaluations, alignment research, and responsible scaling.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Cold Takes",
@@ -4087,10 +4859,13 @@
       "Link": "https://www.cold-takes.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Karnofsky's essays on AI risk, longtermism, and cause prioritization, including the influential Most Important Century series on transformative AI.",
       "track": "websites",
       "trackLabel": "Websites",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "carado.moe",
@@ -4098,12 +4873,15 @@
       "Link": "https://carado.moe/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Technical AI safety writing and alignment research notes.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "AI Safety Camp",
@@ -4111,10 +4889,13 @@
       "Link": "https://aisafety.camp/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Intensive research program for people entering AI safety, with project-based learning and mentorship from established researchers.",
       "track": "websites",
       "trackLabel": "Websites",
-      "tags": []
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "AI Impacts",
@@ -4122,12 +4903,15 @@
       "Link": "https://aiimpacts.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Empirical research on AI timelines, historical technology analogies, and quantitative estimates of AI progress and impact.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "forecasting"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Distill",
@@ -4135,12 +4919,15 @@
       "Link": "https://distill.pub/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Pioneering interactive journal for ML interpretability and visualization, setting the standard for making neural network internals understandable.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "interpretability"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "EA Forum",
@@ -4148,12 +4935,15 @@
       "Link": "https://forum.effectivealtruism.org/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Beginner",
       "Summary": "Forum for effective altruism with substantial AI risk discussion, including cause prioritization, career advice, and policy analysis.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "LessWrong",
@@ -4161,12 +4951,15 @@
       "Link": "https://www.lesswrong.com/",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "The original community blog on rationality and AI alignment, where many foundational safety arguments were first developed and debated.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "StampyAI Alignment Research Dataset",
@@ -4174,12 +4967,15 @@
       "Link": "https://huggingface.co/datasets/StampyAI/alignment-research-dataset",
       "Category": "websites",
       "page_count": 0,
+      "Level": "Advanced",
       "Summary": "Curated dataset of alignment and safety documents from papers, books, and blogs, useful for training and evaluating AI safety knowledge.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Robert Miles AI Safety",
@@ -4194,7 +4990,9 @@
       "tags": [
         "alignment",
         "rl"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Rational Animations",
@@ -4209,7 +5007,9 @@
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AI In Context",
@@ -4221,7 +5021,9 @@
       "Summary": "80,000 Hours' YouTube channel hosted by Aric Floyd, mixing long and short videos on the risks of transformative AI—including a deep dive on the AI 2027 scenario—and what people can do about them.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Will Superintelligent AI End the World? | Eliezer Yudkowsky | TED",
@@ -4233,7 +5035,9 @@
       "Summary": "Yudkowsky's fiery TED talk arguing that smarter-than-human AI could kill us all and calling for an immediate worldwide moratorium on developing generalist frontier AI.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "3 Principles for Creating Safer AI | Stuart Russell | TED",
@@ -4247,7 +5051,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Can We Build AI Without Losing Control Over It? | Sam Harris | TED",
@@ -4259,7 +5065,9 @@
       "Summary": "Harris argues we will inevitably build superintelligent machines yet have barely grappled with the control problem, making a visceral case for taking AI risk seriously now.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "What Happens When Our Computers Get Smarter Than We Are? | Nick Bostrom | TED",
@@ -4273,7 +5081,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Slaughterbots",
@@ -4285,7 +5095,9 @@
       "Summary": "A dramatized near-future short film from FLI and Stuart Russell depicting swarms of autonomous facial-recognition microdrones used as weapons, made to warn against lethal autonomous weapons.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Humans Need Not Apply",
@@ -4297,7 +5109,9 @@
       "Summary": "A widely viewed essay on how automation and AI will displace human labor across nearly every sector, reframing the economic disruption question for a mass audience.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "A.I. ‐ Humanity's Final Invention?",
@@ -4312,7 +5126,9 @@
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Rise of the Machines – Why Automation is Different this Time",
@@ -4324,7 +5140,9 @@
       "Summary": "Kurzgesagt argues that information-age automation differs fundamentally from past waves, with machine learning encroaching on cognitive work and reshaping the future of employment.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Deadly Truth of General AI? – Computerphile",
@@ -4339,7 +5157,9 @@
       "tags": [
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AI \"Stop Button\" Problem – Computerphile",
@@ -4351,7 +5171,9 @@
       "Summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds, illustrating corrigibility and the incentives an agent has to resist being stopped.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Artificial Intelligence That Deleted A Century",
@@ -4365,7 +5187,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "rl"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The danger of AI is weirder than you think | Janelle Shane | TED",
@@ -4377,7 +5201,9 @@
       "Summary": "Shane uses funny real-world ML failures to show the core risk isn't AI rebelling but doing exactly what we literally asked—making misspecified objectives vivid for a general audience.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Artificial Intelligence: Last Week Tonight with John Oliver",
@@ -4391,7 +5217,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "\"Godfather of AI\" Geoffrey Hinton: The 60 Minutes Interview",
@@ -4403,7 +5231,9 @@
       "Summary": "Deep-learning pioneer Geoffrey Hinton explains why, after leaving Google, he warns that there is no guaranteed path to safety as AI systems approach and exceed human capability.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The A.I. Dilemma",
@@ -4417,7 +5247,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AI Deception: How Tech Companies Are Fooling Us",
@@ -4431,7 +5263,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Urgent Risks of Runaway AI — and What to Do about Them | Gary Marcus | TED",
@@ -4445,7 +5279,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "governance"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "How to Keep AI Under Control | Max Tegmark | TED",
@@ -4459,7 +5295,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "What Is an AI Anyway? | Mustafa Suleyman | TED",
@@ -4471,7 +5309,9 @@
       "Summary": "A leading model-builder reframes AI as 'a new digital species,' arguing this lens clarifies both the stakes and the responsibility we have to contain and steer increasingly capable systems.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Why AI Is Incredibly Smart and Shockingly Stupid | Yejin Choi | TED",
@@ -4485,7 +5325,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "AI Is Becoming Dangerous. Are We Ready?",
@@ -4499,7 +5341,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "[1hr Talk] Intro to Large Language Models",
@@ -4508,12 +5352,15 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A widely praised technical primer on how LLMs work, ending with a clear tour of the security challenges—jailbreaks, prompt injection, and data poisoning—that make these systems hard to secure.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "llms"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "How Not to Destroy the World with AI",
@@ -4522,12 +5369,15 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "The Royal Institution lecture in which Russell lays out why the standard model of AI—optimizing fixed objectives—is dangerous, and how building machines uncertain about human preferences could keep them controllable.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "alignment"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Munk Debate on Artificial Intelligence | Bengio & Tegmark vs. Mitchell & LeCun",
@@ -4536,12 +5386,15 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A structured debate on whether AI poses an existential threat, with Yoshua Bengio and Max Tegmark arguing for the resolution against Melanie Mitchell and Yann LeCun—an unusually direct airing of the core cruxes.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Will Artificial Intelligence Save Us or Kill Us?",
@@ -4553,7 +5406,9 @@
       "Summary": "A documentary weighing AI's promise against its dangers, from automation and aging societies to the warnings of researchers who fear losing control of increasingly capable systems.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Are We All Wrong About AI?",
@@ -4565,7 +5420,9 @@
       "Summary": "ColdFusion examines competing narratives about AI progress—hype versus genuine capability—helping viewers calibrate how seriously to take both the promises and the risks.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "The Catastrophic Risks of AI — and a Safer Path | Yoshua Bengio | TED",
@@ -4580,7 +5437,9 @@
       "tags": [
         "existential-risk",
         "deception"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization | Lex Fridman Podcast #368",
@@ -4589,6 +5448,7 @@
       "Category": "youtube",
       "Year": 2023,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "A long-form conversation in which Yudkowsky makes his case that humanity is unprepared for superintelligence, probing why alignment is so hard and why he expects catastrophe by default.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -4596,7 +5456,9 @@
         "interpretability",
         "alignment",
         "existential-risk"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "AI and the Future of Humanity | Yuval Noah Harari at the Frontiers Forum",
@@ -4608,7 +5470,9 @@
       "Summary": "Harari argues AI is the first technology that can make decisions and create ideas by itself, and warns that mastering language lets it hack the operating system of human civilization.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Can We Actually Control Superintelligent AI? | Ada, Ep. 4 | TED-Ed",
@@ -4620,7 +5484,9 @@
       "Summary": "An animated explainer on the control problem—why a superintelligent system pursuing a misspecified goal could resist correction—featuring Stuart Russell's case for rules against unsafe AI.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Scaling Interpretability",
@@ -4629,12 +5495,15 @@
       "Category": "youtube",
       "Year": 2024,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "Anthropic researchers explain mechanistic interpretability—reading the millions of concepts represented inside a production model like Claude—as a path to understanding and steering AI behavior.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
         "interpretability"
-      ]
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "A.I. Expert Answers A.I. Questions From Twitter | Tech Support | WIRED",
@@ -4648,7 +5517,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "rl"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "How to Legislate AI",
@@ -4660,7 +5531,9 @@
       "Summary": "Harris examines why people are scared of AI and how governments might regulate it, covering risks to critical infrastructure, military uses, and the difficulty of overseeing systems we don't understand.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "OpenAI CEO Sam Altman Testifies on AI Oversight Before Senate",
@@ -4672,7 +5545,9 @@
       "Summary": "The landmark May 2023 Senate Judiciary hearing where Altman told Congress that government intervention is critical to mitigate AI risks and proposed licensing for the most powerful systems.",
       "track": "youtube",
       "trackLabel": "YouTube",
-      "tags": []
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Artificial Intelligence & Personhood: Crash Course Philosophy #23",
@@ -4686,7 +5561,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Do Robots Deserve Rights? What If Machines Become Conscious?",
@@ -4700,7 +5577,9 @@
       "trackLabel": "YouTube",
       "tags": [
         "ethics"
-      ]
+      ],
+      "level": "Beginner",
+      "timeLabel": ""
     }
   ]
 }

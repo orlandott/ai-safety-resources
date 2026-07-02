@@ -8,67 +8,111 @@ const RESEND_API = "https://api.resend.com/emails";
 const DEFAULT_TO = "contact@ai-safety-resources.com";
 const DEFAULT_FROM = "AI Safety Resources <onboarding@resend.dev>";
 
-function json(body, status = 200) {
+const ALLOWED_ORIGINS = [
+  "https://ai-safety-resources.com",
+  "https://www.ai-safety-resources.com",
+];
+
+const MAX_BODY_BYTES = 10 * 1024;
+
+const FIELD_LIMITS = {
+  name: 200,
+  title: 200,
+  author: 200,
+  email: 254,
+  submitter_email: 254,
+  link: 2000,
+  category: 100,
+  message: 5000,
+  _subject: 150,
+};
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function resolveOrigin(request) {
+  const origin = request.headers.get("origin") || "";
+  if (ALLOWED_ORIGINS.includes(origin)) return origin;
+  // Same-origin requests, whatever domain the site is deployed on (covers the
+  // <project>.pages.dev production URL before a custom domain is attached).
+  try {
+    if (origin && origin === new URL(request.url).origin) return origin;
+  } catch {
+    /* fall through to the checks below */
+  }
+  // Allow Cloudflare Pages preview deployments.
+  if (/^https:\/\/[a-z0-9-]+\.ai-safety-resources\.pages\.dev$/.test(origin)) return origin;
+  return null;
+}
+
+function corsHeaders(origin) {
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Vary": "Origin",
+  };
+}
+
+function json(body, status, origin) {
   return new Response(JSON.stringify(body), {
     status,
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
+      ...corsHeaders(origin),
     },
   });
 }
 
-const FIELD_MAX = 300;
-const MESSAGE_MAX = 5000;
-const clean = (value, max = FIELD_MAX) =>
-  (value == null ? "" : String(value)).trim().slice(0, max);
-
-function isContactPayload(data) {
-  return data.message != null;
+function cleanField(value, limit) {
+  return String(value == null ? "" : value)
+    .replace(/[\r\n\t]+/g, " ")
+    .trim()
+    .slice(0, limit);
 }
 
-// Returns an error string, or null if the payload is sendable.
-function validatePayload(data) {
-  if (isContactPayload(data)) {
-    if (!clean(data.message)) return "Message is required.";
-    return null;
+function sanitize(data) {
+  const out = {};
+  for (const [field, limit] of Object.entries(FIELD_LIMITS)) {
+    // message keeps newlines (it is the email body), everything else is single-line
+    out[field] =
+      field === "message"
+        ? String(data[field] == null ? "" : data[field]).trim().slice(0, limit)
+        : cleanField(data[field], limit);
   }
-  if (!clean(data.title || data.name)) return "Title is required.";
-  if (!clean(data.link)) return "Link is required.";
-  return null;
+  return out;
 }
 
-function buildEmailText(data) {
-  if (isContactPayload(data)) {
+function buildEmailText(data, hasMessage) {
+  if (hasMessage) {
     return [
       "Contact form submission",
       "---",
-      `Name: ${clean(data.name) || "(not provided)"}`,
-      `Email: ${clean(data.email)}`,
+      `Name: ${data.name || "(not provided)"}`,
+      `Email: ${data.email}`,
       "",
-      clean(data.message, MESSAGE_MAX),
+      data.message,
     ].join("\n");
   }
   return [
     "Suggestion submission",
     "---",
-    `Title: ${clean(data.title || data.name)}`,
-    `Author (or director, host, etc.): ${clean(data.author)}`,
-    `Link: ${clean(data.link, 2048)}`,
-    `Category: ${clean(data.category)}`,
-    `Submitter email: ${clean(data.submitter_email || data.email)}`,
+    `Title: ${data.title || data.name}`,
+    `Author (or director, host, etc.): ${data.author}`,
+    `Link: ${data.link}`,
+    `Category: ${data.category}`,
+    `Submitter email: ${data.submitter_email || data.email}`,
   ].join("\n");
 }
 
-export async function onRequestOptions() {
+export async function onRequestOptions(context) {
+  const origin = resolveOrigin(context.request);
+  if (!origin) {
+    return new Response(null, { status: 403 });
+  }
   return new Response(null, {
     status: 204,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
+      ...corsHeaders(origin),
       "Access-Control-Max-Age": "86400",
     },
   });
@@ -76,6 +120,11 @@ export async function onRequestOptions() {
 
 export async function onRequestPost(context) {
   const { request, env } = context;
+  const origin = resolveOrigin(request);
+  if (!origin) {
+    return json({ error: "Forbidden" }, 403, ALLOWED_ORIGINS[0]);
+  }
+
   const apiKey = env.RESEND_API_KEY;
   const to = (env.CONTACT_EMAIL || DEFAULT_TO).toString().trim();
   const from = (env.FROM_EMAIL || DEFAULT_FROM).toString().trim();
@@ -83,38 +132,57 @@ export async function onRequestPost(context) {
   if (!apiKey || !apiKey.startsWith("re_")) {
     return json(
       { error: "Email not configured. Set RESEND_API_KEY in Cloudflare Pages environment variables." },
-      503
+      503,
+      origin
     );
   }
 
-  let data;
   const contentType = (request.headers.get("content-type") || "").toLowerCase();
-  if (contentType.includes("application/json")) {
-    try {
-      data = await request.json();
-    } catch {
-      return json({ error: "Invalid JSON body" }, 400);
+  if (!contentType.includes("application/json")) {
+    return json({ error: "Content-Type must be application/json" }, 400, origin);
+  }
+
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (contentLength > MAX_BODY_BYTES) {
+    return json({ error: "Request body too large" }, 413, origin);
+  }
+
+  let raw;
+  try {
+    const bodyText = await request.text();
+    if (bodyText.length > MAX_BODY_BYTES) {
+      return json({ error: "Request body too large" }, 413, origin);
     }
-  } else {
-    return json(
-      { error: "Content-Type must be application/json" },
-      400
-    );
+    raw = JSON.parse(bodyText);
+  } catch {
+    return json({ error: "Invalid JSON body" }, 400, origin);
+  }
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    return json({ error: "Invalid JSON body" }, 400, origin);
   }
 
   // Honeypot: real visitors never fill this hidden field. Pretend success so
   // bots don't learn they were filtered.
-  if (clean(data._hp || data._honeypot)) {
-    return json({ success: true });
+  if (cleanField(raw._hp || raw._honeypot, 100)) {
+    return json({ success: true }, 200, origin);
   }
 
-  const validationError = validatePayload(data);
-  if (validationError) {
-    return json({ error: validationError }, 400);
+  const data = sanitize(raw);
+  const hasMessage = Boolean(raw._subject && raw.message != null);
+
+  if (hasMessage) {
+    if (!data.message) {
+      return json({ error: "Message is required" }, 400, origin);
+    }
+  } else if (!data.title && !data.name) {
+    return json({ error: "Title is required" }, 400, origin);
+  } else if (!data.link) {
+    return json({ error: "Link is required" }, 400, origin);
   }
 
-  const subject = clean(data._subject, 200) || "Submission from AI Safety Resources";
-  const text = buildEmailText(data);
+  const subject = data._subject || "Submission from AI Safety Resources";
+  const text = buildEmailText(data, hasMessage);
+  const replyTo = data.email || data.submitter_email;
 
   try {
     const res = await fetch(RESEND_API, {
@@ -127,7 +195,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from,
         to: [to],
-        reply_to: (data.email || data.submitter_email || "").toString().trim() || undefined,
+        reply_to: EMAIL_RE.test(replyTo) ? replyTo : undefined,
         subject,
         text,
       }),
@@ -137,11 +205,12 @@ export async function onRequestPost(context) {
     if (!res.ok) {
       return json(
         { error: out.message || out.error || "Failed to send email" },
-        res.status >= 400 && res.status < 600 ? res.status : 502
+        res.status >= 400 && res.status < 600 ? res.status : 502,
+        origin
       );
     }
-    return json({ success: true });
+    return json({ success: true }, 200, origin);
   } catch (err) {
-    return json({ error: "Failed to send email" }, 502);
+    return json({ error: "Failed to send email" }, 502, origin);
   }
 }

@@ -18,6 +18,11 @@ export const scriptPath = path.join(workspaceRoot, "public", "script.js");
 
 export const SITE_ORIGIN = "https://ai-safety-resources.com";
 
+// Sitemap <lastmod> for every generated page. Bump when the dataset or page
+// templates change meaningfully. Kept as a committed constant (rather than
+// build time) so the build stays deterministic and CI's diff check passes.
+export const DATASET_UPDATED = "2026-07-02";
+
 // Display "tracks" in the same order as the tabs in index.html. `pane` matches
 // the container id the runtime renders into; `intro` mirrors the on-page copy.
 export const TRACKS = [
@@ -44,6 +49,14 @@ export const TRACKS = [
     pane: "academic-papers-parent",
     intro:
       "Research papers, preprints, and technical reports on alignment, interpretability, and safety.",
+  },
+  {
+    key: "courses",
+    slug: "courses",
+    label: "Courses",
+    pane: "courses-parent",
+    intro:
+      "Free online courses and structured curricula for learning AI safety and alignment—from non-technical introductions to hands-on research engineering.",
   },
   {
     key: "films",
@@ -100,6 +113,7 @@ export const TRACK_BY_KEY = new Map(TRACKS.map((t) => [t.key, t]));
 export const VALID_CATEGORIES = new Set([
   "academic_papers",
   "books",
+  "courses",
   "films",
   "tv",
   "documentaries",
@@ -185,20 +199,247 @@ export function tagsFor(entry, track) {
   return tags;
 }
 
-// ── "Start here" on-ramp ─────────────────────────────────────────────────
-// A short, hand-picked path for newcomers. Each entry references an existing
-// resource by its exact Name; the build resolves and validates these against
-// the dataset so a typo fails the build rather than silently dropping a card.
-export const STARTERS = [
-  { name: "Human Compatible", why: "The clearest book-length case for why control of advanced AI is hard—and a proposed fix." },
-  { name: "Concrete problems in AI safety", why: "The paper that turned 'AI safety' into a concrete engineering agenda." },
-  { name: "Ex Machina", why: "A tense, human-scale story about testing whether a machine is really aligned." },
-  { name: "AlphaGo", track: "documentaries", why: "A documentary on the match that made superhuman AI feel suddenly real." },
-  { name: "I, Robot", track: "fiction_books", why: "Asimov's robot stories are the original alignment case studies—safety rules that break down under edge cases and literal interpretation." },
-  { name: "Humans", track: "tv", why: "A grounded near-future drama where self-aware machines hidden among ordinary domestic robots force the question of personhood, control, and who we make minds for." },
-  { name: "80,000 Hours Podcast", track: "podcasts", why: "Long-form interviews that map the AI risk landscape—alignment, governance, and how to actually work on it." },
-  { name: "Robert Miles AI Safety", track: "youtube", why: "The most popular alignment video series—clear, rigorous explainers of the core safety concepts." },
-  { name: "LessWrong", why: "The community where many foundational alignment arguments were first worked out." },
+// ── Resource metadata (difficulty + time to consume) ──────────────────────
+// Two lightweight, mostly-derived signals that answer a newcomer's first two
+// questions: "is this over my head?" and "can I get through it tonight?".
+//
+// Level is a per-track default that authors can override per entry with a
+// `Level` field ("Beginner" | "Intermediate" | "Advanced"). The defaults
+// encode the obvious on-ramp: stories and video are accessible, papers are the
+// deep end. Override on the exceptions (a beginner-friendly survey paper, an
+// advanced trade book) rather than hand-labeling all 300+ entries.
+export const VALID_LEVELS = ["Beginner", "Intermediate", "Advanced"];
+
+const LEVEL_BY_TRACK = {
+  non_fiction_books: "Intermediate",
+  fiction_books: "Beginner",
+  academic_papers: "Advanced",
+  courses: "Beginner",
+  films: "Beginner",
+  tv: "Beginner",
+  documentaries: "Beginner",
+  podcasts: "Beginner",
+  websites: "Intermediate",
+  youtube: "Beginner",
+};
+
+export function levelFor(entry, track) {
+  if (typeof entry.Level === "string" && VALID_LEVELS.includes(entry.Level)) {
+    return entry.Level;
+  }
+  return LEVEL_BY_TRACK[track] || "";
+}
+
+// A rough "time to consume" label. Books/papers derive from `page_count`
+// (~1.8 min/page); audio-visual tracks derive from an optional `Minutes`
+// (runtime / episode length). Returns "" when there is nothing to estimate, so
+// callers can omit the pill rather than guess.
+const READING_MINUTES_PER_PAGE = 1.8;
+
+function humanizeMinutes(minutes, verb) {
+  if (!Number.isFinite(minutes) || minutes <= 0) return "";
+  if (minutes < 90) return `~${Math.round(minutes / 5) * 5 || 5} min ${verb}`;
+  const hours = minutes / 60;
+  const rounded = hours < 10 ? Math.round(hours * 2) / 2 : Math.round(hours);
+  return `~${rounded} hr ${verb}`;
+}
+
+export function timeLabelFor(entry, track) {
+  const pages = Number(entry.page_count);
+  if (Number.isFinite(pages) && pages > 0) {
+    return humanizeMinutes(pages * READING_MINUTES_PER_PAGE, "read");
+  }
+  const minutes = Number(entry.Minutes);
+  if (Number.isFinite(minutes) && minutes > 0) {
+    const verb =
+      track === "podcasts" || track === "youtube" ? "listen" : "watch";
+    return humanizeMinutes(minutes, verb);
+  }
+  return "";
+}
+
+// The full set of metadata pills for an entry, in display order. Shared by the
+// server-rendered cards (build) and mirrored by the runtime cards (script.js)
+// so badges don't flash and vanish on hydration.
+export function metaPillsFor(entry, track) {
+  const pills = [];
+  const level = levelFor(entry, track);
+  if (level) pills.push({ kind: "level", text: level });
+  const time = timeLabelFor(entry, track);
+  if (time) pills.push({ kind: "time", text: time });
+  return pills;
+}
+
+// ── Topic landing pages (SEO) ─────────────────────────────────────────────
+// Each topic compiles a crawlable page at /topics/<slug>/ listing every
+// resource carrying the matching derived tag (see TOPIC_TAGS), across all
+// formats. `tag` ties the page to both the tag map and the homepage topic chip
+// (data-topic-query); `slug` is the intent-optimized URL; `seoTitle`/`h1`/
+// `description` target real search queries instead of internal category names.
+export const TOPIC_PAGES = [
+  {
+    tag: "interpretability",
+    slug: "mechanistic-interpretability",
+    seoTitle: "Best Mechanistic Interpretability Resources",
+    h1: "Mechanistic interpretability",
+    description:
+      "The best papers, talks, and explainers on mechanistic interpretability—reverse-engineering what neural networks actually compute.",
+  },
+  {
+    tag: "alignment",
+    slug: "ai-alignment",
+    seoTitle: "Best AI Alignment Resources",
+    h1: "AI alignment",
+    description:
+      "Foundational and current work on aligning AI systems with human intent—RLHF, scalable oversight, constitutional AI, and more.",
+  },
+  {
+    tag: "governance",
+    slug: "ai-governance-and-policy",
+    seoTitle: "Best AI Governance & Policy Resources",
+    h1: "AI governance & policy",
+    description:
+      "Reading on AI governance, regulation, and policy: compute governance, international coordination, standards, and law.",
+  },
+  {
+    tag: "existential-risk",
+    slug: "ai-existential-risk",
+    seoTitle: "Best Resources on AI Existential Risk",
+    h1: "AI existential risk",
+    description:
+      "The case for and against catastrophic risk from advanced AI—power-seeking, takeover, and superintelligence—across books, papers, and film.",
+  },
+  {
+    tag: "deception",
+    slug: "deceptive-alignment-and-scheming",
+    seoTitle: "Best Resources on Deceptive Alignment & Scheming",
+    h1: "Deceptive alignment & scheming",
+    description:
+      "Work on deception, sleeper agents, mesa-optimization, and treacherous turns—how models can learn to hide their true objectives.",
+  },
+  {
+    tag: "rl",
+    slug: "reinforcement-learning-and-reward-hacking",
+    seoTitle: "Best Resources on Reinforcement Learning & Reward Hacking",
+    h1: "Reinforcement learning & reward hacking",
+    description:
+      "Reinforcement learning as it bears on safety: reward hacking, specification gaming, imitation learning, and policy optimization.",
+  },
+  {
+    tag: "forecasting",
+    slug: "ai-forecasting-and-timelines",
+    seoTitle: "Best Resources on AI Forecasting & Timelines",
+    h1: "AI forecasting & timelines",
+    description:
+      "Scaling laws, takeoff dynamics, emergent abilities, and timeline forecasting for transformative AI.",
+  },
+  {
+    tag: "ethics",
+    slug: "ai-ethics-and-society",
+    seoTitle: "Best Resources on AI Ethics & Society",
+    h1: "AI ethics & society",
+    description:
+      "AI ethics, fairness, bias, model welfare, rights, and the broader social impact of advanced AI systems.",
+  },
+  {
+    tag: "llms",
+    slug: "large-language-models",
+    seoTitle: "Best Resources on Large Language Models & Safety",
+    h1: "Large language models",
+    description:
+      "Key papers and explainers on large language models—how they work, what they can do, and why that matters for safety.",
+  },
+  {
+    tag: "fiction",
+    slug: "ai-in-fiction",
+    seoTitle: "Best AI Fiction: Novels & Stories About Machine Minds",
+    h1: "AI in fiction",
+    description:
+      "Speculative and science fiction that explores AI, agency, and long-term futures through story.",
+  },
+];
+
+// ── Learning paths ("Where do I start?") ──────────────────────────────────
+// Audience-shaped, ordered on-ramps. Each step references an existing resource
+// by its exact Name (and `track` to disambiguate cross-listed titles); the
+// build resolves and validates them against the dataset so a typo fails the
+// build rather than silently dropping a step. Rendered as a homepage chooser
+// plus a crawlable page per path at /paths/<slug>/.
+export const PATHS = [
+  {
+    slug: "new-to-ai-safety",
+    audience: "I'm completely new",
+    title: "New to AI safety",
+    blurb: "No background needed—start with the big ideas through story and plain-language explainers.",
+    description:
+      "A gentle, no-prerequisites introduction to AI safety: why people worry, what the core problem is, and where the field is going—through an accessible book, a film, a documentary, and clear video explainers.",
+    steps: [
+      { name: "Human Compatible", why: "The clearest book-length case for why controlling advanced AI is hard—and a proposed fix." },
+      { name: "Ex Machina", track: "films", why: "A tense, human-scale story about testing whether a machine is really aligned." },
+      { name: "AlphaGo", track: "documentaries", why: "Watch the match that made superhuman AI feel suddenly, concretely real." },
+      { name: "Robert Miles AI Safety", track: "youtube", why: "Clear, rigorous video explainers of the core safety concepts, one at a time." },
+      { name: "Concrete problems in AI safety", track: "academic_papers", why: "Your first paper: the agenda that made 'AI safety' a concrete engineering problem." },
+    ],
+  },
+  {
+    slug: "ml-to-safety",
+    audience: "I know ML, not safety",
+    title: "From ML to AI safety",
+    blurb: "You can train a model—now see where alignment fits and what the open problems are.",
+    description:
+      "For practitioners who know machine learning but haven't engaged with safety. Bridges from familiar training techniques to the alignment failure modes and research agendas that motivate the field.",
+    steps: [
+      { name: "Concrete problems in AI safety", track: "academic_papers", why: "The five-failure-mode framing that grounds safety as ML research." },
+      { name: "Deep Reinforcement Learning from Human Preferences", track: "academic_papers", why: "The preference-learning method RLHF is built on." },
+      { name: "Risks from Learned Optimization", track: "academic_papers", why: "Mesa-optimization and deceptive alignment, the core inner-alignment worry." },
+      { name: "Goal Misgeneralization", track: "academic_papers", why: "How a capable model can pursue the wrong goal even with a correct training signal." },
+      { name: "Constitutional AI: Harmlessness from AI Feedback", track: "academic_papers", why: "A current, deployed approach to scalable oversight." },
+    ],
+  },
+  {
+    slug: "engineers",
+    audience: "I'm an engineer",
+    title: "AI safety for engineers",
+    blurb: "Hands-on, technical reading on interpretability, evals, and red teaming.",
+    description:
+      "A technical reading list for engineers who want to work on or near alignment: interpretability, adversarial robustness, red teaming, and the methods behind today's safety pipelines.",
+    steps: [
+      { name: "Training a Helpful and Harmless Assistant with RLHF", track: "academic_papers", why: "The engineering of an RLHF safety pipeline, end to end." },
+      { name: "Red Teaming Language Models to Reduce Harms", track: "academic_papers", why: "A repeatable methodology for finding model failures." },
+      { name: "Discovering Latent Knowledge in Language Models Without Supervision", track: "academic_papers", why: "An interpretability method aimed at detecting what a model 'believes'." },
+      { name: "Robert Miles AI Safety", track: "youtube", why: "Concise technical explainers to fill conceptual gaps as you go." },
+      { name: "LessWrong", track: "websites", why: "Where much of the technical alignment discussion happens in the open." },
+    ],
+  },
+  {
+    slug: "policymakers",
+    audience: "I'm a policymaker",
+    title: "AI safety for policymakers",
+    blurb: "Governance, risk, and coordination—what decision-makers need to grasp.",
+    description:
+      "An orientation for people working on or around AI policy: the nature of the risk, why coordination is hard, and the governance proposals on the table.",
+    steps: [
+      { name: "Human Compatible", why: "A policymaker-friendly account of the control problem from a leading AI researcher." },
+      { name: "The Windfall Clause", track: "academic_papers", why: "A concrete governance mechanism for sharing the gains and easing race dynamics." },
+      { name: "The Vulnerable World Hypothesis", track: "academic_papers", why: "Why some technologies may demand unprecedented global governance." },
+      { name: "Is Power-Seeking AI an Existential Risk?", track: "academic_papers", why: "The step-by-step risk argument, laid out for scrutiny." },
+      { name: "80,000 Hours Podcast", track: "podcasts", why: "Long-form interviews mapping the governance landscape and how to act on it." },
+    ],
+  },
+  {
+    slug: "watch-and-read-for-fun",
+    audience: "I just want stories",
+    title: "Watch & read for fun",
+    blurb: "The best films, TV, and fiction about AI—no homework required.",
+    description:
+      "Pure story. The films, series, and novels that dramatize machine minds, agency, and the alignment problem—an enjoyable way in that happens to teach the core ideas.",
+    steps: [
+      { name: "Ex Machina", track: "films", why: "A near-perfect chamber piece on the alignment test." },
+      { name: "I, Robot", track: "fiction_books", why: "Asimov's robot stories are the original alignment case studies." },
+      { name: "Humans", track: "tv", why: "A grounded near-future drama about personhood, control, and the minds we build." },
+      { name: "AlphaGo", track: "documentaries", why: "The real-world match that felt like science fiction." },
+    ],
+  },
 ];
 
 export function escapeHtml(value) {
