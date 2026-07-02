@@ -1330,10 +1330,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const preferredLogo = getPreferredOrganizationLogoFallback(entry);
     // Only use org logo when the entry has no image of its own (a curated
     // pinned Image always wins) and we don't have a verified author portrait
-    // (e.g. keep Yudkowsky photo for his intelligence.org essays).
+    // (e.g. keep Yudkowsky photo for his intelligence.org essays). The
+    // "already carries this logo" case keeps the branch idempotent — entries
+    // are prepared more than once per render pass.
+    const entryImageIsPreferredLogo =
+      Boolean(entry.Image) && sanitizeImageUrl(entry.Image) === sanitizeImageUrl(preferredLogo);
     if (
       preferredLogo &&
-      !entry.Image &&
+      (!entry.Image || entryImageIsPreferredLogo) &&
       !entry.__disableImage &&
       !preferredPortrait
     ) {

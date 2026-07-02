@@ -165,8 +165,11 @@ const checkYouTubePin = async (entry) => {
   const id = entry.YouTubeVideoId.trim();
   const url = `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}`;
   const res = await request(url, { headers: { Accept: "application/json" } });
-  if (res.botBlocked) return noteBotBlock(entry.Name, "YouTube oEmbed");
-  if ([400, 401, 404].includes(res.status)) {
+  // oEmbed 403 means "embedding disabled for this video" — the runtime's
+  // inline player would not work — so unlike other sources it is a real
+  // failure here, not a bot block. Only 429 stays unverifiable.
+  if (res.botBlocked && res.status === 429) return noteBotBlock(entry.Name, "YouTube oEmbed");
+  if ([400, 401, 403, 404].includes(res.status)) {
     failures.push(`${entry.Name}: YouTube video ${id} is missing or not embeddable (oEmbed HTTP ${res.status})`);
     return;
   }
