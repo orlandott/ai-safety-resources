@@ -12,7 +12,7 @@ import { Poster } from "../components/Poster";
 import { getResource, TRACK_ICONS } from "../data";
 import type { RootScreenProps } from "../navigation/types";
 import { useLibrary } from "../store/library";
-import { useTheme } from "../theme";
+import { SERIF, useTheme } from "../theme";
 
 export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
   const theme = useTheme();
@@ -38,9 +38,10 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
     >
       <Poster
         uri={resource.image}
+        title={resource.name}
         track={resource.track}
         style={styles.poster}
-        iconSize={48}
+        initialsSize={40}
       />
 
       <Text style={[styles.trackLabel, { color: theme.accent }]}>
@@ -52,8 +53,11 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
       <View style={styles.badges}>
         <LevelBadge level={resource.level} />
         {resource.tags.map((tag) => (
-          <View key={tag} style={[styles.tag, { backgroundColor: theme.chipBg }]}>
-            <Text style={[styles.tagText, { color: theme.textSecondary }]}>{tag}</Text>
+          <View
+            key={tag}
+            style={[styles.tag, { backgroundColor: theme.cardSoft, borderColor: theme.cardBorder }]}
+          >
+            <Text style={[styles.tagText, { color: theme.textMuted }]}>{tag}</Text>
           </View>
         ))}
       </View>
@@ -70,7 +74,7 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
           pressed && styles.pressed,
         ]}
       >
-        <Text style={[styles.primaryButtonText, { color: theme.dark ? "#101321" : "#ffffff" }]}>
+        <Text style={[styles.primaryButtonText, { color: theme.onAccent }]}>
           Open resource ↗
         </Text>
       </Pressable>
@@ -139,6 +143,7 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     lineHeight: 30,
     marginTop: 4,
+    fontFamily: SERIF,
   },
   meta: {
     fontSize: 14,
@@ -153,7 +158,8 @@ const styles = StyleSheet.create({
   },
   tag: {
     borderRadius: 999,
-    paddingHorizontal: 8,
+    borderWidth: 1,
+    paddingHorizontal: 9,
     paddingVertical: 2,
   },
   tagText: {

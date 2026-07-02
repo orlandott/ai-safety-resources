@@ -4,7 +4,7 @@ import React from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { paths, TRACK_ICONS, tracks } from "../data";
 import type { RootStackParamList } from "../navigation/types";
-import { useTheme } from "../theme";
+import { SERIF, useTheme } from "../theme";
 
 export function HomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 26,
     fontWeight: "800",
+    fontFamily: SERIF,
   },
   subheading: {
     fontSize: 14,
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 24,
     marginBottom: 10,
+    fontFamily: SERIF,
   },
   pathCard: {
     borderRadius: 14,
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
   pathTitle: {
     fontSize: 16,
     fontWeight: "700",
+    fontFamily: SERIF,
   },
   pathBlurb: {
     fontSize: 13,

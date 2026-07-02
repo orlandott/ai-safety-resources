@@ -15,7 +15,10 @@ export function Chip({ label, active = false, onPress }: ChipProps) {
       onPress={onPress}
       style={({ pressed }) => [
         styles.chip,
-        { backgroundColor: active ? theme.chipActiveBg : theme.chipBg },
+        {
+          backgroundColor: active ? theme.chipActiveBg : theme.chipBg,
+          borderColor: active ? theme.chipActiveBg : theme.chipBorder,
+        },
         pressed && styles.pressed,
       ]}
     >
@@ -34,8 +37,9 @@ export function Chip({ label, active = false, onPress }: ChipProps) {
 const styles = StyleSheet.create({
   chip: {
     borderRadius: 999,
+    borderWidth: 1,
     paddingHorizontal: 14,
-    paddingVertical: 7,
+    paddingVertical: 6,
     marginRight: 8,
   },
   pressed: {

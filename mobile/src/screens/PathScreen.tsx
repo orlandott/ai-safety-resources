@@ -35,7 +35,7 @@ export function PathScreen({ navigation, route }: RootScreenProps<"Path">) {
             {path.description}
           </Text>
           <View style={styles.progressRow}>
-            <View style={[styles.progressTrack, { backgroundColor: theme.chipBg }]}>
+            <View style={[styles.progressTrack, { backgroundColor: theme.progressTrack }]}>
               <View
                 style={[
                   styles.progressFill,

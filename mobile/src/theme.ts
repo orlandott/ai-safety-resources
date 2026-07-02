@@ -1,53 +1,73 @@
-import { useColorScheme } from "react-native";
+import { Platform, useColorScheme } from "react-native";
 
+// Palette mirrors the website (public/style.css): warm cream/brown grounds
+// with the site's green accent, in both light and dark.
 export interface Theme {
   dark: boolean;
   background: string;
   card: string;
+  cardSoft: string;
   cardBorder: string;
   text: string;
   textSecondary: string;
   textMuted: string;
   accent: string;
+  onAccent: string;
   accentSoft: string;
+  accentSoftBorder: string;
+  accentText: string;
   chipBg: string;
+  chipBorder: string;
   chipActiveBg: string;
   chipActiveText: string;
   tabBar: string;
+  progressTrack: string;
   danger: string;
 }
 
 const light: Theme = {
   dark: false,
-  background: "#f6f7fb",
+  background: "#f4f1ea",
   card: "#ffffff",
-  cardBorder: "#e4e7f0",
-  text: "#171a26",
-  textSecondary: "#3f4457",
-  textMuted: "#7a8095",
-  accent: "#4f5dd4",
-  accentSoft: "#eceefc",
-  chipBg: "#e9ebf3",
-  chipActiveBg: "#4f5dd4",
+  cardSoft: "#f9f7f1",
+  cardBorder: "#e6ddce",
+  text: "#382110",
+  textSecondary: "#5c5142",
+  textMuted: "#6f6659",
+  accent: "#2f7a52",
+  onAccent: "#ffffff",
+  accentSoft: "#eef8f1",
+  accentSoftBorder: "#b5d6bf",
+  accentText: "#2f7a52",
+  chipBg: "#f9f7f1",
+  chipBorder: "#e6ddce",
+  chipActiveBg: "#2f7a52",
   chipActiveText: "#ffffff",
-  tabBar: "#ffffff",
-  danger: "#c0392b",
+  tabBar: "#f9f7f1",
+  progressTrack: "#e9dfd0",
+  danger: "#b3382c",
 };
 
 const dark: Theme = {
   dark: true,
-  background: "#101321",
-  card: "#1a1e30",
-  cardBorder: "#282d45",
-  text: "#eceef6",
-  textSecondary: "#c0c4d6",
-  textMuted: "#8a90a8",
-  accent: "#8b96f2",
-  accentSoft: "#242a4a",
-  chipBg: "#242942",
-  chipActiveBg: "#8b96f2",
-  chipActiveText: "#101321",
-  tabBar: "#161a2b",
+  background: "#15110d",
+  card: "#1f1913",
+  cardSoft: "#251e17",
+  cardBorder: "#3b3128",
+  text: "#ede4d3",
+  textSecondary: "#cabfa9",
+  textMuted: "#a99b85",
+  accent: "#4fb87e",
+  onAccent: "#0e231a",
+  accentSoft: "rgba(79, 184, 126, 0.14)",
+  accentSoftBorder: "rgba(79, 184, 126, 0.42)",
+  accentText: "#7fd2a4",
+  chipBg: "#251e17",
+  chipBorder: "#3b3128",
+  chipActiveBg: "#4fb87e",
+  chipActiveText: "#0e231a",
+  tabBar: "#1a1510",
+  progressTrack: "#3b3128",
   danger: "#e07060",
 };
 
@@ -55,8 +75,10 @@ export function useTheme(): Theme {
   return useColorScheme() === "dark" ? dark : light;
 }
 
-export const LEVEL_COLORS: Record<string, { bg: string; bgDark: string; text: string; textDark: string }> = {
-  Beginner: { bg: "#e2f4e8", bgDark: "#1d3a2a", text: "#1e7c43", textDark: "#7fd8a2" },
-  Intermediate: { bg: "#fdf0dc", bgDark: "#3d2f1a", text: "#a86a12", textDark: "#efc27d" },
-  Advanced: { bg: "#fbe3e1", bgDark: "#3f2323", text: "#b3382c", textDark: "#f0968c" },
-};
+// The site sets headings and cover initials in Hahmlet (a serif); use each
+// platform's serif so the app reads the same without bundling font files.
+export const SERIF = Platform.select({
+  ios: "Georgia",
+  android: "serif",
+  default: "Georgia, 'Times New Roman', serif",
+});

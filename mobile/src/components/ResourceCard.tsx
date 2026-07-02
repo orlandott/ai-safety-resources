@@ -2,7 +2,7 @@ import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { TRACK_ICONS } from "../data";
 import { useLibrary } from "../store/library";
-import { useTheme } from "../theme";
+import { SERIF, useTheme } from "../theme";
 import type { Resource } from "../types";
 import { LevelBadge } from "./LevelBadge";
 import { Poster } from "./Poster";
@@ -35,7 +35,12 @@ export function ResourceCard({ resource, onPress, showTrack = false, note }: Res
         pressed && styles.pressed,
       ]}
     >
-      <Poster uri={resource.image} track={resource.track} style={styles.poster} />
+      <Poster
+        uri={resource.image}
+        title={resource.name}
+        track={resource.track}
+        style={styles.poster}
+      />
       <View style={styles.body}>
         <View style={styles.titleRow}>
           <Text style={[styles.title, { color: theme.text }]} numberOfLines={2}>
@@ -105,6 +110,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 20,
+    fontFamily: SERIF,
   },
   marker: {
     fontSize: 13,
