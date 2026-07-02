@@ -35,14 +35,26 @@ Curated lists live in code: the **Start here** picks and the **topic tag** keywo
 
 ### Add a new resource by editing the [resources.js](public/resources.js) file, running `npm run build`, and submitting a pull request
 
-### Suggestions submission endpoint
+### Suggestions & contact submissions
 
-Suggestions are submitted from the website based on the config in [`public/suggestion-form-config.js`](public/suggestion-form-config.js).
+Suggestions and contact-form messages post to the first-party endpoint **`POST /api/submit`**
+([`functions/api/submit.js`](functions/api/submit.js)), a Cloudflare Pages Function that
+emails the submission via [Resend](https://resend.com) — no Google Sheets involved.
+Set `RESEND_API_KEY` in Cloudflare Pages (Settings → Environment variables); optional
+`CONTACT_EMAIL` overrides the default recipient. The endpoint validates payloads,
+caps field lengths, and drops honeypot-flagged spam.
 
-- Current default mode is an Apps Script web app endpoint writing to a Google Sheet.
-- If you use Apps Script, deploy it with public access ("Anyone") so website visitors can submit.
-- You can also switch to Google Form mode using `formResponseUrl` + `entry.*` mappings.
-- Use [`docs/google-form-copy.md`](docs/google-form-copy.md) as the canonical Google Form copy template.
+Routing is configured in [`public/suggestion-form-config.js`](public/suggestion-form-config.js):
+
+- `mode: "api"` (default) — POST to `/api/submit`; if the API is unreachable or
+  unconfigured, the form falls back to opening the visitor's email client.
+- `mode: "email"` — always use the visitor's email client (`mailto:`).
+- `mode: "apps_script"` / `mode: "google_form"` — legacy Google-backed modes, still
+  supported for alternative deployments ([`docs/google-form-copy.md`](docs/google-form-copy.md)
+  has the form template).
+
+The header **Contact** button opens a contact form posting to the same endpoint
+(with a `mailto:` fallback for no-JS visitors and non-api deployments).
 
 Keep config changes in git so submission routing is reviewable in pull requests.
 

@@ -1,25 +1,18 @@
-// Suggestion form opens the user's email client (mailto). Contact link in the header does the same.
+// Suggestion + contact submissions post to the first-party API (/api/submit,
+// a Cloudflare Pages Function that emails via Resend — see functions/api/submit.js).
+// If the API is unreachable or unconfigured, the forms fall back to opening the
+// visitor's email client (mailto) using `email.to` below.
+//
+// Other modes remain supported for alternative deployments:
+//   mode: "email"        → always use the visitor's email client
+//   mode: "apps_script"  → POST to appsScript.endpointUrl (Google Apps Script)
+//   mode: "google_form"  → POST to googleForm.formResponseUrl (entry.* mappings)
 window.RWWC_SUGGESTION_SUBMISSION = {
-  mode: "email",
+  mode: "api",
+  api: {
+    endpoint: "/api/submit",
+  },
   email: {
     to: "contact@ai-safety-resources.com",
-  },
-  appsScript: {
-    endpointUrl:
-      "https://script.google.com/macros/s/AKfycbwQY1XXNQxh1_6rxTrMEXlk3aDUidhsQM8hq5T0Qzbv8tfErjqldlDub98STgnHtXj9DA/exec",
-    sheetUrl:
-      "https://docs.google.com/spreadsheets/d/1OTDiyBuIVTqnYXzXp3asMoRSA4wYNBywBRePgtIZfyY/edit?usp=sharing",
-  },
-  googleForm: {
-    formViewUrl: "https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/viewform",
-    formResponseUrl: "https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse",
-    fields: {
-      name: "entry.1000000001",
-      author: "entry.1000000002",
-      email: "entry.1000000006",
-      link: "entry.1000000003",
-      pages: "entry.1000000004",
-      track: "entry.1000000005",
-    },
   },
 };

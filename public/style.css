@@ -1894,3 +1894,46 @@ a.film-score:hover .film-score-value {
 body.account-modal-open {
   overflow: hidden;
 }
+
+/* Contact modal reuses the account modal styles; these cover its extras. */
+.account-field textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.account-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.account-form-success {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-text);
+}
+
+.account-form-success[hidden] {
+  display: none;
+}
+
+/* Spam honeypot: visually gone but still submitted by naive bots. */
+.honeypot-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}

@@ -530,6 +530,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const defaultSubmissionConfig = {
     mode: "email",
+    api: {
+      endpoint: "/api/submit",
+    },
     email: {
       to: "contact@ai-safety-resources.com",
     },
@@ -556,6 +559,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const submissionConfig = {
     mode: rawSubmissionConfig.mode || defaultSubmissionConfig.mode,
+    api: {
+      ...defaultSubmissionConfig.api,
+      ...(rawSubmissionConfig.api || {}),
+    },
     email: {
       ...defaultSubmissionConfig.email,
       ...(rawSubmissionConfig.email || {}),
@@ -3300,6 +3307,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to);
   };
 
+  const getApiEndpoint = () =>
+    ((submissionConfig.api && submissionConfig.api.endpoint) || "").toString().trim();
+
+  const isApiConfigured = () => {
+    const endpoint = getApiEndpoint();
+    return endpoint.startsWith("/") || isHttpsUrl(endpoint);
+  };
+
   const isGoogleFormConfigured = () => {
     const requiredFieldNames = ["name", "author", "link", "track"];
     const configuredFields = submissionConfig.googleForm.fields || {};
@@ -3320,6 +3335,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const getSubmissionMode = () => {
     const requestedMode = (submissionConfig.mode || "").toLowerCase();
 
+    if (requestedMode === "api" && isApiConfigured()) {
+      return "api";
+    }
     if (requestedMode === "email" && isEmailConfigured()) {
       return "email";
     }
@@ -3332,6 +3350,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isEmailConfigured()) {
       return "email";
     }
+    if (isApiConfigured()) {
+      return "api";
+    }
     if (isAppsScriptConfigured()) {
       return "apps_script";
     }
@@ -3340,6 +3361,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     return null;
+  };
+
+  const submitSuggestionToApi = async (data) => {
+    const trackLabel = trackLabels[data.track] || data.track;
+    try {
+      const response = await fetchWithTimeout(
+        getApiEndpoint(),
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            _subject: `Suggestion: ${(data.name || "").trim() || "New resource"}`,
+            title: data.name,
+            name: data.name,
+            author: data.author,
+            link: data.link,
+            category: trackLabel,
+            track_key: data.track,
+            submitter_email: data.email,
+          }),
+        },
+        submissionTimeoutMs,
+        "suggestion API submission"
+      );
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.error || `Submission failed with status ${response.status}`);
+      }
+    } catch (error) {
+      logResilienceError(
+        "api_submission_failed",
+        {
+          track: data.track,
+          hasEmail: Boolean(data.email),
+        },
+        error
+      );
+      throw error;
+    }
   };
 
   const submitSuggestionViaEmail = (data) => {
@@ -3481,7 +3541,24 @@ document.addEventListener("DOMContentLoaded", () => {
           suggestionSubmitButton.textContent = "Sending...";
         }
 
-        if (submissionMode === "email") {
+        if (submissionMode === "api") {
+          try {
+            await submitSuggestionToApi(data);
+          } catch (apiError) {
+            // The API may be missing on static hosts (no Pages Functions) or
+            // unconfigured (no Resend key) — fall back to the visitor's email
+            // client so the suggestion still gets through.
+            if (isEmailConfigured()) {
+              submitSuggestionViaEmail(data);
+              suggestionForm.reset();
+              setFeedback("Couldn't reach the server, so your email client will open instead. Send the message to submit your suggestion.");
+              return;
+            }
+            throw apiError;
+          }
+          suggestionForm.reset();
+          setFeedback("Thanks! Your suggestion was sent.");
+        } else if (submissionMode === "email") {
           submitSuggestionViaEmail(data);
           suggestionForm.reset();
           setFeedback("Your email client will open. Send the message to submit your suggestion.");
@@ -3512,6 +3589,191 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // ── Contact form ───────────────────────────────────────────────────────────
+  // In api mode the header Contact button opens a modal that posts to the same
+  // /api/submit endpoint as suggestions. The button keeps its mailto: href so
+  // no-JS visitors (and non-api deployments) still get a working email link.
+
+  const getContactEmailAddress = () =>
+    ((submissionConfig.email && submissionConfig.email.to) || "").toString().trim();
+
+  const ensureContactModal = () => {
+    if (document.getElementById("contact-modal")) {
+      return;
+    }
+    const safeMailto = escapeHtml(getContactEmailAddress());
+    const modal = document.createElement("div");
+    modal.id = "contact-modal";
+    modal.className = "account-modal";
+    modal.hidden = true;
+    modal.innerHTML =
+      `<div class="account-modal-backdrop" data-contact-close></div>` +
+      `<div class="account-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">` +
+      `<button type="button" class="account-modal-close" data-contact-close aria-label="Close">×</button>` +
+      `<h2 id="contact-modal-title" class="account-modal-title">Contact us</h2>` +
+      `<p class="account-modal-subtitle">Questions, corrections, or ideas — we read everything.</p>` +
+      `<form class="contact-form account-form" novalidate>` +
+      `<label class="account-field"><span>Name (optional)</span>` +
+      `<input type="text" name="name" autocomplete="name" maxlength="140" /></label>` +
+      `<label class="account-field"><span>Email</span>` +
+      `<input type="email" name="email" autocomplete="email" maxlength="160" required /></label>` +
+      `<label class="account-field"><span>Message</span>` +
+      `<textarea name="message" rows="5" maxlength="5000" required></textarea></label>` +
+      `<input type="text" name="_hp" class="honeypot-field" tabindex="-1" autocomplete="off" aria-hidden="true" />` +
+      `<p class="account-form-error" data-contact-error hidden></p>` +
+      `<p class="account-form-success" data-contact-success hidden>Thanks — your message was sent.</p>` +
+      `<button type="submit" class="account-button account-form-submit">Send message</button>` +
+      `</form>` +
+      (safeMailto
+        ? `<p class="account-modal-switch">Or email <a class="account-link" href="mailto:${safeMailto}">${safeMailto}</a> directly.</p>`
+        : "") +
+      `</div>`;
+    document.body.appendChild(modal);
+  };
+
+  const setContactFeedback = (errorMessage, isSuccess = false) => {
+    const modal = document.getElementById("contact-modal");
+    if (!modal) {
+      return;
+    }
+    const errorElement = modal.querySelector("[data-contact-error]");
+    const successElement = modal.querySelector("[data-contact-success]");
+    if (errorElement) {
+      errorElement.hidden = !errorMessage;
+      errorElement.textContent = errorMessage || "";
+    }
+    if (successElement) {
+      successElement.hidden = !isSuccess;
+    }
+  };
+
+  const openContactModal = () => {
+    ensureContactModal();
+    const modal = document.getElementById("contact-modal");
+    if (!modal) {
+      return;
+    }
+    setContactFeedback("");
+    modal.hidden = false;
+    document.body.classList.add("account-modal-open");
+    const emailInput = modal.querySelector('input[name="email"]');
+    if (emailInput) {
+      window.setTimeout(() => emailInput.focus(), 30);
+    }
+  };
+
+  const closeContactModal = () => {
+    const modal = document.getElementById("contact-modal");
+    if (!modal) {
+      return;
+    }
+    modal.hidden = true;
+    document.body.classList.remove("account-modal-open");
+    const form = modal.querySelector("form");
+    if (form) {
+      form.reset();
+    }
+    setContactFeedback("");
+  };
+
+  const submitContactForm = async (form) => {
+    const formData = new FormData(form);
+    const name = (formData.get("name") || "").toString().trim().slice(0, 140);
+    const email = (formData.get("email") || "").toString().trim().slice(0, 160);
+    const message = (formData.get("message") || "").toString().trim().slice(0, 5000);
+    const honeypot = (formData.get("_hp") || "").toString();
+
+    if (!email || !isValidEmail(email)) {
+      setContactFeedback("Please provide a valid email address.");
+      return;
+    }
+    if (!message) {
+      setContactFeedback("Please write a message before sending.");
+      return;
+    }
+
+    const submitButton = form.querySelector(".account-form-submit");
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending…";
+    }
+    try {
+      const response = await fetchWithTimeout(
+        getApiEndpoint(),
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            _subject: "Contact form message",
+            name,
+            email,
+            message,
+            _hp: honeypot,
+          }),
+        },
+        submissionTimeoutMs,
+        "contact form submission"
+      );
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.error || `Contact submission failed with status ${response.status}`);
+      }
+      form.reset();
+      setContactFeedback("", true);
+    } catch (error) {
+      logResilienceWarning("contact_submission_failed", {}, error);
+      setContactFeedback(
+        "Couldn't send your message right now. Please try again, or use the email link below."
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send message";
+      }
+    }
+  };
+
+  const initContactForm = () => {
+    if (getSubmissionMode() !== "api") {
+      return;
+    }
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!target || typeof target.closest !== "function") {
+        return;
+      }
+      const opener = target.closest("[data-contact-open]");
+      if (opener) {
+        event.preventDefault();
+        openContactModal();
+        return;
+      }
+      if (target.closest("[data-contact-close]")) {
+        event.preventDefault();
+        closeContactModal();
+      }
+    });
+
+    document.addEventListener("submit", (event) => {
+      const form = event.target;
+      if (form && form.classList && form.classList.contains("contact-form")) {
+        event.preventDefault();
+        submitContactForm(form);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") {
+        return;
+      }
+      const modal = document.getElementById("contact-modal");
+      if (modal && !modal.hidden) {
+        closeContactModal();
+      }
+    });
+  };
 
   if (sortControl) {
     sortControl.addEventListener("change", () => {
@@ -3818,4 +4080,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderAllBooks();
   initAccounts();
+  initContactForm();
 });

@@ -17,25 +17,45 @@ function json(body, status = 200) {
   });
 }
 
+const FIELD_MAX = 300;
+const MESSAGE_MAX = 5000;
+const clean = (value, max = FIELD_MAX) =>
+  (value == null ? "" : String(value)).trim().slice(0, max);
+
+function isContactPayload(data) {
+  return data.message != null;
+}
+
+// Returns an error string, or null if the payload is sendable.
+function validatePayload(data) {
+  if (isContactPayload(data)) {
+    if (!clean(data.message)) return "Message is required.";
+    return null;
+  }
+  if (!clean(data.title || data.name)) return "Title is required.";
+  if (!clean(data.link)) return "Link is required.";
+  return null;
+}
+
 function buildEmailText(data) {
-  if (data._subject && data.message != null) {
+  if (isContactPayload(data)) {
     return [
       "Contact form submission",
       "---",
-      `Name: ${(data.name || "").trim() || "(not provided)"}`,
-      `Email: ${(data.email || "").trim()}`,
+      `Name: ${clean(data.name) || "(not provided)"}`,
+      `Email: ${clean(data.email)}`,
       "",
-      (data.message || "").trim(),
+      clean(data.message, MESSAGE_MAX),
     ].join("\n");
   }
   return [
     "Suggestion submission",
     "---",
-    `Title: ${(data.title || data.name || "").trim()}`,
-    `Author (or director, host, etc.): ${(data.author || "").trim()}`,
-    `Link: ${(data.link || "").trim()}`,
-    `Category: ${data.category || ""}`,
-    `Submitter email: ${(data.submitter_email || data.email || "").trim()}`,
+    `Title: ${clean(data.title || data.name)}`,
+    `Author (or director, host, etc.): ${clean(data.author)}`,
+    `Link: ${clean(data.link, 2048)}`,
+    `Category: ${clean(data.category)}`,
+    `Submitter email: ${clean(data.submitter_email || data.email)}`,
   ].join("\n");
 }
 
@@ -78,7 +98,18 @@ export default {
       return json({ error: "Invalid JSON body" }, 400);
     }
 
-    const subject = (data._subject || "Submission from AI Safety Resources").toString().trim();
+    // Honeypot: real visitors never fill this hidden field. Pretend success so
+    // bots don't learn they were filtered.
+    if (clean(data._hp || data._honeypot)) {
+      return json({ success: true });
+    }
+
+    const validationError = validatePayload(data);
+    if (validationError) {
+      return json({ error: validationError }, 400);
+    }
+
+    const subject = clean(data._subject, 200) || "Submission from AI Safety Resources";
     const text = buildEmailText(data);
 
     try {
