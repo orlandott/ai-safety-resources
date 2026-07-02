@@ -47,6 +47,12 @@ mobile/
     └── theme.ts             # light/dark palette
 ```
 
+## Releasing
+
+App Store builds go through EAS — see [docs/app-store-release.md](../docs/app-store-release.md)
+for the full walkthrough (build, TestFlight, listing copy, review). Icons are
+generated from the site logo with `node scripts/make-icons.mjs`.
+
 ## Checks
 
 ```bash
