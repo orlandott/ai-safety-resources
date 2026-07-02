@@ -4,6 +4,7 @@
 
 const RESEND_API = "https://api.resend.com/emails";
 const DEFAULT_TO = "contact@ai-safety-resources.com";
+const DEFAULT_FROM = "AI Safety Resources <onboarding@resend.dev>";
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -79,6 +80,7 @@ export default {
 
     const apiKey = env.RESEND_API_KEY;
     const to = (env.CONTACT_EMAIL || DEFAULT_TO).toString().trim();
+    const from = (env.FROM_EMAIL || DEFAULT_FROM).toString().trim();
 
     if (!apiKey || !String(apiKey).startsWith("re_")) {
       return json(
@@ -121,7 +123,7 @@ export default {
           "User-Agent": "AI-Safety-Resources/1.0",
         },
         body: JSON.stringify({
-          from: "AI Safety Resources <onboarding@resend.dev>",
+          from,
           to: [to],
           reply_to: (data.email || data.submitter_email || "").toString().trim() || undefined,
           subject,

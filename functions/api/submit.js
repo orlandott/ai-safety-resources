@@ -1,8 +1,12 @@
 // Cloudflare Pages Function: receives suggestion + contact form submissions and sends email via Resend.
-// Set RESEND_API_KEY in Cloudflare Pages (Settings → Environment variables). Optional: CONTACT_EMAIL (default contact@ai-safety-resources.com).
+// Set RESEND_API_KEY in Cloudflare Pages (Settings → Environment variables).
+// Optional: CONTACT_EMAIL (recipient, default contact@ai-safety-resources.com) and
+// FROM_EMAIL (sender, default Resend's test sender — which only delivers to your
+// own Resend account email until you verify a domain in Resend).
 
 const RESEND_API = "https://api.resend.com/emails";
 const DEFAULT_TO = "contact@ai-safety-resources.com";
+const DEFAULT_FROM = "AI Safety Resources <onboarding@resend.dev>";
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -74,6 +78,7 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   const apiKey = env.RESEND_API_KEY;
   const to = (env.CONTACT_EMAIL || DEFAULT_TO).toString().trim();
+  const from = (env.FROM_EMAIL || DEFAULT_FROM).toString().trim();
 
   if (!apiKey || !apiKey.startsWith("re_")) {
     return json(
@@ -120,7 +125,7 @@ export async function onRequestPost(context) {
         "User-Agent": "AI-Safety-Resources/1.0",
       },
       body: JSON.stringify({
-        from: "AI Safety Resources <onboarding@resend.dev>",
+        from,
         to: [to],
         reply_to: (data.email || data.submitter_email || "").toString().trim() || undefined,
         subject,
