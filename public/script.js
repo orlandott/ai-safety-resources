@@ -93,6 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     { key: "youtube", parentId: "youtube-parent" },
   ];
 
+  // Track keys (e.g. "non_fiction_books") and tab keys (`data-w-tab`, e.g.
+  // "books-non-fiction") don't always match; this maps track -> tab key.
+  const trackTabKeys = new Map(
+    categoryTargets.map(({ key, parentId }) => [key, parentId.replace(/-parent$/, "")])
+  );
+
   const knownPublicationYears = {
     "The Coming Technological Singularity": 1994,
     "Machines of Loving Grace": 2024,
@@ -2341,7 +2347,8 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshAccountState();
   };
 
-  const fallbackCopyTextToClipboard = (text, onDone) => {
+  const fallbackCopyTextToClipboard = (text, onDone, onFail) => {
+    let copied = false;
     try {
       const textarea = document.createElement("textarea");
       textarea.value = text;
@@ -2350,11 +2357,16 @@ document.addEventListener("DOMContentLoaded", () => {
       textarea.style.left = "-9999px";
       document.body.appendChild(textarea);
       textarea.select();
-      document.execCommand("copy");
+      // execCommand reports failure via its return value, not an exception.
+      copied = document.execCommand("copy") === true;
       document.body.removeChild(textarea);
-      onDone();
     } catch (error) {
       logResilienceWarning("copy_link_fallback_failed", {}, error);
+    }
+    if (copied) {
+      onDone();
+    } else if (typeof onFail === "function") {
+      onFail();
     }
   };
 
@@ -2362,25 +2374,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const shareUrl = `${window.location.origin}${window.location.pathname}#r-${encodeURIComponent(
       lookupKey
     )}`;
-    const showCopiedFeedback = () => {
+    const showCopyFeedback = (label) => {
       if (!buttonElement) {
         return;
       }
       const originalLabel = buttonElement.textContent;
-      buttonElement.textContent = "Copied!";
-      buttonElement.classList.add("is-copied");
+      buttonElement.textContent = label;
+      buttonElement.classList.toggle("is-copied", label === "Copied!");
       window.setTimeout(() => {
         buttonElement.textContent = originalLabel;
         buttonElement.classList.remove("is-copied");
       }, 1600);
     };
+    const showCopiedFeedback = () => showCopyFeedback("Copied!");
+    const showCopyFailedFeedback = () => showCopyFeedback("Copy failed");
     if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
       navigator.clipboard
         .writeText(shareUrl)
         .then(showCopiedFeedback)
-        .catch(() => fallbackCopyTextToClipboard(shareUrl, showCopiedFeedback));
+        .catch(() =>
+          fallbackCopyTextToClipboard(shareUrl, showCopiedFeedback, showCopyFailedFeedback)
+        );
     } else {
-      fallbackCopyTextToClipboard(shareUrl, showCopiedFeedback);
+      fallbackCopyTextToClipboard(shareUrl, showCopiedFeedback, showCopyFailedFeedback);
     }
   };
 
@@ -2393,8 +2409,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     const trackKey = latestEntryCategoryLookup.get(lookupKey);
-    if (trackKey) {
-      activateTab(trackKey, { updateHash: false });
+    const tabKey = trackTabKeys.get(trackKey);
+    if (tabKey) {
+      activateTab(tabKey, { updateHash: false });
     }
     const card = [...document.querySelectorAll(".resource-card[data-lookup-key]")].find(
       (element) => element.getAttribute("data-lookup-key") === lookupKey
@@ -3831,8 +3848,10 @@ document.addEventListener("DOMContentLoaded", () => {
         resetLibraryFilters();
       }
       // The href's hashchange normally triggers the highlight; when the hash
-      // is already this resource (re-click), fire it directly.
-      if (window.location.hash === `#r-${encodeURIComponent(lookupKey)}`) {
+      // is already this resource (re-click), fire it directly. Compare decoded
+      // keys: Firefox returns location.hash already decoded, so matching
+      // against an encodeURIComponent-built string would never be equal there.
+      if (parseResourceHashKey() === lookupKey) {
         highlightCardByLookupKey(lookupKey);
       }
     });
