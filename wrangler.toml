@@ -1,12 +1,10 @@
-# Cloudflare Pages – static site from public/
-# If the dashboard runs "npx wrangler deploy", this [assets] section lets it succeed
-# and serve the public/ folder. Prefer: Build command = empty, output dir = public.
+# Cloudflare Pages – static site from public/ plus Pages Functions in functions/.
+# Pages project config: Build command = empty, output dir = public.
+# Note: this is a Pages configuration (pages_build_output_dir), so Workers-only
+# sections like [assets] are not allowed here — Pages rejects the whole file.
 name = "ai-safety-resources"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "public"
-
-[assets]
-directory = "./public"
 
 # Accounts API (functions/api/account/*) needs a KV namespace bound as ACCOUNTS.
 # It stores users, sessions, and each account's synced reading list. Until this
