@@ -103,6 +103,31 @@ function validate(resources, fictionTitles) {
         errors.push(`${where}: "Minutes" must be a non-negative integer (${entry.Minutes})`);
       }
     }
+    // Image-pin fields. Pins are resolved deterministically at runtime
+    // (script.js) and can be re-verified against their sources with
+    // scripts/verify-image-pins.mjs; here we only catch malformed values.
+    if (entry.Image !== undefined && !isValidHttpUrl(entry.Image)) {
+      errors.push(`${where}: "Image" must be a valid http(s) URL (${entry.Image})`);
+    }
+    if (
+      entry.Wikipedia !== undefined &&
+      (typeof entry.Wikipedia !== "string" || !entry.Wikipedia.trim())
+    ) {
+      errors.push(`${where}: "Wikipedia" must be a non-empty article title`);
+    }
+    if (entry.OpenLibraryWork !== undefined && !/^OL\d+[WM]$/.test(entry.OpenLibraryWork)) {
+      errors.push(
+        `${where}: "OpenLibraryWork" must be an Open Library work/edition id like OL45804W (${entry.OpenLibraryWork})`
+      );
+    }
+    if (entry.YouTubeVideoId !== undefined && !/^[\w-]{11}$/.test(entry.YouTubeVideoId)) {
+      errors.push(
+        `${where}: "YouTubeVideoId" must be an 11-character YouTube video id (${entry.YouTubeVideoId})`
+      );
+    }
+    if (entry.ImageIsLogo !== undefined && typeof entry.ImageIsLogo !== "boolean") {
+      errors.push(`${where}: "ImageIsLogo" must be a boolean`);
+    }
   });
   return errors;
 }

@@ -67,6 +67,23 @@ node scripts/resource-guardrails.mjs --update-config
 
 A GitHub Action also runs this checker on PRs and weekly schedules.
 
+### Resource images (pins, never guesses)
+
+Card images resolve from deterministic, per-entry **pins** in `public/resources.js` — the design rule is that a wrong image is worse than no image, so nothing is ever picked by fuzzy title search:
+
+- `Image` — a direct image URL (film posters from OMDB, book covers, a site's own logo). Add `ImageIsLogo: true` when it should get the padded logo treatment.
+- `Wikipedia` — an exact English Wikipedia article title; the article's lead image becomes the card image (film/TV posters, org logos, author portraits for papers and blogs). Looked up by exact title only: the correct image or nothing.
+- `OpenLibraryWork` — an Open Library work (`OL…W`) or edition (`OL…M`) id; that record's own cover becomes the book cover.
+- `YouTubeVideoId` — an 11-character video id verifiably uploaded by the entry's own channel; its thumbnail becomes the card image and plays inline (used for channel entries, whose links carry no video id).
+
+Books without pins may still resolve covers from Open Library / Google Books search, but only when the result's title **and** author exactly match the entry. Entries with no pin and no confident match show a letter placeholder by design.
+
+Every pin can be re-verified against its source (article exists, record matches the title, video exists, image URLs serve images):
+
+```bash
+npm run verify-images    # requires open outbound network access
+```
+
 ### Film posters and titles (OMDB)
 
 Films in `public/resources.js` use the `Name` and `Image` fields for title and poster. To backfill missing posters or refresh all film data from [OMDb](https://www.omdbapi.com/):

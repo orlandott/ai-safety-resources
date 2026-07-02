@@ -7,6 +7,7 @@ on:
       - "public/script.js"
       - "public/resource-guardrails-config.js"
       - "scripts/resource-guardrails.mjs"
+      - "scripts/verify-image-pins.mjs"
   push:
     branches:
       - "**"
@@ -15,6 +16,7 @@ on:
       - "public/script.js"
       - "public/resource-guardrails-config.js"
       - "scripts/resource-guardrails.mjs"
+      - "scripts/verify-image-pins.mjs"
   schedule:
     - cron: "23 6 * * 1"
   workflow_dispatch:
@@ -35,3 +37,19 @@ jobs:
 
       - name: Run guardrails checker
         run: node scripts/resource-guardrails.mjs
+
+  verify-image-pins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify image pins against their sources
+        run: node scripts/verify-image-pins.mjs

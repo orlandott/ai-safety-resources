@@ -1337,7 +1337,9 @@ document.addEventListener("DOMContentLoaded", () => {
       entry.Image = preferredLogo;
       entry.__coverIsLogo = true;
     } else {
-      entry.__coverIsLogo = false;
+      // Entries may mark their own pinned Image as a logo (`ImageIsLogo`) so
+      // it gets the same padded logo treatment as org-logo fallbacks.
+      entry.__coverIsLogo = Boolean(entry.ImageIsLogo && entry.Image);
     }
     entry.Image = sanitizeImageUrl(entry.Image || "");
     const inferredYear = getEntryYear(entry);
@@ -2082,9 +2084,58 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   };
 
-  const extractOpenLibraryMetadata = (payload) => {
+  // Loose title key for comparing our entry names against catalog titles:
+  // lowercase, strip accents/punctuation, drop a leading article.
+  const normalizeCatalogTitle = (value = "") =>
+    value
+      .toString()
+      .normalize("NFKD")
+      .replaceAll(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .replaceAll(/&/g, " and ")
+      .replaceAll(/[^a-z0-9]+/g, " ")
+      .trim()
+      .replace(/^(the|a|an) /, "");
+
+  const catalogTitleMatchesEntry = (catalogTitle = "", entryName = "") => {
+    const catalogKey = normalizeCatalogTitle(catalogTitle);
+    const entryKey = normalizeCatalogTitle(entryName);
+    if (!catalogKey || !entryKey) {
+      return false;
+    }
+    // Exact match, or one is the other plus a subtitle (entry names often drop
+    // subtitles, catalogs often include them).
+    return (
+      catalogKey === entryKey ||
+      catalogKey.startsWith(`${entryKey} `) ||
+      entryKey.startsWith(`${catalogKey} `)
+    );
+  };
+
+  const catalogAuthorMatchesEntry = (catalogAuthors, entryAuthor = "") => {
+    const entryKey = normalizeCatalogTitle(entryAuthor);
+    if (!entryKey) {
+      return true;
+    }
+    const names = Array.isArray(catalogAuthors) ? catalogAuthors : [catalogAuthors];
+    const entryLastNames = entryKey.split(" ").filter((part) => part.length > 2);
+    return names.some((name) => {
+      const nameKey = normalizeCatalogTitle(name || "");
+      return nameKey && entryLastNames.some((part) => nameKey.includes(part));
+    });
+  };
+
+  // Only accept a fuzzy search result whose title AND author actually match the
+  // entry — a same-titled book by someone else must never supply the cover.
+  const extractOpenLibraryMetadata = (payload, entry = {}) => {
     const docs = payload && Array.isArray(payload.docs) ? payload.docs : [];
-    const match = docs.find((doc) => doc && (doc.cover_i || doc.number_of_pages_median || doc.first_publish_year));
+    const match = docs.find(
+      (doc) =>
+        doc &&
+        (doc.cover_i || doc.number_of_pages_median || doc.first_publish_year) &&
+        catalogTitleMatchesEntry(doc.title || "", entry.Name || "") &&
+        catalogAuthorMatchesEntry(doc.author_name || [], entry.Author || "")
+    );
     if (!match) {
       return { coverUrl: "", pageCount: null, year: null };
     }
@@ -2094,6 +2145,52 @@ document.addEventListener("DOMContentLoaded", () => {
       pageCount: normalizePositiveInteger(match.number_of_pages_median),
       year: normalizeYear(match.first_publish_year),
     };
+  };
+
+  // Resolve a book's cover from a pinned Open Library id (`OpenLibraryWork`
+  // field, a work "OL...W" or edition "OL...M" id). Deterministic: the pinned
+  // record's own cover or nothing, never a search guess.
+  const queryOpenLibraryPinnedMetadata = async (entry) => {
+    const pinnedId = (entry.OpenLibraryWork || "").toString().trim();
+    const idMatch = pinnedId.match(/^OL\d+([WM])$/);
+    if (!idMatch) {
+      return { coverUrl: "", pageCount: null, year: null };
+    }
+    const isWork = idMatch[1] === "W";
+    const recordUrl = `https://openlibrary.org/${isWork ? "works" : "books"}/${pinnedId}.json`;
+    let response;
+    try {
+      response = await fetchWithTimeout(
+        recordUrl,
+        { headers: { Accept: "application/json" } },
+        metadataLookupTimeoutMs,
+        "OpenLibrary pinned record lookup"
+      );
+    } catch (error) {
+      logResilienceWarning("openlibrary_pinned_lookup_failed", { pinnedId }, error);
+      return { coverUrl: "", pageCount: null, year: null };
+    }
+    if (!response.ok) {
+      logResilienceWarning("openlibrary_pinned_unexpected_status", {
+        pinnedId,
+        status: response.status,
+      });
+      return { coverUrl: "", pageCount: null, year: null };
+    }
+    try {
+      const payload = await response.json();
+      const covers = Array.isArray(payload && payload.covers) ? payload.covers : [];
+      const coverId = covers.find((id) => normalizePositiveInteger(id));
+      const publishYearMatch = ((payload && payload.publish_date) || "").match(/\b(18|19|20)\d{2}\b/);
+      return {
+        coverUrl: coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : "",
+        pageCount: normalizePositiveInteger(payload && payload.number_of_pages),
+        year: publishYearMatch ? normalizeYear(publishYearMatch[0]) : null,
+      };
+    } catch (error) {
+      logResilienceWarning("openlibrary_pinned_parse_failed", { pinnedId }, error);
+      return { coverUrl: "", pageCount: null, year: null };
+    }
   };
 
   const queryOpenLibraryMetadata = async (entry) => {
@@ -2131,7 +2228,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const payload = await response.json();
-      return extractOpenLibraryMetadata(payload);
+      return extractOpenLibraryMetadata(payload, entry);
     } catch (error) {
       logResilienceWarning(
         "openlibrary_payload_parse_failed",
@@ -2191,9 +2288,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return { coverUrl: "", pageCount: null, year: null };
     }
     const items = payload && Array.isArray(payload.items) ? payload.items : [];
+    // Same rule as Open Library: a volume only qualifies when its title and
+    // author match the entry, so a same-titled book never supplies the cover.
     const bestVolumeInfo = items
       .map((item) => (item ? item.volumeInfo : null))
       .filter(Boolean)
+      .filter(
+        (volumeInfo) =>
+          catalogTitleMatchesEntry(volumeInfo.title || "", entry.Name || "") &&
+          catalogAuthorMatchesEntry(volumeInfo.authors || [], entry.Author || "")
+      )
       .sort((left, right) => {
         const score = (volumeInfo) =>
           (volumeInfo.imageLinks ? 2 : 0) +
@@ -2229,31 +2333,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return match ? match.thumbnail.source : "";
   };
 
-  // Films have no entry in OpenLibrary/Google Books, so resolve posters from
-  // Wikipedia. A search generator avoids title-disambiguation problems (e.g.
-  // "Alien", "Her", "Moon") and returns the film article's lead image (poster).
-  // When an entry pins an exact Wikipedia article via `Wikipedia`, we look that
-  // article up directly instead of searching — deterministic, so it returns the
-  // correct poster or nothing, never a mismatched image.
-  const queryWikipediaPoster = async (entry) => {
-    const title = (entry.Name || "").trim();
-    if (!title) {
+  // Resolve an entry's image from a pinned Wikipedia article (`Wikipedia`
+  // field): the article's lead image (film poster, org logo, or author
+  // portrait). Pins are looked up directly by exact title — deterministic, so
+  // this returns the correct image or nothing, never a mismatched one. The old
+  // search-generator fallback was removed on purpose: fuzzy title search too
+  // often returns a same-titled but different work, and a wrong image is worse
+  // than no image.
+  const queryPinnedWikipediaImage = async (entry) => {
+    const pinnedArticle = (entry.Wikipedia || "").toString().trim();
+    if (!pinnedArticle) {
       return "";
     }
-    const pinnedArticle = (entry.Wikipedia || "").toString().trim();
-    const baseUrl =
+    const queryUrl =
       "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1" +
-      "&prop=pageimages&piprop=thumbnail&pithumbsize=500";
-    let queryUrl;
-    if (pinnedArticle) {
-      queryUrl = `${baseUrl}&titles=${encodeURIComponent(pinnedArticle)}`;
-    } else {
-      const year = getEntryYear(entry);
-      const isTvEntry = (entry.Category || "").toString() === "tv";
-      const mediaHint = isTvEntry ? "television series" : "film";
-      const searchTerm = `${title}${year ? ` ${year}` : ""} ${mediaHint}`;
-      queryUrl = `${baseUrl}&generator=search&gsrlimit=1&gsrnamespace=0&gsrsearch=${encodeURIComponent(searchTerm)}`;
-    }
+      "&prop=pageimages&piprop=thumbnail&pithumbsize=500" +
+      `&titles=${encodeURIComponent(pinnedArticle)}`;
 
     let response;
     try {
@@ -2261,15 +2356,15 @@ document.addEventListener("DOMContentLoaded", () => {
         queryUrl,
         { headers: { Accept: "application/json" } },
         metadataLookupTimeoutMs,
-        "Wikipedia poster lookup"
+        "Wikipedia pinned image lookup"
       );
     } catch (error) {
-      logResilienceWarning("wikipedia_poster_lookup_failed", { title }, error);
+      logResilienceWarning("wikipedia_poster_lookup_failed", { title: pinnedArticle }, error);
       return "";
     }
     if (!response.ok) {
       logResilienceWarning("wikipedia_poster_unexpected_status", {
-        title,
+        title: pinnedArticle,
         status: response.status,
       });
       return "";
@@ -2278,7 +2373,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const payload = await response.json();
       return sanitizeImageUrl(extractWikipediaThumbnail(payload));
     } catch (error) {
-      logResilienceWarning("wikipedia_poster_parse_failed", { title }, error);
+      logResilienceWarning("wikipedia_poster_parse_failed", { title: pinnedArticle }, error);
       return "";
     }
   };
@@ -2300,13 +2395,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
       const lookupCategory = (entry.Category || "").toString();
-      if (
+      const hasWikipediaPin = Boolean((entry.Wikipedia || "").toString().trim());
+      const isFilmCategory =
         lookupCategory === "films" ||
         lookupCategory === "tv" ||
-        lookupCategory === "documentaries"
-      ) {
+        lookupCategory === "documentaries";
+      // A pinned Wikipedia article resolves the image for any category:
+      // posters for film/TV/documentary pins, logos/portraits for org, site,
+      // and author pins on papers, websites, courses, and podcasts.
+      if (isFilmCategory || hasWikipediaPin) {
         try {
-          metadata.coverUrl = sanitizeImageUrl(await queryWikipediaPoster(entry));
+          metadata.coverUrl = sanitizeImageUrl(await queryPinnedWikipediaImage(entry));
         } catch (error) {
           logResilienceWarning("film_poster_lookup_failed", { name: entry && entry.Name }, error);
         }
@@ -2315,10 +2414,23 @@ document.addEventListener("DOMContentLoaded", () => {
         return metadata;
       }
       try {
-        const openLibraryMetadata = await queryOpenLibraryMetadata(entry);
-        metadata.coverUrl = sanitizeImageUrl(openLibraryMetadata.coverUrl || "");
-        metadata.pageCount = normalizePositiveInteger(openLibraryMetadata.pageCount);
-        metadata.year = normalizeYear(openLibraryMetadata.year);
+        const pinnedOpenLibraryMetadata = await queryOpenLibraryPinnedMetadata(entry);
+        metadata.coverUrl = sanitizeImageUrl(pinnedOpenLibraryMetadata.coverUrl || "");
+        metadata.pageCount = normalizePositiveInteger(pinnedOpenLibraryMetadata.pageCount);
+        metadata.year = normalizeYear(pinnedOpenLibraryMetadata.year);
+
+        if (!metadata.coverUrl || !metadata.pageCount || !metadata.year) {
+          const openLibraryMetadata = await queryOpenLibraryMetadata(entry);
+          if (!metadata.coverUrl) {
+            metadata.coverUrl = sanitizeImageUrl(openLibraryMetadata.coverUrl || "");
+          }
+          if (!metadata.pageCount) {
+            metadata.pageCount = normalizePositiveInteger(openLibraryMetadata.pageCount);
+          }
+          if (!metadata.year) {
+            metadata.year = normalizeYear(openLibraryMetadata.year);
+          }
+        }
 
         if (!metadata.coverUrl || !metadata.pageCount || !metadata.year) {
           const googleBooksMetadata = await queryGoogleBooksMetadata(entry);
@@ -2534,7 +2646,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const coverMarkup = safeImageUrl
         ? `<img class="${coverClassName}" src="${escapeHtml(safeImageUrl)}" loading="lazy" alt="${safeName} cover" />`
         : buildCoverPlaceholderMarkup(entry.Name || "");
-      const youtubeVideoId = category === "youtube" ? getYoutubeVideoId(normalizedLink) : "";
+      // A pinned `YouTubeVideoId` (a verified upload of the entry's own
+      // channel) gives channel entries a real thumbnail plus inline playback;
+      // video entries keep deriving the id from their own link.
+      const pinnedYoutubeVideoId = /^[\w-]{11}$/.test((entry.YouTubeVideoId || "").toString().trim())
+        ? entry.YouTubeVideoId.toString().trim()
+        : "";
+      const youtubeVideoId =
+        (category === "youtube" ? getYoutubeVideoId(normalizedLink) : "") || pinnedYoutubeVideoId;
       const youtubeThumbnailUrl = youtubeVideoId
         ? `https://i.ytimg.com/vi/${escapeHtml(youtubeVideoId)}/hqdefault.jpg`
         : "";
@@ -2636,21 +2755,20 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       wireCoverFallback(coverElementId, entry.Name || "Book");
 
-      // Only fetch on load for entries actually missing a cover/poster —
-      // books via OpenLibrary/Google Books, films via Wikipedia. Entries that
-      // already ship an image make no network request. Year and page counts
-      // are filled opportunistically from that same lookup.
-      // Documentaries only hydrate when they pin an exact Wikipedia article
-      // (`Wikipedia`): fuzzy title search too often returns the wrong image for
-      // them (many share titles with fiction films), so without a pinned article
-      // we prefer the letter placeholder over a misleading poster.
-      const canHydrateDocumentary =
-        category !== "documentaries" || Boolean(entry.Wikipedia);
+      // Only fetch on load for entries actually missing a cover/poster;
+      // entries that already ship an image make no network request. Year and
+      // page counts are filled opportunistically from the same lookup.
+      // Film/TV/documentary posters and non-book images resolve only from a
+      // pinned Wikipedia article (`Wikipedia`): fuzzy title search too often
+      // returns a same-titled but different work, so without a pin we prefer
+      // the letter placeholder over a misleading image. Books may always
+      // hydrate — their pinned id (`OpenLibraryWork`) is tried first and their
+      // fuzzy lookups require an exact title+author match.
       const needsHydration =
         !entry.Image &&
         !entry.__disableImage &&
-        (isBookCategory || isFilm) &&
-        canHydrateDocumentary;
+        !youtubeVideoId &&
+        (isBookCategory || Boolean(entry.Wikipedia));
       if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }
