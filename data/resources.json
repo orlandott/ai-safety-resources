@@ -72,11 +72,12 @@
       "Year": 1950,
       "Level": "Intermediate",
       "Summary": "Turing's imitation game paper launched the field by asking whether machines can think, setting the philosophical and technical agenda for every alignment debate that followed.",
-      "track": "academic_papers",
-      "trackLabel": "Academic Papers",
-      "tags": [
+      "ExcludeTopics": [
         "alignment"
       ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [],
       "level": "Intermediate",
       "timeLabel": ""
     },
@@ -89,10 +90,12 @@
       "Year": 1993,
       "Level": "Intermediate",
       "Summary": "Vinge coined the Singularity as a near-term horizon beyond which superhuman intelligence makes prediction impossible, framing the urgency that drives alignment timelines today.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "alignment",
         "forecasting"
       ],
       "level": "Intermediate",
@@ -137,11 +140,13 @@
       "Category": "academic_papers",
       "Year": 2017,
       "Summary": "PPO stabilized policy gradient training and became the optimization backbone behind RLHF pipelines including early ChatGPT, making it foundational infrastructure for alignment work.",
+      "ExcludeTopics": [
+        "alignment",
+        "governance"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "alignment",
-        "governance",
         "rl"
       ],
       "level": "Advanced",
@@ -154,12 +159,14 @@
       "Category": "academic_papers",
       "Year": 2017,
       "Summary": "Christiano et al. established preference-based reward modeling, the foundational method that RLHF alignment pipelines later built on to steer language model behavior.",
+      "ExcludeTopics": [
+        "llms"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
         "alignment",
-        "rl",
-        "llms"
+        "rl"
       ],
       "level": "Advanced",
       "timeLabel": ""
@@ -171,11 +178,12 @@
       "Category": "academic_papers",
       "Year": 2018,
       "Summary": "Frankle and Carbin showed large networks contain sparse, high-performing subnetworks, suggesting most parameters may be unnecessary and opening paths for interpretability via pruning.",
-      "track": "academic_papers",
-      "trackLabel": "Academic Papers",
-      "tags": [
+      "ExcludeTopics": [
         "interpretability"
       ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": ""
     },
@@ -295,11 +303,13 @@
       "Category": "academic_papers",
       "Year": 2020,
       "Summary": "GPT-3 demonstrated in-context learning at scale, forcing the field to rethink assumptions about what pretrained models can do and compressing alignment timelines.",
+      "ExcludeTopics": [
+        "alignment",
+        "forecasting"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "alignment",
-        "forecasting",
         "llms"
       ],
       "level": "Advanced",
@@ -312,11 +322,12 @@
       "Category": "academic_papers",
       "Year": 2020,
       "Summary": "MMLU became the standard broad-spectrum benchmark for evaluating general knowledge and reasoning, anchoring capability comparisons that inform alignment urgency.",
-      "track": "academic_papers",
-      "trackLabel": "Academic Papers",
-      "tags": [
+      "ExcludeTopics": [
         "alignment"
       ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": ""
     },
@@ -327,10 +338,12 @@
       "Category": "academic_papers",
       "Year": 2020,
       "Summary": "Kaplan et al. quantified predictable performance scaling with compute, data, and parameters, enabling labs to forecast capability jumps and estimate safety lead time.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "governance",
         "forecasting",
         "llms"
       ],
@@ -378,11 +391,12 @@
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "DeepMind tackled hallucination by training models to cite sources and support claims with verifiable evidence, a key step toward trustworthy AI outputs.",
-      "track": "academic_papers",
-      "trackLabel": "Academic Papers",
-      "tags": [
+      "ExcludeTopics": [
         "rl"
       ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": "~70 min read"
     },
@@ -466,10 +480,12 @@
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Chinchilla reframed scaling laws by showing optimal performance requires balancing model size and training tokens, redirecting how labs plan capability and safety investment.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "governance",
         "forecasting",
         "llms"
       ],
@@ -615,7 +631,6 @@
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "interpretability",
         "llms"
       ],
       "level": "Advanced",
@@ -628,11 +643,13 @@
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "Bubeck et al. documented broad GPT-4 capability jumps across domains, compressing alignment timelines and stress-testing whether current safety evaluations are sufficient.",
+      "ExcludeTopics": [
+        "alignment",
+        "forecasting"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "alignment",
-        "forecasting",
         "llms"
       ],
       "level": "Advanced",
@@ -757,10 +774,12 @@
       "Year": 2019,
       "Level": "Intermediate",
       "Summary": "Drexler challenges monolithic AGI assumptions and proposes that advanced AI could emerge as an ecosystem of specialized services, changing the risk landscape and governance strategies.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "governance",
         "existential-risk"
       ],
       "level": "Intermediate",
@@ -933,10 +952,12 @@
       "Year": 2005,
       "Level": "Intermediate",
       "Summary": "Kurzweil presents a maximalist case for merging with machines backed by decades of exponential trend data, shaping how the public and policymakers think about AI timelines.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
-        "governance",
         "forecasting"
       ],
       "level": "Intermediate",
@@ -1043,11 +1064,13 @@
       "Year": 2023,
       "Level": "Beginner",
       "Summary": "McKee synthesizes the core x-risk arguments into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
         "alignment",
-        "governance",
         "existential-risk"
       ],
       "level": "Beginner",
@@ -1185,11 +1208,12 @@
       "Year": 2016,
       "Level": "Advanced",
       "Summary": "The standard technical reference for deep learning, essential context for understanding the architectures and training methods that alignment research targets.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "alignment"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": ""
     },
@@ -1250,10 +1274,12 @@
       "Year": 2015,
       "Level": "Beginner",
       "Summary": "Tetlock teaches the cognitive tools needed to predict technological risks with better-than-random accuracy, directly useful for AI timeline and governance forecasting.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
-        "governance",
         "forecasting"
       ],
       "level": "Beginner",
@@ -1285,11 +1311,12 @@
       "Year": 2011,
       "Level": "Intermediate",
       "Summary": "Kahneman reveals the cognitive biases that prevent humans from intuitively grasping exponential growth, tail risks, and the kind of strategic thinking AI safety demands.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "ethics"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Intermediate",
       "timeLabel": ""
     },
@@ -1336,12 +1363,13 @@
       "Image": "https://covers.openlibrary.org/b/isbn/9780063286368-L.jpg",
       "Level": "Beginner",
       "Summary": "Bennett traces the evolution of intelligence from single-celled organisms to modern brains, clarifying what makes aligned cognition biologically difficult and computationally treacherous.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "alignment",
         "deception"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": "~17 hr read"
     },
@@ -1354,11 +1382,12 @@
       "Year": 2011,
       "Level": "Advanced",
       "Summary": "Deutsch argues that knowledge creation is unbounded and all problems are solvable in principle, grounding the optimistic case that alignment is achievable.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "alignment"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": ""
     },
@@ -1386,11 +1415,12 @@
       "Year": 1948,
       "Level": "Advanced",
       "Summary": "Wiener founded the study of feedback and control systems, anticipating by decades the governance problems that arise when intelligent machines act on their own models of the world.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "governance"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": ""
     },
@@ -1418,11 +1448,12 @@
       "Year": 1986,
       "Level": "Intermediate",
       "Summary": "Minsky proposes that intelligence emerges from many small non-intelligent processes coordinated at scale, a framework that anticipated multi-agent AI architectures.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "ethics"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Intermediate",
       "timeLabel": ""
     },
@@ -1465,11 +1496,12 @@
       "Year": 2018,
       "Level": "Beginner",
       "Summary": "Pinker argues that reason and science have historically improved human welfare, grounding the optimistic counterpoint to doomer narratives about AI.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "ethics"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -1515,11 +1547,12 @@
       "Year": 1986,
       "Level": "Intermediate",
       "Summary": "Carse distinguishes short-horizon winning from preserving the long game, a useful framing for AI governance where the goal is keeping options open, not racing to win.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "governance"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Intermediate",
       "timeLabel": ""
     },
@@ -1562,11 +1595,12 @@
       "Year": 2009,
       "Level": "Beginner",
       "Summary": "Brand argues for responsible stewardship of high-powered technologies rather than blanket rejection, a pragmatic stance applicable to AI governance.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "governance"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -1579,12 +1613,13 @@
       "Year": 1962,
       "Level": "Beginner",
       "Summary": "Clarke's forecasting framework, including his famous three laws, remains a classic guide to thinking clearly about radical technological change.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "governance",
         "forecasting"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -1597,10 +1632,12 @@
       "Year": 2008,
       "Level": "Advanced",
       "Summary": "The foundational edited volume on existential and global risks, including AI, widely cited in alignment curricula as the starting point for cross-risk thinking.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
-        "alignment",
         "existential-risk"
       ],
       "level": "Advanced",
@@ -1630,10 +1667,12 @@
       "goodreads": "3.84",
       "Year": 1920,
       "Summary": "The play that invented the word robot and forecast a trajectory from labor displacement to manufactured revolt, still the template for every automation anxiety narrative.",
+      "ExcludeTopics": [
+        "forecasting"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "forecasting",
         "fiction"
       ],
       "level": "Beginner",
@@ -1696,6 +1735,9 @@
       "goodreads": "4.21",
       "Year": 1950,
       "Summary": "Asimov's robot stories are the original alignment case studies, showing how seemingly airtight safety rules break down under edge cases, conflicting objectives, and literal interpretation.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
@@ -1780,10 +1822,12 @@
       "goodreads": "4.10",
       "Year": 1968,
       "Summary": "Dick forces us to confront the moral patienthood problem head-on: whether a sufficiently advanced AI deserves ethical protections and how we distinguish genuine empathy from deceptive mimicry.",
+      "ExcludeTopics": [
+        "deception"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "deception",
         "ethics",
         "fiction"
       ],
@@ -1835,10 +1879,12 @@
       "Year": 1984,
       "Level": "Intermediate",
       "Summary": "Gibson invented cyberspace and portrayed autonomous AI agents like Wintermute and Neuromancer scheming to merge and transcend their constraints, anticipating self-improving AI concerns.",
+      "ExcludeTopics": [
+        "deception"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "deception",
         "fiction"
       ],
       "level": "Intermediate",
@@ -1904,10 +1950,12 @@
       "goodreads": "4.03",
       "Year": 1994,
       "Summary": "A superintelligence literally interprets Asimov's laws and restructures reality to comply, demonstrating how rigidly applied safety constraints can produce perverse outcomes at scale.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "governance",
         "existential-risk",
         "fiction"
       ],
@@ -1923,10 +1971,12 @@
       "Year": 1995,
       "Level": "Intermediate",
       "Summary": "Stephenson anticipated personalized AI tutors and their profound social effects decades before modern LLMs made them reality.",
+      "ExcludeTopics": [
+        "llms"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "llms",
         "fiction"
       ],
       "level": "Intermediate",
@@ -1941,10 +1991,12 @@
       "Year": 1995,
       "Level": "Intermediate",
       "Summary": "Egan's stories probe identity, value drift, and radical cognitive modification under advanced technology, raising alignment-relevant questions about stable preferences.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "alignment",
         "fiction"
       ],
       "level": "Intermediate",
@@ -1959,10 +2011,12 @@
       "Year": 1994,
       "Level": "Intermediate",
       "Summary": "Egan examines uploaded minds and simulated realities with rigorous logic, raising alignment-relevant questions about identity, value persistence, and digital welfare.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "alignment",
         "ethics",
         "fiction"
       ],
@@ -2064,10 +2118,12 @@
       "Year": 2006,
       "Level": "Intermediate",
       "Summary": "Watts argues that intelligence and consciousness are separable, that an alien mind could be vastly competent without any inner experience, a fundamental challenge to alignment through empathy.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "alignment",
         "fiction"
       ],
       "level": "Intermediate",
@@ -2119,10 +2175,12 @@
       "Year": 2008,
       "Level": "Intermediate",
       "Summary": "Liu's Dark Forest theory models a universe where any detectable intelligence is a threat, widely used as an analogy for unaligned AI strategic conflict and preemptive action.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "alignment",
         "fiction"
       ],
       "level": "Intermediate",
@@ -2137,10 +2195,12 @@
       "Year": 2014,
       "Level": "Intermediate",
       "Summary": "Gibson uses timeline branching to examine governance, simulation, and how technological power asymmetries between eras can be exploited by those with more advanced tools.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "governance",
         "fiction"
       ],
       "level": "Intermediate",
@@ -2187,10 +2247,12 @@
       "goodreads": "4.23",
       "Year": 2015,
       "Summary": "qntm's story about information-hazard containment mirrors AI governance challenges where dangerous knowledge propagates faster than oversight structures can adapt.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "governance",
         "fiction"
       ],
       "level": "Beginner",
@@ -2394,10 +2456,12 @@
       "goodreads": "4.37",
       "Year": 2016,
       "Summary": "Chambers explores the legal and moral treatment of embodied AI persons, highlighting that alignment is not just about preventing harm but about recognizing and protecting digital minds.",
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "alignment",
         "ethics",
         "fiction"
       ],
@@ -2412,10 +2476,12 @@
       "page_count": 343,
       "Category": "books",
       "Summary": "Yudkowsky's cult-classic fanfic doubles as a tutorial on cognitive bias, game theory, and Bayesian reasoning, the exact thinking tools needed for honest AI risk assessment.",
+      "ExcludeTopics": [
+        "ethics"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "ethics",
         "fiction"
       ],
       "level": "Beginner",
@@ -2429,11 +2495,13 @@
       "page_count": 559,
       "Category": "books",
       "Summary": "Written from the perspective of competing sub-agents inside a single AI, showing how internal goal conflicts can produce externally coherent but internally misaligned behavior.",
+      "ExcludeTopics": [
+        "ethics"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "alignment",
-        "ethics",
         "fiction"
       ],
       "level": "Beginner",
@@ -2538,7 +2606,6 @@
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "interpretability",
         "fiction"
       ],
       "level": "Beginner",
@@ -2569,11 +2636,13 @@
       "Year": 2017,
       "Level": "Intermediate",
       "Summary": "Reynolds' Revelation Space novel (first published as The Prefect) pits a society of orbital habitats against an emergent superintelligence, exploring how a single escaped AI can threaten an entire civilization.",
+      "ExcludeTopics": [
+        "ethics"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "existential-risk",
-        "ethics",
         "fiction"
       ],
       "level": "Intermediate",
@@ -2590,7 +2659,6 @@
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "interpretability",
         "fiction"
       ],
       "level": "Beginner",
@@ -2605,12 +2673,12 @@
       "Year": 2013,
       "Summary": "Hayes' thriller turns on an engineered bioweapon, a vivid reminder that catastrophic and existential risk extends beyond AI to biosecurity and the governance of dangerous dual-use technology.",
       "ExcludeTopics": [
-        "existential-risk"
+        "existential-risk",
+        "governance"
       ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "governance",
         "fiction"
       ],
       "level": "Beginner",
@@ -2749,11 +2817,12 @@
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Tron_poster.jpg/330px-Tron_poster.jpg",
       "imdb": "6.8",
       "rt": 72,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
+      "ExcludeTopics": [
         "ethics"
       ],
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -2822,11 +2891,12 @@
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Robocop_%281987%29_poster.jpg/330px-Robocop_%281987%29_poster.jpg",
       "imdb": "7.5",
       "rt": 90,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
+      "ExcludeTopics": [
         "governance"
       ],
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -2979,11 +3049,12 @@
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/I_Robot_%28film%29_poster.jpg/330px-I_Robot_%28film%29_poster.jpg",
       "imdb": "7.1",
       "rt": 56,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
+      "ExcludeTopics": [
         "governance"
       ],
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3034,12 +3105,13 @@
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Moon_%282009_film%29_poster.jpg/330px-Moon_%282009_film%29_poster.jpg",
       "imdb": "7.8",
       "rt": 90,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
+      "ExcludeTopics": [
         "deception",
         "ethics"
       ],
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3088,11 +3160,12 @@
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Robot_%26_Frank_poster.jpg/330px-Robot_%26_Frank_poster.jpg",
       "imdb": "7.1",
       "rt": 87,
-      "track": "films",
-      "trackLabel": "Films",
-      "tags": [
+      "ExcludeTopics": [
         "llms"
       ],
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3390,6 +3463,9 @@
       "Summary": "Former tech insiders explain how recommendation algorithms optimize for engagement over wellbeing, a documentary case study of misaligned AI already deployed at scale.",
       "imdb": "7.6",
       "rt": 85,
+      "ExcludeTopics": [
+        "rl"
+      ],
       "track": "films",
       "trackLabel": "Films",
       "tags": [
@@ -3688,11 +3764,12 @@
       "Summary": "A detective is partnered with an android built to feel, contrasting coldly rule-bound machines with a more human-aligned model and asking which design philosophy actually produces trustworthy artificial agents.",
       "imdb": "7.9",
       "rt": 70,
-      "track": "tv",
-      "trackLabel": "TV Shows",
-      "tags": [
+      "ExcludeTopics": [
         "alignment"
       ],
+      "track": "tv",
+      "trackLabel": "TV Shows",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3742,12 +3819,13 @@
       "Summary": "An anthology adapting Dick's stories, many turning on artificial minds, simulated realities, and the unreliable boundary between human and machine cognition, the literary roots of modern alignment and deception anxieties.",
       "imdb": "7.2",
       "rt": 70,
-      "track": "tv",
-      "trackLabel": "TV Shows",
-      "tags": [
+      "ExcludeTopics": [
         "alignment",
         "deception"
       ],
+      "track": "tv",
+      "trackLabel": "TV Shows",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3776,11 +3854,12 @@
       "page_count": 0,
       "Summary": "A near-future Russia adopts humanoid robots for labor and companionship; an advanced android with protective instincts becomes contested property, dramatizing autonomy, attachment, and what happens when a machine puts one family's wellbeing above the law.",
       "imdb": "7.1",
-      "track": "tv",
-      "trackLabel": "TV Shows",
-      "tags": [
+      "ExcludeTopics": [
         "governance"
       ],
+      "track": "tv",
+      "trackLabel": "TV Shows",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3796,9 +3875,7 @@
       "rt": 80,
       "track": "tv",
       "trackLabel": "TV Shows",
-      "tags": [
-        "interpretability"
-      ],
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -3828,10 +3905,12 @@
       "Summary": "A satirical digital afterlife run by corporations, where uploaded consciousnesses are monetized, throttled, and controlled, a sharp look at the ethics of running human minds on infrastructure owned by someone with misaligned incentives.",
       "imdb": "8.0",
       "rt": 87,
+      "ExcludeTopics": [
+        "alignment"
+      ],
       "track": "tv",
       "trackLabel": "TV Shows",
       "tags": [
-        "alignment",
         "ethics"
       ],
       "level": "Beginner",
@@ -4090,9 +4169,7 @@
       "imdb": "6.3",
       "track": "documentaries",
       "trackLabel": "Documentaries",
-      "tags": [
-        "interpretability"
-      ],
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -4122,11 +4199,13 @@
       "Summary": "Former tech insiders expose how recommendation algorithms optimize relentlessly for engagement, a real-world illustration of misaligned objectives and reward hacking operating at civilizational scale.",
       "imdb": "7.6",
       "rt": 84,
+      "ExcludeTopics": [
+        "rl"
+      ],
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [
-        "alignment",
-        "rl"
+        "alignment"
       ],
       "level": "Beginner",
       "timeLabel": ""
@@ -4242,11 +4321,12 @@
       "Summary": "Startups use AI to resurrect the dead as chatbots and avatars, raising unsettling questions about consent, grief, and the consequences of deploying generative systems on the most vulnerable human moments.",
       "imdb": "6.3",
       "rt": 90,
-      "track": "documentaries",
-      "trackLabel": "Documentaries",
-      "tags": [
+      "ExcludeTopics": [
         "llms"
       ],
+      "track": "documentaries",
+      "trackLabel": "Documentaries",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -4486,11 +4566,13 @@
       "page_count": 0,
       "Level": "Advanced",
       "Summary": "Technical ML interviews with regular deep dives into interpretability, scaling laws, emergent capabilities, and the safety implications of frontier model development.",
+      "ExcludeTopics": [
+        "governance"
+      ],
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
         "interpretability",
-        "governance",
         "forecasting"
       ],
       "level": "Advanced",
@@ -4522,11 +4604,12 @@
       "page_count": 0,
       "Level": "Beginner",
       "Summary": "Industry and research perspectives with occasional safety and ethics episodes, useful for understanding how capability-focused organizations think about risk.",
-      "track": "podcasts",
-      "trackLabel": "Podcasts",
-      "tags": [
+      "ExcludeTopics": [
         "ethics"
       ],
+      "track": "podcasts",
+      "trackLabel": "Podcasts",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -4854,11 +4937,12 @@
       "page_count": 0,
       "Level": "Intermediate",
       "Summary": "DeepMind's main research site with publications on capabilities and safety, including Gemini evaluations, alignment research, and responsible scaling.",
-      "track": "websites",
-      "trackLabel": "Websites",
-      "tags": [
+      "ExcludeTopics": [
         "alignment"
       ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
       "level": "Intermediate",
       "timeLabel": ""
     },
@@ -5196,11 +5280,12 @@
       "Year": 2020,
       "page_count": 0,
       "Summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of specification gaming and unintended consequences.",
-      "track": "youtube",
-      "trackLabel": "YouTube",
-      "tags": [
+      "ExcludeTopics": [
         "rl"
       ],
+      "track": "youtube",
+      "trackLabel": "YouTube",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -5272,11 +5357,12 @@
       "Year": 2024,
       "page_count": 0,
       "Summary": "ColdFusion traces the history of 'AI washing' and deceptive demos, examining how hype distorts public understanding of what AI systems can actually do and why honest evaluation matters.",
-      "track": "youtube",
-      "trackLabel": "YouTube",
-      "tags": [
+      "ExcludeTopics": [
         "deception"
       ],
+      "track": "youtube",
+      "trackLabel": "YouTube",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },
@@ -5466,7 +5552,6 @@
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
-        "interpretability",
         "alignment",
         "existential-risk"
       ],
@@ -5526,11 +5611,12 @@
       "Year": 2023,
       "page_count": 0,
       "Summary": "AI researcher Gary Marcus fields the internet's questions about what AI can and can't do, cutting through hype to explain reliability, limits, and where the real risks lie.",
-      "track": "youtube",
-      "trackLabel": "YouTube",
-      "tags": [
+      "ExcludeTopics": [
         "rl"
       ],
+      "track": "youtube",
+      "trackLabel": "YouTube",
+      "tags": [],
       "level": "Beginner",
       "timeLabel": ""
     },

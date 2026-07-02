@@ -185,7 +185,7 @@ export function bucketKey(entry, fictionTitles) {
 //     (an explainer that is plainly about x-risk but never uses the words).
 // `ExcludeTopics` wins if a tag appears in both.
 export const TOPIC_TAGS = [
-  { tag: "interpretability", label: "Interpretability", keywords: ["interpretab", "mechanistic", "circuits", "superposition", "latent knowledge", "probing", "feature visualization"] },
+  { tag: "interpretability", label: "Interpretability", keywords: ["interpretab", "mechanistic", "circuits", "superposition", "latent knowledge", "feature visualization"] },
   { tag: "alignment", label: "Alignment", keywords: ["alignment", "aligned", "rlhf", "constitutional ai", "human feedback", "preference", "scalable oversight", "reward model"] },
   { tag: "governance", label: "Governance & policy", keywords: ["governance", "policy", "regulation", "windfall", "international", "treaty", "compute govern", "standards", "law"] },
   { tag: "existential-risk", label: "Existential risk", keywords: ["existential", "x-risk", "extinction", "catastrophic risk", "takeover", "power-seeking", "vulnerable world", "superintelligence"] },
