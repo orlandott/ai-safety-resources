@@ -487,7 +487,7 @@ function pathPage(pathDef, steps) {
 function pathsHub(paths) {
   const title = "AI Safety Learning Paths – Where to Start";
   const desc =
-    "Curated, step-by-step learning paths into AI safety for newcomers, ML practitioners, engineers, policymakers, and the simply curious.";
+    "Curated, step-by-step learning paths into AI safety for newcomers, technical people, policymakers, and the simply curious.";
   const url = `${SITE_ORIGIN}/paths/`;
   const cards = paths
     .map(
