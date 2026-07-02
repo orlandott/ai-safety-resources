@@ -1688,6 +1688,7 @@ document.addEventListener("DOMContentLoaded", () => {
           No saved resources yet. Use the Save button on any resource card.
         </p>
       `;
+      renderRecommendations();
       return;
     }
 
@@ -1786,6 +1787,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : "";
 
     readingListPreviewElement.innerHTML = sectionsMarkup + otherSectionMarkup;
+    renderRecommendations();
   };
 
   const fallbackCopyTextToClipboard = (text, onDone) => {
@@ -3058,6 +3060,177 @@ document.addEventListener("DOMContentLoaded", () => {
     renderReadingDashboard();
   };
 
+  // ── "Recommended for you" ─────────────────────────────────────────────────
+  // A lightweight content-based recommender: builds a profile from the saved
+  // list (topic tags, formats, levels) and surfaces the highest-overlap unsaved
+  // resources. Everything runs client-side against the already-loaded dataset.
+  const recsSection = document.getElementById("recs-section");
+  const recsGrid = document.getElementById("recs-grid");
+  const recommendationTagLabels = {
+    interpretability: "interpretability",
+    alignment: "alignment",
+    governance: "governance & policy",
+    "existential-risk": "existential risk",
+    deception: "deception & scheming",
+    rl: "reinforcement learning",
+    forecasting: "forecasting & timelines",
+    ethics: "ethics & society",
+    llms: "language model",
+    fiction: "fiction",
+  };
+
+  const getEntryTopicTags = (entry = {}) =>
+    Array.isArray(resourceTagsByName[entry.Name]) ? resourceTagsByName[entry.Name] : [];
+
+  const renderRecommendations = () => {
+    if (!recsSection || !recsGrid) {
+      return;
+    }
+    const hideRecommendations = () => {
+      recsSection.hidden = true;
+      recsGrid.innerHTML = "";
+    };
+    try {
+      const savedKeys = new Set(Object.keys(readingListState));
+      if (!savedKeys.size || !latestEntryLookup.size) {
+        hideRecommendations();
+        return;
+      }
+
+      // Profile: how often each tag / track / level occurs among saved items.
+      const tagCounts = new Map();
+      const trackCounts = new Map();
+      const levelCounts = new Map();
+      savedKeys.forEach((lookupKey) => {
+        const entry = latestEntryLookup.get(lookupKey);
+        if (!entry) {
+          return;
+        }
+        getEntryTopicTags(entry).forEach((tag) => {
+          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+        });
+        const trackKey = latestEntryCategoryLookup.get(lookupKey) || getEntryBucketKey(entry);
+        if (trackKey) {
+          trackCounts.set(trackKey, (trackCounts.get(trackKey) || 0) + 1);
+        }
+        const level = getEntryLevel(entry);
+        if (level) {
+          levelCounts.set(level, (levelCounts.get(level) || 0) + 1);
+        }
+      });
+
+      // Score every unsaved resource: shared topics dominate, format and level
+      // affinity break ties.
+      const scored = [];
+      latestEntryLookup.forEach((entry, lookupKey) => {
+        if (savedKeys.has(lookupKey)) {
+          return;
+        }
+        const trackKey = latestEntryCategoryLookup.get(lookupKey) || getEntryBucketKey(entry);
+        let score = 0;
+        let bestTag = "";
+        let bestTagCount = 0;
+        getEntryTopicTags(entry).forEach((tag) => {
+          const count = tagCounts.get(tag) || 0;
+          if (!count) {
+            return;
+          }
+          score += count * 2;
+          if (count > bestTagCount) {
+            bestTagCount = count;
+            bestTag = tag;
+          }
+        });
+        score += (trackCounts.get(trackKey) || 0) * 0.75;
+        score += (levelCounts.get(getEntryLevel(entry)) || 0) * 0.25;
+        if (score > 0) {
+          scored.push({ lookupKey, entry, trackKey, score, bestTag });
+        }
+      });
+      if (!scored.length) {
+        hideRecommendations();
+        return;
+      }
+      scored.sort(
+        (left, right) =>
+          right.score - left.score ||
+          (left.entry.Name || "").localeCompare(right.entry.Name || "")
+      );
+
+      // Keep the row varied: at most two picks from any single format, and a
+      // cross-listed resource (same title in two tracks) only once.
+      const picks = [];
+      const picksPerTrack = new Map();
+      const pickedTitles = new Set();
+      for (const candidate of scored) {
+        const titleKey = getTitleLookupKey(candidate.entry.Name || "");
+        if (pickedTitles.has(titleKey)) {
+          continue;
+        }
+        const trackPickCount = picksPerTrack.get(candidate.trackKey) || 0;
+        if (trackPickCount >= 2) {
+          continue;
+        }
+        pickedTitles.add(titleKey);
+        picksPerTrack.set(candidate.trackKey, trackPickCount + 1);
+        picks.push(candidate);
+        if (picks.length === 4) {
+          break;
+        }
+      }
+
+      recsGrid.innerHTML = picks
+        .map(({ lookupKey, entry, trackKey, bestTag }) => {
+          const safeName = escapeHtml(entry.Name || "Untitled");
+          const safeAuthor = escapeHtml(entry.Author || "");
+          const trackLabel = trackLabels[trackKey] || "";
+          const level = getEntryLevel(entry);
+          const kind = [trackLabel, level].filter(Boolean).join(" · ");
+          let why;
+          if (bestTag && recommendationTagLabels[bestTag]) {
+            why = `Because you saved ${recommendationTagLabels[bestTag]} resources`;
+          } else if (trackCounts.get(trackKey)) {
+            why = `More ${trackLabel || "picks"} like the ones you saved`;
+          } else {
+            why = "Matches the level of your saved picks";
+          }
+          return `<a class="path-card" href="#r-${encodeURIComponent(lookupKey)}" data-rec-key="${escapeHtml(lookupKey)}">
+            <span class="path-card-kind">${escapeHtml(kind)}</span>
+            <span class="path-card-title">${safeName}</span>
+            <span class="path-card-why">${safeAuthor ? `${safeAuthor} — ` : ""}${escapeHtml(why)}</span>
+          </a>`;
+        })
+        .join("");
+      recsSection.hidden = false;
+    } catch (error) {
+      logResilienceWarning("recommendations_render_failed", {}, error);
+      hideRecommendations();
+    }
+  };
+
+  if (recsGrid) {
+    recsGrid.addEventListener("click", (event) => {
+      const recCard = event.target && typeof event.target.closest === "function"
+        ? event.target.closest("[data-rec-key]")
+        : null;
+      if (!recCard) {
+        return;
+      }
+      const lookupKey = recCard.getAttribute("data-rec-key") || "";
+      if (!lookupKey) {
+        return;
+      }
+      if (hasActiveFilters(getFilterState())) {
+        resetLibraryFilters();
+      }
+      // The href's hashchange normally triggers the highlight; when the hash
+      // is already this resource (re-click), fire it directly.
+      if (window.location.hash === `#r-${encodeURIComponent(lookupKey)}`) {
+        highlightCardByLookupKey(lookupKey);
+      }
+    });
+  }
+
   const suggestionForm = document.getElementById("book-suggestion-form");
   const suggestionFeedback = document.getElementById("suggestion-feedback");
   const suggestionSubmitButton = suggestionForm
@@ -3075,9 +3248,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const setFeedback = (message) => {
+  // `type` drives the visual state: "error" | "success" | "" (neutral info).
+  const setFeedback = (message, type = "") => {
     if (suggestionFeedback) {
       suggestionFeedback.textContent = message;
+      suggestionFeedback.classList.toggle("is-error", type === "error");
+      suggestionFeedback.classList.toggle("is-success", type === "success");
     }
   };
 
@@ -3278,13 +3454,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = sanitizeSuggestionInput(rawData);
       const validationError = validateSuggestionInput(data);
       if (validationError) {
-        setFeedback(validationError);
+        setFeedback(validationError, "error");
         return;
       }
 
       const submissionMode = getSubmissionMode();
       if (!submissionMode) {
-        setFeedback("Suggestion form is not configured yet. Update public/suggestion-form-config.js with a valid endpoint.");
+        setFeedback("Suggestion form is not configured yet. Update public/suggestion-form-config.js with a valid endpoint.", "error");
         return;
       }
 
@@ -3297,15 +3473,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submissionMode === "email") {
           submitSuggestionViaEmail(data);
           suggestionForm.reset();
-          setFeedback("Your email client will open. Send the message to submit your suggestion.");
+          setFeedback("Your email client will open. Send the message to submit your suggestion.", "success");
         } else if (submissionMode === "apps_script") {
           await submitSuggestionToAppsScript(data);
           suggestionForm.reset();
-          setFeedback("Thanks! Your suggestion was sent.");
+          setFeedback("Thanks! Your suggestion was sent.", "success");
         } else {
           await submitSuggestionToGoogleForm(data);
           suggestionForm.reset();
-          setFeedback("Thanks! Your suggestion was sent.");
+          setFeedback("Thanks! Your suggestion was sent.", "success");
         }
       } catch (error) {
         logResilienceWarning(
@@ -3316,7 +3492,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           error
         );
-        setFeedback("Unable to send suggestion right now. Please try again.");
+        setFeedback("Unable to send suggestion right now. Please try again.", "error");
       } finally {
         if (suggestionSubmitButton) {
           suggestionSubmitButton.disabled = false;
@@ -3702,6 +3878,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const surpriseMeButton = document.getElementById("surprise-me");
   if (surpriseMeButton) {
+    // Announce the chosen resource to screen readers; the visual spotlight
+    // alone is invisible to non-visual users.
+    const surpriseAnnouncer = document.createElement("p");
+    surpriseAnnouncer.className = "visually-hidden";
+    surpriseAnnouncer.setAttribute("aria-live", "polite");
+    document.body.appendChild(surpriseAnnouncer);
     surpriseMeButton.addEventListener("click", () => {
       const keys = [...latestEntryLookup.keys()];
       if (!keys.length) {
@@ -3713,6 +3895,13 @@ document.addEventListener("DOMContentLoaded", () => {
         resetLibraryFilters();
       }
       highlightCardByLookupKey(lookupKey);
+      const entry = latestEntryLookup.get(lookupKey);
+      if (entry) {
+        const trackLabel = trackLabels[latestEntryCategoryLookup.get(lookupKey)] || "";
+        surpriseAnnouncer.textContent = `Showing ${entry.Name || "a resource"}${
+          trackLabel ? ` in ${trackLabel}` : ""
+        }.`;
+      }
     });
   }
 

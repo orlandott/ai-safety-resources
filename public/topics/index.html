@@ -10,22 +10,42 @@
   <meta property="og:title" content="AI Safety Topics – Browse by Subject" />
   <meta property="og:description" content="Browse AI safety resources by topic: interpretability, alignment, governance, existential risk, deception, forecasting, and more." />
   <meta property="og:image" content="https://ai-safety-resources.com/images/logo-ai-safety-resources.png" />
+  <meta property="og:site_name" content="AI Safety Resources" />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Safety Topics – Browse by Subject" />
+  <meta name="twitter:description" content="Browse AI safety resources by topic: interpretability, alignment, governance, existential risk, deception, forecasting, and more." />
+  <meta name="twitter:image" content="https://ai-safety-resources.com/images/logo-ai-safety-resources.png" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#f4f1ea" />
   <script src="/theme-init.js"></script>
   <link href="/images/favicon.png" rel="icon" type="image/png" />
+  <link href="/images/favicon.png" rel="apple-touch-icon" />
   <link href="/style.css" rel="stylesheet" type="text/css" />
+  <script src="/theme-toggle.js" defer></script>
 </head>
 <body class="site-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <nav class="site-nav" aria-label="Main">
       <a href="/" class="brand">
         <img src="/images/logo-ai-safety-resources.png" width="128" alt="AI Safety Resources" class="nav-logo" />
       </a>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+      </div>
     </nav>
   </header>
-  <main class="page category-page">
+  <main id="main-content" class="page category-page">
     <nav class="category-page-breadcrumb" aria-label="Breadcrumb">
       <a href="/">All resources</a> / <span>Topics</span>
     </nav>
@@ -33,19 +53,41 @@
     <p class="hero-copy">Browse AI safety resources by topic: interpretability, alignment, governance, existential risk, deception, forecasting, and more.</p>
     <div class="hub-grid">
       <a class="hub-card" href="/topics/mechanistic-interpretability/"><span class="hub-card-title">Mechanistic interpretability</span><span class="hub-card-meta">17 resources</span><span class="hub-card-desc">The best papers, talks, and explainers on mechanistic interpretability—reverse-engineering what neural networks actually compute.</span></a>
-      <a class="hub-card" href="/topics/ai-alignment/"><span class="hub-card-title">AI alignment</span><span class="hub-card-meta">90 resources</span><span class="hub-card-desc">Foundational and current work on aligning AI systems with human intent—RLHF, scalable oversight, constitutional AI, and more.</span></a>
+      <a class="hub-card" href="/topics/ai-alignment/"><span class="hub-card-title">AI alignment</span><span class="hub-card-meta">89 resources</span><span class="hub-card-desc">Foundational and current work on aligning AI systems with human intent—RLHF, scalable oversight, constitutional AI, and more.</span></a>
       <a class="hub-card" href="/topics/ai-governance-and-policy/"><span class="hub-card-title">AI governance &amp; policy</span><span class="hub-card-meta">35 resources</span><span class="hub-card-desc">Reading on AI governance, regulation, and policy: compute governance, international coordination, standards, and law.</span></a>
       <a class="hub-card" href="/topics/ai-existential-risk/"><span class="hub-card-title">AI existential risk</span><span class="hub-card-meta">41 resources</span><span class="hub-card-desc">The case for and against catastrophic risk from advanced AI—power-seeking, takeover, and superintelligence—across books, papers, and film.</span></a>
       <a class="hub-card" href="/topics/deceptive-alignment-and-scheming/"><span class="hub-card-title">Deceptive alignment &amp; scheming</span><span class="hub-card-meta">15 resources</span><span class="hub-card-desc">Work on deception, sleeper agents, mesa-optimization, and treacherous turns—how models can learn to hide their true objectives.</span></a>
       <a class="hub-card" href="/topics/reinforcement-learning-and-reward-hacking/"><span class="hub-card-title">Reinforcement learning &amp; reward hacking</span><span class="hub-card-meta">14 resources</span><span class="hub-card-desc">Reinforcement learning as it bears on safety: reward hacking, specification gaming, imitation learning, and policy optimization.</span></a>
       <a class="hub-card" href="/topics/ai-forecasting-and-timelines/"><span class="hub-card-title">AI forecasting &amp; timelines</span><span class="hub-card-meta">18 resources</span><span class="hub-card-desc">Scaling laws, takeoff dynamics, emergent abilities, and timeline forecasting for transformative AI.</span></a>
-      <a class="hub-card" href="/topics/ai-ethics-and-society/"><span class="hub-card-title">AI ethics &amp; society</span><span class="hub-card-meta">43 resources</span><span class="hub-card-desc">AI ethics, fairness, bias, model welfare, rights, and the broader social impact of advanced AI systems.</span></a>
+      <a class="hub-card" href="/topics/ai-ethics-and-society/"><span class="hub-card-title">AI ethics &amp; society</span><span class="hub-card-meta">42 resources</span><span class="hub-card-desc">AI ethics, fairness, bias, model welfare, rights, and the broader social impact of advanced AI systems.</span></a>
       <a class="hub-card" href="/topics/large-language-models/"><span class="hub-card-title">Large language models</span><span class="hub-card-meta">25 resources</span><span class="hub-card-desc">Key papers and explainers on large language models—how they work, what they can do, and why that matters for safety.</span></a>
       <a class="hub-card" href="/topics/ai-in-fiction/"><span class="hub-card-title">AI in fiction</span><span class="hub-card-meta">58 resources</span><span class="hub-card-desc">Speculative and science fiction that explores AI, agency, and long-term futures through story.</span></a>
     </div>
   </main>
   <footer class="site-footer">
-    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection. <a href="/paths/">Learning paths</a> · <a href="/topics/">Topics</a></p>
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <p class="site-footer-title"><a href="/">AI Safety Resources</a></p>
+        <p class="site-footer-copy">
+          A community-maintained collection of books, papers, films, podcasts, and websites to explore and enjoy the questions of AI safety and alignment.
+        </p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="/paths/">Learning paths</a>
+        <a href="/topics/">Topics</a>
+        <a href="/non-fiction-books/">Non-fiction Books</a>
+        <a href="/fiction-books/">Fiction Books</a>
+        <a href="/academic-papers/">Academic Papers</a>
+        <a href="/courses/">Courses</a>
+        <a href="/films/">Films</a>
+        <a href="/tv/">TV Shows</a>
+        <a href="/documentaries/">Documentaries</a>
+        <a href="/podcasts/">Podcasts</a>
+        <a href="/websites/">Websites</a>
+        <a href="/youtube/">YouTube</a>
+      </nav>
+    </div>
+    <p class="site-footer-fineprint">Free, forever. Your saved resources live only in your browser.</p>
   </footer>
 </body>
 </html>

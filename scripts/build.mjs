@@ -39,6 +39,7 @@ import {
   metaPillsFor,
   TOPIC_PAGES,
   PATHS,
+  DATASET_UPDATED,
 } from "./lib/resources.mjs";
 
 const CHECK_ONLY = process.argv.includes("--check");
@@ -172,7 +173,10 @@ function buildDataExports(enriched, groups) {
 
 // `track` lets the card derive its metadata pills (difficulty + time). It is
 // optional so callers without a known track still render a valid card.
-function ssrCard(entry, track) {
+// `headingLevel` keeps the outline sane in each context: h2 on standalone
+// pages (under the page h1), h4 inside the homepage panes (under the h3
+// category intros, matching the hydrated cards).
+function ssrCard(entry, track, headingLevel = 2) {
   const name = escapeHtml(entry.Name || "Untitled");
   const author = entry.Author ? `<span class="ssr-card-author">${escapeHtml(entry.Author)}</span>` : "";
   const summary = entry.Summary ? `<p class="ssr-card-summary">${escapeHtml(entry.Summary)}</p>` : "";
@@ -185,7 +189,7 @@ function ssrCard(entry, track) {
   const metaRow = meta ? `<span class="ssr-card-meta">${meta}</span>` : "";
   return (
     `<article class="ssr-card">` +
-    `<a class="ssr-card-link" href="${link}" target="_blank" rel="noopener noreferrer">${name}</a>` +
+    `<h${headingLevel} class="ssr-card-heading"><a class="ssr-card-link" href="${link}" target="_blank" rel="noopener noreferrer">${name}</a></h${headingLevel}>` +
     author +
     summary +
     metaRow +
@@ -197,7 +201,7 @@ function ssrCard(entry, track) {
 // a non-greedy pattern, so the server-rendered cards must not contain a <div>.
 function ssrPaneMarkup(entries, track) {
   if (!entries.length) return "";
-  return entries.map((e) => ssrCard(e, track)).join("");
+  return entries.map((e) => ssrCard(e, track, 4)).join("");
 }
 
 // Replace the inner HTML of a `<div id="PANE" class="gauntlet-wrapper">…</div>`.
@@ -248,6 +252,9 @@ function renderPage({ title, description, url, jsonLd, mainClass, main }) {
   const ld = jsonLd
     ? `  <script type="application/ld+json">\n  ${JSON.stringify(jsonLd)}\n  </script>\n`
     : "";
+  const footerCategoryLinks = TRACKS.map(
+    (t) => `<a href="/${t.slug}/">${escapeHtml(t.label)}</a>`
+  ).join("\n        ");
   return `<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -260,26 +267,59 @@ function renderPage({ title, description, url, jsonLd, mainClass, main }) {
   <meta property="og:title" content="${escapeHtml(title)}" />
   <meta property="og:description" content="${escapeHtml(description)}" />
   <meta property="og:image" content="${SITE_ORIGIN}/images/logo-ai-safety-resources.png" />
+  <meta property="og:site_name" content="AI Safety Resources" />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${escapeHtml(title)}" />
+  <meta name="twitter:description" content="${escapeHtml(description)}" />
+  <meta name="twitter:image" content="${SITE_ORIGIN}/images/logo-ai-safety-resources.png" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#f4f1ea" />
 ${ld}  <script src="/theme-init.js"></script>
   <link href="/images/favicon.png" rel="icon" type="image/png" />
+  <link href="/images/favicon.png" rel="apple-touch-icon" />
   <link href="/style.css" rel="stylesheet" type="text/css" />
+  <script src="/theme-toggle.js" defer></script>
 </head>
 <body class="site-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <nav class="site-nav" aria-label="Main">
       <a href="/" class="brand">
         <img src="/images/logo-ai-safety-resources.png" width="128" alt="AI Safety Resources" class="nav-logo" />
       </a>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+      </div>
     </nav>
   </header>
-  <main class="page ${mainClass}">
+  <main id="main-content" class="page ${mainClass}">
 ${main}
   </main>
   <footer class="site-footer">
-    <p class="site-footer-fineprint"><a href="/">AI Safety Resources</a> — a curated, community-maintained collection. <a href="/paths/">Learning paths</a> · <a href="/topics/">Topics</a></p>
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <p class="site-footer-title"><a href="/">AI Safety Resources</a></p>
+        <p class="site-footer-copy">
+          A community-maintained collection of books, papers, films, podcasts, and websites to explore and enjoy the questions of AI safety and alignment.
+        </p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="/paths/">Learning paths</a>
+        <a href="/topics/">Topics</a>
+        ${footerCategoryLinks}
+      </nav>
+    </div>
+    <p class="site-footer-fineprint">Free, forever. Your saved resources live only in your browser.</p>
   </footer>
 </body>
 </html>
@@ -351,7 +391,7 @@ function topicPage(topic, entries) {
     ]),
     `    <h1 class="hero-title">${escapeHtml(topic.h1)}</h1>`,
     `    <p class="hero-copy">${escapeHtml(topic.description)}</p>`,
-    `    <p class="category-page-cta"><a href="/#tab-academic-papers">Browse the full interactive library →</a></p>`,
+    `    <p class="category-page-cta"><a href="/">Browse the full interactive library →</a></p>`,
     body,
   ].join("\n");
   return renderPage({
@@ -527,7 +567,7 @@ function sitemapXml() {
   const body = urls
     .map(
       (u) =>
-        `  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+        `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${DATASET_UPDATED}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
@@ -568,9 +608,17 @@ function main() {
   }
 
   // Topic landing pages: one per topic plus a hub. Entries are every resource
-  // carrying the matching derived tag, in source order.
+  // carrying the matching derived tag, in source order. A resource cross-listed
+  // in several tracks (same Link) would otherwise appear multiple times on the
+  // page and duplicate its URL in the ItemList JSON-LD, so keep the first.
   const topicsWithCounts = TOPIC_PAGES.map((topic) => {
-    const entries = enriched.filter((e) => e.tags.includes(topic.tag));
+    const seenTopicLinks = new Set();
+    const entries = enriched.filter((e) => {
+      if (!e.tags.includes(topic.tag)) return false;
+      if (seenTopicLinks.has(e.Link)) return false;
+      seenTopicLinks.add(e.Link);
+      return true;
+    });
     queueWrite(
       path.join(publicDir, "topics", topic.slug, "index.html"),
       topicPage(topic, entries)

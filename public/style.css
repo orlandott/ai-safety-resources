@@ -15,8 +15,9 @@
   --muted: #6f6659;
   --border: #e6ddce;
   --border-strong: #d5cab7;
-  --accent: #409d69;
-  --accent-hover: #2f7a52;
+  /* Dark enough for ≥4.5:1 contrast with white text (WCAG AA). */
+  --accent: #2f7a52;
+  --accent-hover: #25603f;
   --on-accent: #ffffff;
   --accent-soft: #eef8f1;
   --accent-soft-border: #b5d6bf;
@@ -118,6 +119,20 @@ textarea {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Visually hidden but available to assistive tech (screen-reader-only text). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .skip-link {
@@ -354,7 +369,7 @@ textarea {
   margin: 1.4rem auto 0;
   padding: 1rem 1.25rem;
   border-radius: 1rem;
-  background: linear-gradient(135deg, #3f9d68, #29684a);
+  background: linear-gradient(135deg, #2f7a52, #1f5238);
   color: #ffffff;
   text-align: left;
   text-decoration: none;
@@ -1421,6 +1436,18 @@ a.film-score:hover .film-score-value {
   color: var(--muted);
 }
 
+.suggestion-feedback.is-error {
+  color: #b3261e;
+}
+
+[data-theme="dark"] .suggestion-feedback.is-error {
+  color: #ff8a80;
+}
+
+.suggestion-feedback.is-success {
+  color: var(--accent-text);
+}
+
 /* ── Footer ────────────────────────────────────────────────────────────── */
 
 .site-footer {
@@ -1682,6 +1709,10 @@ a.film-score:hover .film-score-value {
   border-radius: 12px;
   background: var(--surface);
   box-shadow: var(--shadow-soft);
+}
+.ssr-card-heading {
+  margin: 0;
+  font: inherit;
 }
 .ssr-card-link {
   display: inline-block;
