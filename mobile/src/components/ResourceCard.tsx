@@ -1,10 +1,11 @@
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { TRACK_ICONS } from "../data";
 import { useLibrary } from "../store/library";
 import { useTheme } from "../theme";
 import type { Resource } from "../types";
 import { LevelBadge } from "./LevelBadge";
+import { Poster } from "./Poster";
 
 interface ResourceCardProps {
   resource: Resource;
@@ -34,13 +35,7 @@ export function ResourceCard({ resource, onPress, showTrack = false, note }: Res
         pressed && styles.pressed,
       ]}
     >
-      {resource.image ? (
-        <Image source={{ uri: resource.image }} style={styles.poster} resizeMode="cover" />
-      ) : (
-        <View style={[styles.poster, styles.posterFallback, { backgroundColor: theme.accentSoft }]}>
-          <Text style={styles.posterIcon}>{TRACK_ICONS[resource.track] ?? "📄"}</Text>
-        </View>
-      )}
+      <Poster uri={resource.image} track={resource.track} style={styles.poster} />
       <View style={styles.body}>
         <View style={styles.titleRow}>
           <Text style={[styles.title, { color: theme.text }]} numberOfLines={2}>
@@ -94,13 +89,6 @@ const styles = StyleSheet.create({
   poster: {
     width: 76,
     minHeight: 104,
-  },
-  posterFallback: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  posterIcon: {
-    fontSize: 28,
   },
   body: {
     flex: 1,

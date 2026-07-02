@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Image,
   Linking,
   Pressable,
   ScrollView,
@@ -9,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { LevelBadge } from "../components/LevelBadge";
+import { Poster } from "../components/Poster";
 import { getResource, TRACK_ICONS } from "../data";
 import type { RootScreenProps } from "../navigation/types";
 import { useLibrary } from "../store/library";
@@ -36,13 +36,12 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
       style={{ backgroundColor: theme.background }}
       contentContainerStyle={styles.content}
     >
-      {resource.image ? (
-        <Image source={{ uri: resource.image }} style={styles.poster} resizeMode="cover" />
-      ) : (
-        <View style={[styles.poster, styles.posterFallback, { backgroundColor: theme.accentSoft }]}>
-          <Text style={styles.posterIcon}>{TRACK_ICONS[resource.track] ?? "📄"}</Text>
-        </View>
-      )}
+      <Poster
+        uri={resource.image}
+        track={resource.track}
+        style={styles.poster}
+        iconSize={48}
+      />
 
       <Text style={[styles.trackLabel, { color: theme.accent }]}>
         {TRACK_ICONS[resource.track] ?? ""} {resource.trackLabel}
@@ -127,13 +126,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignSelf: "center",
     marginBottom: 20,
-  },
-  posterFallback: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  posterIcon: {
-    fontSize: 48,
+    overflow: "hidden",
   },
   trackLabel: {
     fontSize: 13,
