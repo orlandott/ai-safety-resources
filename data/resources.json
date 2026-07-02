@@ -189,7 +189,6 @@
       "track": "academic_papers",
       "trackLabel": "Academic Papers",
       "tags": [
-        "existential-risk",
         "deception"
       ],
       "level": "Advanced",
@@ -1469,7 +1468,6 @@
       "track": "non_fiction_books",
       "trackLabel": "Non-fiction Books",
       "tags": [
-        "existential-risk",
         "ethics"
       ],
       "level": "Beginner",
@@ -1484,11 +1482,12 @@
       "Year": 1997,
       "Level": "Advanced",
       "Summary": "Deutsch unifies physics, evolution, epistemology, and computation into a single worldview about what is possible, providing deep context for reasoning about superintelligence.",
-      "track": "non_fiction_books",
-      "trackLabel": "Non-fiction Books",
-      "tags": [
+      "ExcludeTopics": [
         "existential-risk"
       ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
       "level": "Advanced",
       "timeLabel": ""
     },
@@ -1618,7 +1617,6 @@
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "existential-risk",
         "fiction"
       ],
       "level": "Beginner",
@@ -2087,7 +2085,6 @@
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "existential-risk",
         "fiction"
       ],
       "level": "Intermediate",
@@ -2506,7 +2503,6 @@
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
-        "existential-risk",
         "fiction"
       ],
       "level": "Beginner",
@@ -2608,11 +2604,13 @@
       "goodreads": "4.26",
       "Year": 2013,
       "Summary": "Hayes' thriller turns on an engineered bioweapon, a vivid reminder that catastrophic and existential risk extends beyond AI to biosecurity and the governance of dangerous dual-use technology.",
+      "ExcludeTopics": [
+        "existential-risk"
+      ],
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "governance",
-        "existential-risk",
         "fiction"
       ],
       "level": "Beginner",
@@ -3729,7 +3727,6 @@
       "track": "tv",
       "trackLabel": "TV Shows",
       "tags": [
-        "existential-risk",
         "ethics"
       ],
       "level": "Beginner",
@@ -5165,6 +5162,9 @@
       "Year": 2015,
       "page_count": 0,
       "Summary": "Rob Miles uses the 'deadly stamp collector' thought experiment to show why a general AI pursuing a simple objective could be catastrophic if its goals aren't aligned with ours.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
