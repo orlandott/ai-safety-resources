@@ -1,0 +1,140 @@
+import React from "react";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { TRACK_ICONS } from "../data";
+import { useLibrary } from "../store/library";
+import { useTheme } from "../theme";
+import type { Resource } from "../types";
+import { LevelBadge } from "./LevelBadge";
+
+interface ResourceCardProps {
+  resource: Resource;
+  onPress: () => void;
+  showTrack?: boolean;
+  note?: string;
+}
+
+export function ResourceCard({ resource, onPress, showTrack = false, note }: ResourceCardProps) {
+  const theme = useTheme();
+  const { isSaved, isFinished } = useLibrary();
+
+  const meta = [
+    resource.author,
+    resource.year ? String(resource.year) : "",
+    resource.timeLabel,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.card,
+        { backgroundColor: theme.card, borderColor: theme.cardBorder },
+        pressed && styles.pressed,
+      ]}
+    >
+      {resource.image ? (
+        <Image source={{ uri: resource.image }} style={styles.poster} resizeMode="cover" />
+      ) : (
+        <View style={[styles.poster, styles.posterFallback, { backgroundColor: theme.accentSoft }]}>
+          <Text style={styles.posterIcon}>{TRACK_ICONS[resource.track] ?? "📄"}</Text>
+        </View>
+      )}
+      <View style={styles.body}>
+        <View style={styles.titleRow}>
+          <Text style={[styles.title, { color: theme.text }]} numberOfLines={2}>
+            {resource.name}
+          </Text>
+          {isFinished(resource.id) ? (
+            <Text style={styles.marker}>✅</Text>
+          ) : isSaved(resource.id) ? (
+            <Text style={styles.marker}>🔖</Text>
+          ) : null}
+        </View>
+        {meta ? (
+          <Text style={[styles.meta, { color: theme.textMuted }]} numberOfLines={1}>
+            {meta}
+          </Text>
+        ) : null}
+        {note ? (
+          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={3}>
+            {note}
+          </Text>
+        ) : resource.summary ? (
+          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={2}>
+            {resource.summary}
+          </Text>
+        ) : null}
+        <View style={styles.badges}>
+          <LevelBadge level={resource.level} />
+          {showTrack ? (
+            <Text style={[styles.track, { color: theme.textMuted }]}>
+              {TRACK_ICONS[resource.track] ?? ""} {resource.trackLabel}
+            </Text>
+          ) : null}
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: {
+    flexDirection: "row",
+    borderRadius: 14,
+    borderWidth: StyleSheet.hairlineWidth,
+    marginHorizontal: 16,
+    marginBottom: 10,
+    overflow: "hidden",
+  },
+  pressed: {
+    opacity: 0.85,
+  },
+  poster: {
+    width: 76,
+    minHeight: 104,
+  },
+  posterFallback: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  posterIcon: {
+    fontSize: 28,
+  },
+  body: {
+    flex: 1,
+    padding: 12,
+    gap: 4,
+  },
+  titleRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 6,
+  },
+  title: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: "700",
+    lineHeight: 20,
+  },
+  marker: {
+    fontSize: 13,
+  },
+  meta: {
+    fontSize: 12,
+  },
+  note: {
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  badges: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginTop: 2,
+  },
+  track: {
+    fontSize: 12,
+  },
+});
