@@ -5,6 +5,10 @@ It curates books, papers, films, TV shows, documentaries, podcasts, and websites
 
 📚🎬🎧📺📄 For the curious and the deeply engaged
 
+### Mobile app
+
+A React Native (Expo) companion app lives in [`mobile/`](mobile/): browse categories, follow the learning paths with progress tracking, search the full collection, and keep an on-device reading list. See [mobile/README.md](mobile/README.md).
+
 ### Deployment
 
 - **Cloudflare Pages:** Connect this repo in [Cloudflare Pages](https://pages.cloudflare.com/) and set build output to `public`. See [docs/cloudflare-pages.md](docs/cloudflare-pages.md).
