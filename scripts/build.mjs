@@ -103,6 +103,13 @@ function validate(resources, fictionTitles) {
         errors.push(`${where}: "Minutes" must be a non-negative integer (${entry.Minutes})`);
       }
     }
+    if (entry.MinutesPer !== undefined) {
+      if (typeof entry.MinutesPer !== "string" || !entry.MinutesPer.trim()) {
+        errors.push(`${where}: "MinutesPer" must be a non-empty string (${entry.MinutesPer})`);
+      } else if (entry.Minutes === undefined) {
+        errors.push(`${where}: "MinutesPer" requires a "Minutes" value`);
+      }
+    }
   });
   return errors;
 }

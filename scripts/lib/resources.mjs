@@ -232,7 +232,10 @@ export function levelFor(entry, track) {
 
 // A rough "time to consume" label. Books/papers derive from `page_count`
 // (~1.8 min/page); audio-visual tracks derive from an optional `Minutes`
-// (runtime / episode length). Returns "" when there is nothing to estimate, so
+// (runtime / episode length). Series (TV shows, podcast feeds, YouTube
+// channels) set `MinutesPer` ("episode" | "video") so `Minutes` reads as a
+// typical installment length rather than a total. Courses use `Minutes` as a
+// total-effort estimate. Returns "" when there is nothing to estimate, so
 // callers can omit the pill rather than guess.
 const READING_MINUTES_PER_PAGE = 1.8;
 
@@ -251,8 +254,13 @@ export function timeLabelFor(entry, track) {
   }
   const minutes = Number(entry.Minutes);
   if (Number.isFinite(minutes) && minutes > 0) {
-    const verb =
-      track === "podcasts" || track === "youtube" ? "listen" : "watch";
+    if (typeof entry.MinutesPer === "string" && entry.MinutesPer.trim()) {
+      return humanizeMinutes(minutes, `per ${entry.MinutesPer.trim()}`);
+    }
+    if (track === "courses") {
+      return humanizeMinutes(minutes, "course");
+    }
+    const verb = track === "podcasts" ? "listen" : "watch";
     return humanizeMinutes(minutes, verb);
   }
   return "";

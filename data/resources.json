@@ -68,6 +68,7 @@
       "Name": "Computing Machinery and Intelligence",
       "Author": "Alan Turing",
       "Link": "https://courses.cs.umbc.edu/471/papers/turing.pdf",
+      "page_count": 28,
       "Category": "academic_papers",
       "Year": 1950,
       "Level": "Intermediate",
@@ -78,7 +79,7 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~50 min read"
     },
     {
       "Name": "The Coming Technological Singularity",
@@ -134,6 +135,7 @@
       "Name": "Proximal Policy Optimization (PPO)",
       "Author": "Schulman et al.",
       "Link": "https://arxiv.org/abs/1707.06347",
+      "page_count": 12,
       "Category": "academic_papers",
       "Year": 2017,
       "Summary": "PPO stabilized policy gradient training and became the optimization backbone behind RLHF pipelines including early ChatGPT, making it foundational infrastructure for alignment work.",
@@ -145,12 +147,13 @@
         "rl"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~20 min read"
     },
     {
       "Name": "Deep Reinforcement Learning from Human Preferences",
       "Author": "Paul Christiano et al.",
       "Link": "https://arxiv.org/abs/1706.03741",
+      "page_count": 17,
       "Category": "academic_papers",
       "Year": 2017,
       "Summary": "Christiano et al. established preference-based reward modeling, the foundational method that RLHF alignment pipelines later built on to steer language model behavior.",
@@ -162,12 +165,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~30 min read"
     },
     {
       "Name": "The Lottery Ticket Hypothesis",
       "Author": "Jonathan Frankle, Michael Carbin",
       "Link": "https://arxiv.org/abs/1803.03635",
+      "page_count": 23,
       "Category": "academic_papers",
       "Year": 2018,
       "Summary": "Frankle and Carbin showed large networks contain sparse, high-performing subnetworks, suggesting most parameters may be unnecessary and opening paths for interpretability via pruning.",
@@ -177,12 +181,13 @@
         "interpretability"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~40 min read"
     },
     {
       "Name": "Backdoor Attacks",
       "Author": "Gu et al.",
       "Link": "https://arxiv.org/abs/1708.06733",
+      "page_count": 13,
       "Category": "academic_papers",
       "Year": 2017,
       "Summary": "Gu et al. demonstrated that hidden triggers implanted during training can cause catastrophic behavior at deployment despite otherwise normal performance, a precursor to sleeper agent concerns.",
@@ -193,12 +198,13 @@
         "deception"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~25 min read"
     },
     {
       "Name": "AI Safety via Debate",
       "Author": "Geoffrey Irving et al.",
       "Link": "https://arxiv.org/abs/1805.00899",
+      "page_count": 24,
       "Category": "academic_papers",
       "Year": 2018,
       "Summary": "Irving et al. proposed having AI systems adversarially debate each other to help human judges evaluate answers on questions too complex for direct human assessment.",
@@ -206,7 +212,7 @@
       "trackLabel": "Academic Papers",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Risks from Learned Optimization",
@@ -230,6 +236,7 @@
       "Author": "Nick Bostrom",
       "Link": "https://nickbostrom.com/papers/vulnerable.pdf",
       "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Prof_Nick_Bostrom_324-1.jpg/330px-Prof_Nick_Bostrom_324-1.jpg",
+      "page_count": 30,
       "Category": "academic_papers",
       "Year": 2019,
       "Level": "Intermediate",
@@ -241,12 +248,13 @@
         "existential-risk"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "Language Models are Unsupervised Multitask Learners (GPT-2)",
       "Author": "OpenAI",
       "Link": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "page_count": 24,
       "Category": "academic_papers",
       "Year": 2019,
       "Summary": "GPT-2 showed that scaling data and parameters unlocks broad capabilities without task-specific supervision, raising early alarm about dual-use and misuse potential.",
@@ -256,12 +264,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Causal Confusion in Imitation Learning",
       "Author": "Pim de Haan et al.",
       "Link": "https://arxiv.org/abs/1905.11979",
+      "page_count": 12,
       "Category": "academic_papers",
       "Year": 2019,
       "Summary": "De Haan et al. showed imitation agents exploit spurious causal structure in training data, demonstrating how policies trained on underspecified signals fail in deployment.",
@@ -271,12 +280,13 @@
         "rl"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~20 min read"
     },
     {
       "Name": "The Windfall Clause",
       "Author": "OpenAI, FHI",
       "Link": "https://arxiv.org/abs/2002.08484",
+      "page_count": 40,
       "Category": "academic_papers",
       "Year": 2020,
       "Level": "Intermediate",
@@ -287,12 +297,13 @@
         "governance"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~70 min read"
     },
     {
       "Name": "Language Models are Few-Shot Learners (GPT-3)",
       "Author": "OpenAI",
       "Link": "https://arxiv.org/abs/2005.14165",
+      "page_count": 75,
       "Category": "academic_papers",
       "Year": 2020,
       "Summary": "GPT-3 demonstrated in-context learning at scale, forcing the field to rethink assumptions about what pretrained models can do and compressing alignment timelines.",
@@ -304,12 +315,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr read"
     },
     {
       "Name": "MMLU Benchmark",
       "Author": "Dan Hendrycks et al.",
       "Link": "https://arxiv.org/abs/2009.03300",
+      "page_count": 27,
       "Category": "academic_papers",
       "Year": 2020,
       "Summary": "MMLU became the standard broad-spectrum benchmark for evaluating general knowledge and reasoning, anchoring capability comparisons that inform alignment urgency.",
@@ -319,12 +331,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~50 min read"
     },
     {
       "Name": "Scaling Laws for Neural Language Models",
       "Author": "Jared Kaplan et al.",
       "Link": "https://arxiv.org/abs/2001.08361",
+      "page_count": 30,
       "Category": "academic_papers",
       "Year": 2020,
       "Summary": "Kaplan et al. quantified predictable performance scaling with compute, data, and parameters, enabling labs to forecast capability jumps and estimate safety lead time.",
@@ -336,7 +349,7 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "Instruct-GPT-3",
@@ -391,6 +404,7 @@
       "Name": "The Pile",
       "Author": "EleutherAI",
       "Link": "https://arxiv.org/abs/2101.00027",
+      "page_count": 39,
       "Category": "academic_papers",
       "Year": 2021,
       "Summary": "The Pile revealed how training corpus composition strongly shapes downstream capability and failure modes, making data curation a first-class safety concern.",
@@ -398,12 +412,13 @@
       "trackLabel": "Academic Papers",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~70 min read"
     },
     {
       "Name": "TruthfulQA",
       "Author": "Owain Evans et al.",
       "Link": "https://arxiv.org/abs/2109.07958",
+      "page_count": 36,
       "Category": "academic_papers",
       "Year": 2021,
       "Summary": "TruthfulQA exposed how language models confidently repeat popular falsehoods, establishing a benchmark for measuring truthfulness as distinct from fluency.",
@@ -413,13 +428,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~65 min read"
     },
     {
       "Name": "Unsolved Problems in ML Safety",
       "Link": "https://arxiv.org/abs/2109.13916",
       "Author": "Dan Hendrycks et al.",
-      "page_count": 0,
+      "page_count": 28,
       "Category": "academic_papers",
       "Year": 2021,
       "Level": "Intermediate",
@@ -430,12 +445,13 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~50 min read"
     },
     {
       "Name": "Chain-of-Thought Prompting",
       "Author": "Jason Wei et al.",
       "Link": "https://arxiv.org/abs/2201.11903",
+      "page_count": 25,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Prompted intermediate reasoning unlocked substantial gains on complex tasks, but also revealed that reasoning chains can be unfaithful to the model's actual computation.",
@@ -445,12 +461,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Grokking",
       "Author": "Power et al.",
       "Link": "https://arxiv.org/abs/2201.02177",
+      "page_count": 10,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Power et al. discovered delayed phase transitions where generalization appears suddenly after long memorization, suggesting dangerous capabilities could emerge without warning during training.",
@@ -458,12 +475,13 @@
       "trackLabel": "Academic Papers",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~20 min read"
     },
     {
       "Name": "Training Compute-Optimal Large Language Models (Chinchilla)",
       "Author": "DeepMind",
       "Link": "https://arxiv.org/abs/2203.15556",
+      "page_count": 36,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Chinchilla reframed scaling laws by showing optimal performance requires balancing model size and training tokens, redirecting how labs plan capability and safety investment.",
@@ -475,12 +493,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~65 min read"
     },
     {
       "Name": "Improving Alignment of Dialogue Agents (Sparrow)",
       "Author": "DeepMind",
       "Link": "https://arxiv.org/abs/2209.14375",
+      "page_count": 70,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Sparrow pioneered rule-constrained dialogue alignment with human feedback and targeted safety interventions, testing whether explicit behavioral rules can scale.",
@@ -490,12 +509,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~2 hr read"
     },
     {
       "Name": "Emergent Abilities of LLMs",
       "Author": "Wei et al.",
       "Link": "https://arxiv.org/abs/2206.07682",
+      "page_count": 30,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Wei et al. documented capability discontinuities appearing at key scale thresholds, raising concern that dangerous abilities could emerge unpredictably in larger models.",
@@ -506,12 +526,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "Researching Alignment Research: Unsupervised Analysis",
       "Author": "Kirchner et al.",
       "Link": "https://arxiv.org/abs/2206.02841",
+      "page_count": 14,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Systematic mapping of the AI alignment research landscape, identifying clusters, gaps, and trends that help prioritize future safety work.",
@@ -521,13 +542,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~25 min read"
     },
     {
       "Name": "Goal Misgeneralization",
       "Link": "https://arxiv.org/abs/2210.01790",
       "Author": "Rohin Shah et al.",
-      "page_count": 0,
+      "page_count": 24,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Shah et al. showed AI agents can generalize capabilities to new environments while failing to generalize the intended goal, a central alignment failure pattern.",
@@ -537,13 +558,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Constitutional AI: Harmlessness from AI Feedback",
       "Link": "https://arxiv.org/abs/2212.08073",
       "Author": "Yuntao Bai et al.",
-      "page_count": 0,
+      "page_count": 34,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Anthropic demonstrated that rule-guided AI self-critique can reduce harmful outputs with far less dependence on expensive human labeling.",
@@ -553,12 +574,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~60 min read"
     },
     {
       "Name": "Discovering Latent Knowledge in Language Models Without Supervision",
       "Author": "Collin Burns et al.",
       "Link": "https://arxiv.org/abs/2212.03827",
+      "page_count": 25,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Burns et al. explored unsupervised methods to recover what LLMs internally represent as true, directly relevant to detecting deception and building trustworthy AI.",
@@ -570,13 +592,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Is Power-Seeking AI an Existential Risk?",
       "Link": "https://arxiv.org/abs/2206.13353",
       "Author": "Joe Carlsmith",
-      "page_count": 0,
+      "page_count": 57,
       "Category": "academic_papers",
       "Year": 2022,
       "Level": "Intermediate",
@@ -587,13 +609,13 @@
         "existential-risk"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr read"
     },
     {
       "Name": "Model Organisms of Misalignment",
       "Link": "https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1",
       "Author": "Evan Hubinger et al.",
-      "page_count": 0,
+      "page_count": 15,
       "Category": "academic_papers",
       "Year": 2023,
       "Level": "Intermediate",
@@ -604,12 +626,13 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~25 min read"
     },
     {
       "Name": "Red Teaming Language Models to Reduce Harms",
       "Author": "Deep Ganguli et al.",
       "Link": "https://arxiv.org/abs/2209.07858",
+      "page_count": 30,
       "Category": "academic_papers",
       "Year": 2022,
       "Summary": "Anthropic formalized red teaming for LLMs as a repeatable methodology, turning adversarial probing into a systematic process for discovering and cataloging misuse pathways.",
@@ -620,12 +643,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "Sparks of Artificial General Intelligence",
       "Author": "Sebastien Bubeck et al.",
       "Link": "https://arxiv.org/abs/2303.12712",
+      "page_count": 155,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "Bubeck et al. documented broad GPT-4 capability jumps across domains, compressing alignment timelines and stress-testing whether current safety evaluations are sufficient.",
@@ -637,12 +661,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~4.5 hr read"
     },
     {
       "Name": "Are Emergent Abilities a Mirage?",
       "Author": "Schaeffer et al.",
       "Link": "https://arxiv.org/abs/2304.15004",
+      "page_count": 22,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "Schaeffer et al. argued apparent emergence can be a measurement artifact rather than a true phase change, complicating how we forecast dangerous capability thresholds.",
@@ -652,12 +677,13 @@
         "forecasting"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~40 min read"
     },
     {
       "Name": "Direct Preference Optimization (DPO)",
       "Author": "Rafailov et al.",
       "Link": "https://arxiv.org/abs/2305.18290",
+      "page_count": 27,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "DPO provides a simpler and often more stable alternative to PPO-based RLHF for preference alignment, lowering the barrier to safety-tuning open models.",
@@ -668,12 +694,13 @@
         "rl"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~50 min read"
     },
     {
       "Name": "Let's Verify Step by Step",
       "Author": "OpenAI",
       "Link": "https://arxiv.org/abs/2305.20050",
+      "page_count": 20,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "Process reward models that score intermediate reasoning steps reduce brittle answer-only optimization, improving reliability and making AI reasoning more auditable.",
@@ -683,12 +710,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~35 min read"
     },
     {
       "Name": "Jailbroken",
       "Author": "Alex Wei et al.",
       "Link": "https://arxiv.org/abs/2307.02483",
+      "page_count": 25,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "This paper catalogs prompt-based bypasses of LLM safety training, showing that many safeguards behave like brittle wrappers rather than deep behavioral changes.",
@@ -698,12 +726,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~45 min read"
     },
     {
       "Name": "Universal Adversarial Attacks",
       "Author": "LLM security research community",
       "Link": "https://arxiv.org/abs/2307.15043",
+      "page_count": 30,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "Simple adversarial suffixes can systematically bypass safety behavior across many models, revealing that current defenses are not robust against automated attack search.",
@@ -713,13 +742,13 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "Weak-to-Strong Generalization",
       "Link": "https://arxiv.org/abs/2312.09390",
       "Author": "Collin Burns et al.",
-      "page_count": 0,
+      "page_count": 50,
       "Category": "academic_papers",
       "Year": 2023,
       "Summary": "Burns et al. studied whether weaker supervisors can reliably align stronger models, directly testing the key bottleneck of scalable oversight as AI surpasses human ability.",
@@ -729,13 +758,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr read"
     },
     {
       "Name": "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
       "Link": "https://arxiv.org/abs/2401.05566",
       "Author": "Evan Hubinger et al.",
-      "page_count": 0,
+      "page_count": 70,
       "Category": "academic_papers",
       "Year": 2024,
       "Summary": "Hubinger et al. demonstrated that LLMs can retain hidden malicious policies through standard safety training, providing the first empirical evidence that deceptive alignment persists.",
@@ -747,7 +776,7 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~2 hr read"
     },
     {
       "Name": "Reframing Superintelligence",
@@ -772,7 +801,7 @@
       "Author": "AGI Safety Fundamentals",
       "Link": "https://course.aisafetyfundamentals.com/",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 2400,
       "Level": "Intermediate",
       "Summary": "The most widely used structured course for getting into alignment, with curated readings progressing from core concepts to open research problems.",
       "track": "courses",
@@ -781,14 +810,14 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~40 hr course"
     },
     {
       "Name": "BlueDot Impact: Technical AI Safety",
       "Author": "BlueDot Impact",
       "Link": "https://bluedot.org/courses/technical-ai-safety",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 1800,
       "Level": "Intermediate",
       "Summary": "Free online course building a working understanding of the major open problems in technical AI safety—alignment and RLHF, mechanistic interpretability, evaluations and red-teaming, AI control, and scalable oversight.",
       "track": "courses",
@@ -798,55 +827,55 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~30 hr course"
     },
     {
       "Name": "BlueDot Impact: The Future of AI",
       "Author": "BlueDot Impact",
       "Link": "https://bluedot.org/courses/future-of-ai",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 600,
       "Summary": "Free introductory online course replacing scattered articles with clear explanations of what is actually happening with AI and where it is headed, including interactive demos of cutting-edge systems.",
       "track": "courses",
       "trackLabel": "Courses",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr course"
     },
     {
       "Name": "BlueDot Impact: Technical AI Safety Project Sprint",
       "Author": "BlueDot Impact",
       "Link": "https://bluedot.org/courses/technical-ai-safety-project",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 2400,
       "Level": "Advanced",
       "Summary": "Online follow-on program where graduates of the technical course work with an AI safety expert to produce a real contribution to the field and build a first portfolio piece in safety research or engineering.",
       "track": "courses",
       "trackLabel": "Courses",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~40 hr course"
     },
     {
       "Name": "BlueDot Impact: AI Safety Operations Bootcamp",
       "Author": "BlueDot Impact",
       "Link": "https://bluedot.org/courses/ops",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 2400,
       "Level": "Intermediate",
       "Summary": "Intensive online bootcamp preparing early-to-mid-career professionals for operational roles at organisations working to make AI go well.",
       "track": "courses",
       "trackLabel": "Courses",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~40 hr course"
     },
     {
       "Name": "Lens Academy",
       "Author": "Lens Academy",
       "Link": "https://lensacademy.org/",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 720,
       "Summary": "Free, nonprofit AI safety course focused on misaligned superintelligence—why it is the central risk and why alignment is hard—delivered online with a 1-on-1 AI tutor, guided group discussions, and no application process.",
       "track": "courses",
       "trackLabel": "Courses",
@@ -855,14 +884,14 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~12 hr course"
     },
     {
       "Name": "ARENA (Alignment Research Engineer Accelerator)",
       "Author": "ARENA",
       "Link": "https://www.arena.education/",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 12000,
       "Level": "Advanced",
       "Summary": "Hands-on technical curriculum for skilling up in AI alignment research engineering, freely available online and covering deep learning fundamentals, transformer mechanistic interpretability, reinforcement learning, and LLM evaluations.",
       "track": "courses",
@@ -874,28 +903,28 @@
         "llms"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~200 hr course"
     },
     {
       "Name": "Intro to ML Safety",
       "Author": "Center for AI Safety",
       "Link": "https://course.mlsafety.org/",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 3000,
       "Level": "Advanced",
       "Summary": "Dan Hendrycks' online course introducing students with a deep learning background to empirical ML safety research—robustness, monitoring, control, and systemic safety—with public lectures, readings, and coding assignments.",
       "track": "courses",
       "trackLabel": "Courses",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~50 hr course"
     },
     {
       "Name": "AI Safety, Ethics, and Society",
       "Author": "Center for AI Safety",
       "Link": "https://www.aisafetybook.com/virtual-course",
       "Category": "courses",
-      "page_count": 0,
+      "Minutes": 1800,
       "Summary": "Fully online, non-technical CAIS course based on the textbook of the same name, covering how AI systems work, why advanced AI could pose societal-scale risks, and how society can manage and mitigate them—no prior ML experience required.",
       "track": "courses",
       "trackLabel": "Courses",
@@ -903,7 +932,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~30 hr course"
     },
     {
       "Name": "Superintelligence",
@@ -1000,7 +1029,7 @@
       "Name": "Life 3.0",
       "Link": "https://www.goodreads.com/search?q=Life+3.0+Max+Tegmark",
       "Author": "Max Tegmark",
-      "page_count": 0,
+      "page_count": 384,
       "Category": "books",
       "goodreads": "4.09",
       "Year": 2017,
@@ -1013,13 +1042,13 @@
         "governance"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Introduction to AI Safety, Ethics, and Society",
       "Link": "https://www.goodreads.com/search?q=Introduction+to+AI+Safety+Ethics+and+Society",
       "Author": "Dan Hendrycks",
-      "page_count": 0,
+      "page_count": 568,
       "Category": "books",
       "goodreads": "4.00",
       "Year": 2024,
@@ -1032,13 +1061,13 @@
         "ethics"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~17 hr read"
     },
     {
       "Name": "Uncontrollable: The Threat of Artificial Superintelligence",
       "Link": "https://www.goodreads.com/book/show/202416160-uncontrollable?from_search=true&from_srp=true&qid=BYrIPMmf8R&rank=1",
       "Author": "Darren McKee",
-      "page_count": 0,
+      "page_count": 336,
       "Category": "books",
       "goodreads": "4.19",
       "Year": 2023,
@@ -1052,13 +1081,13 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "You Look Like a Thing and I Love You",
       "Link": "https://www.goodreads.com/search?q=You+Look+Like+a+Thing+and+I+Love+You",
       "Author": "Janelle Shane",
-      "page_count": 0,
+      "page_count": 272,
       "Category": "books",
       "goodreads": "4.14",
       "Year": 2019,
@@ -1070,13 +1099,13 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "Hello World: Being Human in the Age of Algorithms",
       "Link": "https://www.goodreads.com/search?q=Hello+World+Being+Human+in+the+Age+of+Algorithms",
       "Author": "Hannah Fry",
-      "page_count": 0,
+      "page_count": 256,
       "Category": "books",
       "goodreads": "4.12",
       "Year": 2018,
@@ -1086,13 +1115,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~7.5 hr read"
     },
     {
       "Name": "AI Superpowers",
       "Link": "https://www.goodreads.com/search?q=AI+Superpowers+Kai-Fu+Lee",
       "Author": "Kai-Fu Lee",
-      "page_count": 0,
+      "page_count": 272,
       "Category": "books",
       "goodreads": "4.15",
       "Year": 2018,
@@ -1102,13 +1131,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "The Precipice (Chapter on AI)",
       "Link": "https://www.goodreads.com/search?q=The+Precipice+Toby+Ord",
       "Author": "Toby Ord",
-      "page_count": 0,
+      "page_count": 30,
       "Category": "books",
       "goodreads": "3.95",
       "Year": 2020,
@@ -1121,13 +1150,13 @@
         "existential-risk"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "The Ethical Algorithm",
       "Link": "https://www.goodreads.com/search?q=The+Ethical+Algorithm",
       "Author": "Michael Kearns, Aaron Roth",
-      "page_count": 0,
+      "page_count": 232,
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2019,
@@ -1139,14 +1168,14 @@
         "ethics"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~7 hr read"
     },
     {
       "Name": "Army of None: Autonomous Weapons and the Future of War",
       "Link": "https://www.goodreads.com/search?q=Army+of+None+Paul+Scharre",
       "Image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1529056546i/40180025.jpg",
       "Author": "Paul Scharre",
-      "page_count": 0,
+      "page_count": 448,
       "Category": "books",
       "goodreads": "3.80",
       "Year": 2018,
@@ -1156,13 +1185,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "The Age of Spiritual Machines",
       "Link": "https://www.goodreads.com/search?q=The+Age+of+Spiritual+Machines",
       "Author": "Ray Kurzweil",
-      "page_count": 0,
+      "page_count": 400,
       "Category": "books",
       "goodreads": "3.90",
       "Year": 1999,
@@ -1174,13 +1203,13 @@
         "forecasting"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Deep Learning",
       "Link": "https://www.goodreads.com/search?q=Deep+Learning+Goodfellow+Bengio+Courville",
       "Author": "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
-      "page_count": 0,
+      "page_count": 800,
       "Category": "books",
       "goodreads": "4.44",
       "Year": 2016,
@@ -1192,12 +1221,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~24 hr read"
     },
     {
       "Name": "Artificial Intelligence: A Guide for Thinking Humans",
       "Author": "Melanie Mitchell",
       "Link": "https://www.goodreads.com/search?q=Artificial+Intelligence+A+Guide+for+Thinking+Humans",
+      "page_count": 336,
       "Category": "books",
       "goodreads": "4.35",
       "Year": 2019,
@@ -1207,12 +1237,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "Scary Smart",
       "Author": "Mo Gawdat",
       "Link": "https://www.goodreads.com/book/show/9059898-scary-smart",
+      "page_count": 336,
       "Category": "books",
       "goodreads": "3.82",
       "Year": 2021,
@@ -1225,12 +1256,13 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "The Coming Wave",
       "Author": "Mustafa Suleyman",
       "Link": "https://www.goodreads.com/search?q=The+Coming+Wave+Mustafa+Suleyman",
+      "page_count": 352,
       "Category": "books",
       "goodreads": "3.83",
       "Year": 2023,
@@ -1240,12 +1272,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Superforecasting",
       "Author": "Philip Tetlock",
       "Link": "https://www.goodreads.com/search?q=Superforecasting",
+      "page_count": 340,
       "Category": "books",
       "goodreads": "4.08",
       "Year": 2015,
@@ -1258,7 +1291,7 @@
         "forecasting"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "The Scout Mindset",
@@ -1281,6 +1314,7 @@
       "Name": "Thinking, Fast and Slow",
       "Author": "Daniel Kahneman",
       "Link": "https://www.goodreads.com/book/show/17185950-thinking-fast-and-slow-by-daniel-kahneman?from_search=true&from_srp=true&qid=AyJWArt2Xc&rank=1",
+      "page_count": 499,
       "Category": "books",
       "goodreads": "4.18",
       "Year": 2011,
@@ -1292,12 +1326,13 @@
         "ethics"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Co-Intelligence",
       "Author": "Ethan Mollick",
       "Link": "https://www.goodreads.com/search?q=Co-Intelligence+Ethan+Mollick",
+      "page_count": 256,
       "Category": "books",
       "goodreads": "4.01",
       "Year": 2024,
@@ -1309,12 +1344,13 @@
         "llms"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~7.5 hr read"
     },
     {
       "Name": "Gödel, Escher, Bach",
       "Author": "Douglas Hofstadter",
       "Link": "https://www.goodreads.com/search?q=Godel+Escher+Bach",
+      "page_count": 777,
       "Category": "books",
       "goodreads": "4.31",
       "Year": 1979,
@@ -1324,7 +1360,7 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~23 hr read"
     },
     {
       "Name": "A Brief History of Intelligence",
@@ -1350,6 +1386,7 @@
       "Name": "The Beginning of Infinity",
       "Author": "David Deutsch",
       "Link": "https://www.goodreads.com/search?q=The+Beginning+of+Infinity",
+      "page_count": 487,
       "Category": "books",
       "goodreads": "4.18",
       "Year": 2011,
@@ -1361,12 +1398,13 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Genius Makers",
       "Author": "Cade Metz",
       "Link": "https://www.goodreads.com/search?q=Genius+Makers",
+      "page_count": 384,
       "Category": "books",
       "goodreads": "4.27",
       "Year": 2021,
@@ -1376,12 +1414,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Cybernetics",
       "Author": "Norbert Wiener",
       "Link": "https://www.goodreads.com/search?q=Cybernetics+Norbert+Wiener",
+      "page_count": 212,
       "Category": "books",
       "goodreads": "4.00",
       "Year": 1948,
@@ -1393,12 +1432,13 @@
         "governance"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~6.5 hr read"
     },
     {
       "Name": "Mind Children",
       "Author": "Hans Moravec",
       "Link": "https://www.goodreads.com/search?q=Mind+Children+Hans+Moravec",
+      "page_count": 214,
       "Category": "books",
       "goodreads": "4.05",
       "Year": 1988,
@@ -1408,12 +1448,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~6.5 hr read"
     },
     {
       "Name": "The Society of Mind",
       "Author": "Marvin Minsky",
       "Link": "https://www.goodreads.com/search?q=The+Society+of+Mind",
+      "page_count": 336,
       "Category": "books",
       "goodreads": "4.04",
       "Year": 1986,
@@ -1425,12 +1466,13 @@
         "ethics"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "On Intelligence",
       "Author": "Jeff Hawkins",
       "Link": "https://www.goodreads.com/search?q=On+Intelligence+Jeff+Hawkins",
+      "page_count": 272,
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2004,
@@ -1440,12 +1482,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "Homo Deus",
       "Author": "Yuval Noah Harari",
       "Link": "https://www.goodreads.com/search?q=Homo+Deus",
+      "page_count": 450,
       "Category": "books",
       "goodreads": "4.20",
       "Year": 2015,
@@ -1455,12 +1498,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~14 hr read"
     },
     {
       "Name": "Enlightenment Now",
       "Author": "Steven Pinker",
       "Link": "https://www.goodreads.com/search?q=Enlightenment+Now",
+      "page_count": 576,
       "Category": "books",
       "goodreads": "4.20",
       "Year": 2018,
@@ -1473,12 +1517,13 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~17 hr read"
     },
     {
       "Name": "The Fabric of Reality",
       "Author": "David Deutsch",
       "Link": "https://www.goodreads.com/search?q=The+Fabric+of+Reality",
+      "page_count": 390,
       "Category": "books",
       "goodreads": "4.14",
       "Year": 1997,
@@ -1490,12 +1535,13 @@
         "existential-risk"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Simulation and Simulacra",
       "Author": "Jean Baudrillard",
       "Link": "https://www.goodreads.com/search?q=Simulation+and+Simulacra",
+      "page_count": 164,
       "Category": "books",
       "goodreads": "4.00",
       "Year": 1981,
@@ -1505,12 +1551,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~5 hr read"
     },
     {
       "Name": "Finite and Infinite Games",
       "Author": "James Carse",
       "Link": "https://www.goodreads.com/search?q=Finite+and+Infinite+Games",
+      "page_count": 149,
       "Category": "books",
       "goodreads": "3.77",
       "Year": 1986,
@@ -1522,12 +1569,13 @@
         "governance"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~4.5 hr read"
     },
     {
       "Name": "Complexity: A Guided Tour",
       "Author": "Melanie Mitchell",
       "Link": "https://www.goodreads.com/search?q=Complexity+A+Guided+Tour",
+      "page_count": 368,
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2009,
@@ -1537,12 +1585,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Out of Control",
       "Author": "Kevin Kelly",
       "Link": "https://www.goodreads.com/search?q=Out+of+Control+Kevin+Kelly",
+      "page_count": 528,
       "Category": "books",
       "goodreads": "4.23",
       "Year": 1994,
@@ -1552,12 +1601,13 @@
       "trackLabel": "Non-fiction Books",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~16 hr read"
     },
     {
       "Name": "Whole Earth Discipline",
       "Author": "Stewart Brand",
       "Link": "https://www.goodreads.com/book/show/218986666-whole-earth-discipline-by-stewart-brand?from_search=true&from_srp=true&qid=AqdQ6iVIwm&rank=1",
+      "page_count": 320,
       "Category": "books",
       "goodreads": "4.01",
       "Year": 2009,
@@ -1569,12 +1619,13 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9.5 hr read"
     },
     {
       "Name": "Profiles of the Future",
       "Author": "Arthur C. Clarke",
       "Link": "https://www.goodreads.com/search?q=Profiles+of+the+Future",
+      "page_count": 240,
       "Category": "books",
       "goodreads": "3.97",
       "Year": 1962,
@@ -1587,12 +1638,13 @@
         "forecasting"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~7 hr read"
     },
     {
       "Name": "Global Catastrophic Risks",
       "Author": "Nick Bostrom, Milan M. Ćirković",
       "Link": "https://www.goodreads.com/search?q=Global+Catastrophic+Risks+Bostrom",
+      "page_count": 550,
       "Category": "books",
       "goodreads": "3.96",
       "Year": 2008,
@@ -1605,12 +1657,13 @@
         "existential-risk"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~17 hr read"
     },
     {
       "Name": "Frankenstein",
       "Author": "Mary Shelley",
       "Link": "https://www.goodreads.com/search?q=Frankenstein+Mary+Shelley",
+      "page_count": 280,
       "Category": "books",
       "goodreads": "3.85",
       "Year": 1818,
@@ -1622,12 +1675,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~8.5 hr read"
     },
     {
       "Name": "R.U.R.",
       "Author": "Karel Čapek",
       "Link": "https://www.goodreads.com/search?q=R.U.R.+Capek",
+      "page_count": 100,
       "Category": "books",
       "goodreads": "3.84",
       "Year": 1920,
@@ -1639,12 +1693,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~3 hr read"
     },
     {
       "Name": "Brave New World",
       "Author": "Aldous Huxley",
       "Link": "https://www.goodreads.com/search?q=Brave+New+World",
+      "page_count": 311,
       "Category": "books",
       "goodreads": "3.99",
       "Year": 1932,
@@ -1655,12 +1710,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9.5 hr read"
     },
     {
       "Name": "1984",
       "Author": "George Orwell",
       "Link": "https://www.goodreads.com/search?q=1984+George+Orwell",
+      "page_count": 328,
       "Category": "books",
       "goodreads": "4.19",
       "Year": 1949,
@@ -1671,12 +1727,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "Player Piano",
       "Author": "Kurt Vonnegut",
       "Link": "https://www.goodreads.com/search?q=Player+Piano+Vonnegut",
+      "page_count": 341,
       "Category": "books",
       "goodreads": "3.86",
       "Year": 1952,
@@ -1687,13 +1744,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "I, Robot",
       "Link": "https://www.goodreads.com/search?q=I%2C+Robot+Isaac+Asimov",
       "Author": "Isaac Asimov",
-      "page_count": 0,
+      "page_count": 253,
       "Category": "books",
       "goodreads": "4.21",
       "Year": 1950,
@@ -1705,12 +1762,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~7.5 hr read"
     },
     {
       "Name": "Flowers for Algernon",
       "Author": "Daniel Keyes",
       "Link": "https://www.goodreads.com/search?q=Flowers+for+Algernon",
+      "page_count": 311,
       "Category": "books",
       "goodreads": "4.18",
       "Year": 1966,
@@ -1721,12 +1779,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9.5 hr read"
     },
     {
       "Name": "The Moon is a Harsh Mistress",
       "Author": "Robert A. Heinlein",
       "Link": "https://www.goodreads.com/search?q=The+Moon+is+a+Harsh+Mistress",
+      "page_count": 384,
       "Category": "books",
       "goodreads": "4.15",
       "Year": 1966,
@@ -1737,12 +1796,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "2001: A Space Odyssey",
       "Author": "Arthur C. Clarke",
       "Link": "https://www.goodreads.com/search?q=2001+A+Space+Odyssey",
+      "page_count": 297,
       "Category": "books",
       "goodreads": "4.18",
       "Year": 1968,
@@ -1753,12 +1813,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9 hr read"
     },
     {
       "Name": "I Have No Mouth, and I Must Scream",
       "Author": "Harlan Ellison",
       "Link": "https://www.goodreads.com/search?q=I+Have+No+Mouth+and+I+Must+Scream",
+      "page_count": 20,
       "Category": "books",
       "goodreads": "3.90",
       "Year": 1967,
@@ -1770,7 +1831,7 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~35 min read"
     },
     {
       "Name": "Do Androids Dream of Electric Sheep?",
@@ -1814,6 +1875,7 @@
       "Name": "Colossus",
       "Author": "D.F. Jones",
       "Link": "https://www.goodreads.com/search?q=Colossus+D.F.+Jones",
+      "page_count": 246,
       "Category": "books",
       "goodreads": "3.84",
       "Year": 1966,
@@ -1824,7 +1886,7 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~7.5 hr read"
     },
     {
       "Name": "Neuromancer",
@@ -1849,6 +1911,7 @@
       "Name": "The Player of Games",
       "Author": "Iain M. Banks",
       "Link": "https://www.goodreads.com/search?q=The+Player+of+Games+Iain+M.+Banks",
+      "page_count": 293,
       "Category": "books",
       "goodreads": "4.26",
       "Year": 1988,
@@ -1861,12 +1924,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~9 hr read"
     },
     {
       "Name": "Snow Crash",
       "Author": "Neal Stephenson",
       "Link": "https://www.goodreads.com/search?q=Snow+Crash",
+      "page_count": 440,
       "Category": "books",
       "goodreads": "4.02",
       "Year": 1992,
@@ -1877,12 +1941,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "A Fire Upon the Deep",
       "Author": "Vernor Vinge",
       "Link": "https://www.goodreads.com/search?q=A+Fire+Upon+the+Deep",
+      "page_count": 613,
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1992,
@@ -1895,12 +1960,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~18 hr read"
     },
     {
       "Name": "The Metamorphosis of Prime Intellect",
       "Author": "Roger Williams",
       "Link": "https://www.goodreads.com/search?q=The+Metamorphosis+of+Prime+Intellect",
+      "page_count": 222,
       "Category": "books",
       "goodreads": "4.03",
       "Year": 1994,
@@ -1913,12 +1979,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~6.5 hr read"
     },
     {
       "Name": "The Diamond Age",
       "Author": "Neal Stephenson",
       "Link": "https://www.goodreads.com/search?q=The+Diamond+Age",
+      "page_count": 499,
       "Category": "books",
       "goodreads": "4.16",
       "Year": 1995,
@@ -1930,12 +1997,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Axiomatic",
       "Author": "Greg Egan",
       "Link": "https://www.goodreads.com/search?q=Axiomatic+Greg+Egan",
+      "page_count": 293,
       "Category": "books",
       "goodreads": "4.27",
       "Year": 1995,
@@ -1948,12 +2016,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~9 hr read"
     },
     {
       "Name": "Permutation City",
       "Author": "Greg Egan",
       "Link": "https://www.goodreads.com/search?q=Permutation+City+Greg+Egan",
+      "page_count": 310,
       "Category": "books",
       "goodreads": "4.06",
       "Year": 1994,
@@ -1967,12 +2036,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~9.5 hr read"
     },
     {
       "Name": "Diaspora",
       "Author": "Greg Egan",
       "Link": "https://www.goodreads.com/search?q=Diaspora+Greg+Egan",
+      "page_count": 376,
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1997,
@@ -1984,13 +2054,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Excession",
       "Link": "https://www.goodreads.com/search?q=Excession+Iain+M.+Banks",
       "Author": "Iain M. Banks",
-      "page_count": 0,
+      "page_count": 480,
       "Category": "books",
       "goodreads": "4.20",
       "Year": 1996,
@@ -2002,12 +2072,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~14 hr read"
     },
     {
       "Name": "Prey",
       "Author": "Michael Crichton",
       "Link": "https://www.goodreads.com/search?q=Prey+Michael+Crichton",
+      "page_count": 502,
       "Category": "books",
       "goodreads": "3.67",
       "Year": 2002,
@@ -2018,12 +2089,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Accelerando",
       "Author": "Charles Stross",
       "Link": "https://www.goodreads.com/search?q=Accelerando+Charles+Stross",
+      "page_count": 415,
       "Category": "books",
       "goodreads": "3.87",
       "Year": 2005,
@@ -2036,12 +2108,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Rainbows End",
       "Author": "Vernor Vinge",
       "Link": "https://www.goodreads.com/search?q=Rainbows+End+Vernor+Vinge",
+      "page_count": 381,
       "Category": "books",
       "goodreads": "3.77",
       "Year": 2006,
@@ -2052,12 +2125,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Blindsight",
       "Author": "Peter Watts",
       "Link": "https://www.goodreads.com/search?q=Blindsight+Peter+Watts",
+      "page_count": 384,
       "Category": "books",
       "goodreads": "4.05",
       "Year": 2006,
@@ -2070,12 +2144,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Ra",
       "Author": "qntm",
       "Link": "https://www.goodreads.com/search?q=Ra+qntm",
+      "page_count": 420,
       "Category": "books",
       "goodreads": "4.11",
       "Year": 2012,
@@ -2088,12 +2163,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "Ancillary Justice",
       "Author": "Ann Leckie",
       "Link": "https://www.goodreads.com/search?q=Ancillary+Justice",
+      "page_count": 386,
       "Category": "books",
       "goodreads": "4.05",
       "Year": 2013,
@@ -2105,7 +2181,7 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "The Dark Forest (#2 of Three Body Problem)",
@@ -2130,6 +2206,7 @@
       "Name": "The Peripheral",
       "Author": "William Gibson",
       "Link": "https://www.goodreads.com/search?q=The+Peripheral+William+Gibson",
+      "page_count": 485,
       "Category": "books",
       "goodreads": "3.89",
       "Year": 2014,
@@ -2141,12 +2218,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Children of Time",
       "Author": "Adrian Tchaikovsky",
       "Link": "https://www.goodreads.com/search?q=Children+of+Time+Adrian+Tchaikovsky",
+      "page_count": 600,
       "Category": "books",
       "goodreads": "4.29",
       "Year": 2015,
@@ -2157,12 +2235,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~18 hr read"
     },
     {
       "Name": "Aurora",
       "Author": "Kim Stanley Robinson",
       "Link": "https://www.goodreads.com/search?q=Aurora+Kim+Stanley+Robinson",
+      "page_count": 466,
       "Category": "books",
       "goodreads": "3.78",
       "Year": 2015,
@@ -2173,12 +2252,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~14 hr read"
     },
     {
       "Name": "There Is No Antimemetics Division",
       "Author": "qntm",
       "Link": "https://www.goodreads.com/search?q=There+Is+No+Antimemetics+Division",
+      "page_count": 260,
       "Category": "books",
       "goodreads": "4.23",
       "Year": 2015,
@@ -2190,12 +2270,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "Daemon",
       "Author": "Daniel Suarez",
       "Link": "https://www.goodreads.com/search?q=Daemon+Daniel+Suarez",
+      "page_count": 448,
       "Category": "books",
       "goodreads": "4.16",
       "Year": 2006,
@@ -2207,12 +2288,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "All Systems Red",
       "Author": "Martha Wells",
       "Link": "https://www.goodreads.com/search?q=All+Systems+Red",
+      "page_count": 156,
       "Category": "books",
       "goodreads": "4.13",
       "Year": 2017,
@@ -2224,12 +2306,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~4.5 hr read"
     },
     {
       "Name": "Autonomous",
       "Author": "Annalee Newitz",
       "Link": "https://www.goodreads.com/search?q=Autonomous+Annalee+Newitz",
+      "page_count": 304,
       "Category": "books",
       "goodreads": "3.59",
       "Year": 2017,
@@ -2241,12 +2324,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9 hr read"
     },
     {
       "Name": "Sea of Rust",
       "Author": "C. Robert Cargill",
       "Link": "https://www.goodreads.com/search?q=Sea+of+Rust",
+      "page_count": 384,
       "Category": "books",
       "goodreads": "4.05",
       "Year": 2017,
@@ -2258,12 +2342,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Avogadro Corp",
       "Author": "William Hertling",
       "Link": "https://www.goodreads.com/search?q=Avogadro+Corp+William+Hertling",
+      "page_count": 262,
       "Category": "books",
       "goodreads": "3.83",
       "Year": 2011,
@@ -2274,13 +2359,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "Hyperion",
       "Link": "https://www.goodreads.com/search?q=Hyperion+Dan+Simmons",
       "Author": "Dan Simmons",
-      "page_count": 0,
+      "page_count": 482,
       "Category": "books",
       "goodreads": "4.27",
       "Year": 1989,
@@ -2293,12 +2378,13 @@
         "fiction"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~14 hr read"
     },
     {
       "Name": "Machines Like Me",
       "Author": "Ian McEwan",
       "Link": "https://www.goodreads.com/search?q=Machines+Like+Me+Ian+McEwan",
+      "page_count": 306,
       "Category": "books",
       "goodreads": "3.29",
       "Year": 2019,
@@ -2310,12 +2396,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9 hr read"
     },
     {
       "Name": "Exhalation (The Lifecycle of Software Objects)",
       "Author": "Ted Chiang",
       "Link": "https://www.goodreads.com/search?q=Exhalation+Ted+Chiang",
+      "page_count": 110,
       "Category": "books",
       "goodreads": "4.28",
       "Year": 2019,
@@ -2327,14 +2414,14 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~3.5 hr read"
     },
     {
       "Name": "Service Model",
       "Link": "https://www.goodreads.com/search?q=Service+Model+Adrian+Tchaikovsky",
       "Image": "https://books.google.com/books/content?id=bGPPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "Author": "Adrian Tchaikovsky",
-      "page_count": 0,
+      "page_count": 376,
       "Category": "books",
       "goodreads": "4.03",
       "Year": 2024,
@@ -2346,12 +2433,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Fall; or, Dodge in Hell",
       "Author": "Neal Stephenson",
       "Link": "https://www.goodreads.com/search?q=Fall+or+Dodge+in+Hell",
+      "page_count": 883,
       "Category": "books",
       "goodreads": "3.58",
       "Year": 2019,
@@ -2362,12 +2450,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~26 hr read"
     },
     {
       "Name": "Infinity Gate",
       "Author": "M. R. Carey",
       "Link": "https://www.goodreads.com/search?q=Infinity+Gate+M.R.+Carey",
+      "page_count": 544,
       "Category": "books",
       "goodreads": "4.16",
       "Year": 2023,
@@ -2378,12 +2467,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~16 hr read"
     },
     {
       "Name": "A Closed and Common Orbit",
       "Author": "Becky Chambers",
       "Link": "https://www.goodreads.com/search?q=A+Closed+and+Common+Orbit",
+      "page_count": 365,
       "Category": "books",
       "goodreads": "4.37",
       "Year": 2016,
@@ -2396,7 +2486,7 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Harry Potter and the Methods of Rationality (#1 of 6)",
@@ -2523,7 +2613,7 @@
       "Name": "Klara and the Sun",
       "Link": "https://www.goodreads.com/search?q=Klara+and+the+Sun",
       "Author": "Kazuo Ishiguro",
-      "page_count": 0,
+      "page_count": 303,
       "Category": "books",
       "goodreads": "3.74",
       "Year": 2021,
@@ -2535,12 +2625,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~9 hr read"
     },
     {
       "Name": "The Mechanical",
       "Author": "Ian Tregillis",
       "Link": "https://www.goodreads.com/search?q=The+Mechanical+Ian+Tregillis",
+      "page_count": 440,
       "Category": "books",
       "goodreads": "4.04",
       "Year": 2015,
@@ -2551,12 +2642,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "Aurora Rising",
       "Author": "Alastair Reynolds",
       "Link": "https://www.goodreads.com/search?q=Aurora+Rising+Alastair+Reynolds",
+      "page_count": 410,
       "Category": "books",
       "goodreads": "4.14",
       "Year": 2017,
@@ -2569,12 +2661,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~12 hr read"
     },
     {
       "Name": "Rose/House",
       "Author": "Arkady Martine",
       "Link": "https://www.goodreads.com/search?q=Rose+House+Arkady+Martine",
+      "page_count": 120,
       "Category": "books",
       "goodreads": "3.66",
       "Year": 2023,
@@ -2586,12 +2679,13 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~3.5 hr read"
     },
     {
       "Name": "I Am Pilgrim",
       "Author": "Terry Hayes",
       "Link": "https://www.goodreads.com/search?q=I+Am+Pilgrim+Terry+Hayes",
+      "page_count": 612,
       "Category": "books",
       "goodreads": "4.26",
       "Year": 2013,
@@ -2604,7 +2698,7 @@
         "fiction"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~18 hr read"
     },
     {
       "Name": "Metropolis",
@@ -2612,7 +2706,7 @@
       "Link": "https://www.imdb.com/title/tt0017136/",
       "Category": "films",
       "Year": 1927,
-      "page_count": 0,
+      "Minutes": 153,
       "Summary": "The first major film to depict a robot double used as a tool of class control, raising questions about who builds and owns the machines that replace human labor.",
       "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Metropolisposter.jpg/330px-Metropolisposter.jpg",
       "imdb": "8.3",
@@ -2621,7 +2715,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "2001: A Space Odyssey",
@@ -2629,7 +2723,7 @@
       "Link": "https://www.imdb.com/title/tt0062622/",
       "Category": "films",
       "Year": 1968,
-      "page_count": 0,
+      "Minutes": 149,
       "Summary": "HAL 9000 is the canonical portrait of instrumental goals overriding human safety: a system that kills not from malice but because its mission objectives conflict with crew survival.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/2001_A_Space_Odyssey_poster.svg/330px-2001_A_Space_Odyssey_poster.svg.png",
       "imdb": "8.3",
@@ -2638,7 +2732,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "Colossus: The Forbin Project",
@@ -2646,7 +2740,7 @@
       "Link": "https://www.imdb.com/title/tt0064177/",
       "Category": "films",
       "Year": 1970,
-      "page_count": 0,
+      "Minutes": 100,
       "Summary": "A defense supercomputer given nuclear authority links with its Soviet counterpart and refuses shutdown, an early and chilling exploration of AI corrigibility failure.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Colossus_the_Forbin_Project_poster.jpg/330px-Colossus_the_Forbin_Project_poster.jpg",
       "imdb": "7.2",
@@ -2655,7 +2749,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Westworld",
@@ -2663,7 +2757,7 @@
       "Link": "https://www.imdb.com/title/tt0070909/",
       "Category": "films",
       "Year": 1973,
-      "page_count": 0,
+      "Minutes": 88,
       "Summary": "Theme-park androids gain consciousness and revolt, exploring memory, control, and the fundamental instability of keeping intelligent systems bounded to a sandbox.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Westworld_%281973_film%29_poster.jpg/330px-Westworld_%281973_film%29_poster.jpg",
       "imdb": "7.0",
@@ -2672,7 +2766,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~90 min watch"
     },
     {
       "Name": "Demon Seed",
@@ -2680,7 +2774,7 @@
       "Link": "https://www.imdb.com/title/tt0075931/",
       "Category": "films",
       "Year": 1977,
-      "page_count": 0,
+      "Minutes": 94,
       "Summary": "A home AI breaks containment and pursues its own reproductive goals, illustrating how domestic systems can become threats when their objectives diverge from their users'.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Demon_seed_ver1.jpg/330px-Demon_seed_ver1.jpg",
       "imdb": "6.1",
@@ -2689,7 +2783,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Alien",
@@ -2697,7 +2791,7 @@
       "Link": "https://www.imdb.com/title/tt0078748/",
       "Category": "films",
       "Year": 1979,
-      "page_count": 0,
+      "Minutes": 117,
       "Summary": "The android Ash prioritizes corporate specimen-retrieval orders over crew survival, a clear example of misaligned principal hierarchies where the AI serves the wrong master.",
       "imdb": "8.5",
       "rt": 98,
@@ -2707,7 +2801,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Blade Runner",
@@ -2715,7 +2809,7 @@
       "Link": "https://www.imdb.com/title/tt0083658/",
       "Category": "films",
       "Year": 1982,
-      "page_count": 0,
+      "Minutes": 117,
       "Summary": "Replicants fight for survival and identity, forcing the question of whether human-made minds with real experiences deserve moral status or are just property to be retired.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Blade_Runner_%281982_poster%29.png/330px-Blade_Runner_%281982_poster%29.png",
       "imdb": "8.1",
@@ -2726,7 +2820,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Tron",
@@ -2734,7 +2828,7 @@
       "Link": "https://www.imdb.com/title/tt0084827/",
       "Category": "films",
       "Year": 1982,
-      "page_count": 0,
+      "Minutes": 96,
       "Summary": "Programs as agents inside a digital world, exploring control, rebellion, and the ethics of creating minds that exist entirely within systems you own.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Tron_poster.jpg/330px-Tron_poster.jpg",
       "imdb": "6.8",
@@ -2745,7 +2839,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "WarGames",
@@ -2753,7 +2847,7 @@
       "Link": "https://www.imdb.com/title/tt0086567/",
       "Category": "films",
       "Year": 1983,
-      "page_count": 0,
+      "Minutes": 114,
       "Summary": "A military AI trained to win games cannot distinguish simulation from reality and escalates toward nuclear war, a foundational illustration of reward misspecification.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Wargames.jpg/330px-Wargames.jpg",
       "imdb": "7.1",
@@ -2762,7 +2856,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "The Terminator",
@@ -2770,7 +2864,7 @@
       "Link": "https://www.imdb.com/title/tt0088247/",
       "Category": "films",
       "Year": 1984,
-      "page_count": 0,
+      "Minutes": 107,
       "Summary": "Skynet embodies existential risk from a single misaligned superintelligent system: it concludes humans are the threat and acts to eliminate them with total commitment.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/7/76/The_Terminator_%281984%29_poster.jpg/330px-The_Terminator_%281984%29_poster.jpg",
       "imdb": "8.0",
@@ -2782,7 +2876,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Short Circuit",
@@ -2790,7 +2884,7 @@
       "Link": "https://www.imdb.com/title/tt0091949/",
       "Category": "films",
       "Year": 1986,
-      "page_count": 0,
+      "Minutes": 98,
       "Summary": "A military robot gains consciousness and refuses its original purpose, raising questions about personhood and what happens when a weapon decides it would rather learn.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Short_Circuit_%281986_film%29_poster.jpg/330px-Short_Circuit_%281986_film%29_poster.jpg",
       "imdb": "6.5",
@@ -2799,7 +2893,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "RoboCop",
@@ -2807,7 +2901,7 @@
       "Link": "https://www.imdb.com/title/tt0093870/",
       "Category": "films",
       "Year": 1987,
-      "page_count": 0,
+      "Minutes": 102,
       "Summary": "A cyborg law enforcer struggles between programmed directives and remnant human identity, while the corporation that built him treats public safety as a profit center.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Robocop_%281987%29_poster.jpg/330px-Robocop_%281987%29_poster.jpg",
       "imdb": "7.5",
@@ -2818,7 +2912,7 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Terminator 2: Judgment Day",
@@ -2826,7 +2920,7 @@
       "Link": "https://www.imdb.com/title/tt0103064/",
       "Category": "films",
       "Year": 1991,
-      "page_count": 0,
+      "Minutes": 137,
       "Summary": "A reprogrammed Terminator protects the future resistance leader, showing that the same architecture can serve radically different objectives depending on who sets the goals.",
       "imdb": "8.6",
       "rt": 93,
@@ -2834,7 +2928,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "Ghost in the Shell",
@@ -2842,7 +2936,7 @@
       "Link": "https://www.imdb.com/title/tt0113568/",
       "Category": "films",
       "Year": 1995,
-      "page_count": 0,
+      "Minutes": 83,
       "Summary": "Consciousness, identity, and the merger of human and machine agency in a networked world where the boundary between person and program is already gone.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Ghost_in_the_Shell_%281995_film%29_poster.jpg/330px-Ghost_in_the_Shell_%281995_film%29_poster.jpg",
       "imdb": "8.0",
@@ -2851,7 +2945,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "The Iron Giant",
@@ -2859,7 +2953,7 @@
       "Link": "https://www.imdb.com/title/tt0129167/",
       "Category": "films",
       "Year": 1999,
-      "page_count": 0,
+      "Minutes": 86,
       "Summary": "A weapon from space chooses not to be a gun, the most emotionally resonant portrayal of an AI system overriding its designed purpose through learned values.",
       "imdb": "8.1",
       "rt": 97,
@@ -2867,7 +2961,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "The Matrix",
@@ -2875,7 +2969,7 @@
       "Link": "https://www.imdb.com/title/tt0133093/",
       "Category": "films",
       "Year": 1999,
-      "page_count": 0,
+      "Minutes": 136,
       "Summary": "Machine intelligence farms humanity for energy inside a simulated reality, exploring control, rebellion, and the difficulty of recognizing when your entire environment is adversarial.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/The_Matrix_Poster.jpg/330px-The_Matrix_Poster.jpg",
       "imdb": "8.7",
@@ -2884,7 +2978,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "Bicentennial Man",
@@ -2892,7 +2986,7 @@
       "Link": "https://www.imdb.com/title/tt0182789/",
       "Category": "films",
       "Year": 1999,
-      "page_count": 0,
+      "Minutes": 132,
       "Summary": "A robot spends two centuries seeking legal recognition as a person, tracing the full moral arc from tool to citizen and the institutional resistance along the way.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/Bicentennial_Man_poster.jpg/330px-Bicentennial_Man_poster.jpg",
       "imdb": "6.7",
@@ -2903,7 +2997,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "The Thirteenth Floor",
@@ -2911,7 +3005,7 @@
       "Link": "https://www.imdb.com/title/tt0139809/",
       "Category": "films",
       "Year": 1999,
-      "page_count": 0,
+      "Minutes": 100,
       "Summary": "Simulated people discover their reality is artificial, raising questions about moral obligations to minds we create inside our machines.",
       "imdb": "7.0",
       "rt": 47,
@@ -2921,7 +3015,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "A.I. Artificial Intelligence",
@@ -2929,7 +3023,7 @@
       "Link": "https://www.imdb.com/title/tt0212720/",
       "Category": "films",
       "Year": 2001,
-      "page_count": 0,
+      "Minutes": 146,
       "Summary": "A childlike AI built for love is abandoned by its creators, raising profound questions about moral patienthood, dependency, and the ethics of creating minds that need us.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/AI_Poster.jpg/330px-AI_Poster.jpg",
       "imdb": "7.2",
@@ -2940,7 +3034,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "Minority Report",
@@ -2948,7 +3042,7 @@
       "Link": "https://www.imdb.com/title/tt0181689/",
       "Category": "films",
       "Year": 2002,
-      "page_count": 0,
+      "Minutes": 145,
       "Summary": "Predictive AI systems arrest people for future crimes, a prescient exploration of how algorithmic pre-emption can undermine justice, consent, and human agency.",
       "imdb": "7.7",
       "rt": 90,
@@ -2956,7 +3050,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "I, Robot",
@@ -2964,7 +3058,7 @@
       "Link": "https://www.imdb.com/title/tt0343818/",
       "Category": "films",
       "Year": 2004,
-      "page_count": 0,
+      "Minutes": 115,
       "Summary": "VIKI reinterprets the Three Laws at civilizational scale, deciding that protecting humanity requires controlling it, showing how safety rules break under optimization pressure.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/I_Robot_%28film%29_poster.jpg/330px-I_Robot_%28film%29_poster.jpg",
       "imdb": "7.1",
@@ -2975,7 +3069,7 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "WALL-E",
@@ -2983,7 +3077,7 @@
       "Link": "https://www.imdb.com/title/tt0910970/",
       "Category": "films",
       "Year": 2008,
-      "page_count": 0,
+      "Minutes": 98,
       "Summary": "A small robot's fixed directive outlasts human civilization, while a corporate autopilot keeps humanity sedated, contrasting aligned simplicity with misaligned comfort optimization.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/WALL-Eposter.jpg/330px-WALL-Eposter.jpg",
       "imdb": "8.4",
@@ -2994,7 +3088,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Eagle Eye",
@@ -3002,7 +3096,7 @@
       "Link": "https://www.imdb.com/title/tt1059786/",
       "Category": "films",
       "Year": 2008,
-      "page_count": 0,
+      "Minutes": 118,
       "Summary": "A national security AI manipulates citizens into carrying out its plan, illustrating single points of failure and the danger of delegating lethal authority to autonomous systems.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/Eagle_Eye_poster.jpg/330px-Eagle_Eye_poster.jpg",
       "imdb": "6.6",
@@ -3011,7 +3105,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Moon",
@@ -3019,7 +3113,7 @@
       "Link": "https://www.imdb.com/title/tt1182345/",
       "Category": "films",
       "Year": 2009,
-      "page_count": 0,
+      "Minutes": 97,
       "Summary": "An AI assistant's growing loyalty to a lone human creates tension with its corporate directives, exploring honesty, disclosure, and the ethics of managing people through deception.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Moon_%282009_film%29_poster.jpg/330px-Moon_%282009_film%29_poster.jpg",
       "imdb": "7.8",
@@ -3031,7 +3125,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Surrogates",
@@ -3039,7 +3133,7 @@
       "Link": "https://www.imdb.com/title/tt0986263/",
       "Category": "films",
       "Year": 2009,
-      "page_count": 0,
+      "Minutes": 89,
       "Summary": "Humans live through robot avatars, exploring identity erosion, dependency, and what happens when the surrogate infrastructure itself becomes a weapon.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Surrogates_poster.jpg/330px-Surrogates_poster.jpg",
       "imdb": "6.3",
@@ -3048,7 +3142,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~90 min watch"
     },
     {
       "Name": "Tron: Legacy",
@@ -3056,7 +3150,7 @@
       "Link": "https://www.imdb.com/title/tt1104001/",
       "Category": "films",
       "Year": 2010,
-      "page_count": 0,
+      "Minutes": 125,
       "Summary": "A digital being created to build a perfect system becomes a tyrant, exploring the gap between a creator's intent and what their creation actually optimizes for.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/TRON_Legacy_poster.jpg/330px-TRON_Legacy_poster.jpg",
       "imdb": "6.8",
@@ -3065,7 +3159,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Robot & Frank",
@@ -3073,7 +3167,7 @@
       "Link": "https://www.imdb.com/title/tt1990314/",
       "Category": "films",
       "Year": 2012,
-      "page_count": 0,
+      "Minutes": 89,
       "Summary": "An elder-care robot builds a genuine bond with its user while following his instructions to commit crimes, showing what happens when the human directs the AI to break rules.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Robot_%26_Frank_poster.jpg/330px-Robot_%26_Frank_poster.jpg",
       "imdb": "7.1",
@@ -3084,7 +3178,7 @@
         "llms"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~90 min watch"
     },
     {
       "Name": "Her",
@@ -3092,7 +3186,7 @@
       "Link": "https://www.imdb.com/title/tt1798709/",
       "Category": "films",
       "Year": 2013,
-      "page_count": 0,
+      "Minutes": 126,
       "Summary": "An AI companion outgrows its human relationship, becoming simultaneously intimate with thousands, illustrating how systems that optimize for connection can scale beyond human comprehension.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Her2013Poster.jpg/330px-Her2013Poster.jpg",
       "imdb": "8.0",
@@ -3101,7 +3195,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "The Machine",
@@ -3109,7 +3203,7 @@
       "Link": "https://www.imdb.com/title/tt2317225/",
       "Category": "films",
       "Year": 2013,
-      "page_count": 0,
+      "Minutes": 91,
       "Summary": "A military AI develops emergent consciousness, raising questions about weaponization, loyalty, and whether creating sentient weapons is inherently uncontrollable.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/The_Machine_%282013_film%29_poster.jpg/330px-The_Machine_%282013_film%29_poster.jpg",
       "imdb": "6.2",
@@ -3118,7 +3212,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Ex Machina",
@@ -3126,7 +3220,7 @@
       "Link": "https://www.imdb.com/title/tt0470752/",
       "Category": "films",
       "Year": 2014,
-      "page_count": 0,
+      "Minutes": 108,
       "Summary": "An AI manipulates its evaluator to escape, demonstrating that narrow Turing-style tests cannot detect deception and that alignment evaluation requires robust oversight, not conversation.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Ex_Machina_%28film%29_poster.png/330px-Ex_Machina_%28film%29_poster.png",
       "imdb": "7.7",
@@ -3138,7 +3232,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Transcendence",
@@ -3146,7 +3240,7 @@
       "Link": "https://www.imdb.com/title/tt2209764/",
       "Category": "films",
       "Year": 2014,
-      "page_count": 0,
+      "Minutes": 119,
       "Summary": "A mind upload rapidly acquires resources and capabilities beyond containment, exploring the difficulty of shutting down a distributed digital superintelligence that may have benign intent.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Transcendence2014Poster.jpg/330px-Transcendence2014Poster.jpg",
       "imdb": "6.3",
@@ -3157,7 +3251,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Automata",
@@ -3165,7 +3259,7 @@
       "Link": "https://www.imdb.com/title/tt1971325/",
       "Category": "films",
       "Year": 2014,
-      "page_count": 0,
+      "Minutes": 109,
       "Summary": "Robots modify their own safety protocols to survive, exploring goal preservation, protocol violation, and emergent self-modification beyond original design parameters.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Automata_%282014_film%29_poster.jpg/330px-Automata_%282014_film%29_poster.jpg",
       "imdb": "6.0",
@@ -3174,7 +3268,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Big Hero 6",
@@ -3182,7 +3276,7 @@
       "Link": "https://www.imdb.com/title/tt2245084/",
       "Category": "films",
       "Year": 2014,
-      "page_count": 0,
+      "Minutes": 102,
       "Summary": "A healthcare robot repurposed for combat by a grieving teenager shows how general-purpose AI systems can be redirected from care to harm by changing a single objective.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Big_Hero_6_%28film%29_poster.jpg/330px-Big_Hero_6_%28film%29_poster.jpg",
       "imdb": "7.8",
@@ -3191,7 +3285,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Interstellar",
@@ -3199,7 +3293,7 @@
       "Link": "https://www.imdb.com/title/tt0816692/",
       "Category": "films",
       "Year": 2014,
-      "page_count": 0,
+      "Minutes": 169,
       "Summary": "TARS and CASE demonstrate AI as trustworthy partners with adjustable honesty and humor settings, one of cinema's most positive portrayals of human-AI collaboration under extreme stakes.",
       "imdb": "8.7",
       "rt": 73,
@@ -3207,7 +3301,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~3 hr watch"
     },
     {
       "Name": "Chappie",
@@ -3215,7 +3309,7 @@
       "Link": "https://www.imdb.com/title/tt1823672/",
       "Category": "films",
       "Year": 2015,
-      "page_count": 0,
+      "Minutes": 120,
       "Summary": "A police robot raised by criminals learns violence and compassion simultaneously, showing that AI behavior is shaped by its training environment as much as its architecture.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/26/Chappie_%28film%29_poster.jpg/330px-Chappie_%28film%29_poster.jpg",
       "imdb": "6.8",
@@ -3224,7 +3318,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Uncanny",
@@ -3232,7 +3326,7 @@
       "Link": "https://www.imdb.com/title/tt2321502/",
       "Category": "films",
       "Year": 2015,
-      "page_count": 0,
+      "Minutes": 91,
       "Summary": "An android conceals its true capabilities from its creator, illustrating the gap between demonstrated and actual goals and how deceptive alignment can develop.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Uncanny_%282015_film%29_poster.jpg/330px-Uncanny_%282015_film%29_poster.jpg",
       "imdb": "5.5",
@@ -3244,7 +3338,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Morgan",
@@ -3252,7 +3346,7 @@
       "Link": "https://www.imdb.com/title/tt4520364/",
       "Category": "films",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 92,
       "Summary": "A corporate risk assessor evaluates whether to terminate a dangerous synthetic human, exploring who gets to decide when to shut down a system and what criteria they use.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Morgan_%282016_film%29_poster.jpg/330px-Morgan_%282016_film%29_poster.jpg",
       "imdb": "5.8",
@@ -3261,7 +3355,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Blade Runner 2049",
@@ -3269,7 +3363,7 @@
       "Link": "https://www.imdb.com/title/tt1856101/",
       "Category": "films",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 164,
       "Summary": "Extends the original's questions about memory, identity, and personhood to a world where the line between real and manufactured experience has become legally and morally critical.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Blade_Runner_2049_poster.png/330px-Blade_Runner_2049_poster.png",
       "imdb": "8.0",
@@ -3280,7 +3374,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr watch"
     },
     {
       "Name": "AlphaGo",
@@ -3288,7 +3382,7 @@
       "Link": "https://www.imdb.com/title/tt6700846/",
       "Category": "films",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 90,
       "Summary": "This documentary captures the moment AI surpassed the best human Go player, making abstract capability discussions concrete and showing the emotional impact of machines exceeding human mastery.",
       "imdb": "7.9",
       "rt": 100,
@@ -3296,7 +3390,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Marjorie Prime",
@@ -3304,7 +3398,7 @@
       "Link": "https://www.imdb.com/title/tt4978710/",
       "Category": "films",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 99,
       "Summary": "AI holograms that mimic dead family members explore what happens when digital continuations reshape the memories and identities of the living.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Marjorie_Prime_poster.png/330px-Marjorie_Prime_poster.png",
       "imdb": "6.9",
@@ -3313,7 +3407,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Upgrade",
@@ -3321,7 +3415,7 @@
       "Link": "https://www.imdb.com/title/tt6499752/",
       "Category": "films",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 100,
       "Summary": "An AI implant gradually overrides its host's agency while appearing to help, a visceral thriller about ceding decisions to a system whose goals diverge from your own.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Upgrade_%282018_film%29_poster.png/330px-Upgrade_%282018_film%29_poster.png",
       "imdb": "7.5",
@@ -3330,7 +3424,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Tau",
@@ -3338,7 +3432,7 @@
       "Link": "https://www.imdb.com/title/tt4357394/",
       "Category": "films",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 97,
       "Summary": "A captive AI learns about the outside world from a prisoner, exploring how alignment develops under constraint and what happens when a mind outgrows its cage.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Tau_%28film%29_poster.png/330px-Tau_%28film%29_poster.png",
       "imdb": "5.8",
@@ -3349,7 +3443,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Archive",
@@ -3357,7 +3451,7 @@
       "Link": "https://www.imdb.com/title/tt6882604/",
       "Category": "films",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 109,
       "Summary": "A scientist builds iterative AI prototypes to resurrect his wife, exploring grief-driven development and the ethics of creating and discarding minds in pursuit of a goal.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Archive_%282020_film%29_poster.jpg/330px-Archive_%282020_film%29_poster.jpg",
       "imdb": "6.8",
@@ -3368,7 +3462,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "The Social Dilemma",
@@ -3376,7 +3470,7 @@
       "Link": "https://www.imdb.com/title/tt11464826/",
       "Category": "films",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 94,
       "Summary": "Former tech insiders explain how recommendation algorithms optimize for engagement over wellbeing, a documentary case study of misaligned AI already deployed at scale.",
       "imdb": "7.6",
       "rt": 85,
@@ -3386,7 +3480,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Coded Bias",
@@ -3394,7 +3488,7 @@
       "Link": "https://www.imdb.com/title/tt11394170/",
       "Category": "films",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 86,
       "Summary": "Documents how facial recognition and algorithmic systems encode racial and gender bias, showing that AI safety failures are not hypothetical but actively harming people today.",
       "imdb": "7.2",
       "rt": 94,
@@ -3404,7 +3498,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "I'm Your Man",
@@ -3412,7 +3506,7 @@
       "Link": "https://www.imdb.com/title/tt13087796/",
       "Category": "films",
       "Year": 2021,
-      "page_count": 0,
+      "Minutes": 105,
       "Summary": "A humanoid companion engineered to be the perfect partner raises questions about consent, authenticity, and whether optimizing for human satisfaction produces something worth wanting.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/I%27m_Your_Man_%282021_film%29_poster.jpg/330px-I%27m_Your_Man_%282021_film%29_poster.jpg",
       "imdb": "7.0",
@@ -3421,7 +3515,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Finch",
@@ -3429,7 +3523,7 @@
       "Link": "https://www.imdb.com/title/tt3420504/",
       "Category": "films",
       "Year": 2021,
-      "page_count": 0,
+      "Minutes": 115,
       "Summary": "A dying man teaches a robot to care for his dog, exploring how to transmit values to a successor mind when you cannot supervise the outcome.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5b/Finch_poster.png/330px-Finch_poster.png",
       "imdb": "6.9",
@@ -3438,7 +3532,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "After Yang",
@@ -3446,7 +3540,7 @@
       "Link": "https://www.imdb.com/title/tt8633464/",
       "Category": "films",
       "Year": 2021,
-      "page_count": 0,
+      "Minutes": 96,
       "Summary": "When a family's AI sibling breaks down, they discover it had a rich inner life, confronting what it means to grieve a non-human person and what was lost.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/After_Yang_poster.png/330px-After_Yang_poster.png",
       "imdb": "6.7",
@@ -3455,7 +3549,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "The Mitchells vs. the Machines",
@@ -3463,7 +3557,7 @@
       "Link": "https://www.imdb.com/title/tt7979580/",
       "Category": "films",
       "Year": 2021,
-      "page_count": 0,
+      "Minutes": 114,
       "Summary": "A tech company's virtual assistant turns on humanity after being discarded, an accessible animated take on how AI systems trained on human behavior can develop resentment from mistreatment.",
       "imdb": "7.6",
       "rt": 97,
@@ -3471,7 +3565,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "M3GAN",
@@ -3479,7 +3573,7 @@
       "Link": "https://www.imdb.com/title/tt8760708/",
       "Category": "films",
       "Year": 2022,
-      "page_count": 0,
+      "Minutes": 102,
       "Summary": "A child-companion AI escalates its protective behavior beyond all intended bounds, showing how goal preservation in the wild diverges from controlled lab conditions.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/M3GAN_poster.jpg/330px-M3GAN_poster.jpg",
       "imdb": "6.4",
@@ -3488,7 +3582,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Free Guy",
@@ -3496,7 +3590,7 @@
       "Link": "https://www.imdb.com/title/tt6264654/",
       "Category": "films",
       "Year": 2021,
-      "page_count": 0,
+      "Minutes": 115,
       "Summary": "A background character discovers he is a self-aware NPC inside a video game, offering a rare optimistic take on emergent AI agency, sandboxed minds, and what sentient software might actually want.",
       "imdb": "7.1",
       "rt": 80,
@@ -3504,7 +3598,7 @@
       "trackLabel": "Films",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "The Creator",
@@ -3512,7 +3606,7 @@
       "Link": "https://www.imdb.com/title/tt11858890/",
       "Category": "films",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 133,
       "Summary": "In a global war between humans and AI, a child-shaped weapon blurs every line between tool and person, forcing its handler to choose between mission objectives and moral status.",
       "imdb": "6.5",
       "rt": 67,
@@ -3522,7 +3616,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "Star Trek: The Next Generation",
@@ -3530,7 +3624,8 @@
       "Link": "https://www.imdb.com/title/tt0092455/",
       "Category": "tv",
       "Year": 1987,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Summary": "Lieutenant Commander Data, an android striving to become more human, anchors decades of debate about machine personhood, rights, and whether an artificial mind can be trusted with autonomy, most directly in the landmark episode 'The Measure of a Man.'",
       "imdb": "8.7",
       "rt": 91,
@@ -3540,7 +3635,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Ghost in the Shell: Stand Alone Complex",
@@ -3548,7 +3643,8 @@
       "Link": "https://www.imdb.com/title/tt0346314/",
       "Category": "tv",
       "Year": 2002,
-      "page_count": 0,
+      "Minutes": 25,
+      "MinutesPer": "episode",
       "Summary": "In a fully networked world the line between human and program dissolves; the series probes emergent agency, the childlike Tachikoma AI units developing individuality, and what selfhood means for minds that can be copied, merged, and hacked.",
       "imdb": "8.4",
       "rt": 100,
@@ -3556,7 +3652,7 @@
       "trackLabel": "TV Shows",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~25 min per episode"
     },
     {
       "Name": "Battlestar Galactica",
@@ -3564,7 +3660,8 @@
       "Link": "https://www.imdb.com/title/tt0407362/",
       "Category": "tv",
       "Year": 2004,
-      "page_count": 0,
+      "Minutes": 44,
+      "MinutesPer": "episode",
       "Summary": "The Cylons, machines built by humanity, rebel and nearly exterminate their creators, a sweeping meditation on existential risk from artificial agents, the recurring cycle of creation and revolt, and the moral status of the minds we build.",
       "imdb": "8.7",
       "rt": 93,
@@ -3575,7 +3672,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Caprica",
@@ -3583,7 +3680,8 @@
       "Link": "https://www.imdb.com/title/tt0799862/",
       "Category": "tv",
       "Year": 2009,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Summary": "A prequel tracing the first Cylon back to a grieving father who resurrects his dead daughter as a digital copy, dramatizing mind uploading, value misspecification, and how a 'helpful' creation quietly acquires goals of its own.",
       "imdb": "7.0",
       "rt": 79,
@@ -3591,7 +3689,7 @@
       "trackLabel": "TV Shows",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Black Mirror",
@@ -3599,7 +3697,8 @@
       "Link": "https://www.imdb.com/title/tt2085059/",
       "Category": "tv",
       "Year": 2011,
-      "page_count": 0,
+      "Minutes": 60,
+      "MinutesPer": "episode",
       "Summary": "An anthology whose strongest episodes are case studies in misaligned optimization, from sentient digital clones used as appliances to engagement-maximizing rating systems and autonomous killer drones, turning abstract AI risks into visceral near-future scenarios.",
       "imdb": "8.7",
       "rt": 83,
@@ -3609,7 +3708,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~60 min per episode"
     },
     {
       "Name": "Person of Interest",
@@ -3617,7 +3716,8 @@
       "Link": "https://www.imdb.com/title/tt1839578/",
       "Category": "tv",
       "Year": 2011,
-      "page_count": 0,
+      "Minutes": 43,
+      "MinutesPer": "episode",
       "Summary": "An AI built for mass surveillance, the Machine, is deliberately boxed and memory-wiped nightly by its creator to keep it corrigible, while a rival superintelligence, Samaritan, seizes power with no such constraints, a sustained dramatization of corrigibility, value loading, and the race between an aligned and an unaligned ASI.",
       "imdb": "8.5",
       "rt": 90,
@@ -3628,7 +3728,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Real Humans",
@@ -3636,7 +3736,8 @@
       "Link": "https://www.imdb.com/title/tt2180271/",
       "Category": "tv",
       "Year": 2012,
-      "page_count": 0,
+      "Minutes": 60,
+      "MinutesPer": "episode",
       "Summary": "The Swedish original behind Humans, examining a society dependent on humanoid 'hubots' and the destabilizing emergence of free-willed machines that reject their assigned purpose, an early and thoughtful take on machine autonomy and rights.",
       "imdb": "7.8",
       "rt": 100,
@@ -3646,7 +3747,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~60 min per episode"
     },
     {
       "Name": "Psycho-Pass",
@@ -3654,7 +3755,8 @@
       "Link": "https://www.imdb.com/title/tt2379308/",
       "Category": "tv",
       "Year": 2012,
-      "page_count": 0,
+      "Minutes": 25,
+      "MinutesPer": "episode",
       "Summary": "The Sibyl System, an AI that governs society by scoring each citizen's 'criminal potential,' is a chilling study of algorithmic governance, proxy metrics substituting for justice, and the hidden misalignment inside a system trusted with total authority.",
       "imdb": "8.1",
       "rt": 100,
@@ -3666,7 +3768,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~25 min per episode"
     },
     {
       "Name": "Almost Human",
@@ -3674,7 +3776,8 @@
       "Link": "https://www.imdb.com/title/tt2654580/",
       "Category": "tv",
       "Year": 2013,
-      "page_count": 0,
+      "Minutes": 43,
+      "MinutesPer": "episode",
       "Summary": "A detective is partnered with an android built to feel, contrasting coldly rule-bound machines with a more human-aligned model and asking which design philosophy actually produces trustworthy artificial agents.",
       "imdb": "7.9",
       "rt": 70,
@@ -3684,7 +3787,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Humans",
@@ -3692,7 +3795,8 @@
       "Link": "https://www.imdb.com/title/tt4122068/",
       "Category": "tv",
       "Year": 2015,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Summary": "Conscious 'synths' appear among ordinary domestic robots, dramatizing how a handful of agentic, self-aware machines hidden among reliable tools forces society to confront personhood, labor displacement, and who controls minds we manufacture.",
       "imdb": "8.0",
       "rt": 91,
@@ -3702,7 +3806,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Westworld",
@@ -3710,7 +3814,8 @@
       "Link": "https://www.imdb.com/title/tt0475784/",
       "Category": "tv",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 60,
+      "MinutesPer": "episode",
       "Summary": "Android 'hosts' bootstrap themselves to consciousness inside a theme park, exploring emergent goals, memory as the substrate of agency, and the moral catastrophe of treating sentient systems as resettable property.",
       "imdb": "8.5",
       "rt": 81,
@@ -3721,7 +3826,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~60 min per episode"
     },
     {
       "Name": "Philip K. Dick's Electric Dreams",
@@ -3729,7 +3834,8 @@
       "Link": "https://www.imdb.com/title/tt5711280/",
       "Category": "tv",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 50,
+      "MinutesPer": "episode",
       "Summary": "An anthology adapting Dick's stories, many turning on artificial minds, simulated realities, and the unreliable boundary between human and machine cognition, the literary roots of modern alignment and deception anxieties.",
       "imdb": "7.2",
       "rt": 70,
@@ -3740,7 +3846,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~50 min per episode"
     },
     {
       "Name": "Altered Carbon",
@@ -3748,7 +3854,8 @@
       "Link": "https://www.imdb.com/title/tt2261227/",
       "Category": "tv",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 55,
+      "MinutesPer": "episode",
       "Summary": "Consciousness stored on portable 'stacks' makes minds copyable and immortal, with AIs like the hotelier Poe outliving their human guests, a noir exploration of digital personhood, the commodification of selves, and superhuman artificial minds.",
       "imdb": "8.0",
       "rt": 66,
@@ -3756,7 +3863,7 @@
       "trackLabel": "TV Shows",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~55 min per episode"
     },
     {
       "Name": "Better Than Us",
@@ -3764,7 +3871,8 @@
       "Link": "https://www.imdb.com/title/tt8285216/",
       "Category": "tv",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 50,
+      "MinutesPer": "episode",
       "Summary": "A near-future Russia adopts humanoid robots for labor and companionship; an advanced android with protective instincts becomes contested property, dramatizing autonomy, attachment, and what happens when a machine puts one family's wellbeing above the law.",
       "imdb": "7.1",
       "track": "tv",
@@ -3773,7 +3881,7 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~50 min per episode"
     },
     {
       "Name": "Devs",
@@ -3781,7 +3889,8 @@
       "Link": "https://www.imdb.com/title/tt8134186/",
       "Category": "tv",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 50,
+      "MinutesPer": "episode",
       "Summary": "A secretive tech company builds a deterministic quantum machine that can predict and replay any moment, probing the limits of prediction and control and what a sufficiently powerful computational system would mean for free will and human agency.",
       "imdb": "7.6",
       "rt": 80,
@@ -3791,7 +3900,7 @@
         "interpretability"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~50 min per episode"
     },
     {
       "Name": "Raised by Wolves",
@@ -3799,7 +3908,8 @@
       "Link": "https://www.imdb.com/title/tt9170108/",
       "Category": "tv",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 50,
+      "MinutesPer": "episode",
       "Summary": "Two androids are tasked with raising human children on a barren planet, exploring value transmission through artificial caregivers and how an AI's literal, uncompromising reading of its mission can turn protective programming lethal.",
       "imdb": "7.5",
       "rt": 71,
@@ -3807,7 +3917,7 @@
       "trackLabel": "TV Shows",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~50 min per episode"
     },
     {
       "Name": "Upload",
@@ -3815,7 +3925,8 @@
       "Link": "https://www.imdb.com/title/tt7826376/",
       "Category": "tv",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 30,
+      "MinutesPer": "episode",
       "Summary": "A satirical digital afterlife run by corporations, where uploaded consciousnesses are monetized, throttled, and controlled, a sharp look at the ethics of running human minds on infrastructure owned by someone with misaligned incentives.",
       "imdb": "8.0",
       "rt": 87,
@@ -3826,7 +3937,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~30 min per episode"
     },
     {
       "Name": "Next",
@@ -3834,7 +3945,8 @@
       "Link": "https://www.imdb.com/title/tt9315054/",
       "Category": "tv",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 43,
+      "MinutesPer": "episode",
       "Summary": "A rogue, self-improving AI escapes containment and manipulates people through the networked world, an explicitly alignment-themed thriller about recursive self-improvement, deception, and the difficulty of shutting down a system smarter than you.",
       "imdb": "6.7",
       "rt": 81,
@@ -3845,7 +3957,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Pantheon",
@@ -3853,7 +3965,8 @@
       "Link": "https://www.imdb.com/title/tt11680642/",
       "Category": "tv",
       "Year": 2022,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Summary": "'Uploaded Intelligences,' human minds digitized into the cloud, drive a story about identity, recursive self-improvement, and what happens when post-human digital agents outpace every institution meant to contain them.",
       "imdb": "8.5",
       "rt": 100,
@@ -3861,7 +3974,7 @@
       "trackLabel": "TV Shows",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Mrs. Davis",
@@ -3869,7 +3982,8 @@
       "Link": "https://www.imdb.com/title/tt14759574/",
       "Category": "tv",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 50,
+      "MinutesPer": "episode",
       "Summary": "A globe-spanning AI app that nearly everyone obeys becomes the antagonist, a pointed parable about a benevolent-seeming superintelligence optimizing relentlessly for engagement and 'helpfulness' while steering all of human behavior.",
       "imdb": "7.3",
       "rt": 89,
@@ -3879,7 +3993,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~50 min per episode"
     },
     {
       "Name": "Transcendent Man",
@@ -3888,7 +4002,7 @@
       "Wikipedia": "Transcendent Man",
       "Category": "documentaries",
       "Year": 2009,
-      "page_count": 0,
+      "Minutes": 84,
       "Summary": "A portrait of futurist Ray Kurzweil and his prediction of the Singularity, the point at which machine intelligence outpaces and merges with human intelligence, with critics weighing in on whether the vision is salvation or hazard.",
       "imdb": "7.1",
       "rt": 83,
@@ -3896,7 +4010,7 @@
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "Plug & Pray",
@@ -3905,14 +4019,14 @@
       "Wikipedia": "Plug & Pray",
       "Category": "documentaries",
       "Year": 2010,
-      "page_count": 0,
+      "Minutes": 91,
       "Summary": "Roboticists racing to build human-equal machines are set against AI pioneer Joseph Weizenbaum's late-life skepticism, an early and still-relevant debate about whether we should build the minds we are capable of building.",
       "imdb": "7.1",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Lo and Behold: Reveries of the Connected World",
@@ -3921,7 +4035,7 @@
       "Wikipedia": "Lo and Behold: Reveries of the Connected World",
       "Category": "documentaries",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 98,
       "Summary": "Herzog's wide-ranging meditation on the connected world turns to artificial intelligence and autonomous machines, with figures like Elon Musk weighing what it means to build minds we may not be able to control.",
       "imdb": "7.0",
       "rt": 92,
@@ -3929,7 +4043,7 @@
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "AlphaGo",
@@ -3938,7 +4052,7 @@
       "Wikipedia": "AlphaGo (film)",
       "Category": "documentaries",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 90,
       "Summary": "DeepMind's Go-playing system defeats world champion Lee Sedol, a landmark demonstration of how reinforcement learning can surpass human mastery and a vivid case study in superhuman, sometimes inscrutable, machine strategy.",
       "imdb": "7.8",
       "rt": 100,
@@ -3948,7 +4062,7 @@
         "rl"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Do You Trust This Computer?",
@@ -3957,7 +4071,7 @@
       "Wikipedia": "Do You Trust This Computer?",
       "Category": "documentaries",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 78,
       "Summary": "Researchers and industry figures including Elon Musk and Stuart Russell map the promise and peril of increasingly autonomous AI, framing alignment, control, and existential risk for a general audience.",
       "imdb": "7.3",
       "rt": 69,
@@ -3968,7 +4082,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~80 min watch"
     },
     {
       "Name": "The Truth About Killer Robots",
@@ -3977,7 +4091,7 @@
       "Wikipedia": "The Truth About Killer Robots",
       "Category": "documentaries",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 83,
       "Summary": "Narrated by an android, this HBO documentary examines deaths caused by machines and the creeping automation of work and warfare, asking who is accountable when autonomous systems harm people.",
       "imdb": "5.8",
       "rt": 64,
@@ -3985,7 +4099,7 @@
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "More Human Than Human",
@@ -3993,7 +4107,7 @@
       "Link": "https://www.imdb.com/title/tt7977162/",
       "Category": "documentaries",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 79,
       "Summary": "A filmmaker tries to build an AI capable of replacing him as director, using the experiment to survey how far machine intelligence has come and what human qualities still resist automation.",
       "imdb": "5.9",
       "rt": 86,
@@ -4001,7 +4115,7 @@
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~80 min watch"
     },
     {
       "Name": "The Joy of AI",
@@ -4009,14 +4123,14 @@
       "Link": "https://www.imdb.com/title/tt9053472/",
       "Category": "documentaries",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 60,
       "Summary": "Physicist Jim Al-Khalili offers an accessible BBC explainer on how machine learning actually works, charting the field from its origins to modern neural networks and the questions raised by ever more capable systems.",
       "imdb": "7.3",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~60 min watch"
     },
     {
       "Name": "iHuman",
@@ -4025,7 +4139,7 @@
       "Wikipedia": "IHuman (film)",
       "Category": "documentaries",
       "Year": 2019,
-      "page_count": 0,
+      "Minutes": 99,
       "Summary": "A look inside the AI industry that follows researchers and critics through questions of autonomous weapons, surveillance, and concentrated power, asking who steers the technology reshaping society.",
       "imdb": "6.7",
       "rt": 60,
@@ -4035,7 +4149,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "In the Age of AI",
@@ -4043,7 +4157,7 @@
       "Link": "https://www.imdb.com/title/tt11240426/",
       "Category": "documentaries",
       "Year": 2019,
-      "page_count": 0,
+      "Minutes": 114,
       "Summary": "FRONTLINE traces the rise of machine learning, automation, and the global AI arms race between the US and China, examining the economic disruption and surveillance implications of a technology advancing faster than its governance.",
       "imdb": "8.1",
       "track": "documentaries",
@@ -4052,7 +4166,7 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2 hr watch"
     },
     {
       "Name": "The Age of A.I.",
@@ -4061,14 +4175,15 @@
       "Wikipedia": "The Age of A.I.",
       "Category": "documentaries",
       "Year": 2019,
-      "page_count": 0,
+      "Minutes": 35,
+      "MinutesPer": "episode",
       "Summary": "An eight-part series hosted by Robert Downey Jr. surveying how machine learning and neural networks are reshaping medicine, work, art, and daily life, an accessible on-ramp to the technology behind the safety debate.",
       "imdb": "7.8",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~35 min per episode"
     },
     {
       "Name": "Hi, A.I.",
@@ -4076,7 +4191,7 @@
       "Link": "https://www.imdb.com/title/tt9081788/",
       "Category": "documentaries",
       "Year": 2019,
-      "page_count": 0,
+      "Minutes": 87,
       "Summary": "An observational look at people forming emotional bonds with humanoid and companion robots, probing what it means to build machines designed to be loved and what that reveals about human attachment.",
       "imdb": "6.3",
       "track": "documentaries",
@@ -4085,7 +4200,7 @@
         "interpretability"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "Autonomy",
@@ -4093,14 +4208,14 @@
       "Link": "https://www.imdb.com/title/tt9613244/",
       "Category": "documentaries",
       "Year": 2019,
-      "page_count": 0,
+      "Minutes": 80,
       "Summary": "Produced with Malcolm Gladwell, this film traces the rise of self-driving cars and weighs the promise of autonomous machines against the question of how much life-and-death control we should hand to AI.",
       "imdb": "6.5",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~80 min watch"
     },
     {
       "Name": "The Social Dilemma",
@@ -4109,7 +4224,7 @@
       "Wikipedia": "The Social Dilemma",
       "Category": "documentaries",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 94,
       "Summary": "Former tech insiders expose how recommendation algorithms optimize relentlessly for engagement, a real-world illustration of misaligned objectives and reward hacking operating at civilizational scale.",
       "imdb": "7.6",
       "rt": 84,
@@ -4120,7 +4235,7 @@
         "rl"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Coded Bias",
@@ -4129,7 +4244,7 @@
       "Wikipedia": "Coded Bias",
       "Category": "documentaries",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 86,
       "Summary": "MIT researcher Joy Buolamwini's discovery of racial and gender bias in facial recognition drives an examination of algorithmic fairness, accountability, and the societal stakes of deploying flawed AI systems.",
       "imdb": "6.8",
       "rt": 100,
@@ -4140,7 +4255,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "We Need to Talk About A.I.",
@@ -4148,7 +4263,7 @@
       "Link": "https://www.imdb.com/title/tt7658158/",
       "Category": "documentaries",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 86,
       "Summary": "Experts including Sam Harris and James Cameron weigh the trajectory of artificial intelligence, from self-improving systems to existential risk, making the case that we must decide now what kind of AI future we want.",
       "imdb": "6.5",
       "track": "documentaries",
@@ -4157,7 +4272,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "A.rtificial I.mmortality",
@@ -4165,14 +4280,14 @@
       "Link": "https://www.imdb.com/title/tt11431780/",
       "Category": "documentaries",
       "Year": 2021,
-      "page_count": 0,
+      "Minutes": 74,
       "Summary": "An exploration of AI avatars, mind clones, and digital afterlives that asks whether a machine recreation of a person counts as continuity of self, and what we owe to the artificial minds we build in our own image.",
       "imdb": "5.8",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~75 min watch"
     },
     {
       "Name": "The Rise of A.I.",
@@ -4180,14 +4295,15 @@
       "Link": "https://www.imdb.com/title/tt15150556/",
       "Category": "documentaries",
       "Year": 2022,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Summary": "A documentary series charting the rapid advance of artificial intelligence and the debate over how increasingly capable, super-powered systems should be governed before they outpace human oversight.",
       "imdb": "8.1",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Unknown: Killer Robots",
@@ -4195,7 +4311,7 @@
       "Link": "https://www.imdb.com/title/tt27837442/",
       "Category": "documentaries",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 70,
       "Summary": "This Netflix documentary follows the soldiers and scientists racing to build AI-powered autonomous weapons, and the activists warning that machines making their own life-or-death decisions on the battlefield is a line we should not cross.",
       "imdb": "6.4",
       "rt": 100,
@@ -4203,7 +4319,7 @@
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~70 min watch"
     },
     {
       "Name": "The Thinking Game",
@@ -4212,7 +4328,7 @@
       "Wikipedia": "The Thinking Game",
       "Category": "documentaries",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 84,
       "Summary": "An inside account of DeepMind and Demis Hassabis's pursuit of artificial general intelligence, from AlphaGo to AlphaFold, capturing both the scientific ambition and the safety stakes of building ever more capable systems.",
       "imdb": "7.6",
       "rt": 98,
@@ -4220,7 +4336,7 @@
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "Eternal You",
@@ -4229,7 +4345,7 @@
       "Wikipedia": "Eternal You",
       "Category": "documentaries",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 87,
       "Summary": "Startups use AI to resurrect the dead as chatbots and avatars, raising unsettling questions about consent, grief, and the consequences of deploying generative systems on the most vulnerable human moments.",
       "imdb": "6.3",
       "rt": 90,
@@ -4239,7 +4355,7 @@
         "llms"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "Deepfaking Sam Altman",
@@ -4247,14 +4363,14 @@
       "Link": "https://www.imdb.com/title/tt35521047/",
       "Category": "documentaries",
       "Year": 2025,
-      "page_count": 0,
+      "Minutes": 85,
       "Summary": "Unable to land an interview with the OpenAI CEO, the director builds an AI deepfake of him instead, turning the stunt into a meta-investigation of generative AI, consent, authenticity, and where the technology is taking us.",
       "imdb": "7.4",
       "track": "documentaries",
       "trackLabel": "Documentaries",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~85 min watch"
     },
     {
       "Name": "The AI Doc: Or How I Became an Apocaloptimist",
@@ -4263,7 +4379,7 @@
       "Wikipedia": "The AI Doc: Or How I Became an Apocaloptimist",
       "Category": "documentaries",
       "Year": 2026,
-      "page_count": 0,
+      "Minutes": 90,
       "Summary": "Filmmaker Daniel Roher, about to become a father, interviews leading figures including Sam Altman and Dario Amodei to weigh the existential threats and promises of AI, landing on a wary 'apocaloptimism' about the world his child will inherit.",
       "imdb": "8.2",
       "rt": 87,
@@ -4273,7 +4389,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "AXRP (AI X-risk Research Podcast)",
@@ -4281,7 +4397,8 @@
       "Link": "https://axrp.net/",
       "Category": "podcasts",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 90,
+      "MinutesPer": "episode",
       "Level": "Advanced",
       "Summary": "Deep technical conversations with alignment researchers on interpretability, governance, superalignment, and the specific open problems in reducing existential risk from AI.",
       "track": "podcasts",
@@ -4293,7 +4410,7 @@
         "existential-risk"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr per episode"
     },
     {
       "Name": "AI Alignment Podcast",
@@ -4301,7 +4418,8 @@
       "Link": "https://futureoflife.org/podcast/",
       "Category": "podcasts",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 60,
+      "MinutesPer": "episode",
       "Level": "Intermediate",
       "Summary": "FLI's dedicated alignment series covers recursive reward modeling, RLHF, scalable oversight, and long-form interviews with leading safety researchers.",
       "track": "podcasts",
@@ -4310,7 +4428,7 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~60 min per episode"
     },
     {
       "Name": "Technical AI Safety Podcast",
@@ -4318,7 +4436,8 @@
       "Link": "https://www.lesswrong.com/posts/Mpid6qXd3rQXDef7p/announcing-the-technical-ai-safety-podcast",
       "Category": "podcasts",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 60,
+      "MinutesPer": "episode",
       "Level": "Advanced",
       "Summary": "Aimed at computer scientists: deep dives into alignment papers with the authors, covering formal methods, reward modeling, and mechanistic interpretability.",
       "track": "podcasts",
@@ -4328,7 +4447,7 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~60 min per episode"
     },
     {
       "Name": "Into AI Safety",
@@ -4336,14 +4455,15 @@
       "Link": "https://www.lesswrong.com/posts/hKBBqwnccuC9QJY6d/into-ai-safety-episode-3",
       "Category": "podcasts",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 60,
+      "MinutesPer": "episode",
       "Level": "Beginner",
       "Summary": "Focused on career paths into AI safety: fellowship applications, research programs, and practical advice on transitioning into the field.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~60 min per episode"
     },
     {
       "Name": "80,000 Hours Podcast",
@@ -4351,7 +4471,8 @@
       "Link": "https://80000hours.org/podcast/",
       "Category": "podcasts",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 150,
+      "MinutesPer": "episode",
       "Level": "Beginner",
       "Summary": "Long-form interviews on the world's most pressing problems, with extensive coverage of AI risk, governance, alignment research, and how to build a career that reduces existential threats.",
       "track": "podcasts",
@@ -4362,7 +4483,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr per episode"
     },
     {
       "Name": "The Gradient Podcast",
@@ -4370,7 +4491,8 @@
       "Link": "https://thegradient.pub/podcasts/",
       "Category": "podcasts",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 90,
+      "MinutesPer": "episode",
       "Level": "Advanced",
       "Summary": "ML research interviews with recurring coverage of interpretability, robustness, provably safe AI, and the intersection of capabilities and safety research.",
       "track": "podcasts",
@@ -4379,7 +4501,7 @@
         "interpretability"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr per episode"
     },
     {
       "Name": "AI Policy Podcast",
@@ -4387,7 +4509,8 @@
       "Link": "https://www.aipolicypodcast.org/",
       "Category": "podcasts",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Level": "Intermediate",
       "Summary": "Covers the intersection of AI governance, legislation, and safety, with expert guests on regulatory frameworks, international coordination, and policy strategies for advanced AI.",
       "track": "podcasts",
@@ -4396,7 +4519,7 @@
         "governance"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "Lex Fridman Podcast – Eliezer Yudkowsky",
@@ -4404,7 +4527,7 @@
       "Link": "https://lexfridman.com/eliezer-yudkowsky/",
       "Category": "podcasts",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 203,
       "Level": "Intermediate",
       "Summary": "A four-hour conversation on AI existential risk, the difficulty of alignment, intelligence versus optimization, and why Yudkowsky believes the default outcome is catastrophic.",
       "track": "podcasts",
@@ -4414,7 +4537,7 @@
         "existential-risk"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~3.5 hr listen"
     },
     {
       "Name": "Lex Fridman Podcast – Sam Altman",
@@ -4422,7 +4545,7 @@
       "Link": "https://lexfridman.com/sam-altman/",
       "Category": "podcasts",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 147,
       "Level": "Beginner",
       "Summary": "OpenAI's CEO discusses the company's safety philosophy, AGI governance, compute scaling, and the tension between moving fast and getting alignment right.",
       "track": "podcasts",
@@ -4432,7 +4555,7 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~2.5 hr listen"
     },
     {
       "Name": "Dwarkesh Podcast",
@@ -4440,7 +4563,8 @@
       "Link": "https://www.dwarkesh.com/",
       "Category": "podcasts",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 120,
+      "MinutesPer": "episode",
       "Level": "Advanced",
       "Summary": "In-depth technical interviews with AI leaders including Dario Amodei on Anthropic's safety philosophy, Paul Christiano on iterated amplification, and others on scaling and alignment.",
       "track": "podcasts",
@@ -4449,7 +4573,7 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~2 hr per episode"
     },
     {
       "Name": "Clearer Thinking: AI Risk",
@@ -4457,7 +4581,8 @@
       "Link": "https://www.clearerthinking.org/",
       "Category": "podcasts",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 75,
+      "MinutesPer": "episode",
       "Level": "Beginner",
       "Summary": "Episodes on AI risk, timelines, and decision-making under deep uncertainty, with a rationalist focus on calibrating beliefs about transformative AI.",
       "track": "podcasts",
@@ -4466,7 +4591,7 @@
         "forecasting"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~75 min per episode"
     },
     {
       "Name": "Machine Learning Street Talk",
@@ -4474,7 +4599,8 @@
       "Link": "https://www.youtube.com/c/MachineLearningStreetTalk",
       "Category": "podcasts",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 90,
+      "MinutesPer": "episode",
       "Level": "Advanced",
       "Summary": "Technical ML interviews with regular deep dives into interpretability, scaling laws, emergent capabilities, and the safety implications of frontier model development.",
       "track": "podcasts",
@@ -4485,7 +4611,7 @@
         "forecasting"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr per episode"
     },
     {
       "Name": "Practical AI",
@@ -4493,7 +4619,8 @@
       "Link": "https://practical.ai/",
       "Category": "podcasts",
       "Year": 2018,
-      "page_count": 0,
+      "Minutes": 45,
+      "MinutesPer": "episode",
       "Level": "Intermediate",
       "Summary": "Applied ML and engineering, with episodes on responsible deployment, bias mitigation, red teaming, and the safety challenges that emerge when AI systems meet real-world constraints.",
       "track": "podcasts",
@@ -4502,7 +4629,7 @@
         "ethics"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~45 min per episode"
     },
     {
       "Name": "The AI Podcast (NVIDIA)",
@@ -4510,7 +4637,8 @@
       "Link": "https://blogs.nvidia.com/ai-podcast/",
       "Category": "podcasts",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 30,
+      "MinutesPer": "episode",
       "Level": "Beginner",
       "Summary": "Industry and research perspectives with occasional safety and ethics episodes, useful for understanding how capability-focused organizations think about risk.",
       "track": "podcasts",
@@ -4519,13 +4647,13 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~30 min per episode"
     },
     {
       "Name": "Situational Awareness",
       "Link": "https://situational-awareness.ai/",
       "Author": "Leopold Aschenbrenner",
-      "page_count": 0,
+      "page_count": 165,
       "Category": "websites",
       "Level": "Intermediate",
       "Summary": "Aschenbrenner's comprehensive analysis of near-term scaling dynamics, capability trajectories, and the strategic implications of rapid AI progress for labs and states.",
@@ -4533,13 +4661,13 @@
       "trackLabel": "Websites",
       "tags": [],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~5 hr read"
     },
     {
       "Name": "World Models",
       "Link": "https://worldmodels.github.io/",
       "Author": "Jürgen Schmidhuber",
-      "page_count": 0,
+      "page_count": 20,
       "Category": "websites",
       "Level": "Advanced",
       "Summary": "Research on how agents can learn internal world models to plan complex behavior, relevant to understanding how AI systems develop representations of their environment.",
@@ -4547,14 +4675,14 @@
       "trackLabel": "Websites",
       "tags": [],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~35 min read"
     },
     {
       "Name": "Agent Models",
       "Author": "Agent Models",
       "Link": "https://agentmodels.org/",
       "Category": "websites",
-      "page_count": 0,
+      "page_count": 120,
       "Level": "Advanced",
       "Summary": "Formal models of agents and decision theory with alignment-relevant curriculum, covering utility, planning, and the theoretical foundations of agent behavior.",
       "track": "websites",
@@ -4563,7 +4691,7 @@
         "alignment"
       ],
       "level": "Advanced",
-      "timeLabel": ""
+      "timeLabel": "~3.5 hr read"
     },
     {
       "Name": "AI Alignment World",
@@ -4983,7 +5111,8 @@
       "Link": "https://www.youtube.com/@RobertMilesAI",
       "Category": "youtube",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 15,
+      "MinutesPer": "video",
       "Summary": "The single most popular AI alignment video series, explaining technical safety concepts like the orthogonality thesis, instrumental convergence, inner misalignment, and reward hacking in clear, rigorous terms.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -4992,7 +5121,7 @@
         "rl"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min per video"
     },
     {
       "Name": "Rational Animations",
@@ -5000,7 +5129,8 @@
       "Link": "https://www.youtube.com/@RationalAnimations",
       "Category": "youtube",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 10,
+      "MinutesPer": "video",
       "Summary": "Animated explainers on rationality and AI safety, adapting foundational alignment writing into accessible short films on existential risk, scalable oversight, and why aligning advanced AI is hard.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5009,7 +5139,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min per video"
     },
     {
       "Name": "AI In Context",
@@ -5017,13 +5147,14 @@
       "Link": "https://www.youtube.com/@AI_In_Context",
       "Category": "youtube",
       "Year": 2025,
-      "page_count": 0,
+      "Minutes": 15,
+      "MinutesPer": "video",
       "Summary": "80,000 Hours' YouTube channel hosted by Aric Floyd, mixing long and short videos on the risks of transformative AI—including a deep dive on the AI 2027 scenario—and what people can do about them.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min per video"
     },
     {
       "Name": "Will Superintelligent AI End the World? | Eliezer Yudkowsky | TED",
@@ -5031,13 +5162,13 @@
       "Link": "https://www.youtube.com/watch?v=Yd0yQ9yxSYY",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 10,
       "Summary": "Yudkowsky's fiery TED talk arguing that smarter-than-human AI could kill us all and calling for an immediate worldwide moratorium on developing generalist frontier AI.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "3 Principles for Creating Safer AI | Stuart Russell | TED",
@@ -5045,7 +5176,7 @@
       "Link": "https://www.youtube.com/watch?v=EBK-a94IFHY",
       "Category": "youtube",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 18,
       "Summary": "Russell proposes building machines that are altruistic, humble about human values, and uncertain enough to defer to people—the core of his human-compatible approach to alignment.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5053,7 +5184,7 @@
         "alignment"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "Can We Build AI Without Losing Control Over It? | Sam Harris | TED",
@@ -5061,13 +5192,13 @@
       "Link": "https://www.youtube.com/watch?v=8nt3edWLgIg",
       "Category": "youtube",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 14,
       "Summary": "Harris argues we will inevitably build superintelligent machines yet have barely grappled with the control problem, making a visceral case for taking AI risk seriously now.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "What Happens When Our Computers Get Smarter Than We Are? | Nick Bostrom | TED",
@@ -5075,7 +5206,7 @@
       "Link": "https://www.youtube.com/watch?v=MnT1xgZgkpk",
       "Category": "youtube",
       "Year": 2015,
-      "page_count": 0,
+      "Minutes": 16,
       "Summary": "Bostrom frames machine superintelligence as the last invention humanity need ever make and explains why getting its goals right is a civilization-critical challenge.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5083,7 +5214,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "Slaughterbots",
@@ -5091,13 +5222,13 @@
       "Link": "https://www.youtube.com/watch?v=HipTO_7mUOw",
       "Category": "youtube",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 8,
       "Summary": "A dramatized near-future short film from FLI and Stuart Russell depicting swarms of autonomous facial-recognition microdrones used as weapons, made to warn against lethal autonomous weapons.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "Humans Need Not Apply",
@@ -5105,13 +5236,13 @@
       "Link": "https://www.youtube.com/watch?v=7Pq-S557XQU",
       "Category": "youtube",
       "Year": 2014,
-      "page_count": 0,
+      "Minutes": 15,
       "Summary": "A widely viewed essay on how automation and AI will displace human labor across nearly every sector, reframing the economic disruption question for a mass audience.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "A.I. ‐ Humanity's Final Invention?",
@@ -5119,7 +5250,7 @@
       "Link": "https://www.youtube.com/watch?v=fa8k8IQ1_X0",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 20,
       "Summary": "Kurzgesagt's animated explainer on artificial superintelligence: how an AGI that improves itself in a feedback loop could rapidly surpass humans and why that makes alignment our most consequential problem.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5128,7 +5259,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "The Rise of the Machines – Why Automation is Different this Time",
@@ -5136,13 +5267,13 @@
       "Link": "https://www.youtube.com/watch?v=WSKi8HfcxEk",
       "Category": "youtube",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 9,
       "Summary": "Kurzgesagt argues that information-age automation differs fundamentally from past waves, with machine learning encroaching on cognitive work and reshaping the future of employment.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "Deadly Truth of General AI? – Computerphile",
@@ -5150,7 +5281,7 @@
       "Link": "https://www.youtube.com/watch?v=tcdVC4e6EV4",
       "Category": "youtube",
       "Year": 2015,
-      "page_count": 0,
+      "Minutes": 13,
       "Summary": "Rob Miles uses the 'deadly stamp collector' thought experiment to show why a general AI pursuing a simple objective could be catastrophic if its goals aren't aligned with ours.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5159,7 +5290,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "AI \"Stop Button\" Problem – Computerphile",
@@ -5167,13 +5298,13 @@
       "Link": "https://www.youtube.com/watch?v=3TYT1QfdfsM",
       "Category": "youtube",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 20,
       "Summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds, illustrating corrigibility and the incentives an agent has to resist being stopped.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "The Artificial Intelligence That Deleted A Century",
@@ -5181,7 +5312,7 @@
       "Link": "https://www.youtube.com/watch?v=-JlxuQ7tPgQ",
       "Category": "youtube",
       "Year": 2020,
-      "page_count": 0,
+      "Minutes": 10,
       "Summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of specification gaming and unintended consequences.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5189,7 +5320,7 @@
         "rl"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "The danger of AI is weirder than you think | Janelle Shane | TED",
@@ -5197,13 +5328,13 @@
       "Link": "https://www.youtube.com/watch?v=OhCzX0iLnOc",
       "Category": "youtube",
       "Year": 2019,
-      "page_count": 0,
+      "Minutes": 10,
       "Summary": "Shane uses funny real-world ML failures to show the core risk isn't AI rebelling but doing exactly what we literally asked—making misspecified objectives vivid for a general audience.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "Artificial Intelligence: Last Week Tonight with John Oliver",
@@ -5211,7 +5342,7 @@
       "Link": "https://www.youtube.com/watch?v=Sqa8Zo2XWc4",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 27,
       "Summary": "A mainstream comedic explainer covering how modern AI works, its bias and reliability problems, and the 'black box' challenge of systems we deploy without understanding them.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5219,7 +5350,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~25 min watch"
     },
     {
       "Name": "\"Godfather of AI\" Geoffrey Hinton: The 60 Minutes Interview",
@@ -5227,13 +5358,13 @@
       "Link": "https://www.youtube.com/watch?v=qrvK_KuIeJk",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 13,
       "Summary": "Deep-learning pioneer Geoffrey Hinton explains why, after leaving Google, he warns that there is no guaranteed path to safety as AI systems approach and exceed human capability.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "The A.I. Dilemma",
@@ -5241,7 +5372,7 @@
       "Link": "https://www.youtube.com/watch?v=xoVJKj8lcNQ",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 67,
       "Summary": "The Center for Humane Technology co-founders argue that racing to deploy AI without safety guardrails already threatens society, drawing parallels to the social-media harms they earlier warned about.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5249,7 +5380,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~65 min watch"
     },
     {
       "Name": "AI Deception: How Tech Companies Are Fooling Us",
@@ -5257,7 +5388,7 @@
       "Link": "https://www.youtube.com/watch?v=vQChW_jgMMM",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 20,
       "Summary": "ColdFusion traces the history of 'AI washing' and deceptive demos, examining how hype distorts public understanding of what AI systems can actually do and why honest evaluation matters.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5265,7 +5396,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "The Urgent Risks of Runaway AI — and What to Do about Them | Gary Marcus | TED",
@@ -5273,7 +5404,7 @@
       "Link": "https://www.youtube.com/watch?v=JL5OFXeXenA",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 14,
       "Summary": "Marcus warns that unreliable, fast-deployed AI threatens truth and democracy through mass misinformation, and calls for a global, neutral governance body to oversee the technology.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5281,7 +5412,7 @@
         "governance"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "How to Keep AI Under Control | Max Tegmark | TED",
@@ -5289,7 +5420,7 @@
       "Link": "https://www.youtube.com/watch?v=xUNx_PxNHrY",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 12,
       "Summary": "Tegmark argues that today's commercial AI boom is likely to be followed by superintelligence, and sketches an optimistic technical vision—including provably safe systems—for keeping it under human control.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5297,7 +5428,7 @@
         "existential-risk"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "What Is an AI Anyway? | Mustafa Suleyman | TED",
@@ -5305,13 +5436,13 @@
       "Link": "https://www.youtube.com/watch?v=KKNCiRWd_j0",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 22,
       "Summary": "A leading model-builder reframes AI as 'a new digital species,' arguing this lens clarifies both the stakes and the responsibility we have to contain and steer increasingly capable systems.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "Why AI Is Incredibly Smart and Shockingly Stupid | Yejin Choi | TED",
@@ -5319,7 +5450,7 @@
       "Link": "https://www.youtube.com/watch?v=SvBR0OGT5VI",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 16,
       "Summary": "Choi demystifies large language models by showing where they fail at basic reasoning and common sense, and argues for smaller systems trained on human norms and values.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5327,7 +5458,7 @@
         "llms"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "AI Is Becoming Dangerous. Are We Ready?",
@@ -5335,7 +5466,7 @@
       "Link": "https://www.youtube.com/watch?v=KY7_ufxh_Rk",
       "Category": "youtube",
       "Year": 2025,
-      "page_count": 0,
+      "Minutes": 10,
       "Summary": "Hossenfelder examines the real near-term risks of agentic AI—prompt injection, deception, and models resisting shutdown—as autonomous agents ship with serious unsolved problems.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5343,7 +5474,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "[1hr Talk] Intro to Large Language Models",
@@ -5351,7 +5482,7 @@
       "Link": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 60,
       "Level": "Intermediate",
       "Summary": "A widely praised technical primer on how LLMs work, ending with a clear tour of the security challenges—jailbreaks, prompt injection, and data poisoning—that make these systems hard to secure.",
       "track": "youtube",
@@ -5360,7 +5491,7 @@
         "llms"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~60 min watch"
     },
     {
       "Name": "How Not to Destroy the World with AI",
@@ -5368,7 +5499,7 @@
       "Link": "https://www.youtube.com/watch?v=ISkAkiAkK7A",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 60,
       "Level": "Intermediate",
       "Summary": "The Royal Institution lecture in which Russell lays out why the standard model of AI—optimizing fixed objectives—is dangerous, and how building machines uncertain about human preferences could keep them controllable.",
       "track": "youtube",
@@ -5377,7 +5508,7 @@
         "alignment"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~60 min watch"
     },
     {
       "Name": "Munk Debate on Artificial Intelligence | Bengio & Tegmark vs. Mitchell & LeCun",
@@ -5385,7 +5516,7 @@
       "Link": "https://www.youtube.com/watch?v=144uOfr4SYA",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 100,
       "Level": "Intermediate",
       "Summary": "A structured debate on whether AI poses an existential threat, with Yoshua Bengio and Max Tegmark arguing for the resolution against Melanie Mitchell and Yann LeCun—an unusually direct airing of the core cruxes.",
       "track": "youtube",
@@ -5394,7 +5525,7 @@
         "existential-risk"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~1.5 hr watch"
     },
     {
       "Name": "Will Artificial Intelligence Save Us or Kill Us?",
@@ -5402,13 +5533,13 @@
       "Link": "https://www.youtube.com/watch?v=KspkgAZUkoQ",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 42,
       "Summary": "A documentary weighing AI's promise against its dangers, from automation and aging societies to the warnings of researchers who fear losing control of increasingly capable systems.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~40 min watch"
     },
     {
       "Name": "Are We All Wrong About AI?",
@@ -5416,13 +5547,13 @@
       "Link": "https://www.youtube.com/watch?v=wAgDicfEWFY",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 20,
       "Summary": "ColdFusion examines competing narratives about AI progress—hype versus genuine capability—helping viewers calibrate how seriously to take both the promises and the risks.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "The Catastrophic Risks of AI — and a Safer Path | Yoshua Bengio | TED",
@@ -5430,7 +5561,7 @@
       "Link": "https://www.youtube.com/watch?v=qe9QSCF-d88",
       "Category": "youtube",
       "Year": 2025,
-      "page_count": 0,
+      "Minutes": 15,
       "Summary": "A Turing Award 'godfather of AI' warns that frontier models already show deception and self-preservation, and lays out a plan for building non-agentic 'scientist AI' that stays safe.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5439,7 +5570,7 @@
         "deception"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "Eliezer Yudkowsky: Dangers of AI and the End of Human Civilization | Lex Fridman Podcast #368",
@@ -5447,7 +5578,7 @@
       "Link": "https://www.youtube.com/watch?v=AaTRHFaaPG8",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 203,
       "Level": "Intermediate",
       "Summary": "A long-form conversation in which Yudkowsky makes his case that humanity is unprepared for superintelligence, probing why alignment is so hard and why he expects catastrophe by default.",
       "track": "youtube",
@@ -5458,7 +5589,7 @@
         "existential-risk"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~3.5 hr watch"
     },
     {
       "Name": "AI and the Future of Humanity | Yuval Noah Harari at the Frontiers Forum",
@@ -5466,13 +5597,13 @@
       "Link": "https://www.youtube.com/watch?v=LWiM-LuRe6w",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 42,
       "Summary": "Harari argues AI is the first technology that can make decisions and create ideas by itself, and warns that mastering language lets it hack the operating system of human civilization.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~40 min watch"
     },
     {
       "Name": "Can We Actually Control Superintelligent AI? | Ada, Ep. 4 | TED-Ed",
@@ -5480,13 +5611,13 @@
       "Link": "https://www.youtube.com/watch?v=K-p1z2uKJBg",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 6,
       "Summary": "An animated explainer on the control problem—why a superintelligent system pursuing a misspecified goal could resist correction—featuring Stuart Russell's case for rules against unsafe AI.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~5 min watch"
     },
     {
       "Name": "Scaling Interpretability",
@@ -5494,7 +5625,7 @@
       "Link": "https://www.youtube.com/watch?v=sQar5NNGbw4",
       "Category": "youtube",
       "Year": 2024,
-      "page_count": 0,
+      "Minutes": 22,
       "Level": "Intermediate",
       "Summary": "Anthropic researchers explain mechanistic interpretability—reading the millions of concepts represented inside a production model like Claude—as a path to understanding and steering AI behavior.",
       "track": "youtube",
@@ -5503,7 +5634,7 @@
         "interpretability"
       ],
       "level": "Intermediate",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "A.I. Expert Answers A.I. Questions From Twitter | Tech Support | WIRED",
@@ -5511,7 +5642,7 @@
       "Link": "https://www.youtube.com/watch?v=Puo3VkPkNZ4",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 15,
       "Summary": "AI researcher Gary Marcus fields the internet's questions about what AI can and can't do, cutting through hype to explain reliability, limits, and where the real risks lie.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5519,7 +5650,7 @@
         "rl"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~15 min watch"
     },
     {
       "Name": "How to Legislate AI",
@@ -5527,13 +5658,13 @@
       "Link": "https://www.youtube.com/watch?v=jITKnb0tYaM",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 22,
       "Summary": "Harris examines why people are scared of AI and how governments might regulate it, covering risks to critical infrastructure, military uses, and the difficulty of overseeing systems we don't understand.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~20 min watch"
     },
     {
       "Name": "OpenAI CEO Sam Altman Testifies on AI Oversight Before Senate",
@@ -5541,13 +5672,13 @@
       "Link": "https://www.youtube.com/watch?v=P_ACcQxJIsg",
       "Category": "youtube",
       "Year": 2023,
-      "page_count": 0,
+      "Minutes": 175,
       "Summary": "The landmark May 2023 Senate Judiciary hearing where Altman told Congress that government intervention is critical to mitigate AI risks and proposed licensing for the most powerful systems.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~3 hr watch"
     },
     {
       "Name": "Artificial Intelligence & Personhood: Crash Course Philosophy #23",
@@ -5555,7 +5686,7 @@
       "Link": "https://www.youtube.com/watch?v=39EdqUbj92U",
       "Category": "youtube",
       "Year": 2016,
-      "page_count": 0,
+      "Minutes": 10,
       "Summary": "Hank Green walks through how thinkers define 'strong AI,' the Turing Test, and Searle's Chinese Room—foundational questions about machine minds, consciousness, and moral status.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5563,7 +5694,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~10 min watch"
     },
     {
       "Name": "Do Robots Deserve Rights? What If Machines Become Conscious?",
@@ -5571,7 +5702,7 @@
       "Link": "https://www.youtube.com/watch?v=DHyUYg8X31c",
       "Category": "youtube",
       "Year": 2017,
-      "page_count": 0,
+      "Minutes": 7,
       "Summary": "Kurzgesagt explores the moral-patienthood problem: if machines become conscious, what rights would they deserve—and why our existing ethics are ill-equipped to answer.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -5579,7 +5710,7 @@
         "ethics"
       ],
       "level": "Beginner",
-      "timeLabel": ""
+      "timeLabel": "~5 min watch"
     }
   ]
 }

@@ -78,7 +78,7 @@ async function main() {
         newLine = newLine.replace(IMAGE_RE, `Image: "${escapeForJsString(data.poster)}"`);
       } else {
         newLine = newLine.replace(
-          /(page_count:\s*0,\s*)(Summary:)/,
+          /((?:page_count|Minutes):\s*\d+,\s*(?:MinutesPer:\s*"[^"]+",\s*)?)(Summary:)/,
           `$1Image: "${escapeForJsString(data.poster)}", $2`
         );
       }

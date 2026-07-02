@@ -1169,8 +1169,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pages) return humanizeMinutes(pages * 1.8, "read");
     const minutes = normalizePositiveInteger(entry.Minutes);
     if (minutes) {
+      if (typeof entry.MinutesPer === "string" && entry.MinutesPer.trim()) {
+        return humanizeMinutes(minutes, `per ${entry.MinutesPer.trim()}`);
+      }
       const track = getEntryBucketKey(entry);
-      const verb = track === "podcasts" || track === "youtube" ? "listen" : "watch";
+      if (track === "courses") return humanizeMinutes(minutes, "course");
+      const verb = track === "podcasts" ? "listen" : "watch";
       return humanizeMinutes(minutes, verb);
     }
     return "";
