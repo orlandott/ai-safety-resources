@@ -1983,6 +1983,71 @@ a.film-score:hover .film-score-value {
   line-height: 1.4;
 }
 
+/* ── "Recommended for you" cards (homepage) ────────────────────────────────
+   Deliberately distinct from .path-card: accent-tinted, left-rule cards with
+   a format pill and an italic "why" footnote, so personalized picks don't
+   read as a second row of static paths. */
+.recs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.75rem;
+}
+.rec-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem 0.95rem;
+  border: 1px solid var(--accent-soft-border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px 14px 14px 6px;
+  background: linear-gradient(135deg, var(--accent-soft), var(--surface) 75%);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.rec-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.rec-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.rec-card-kind {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--accent-text);
+  background: var(--surface);
+  border: 1px solid var(--accent-soft-border);
+  border-radius: 999px;
+  padding: 0.16rem 0.55rem;
+}
+.rec-card-title {
+  font-family: "Hahmlet", Georgia, serif;
+  font-weight: 600;
+  color: var(--text);
+}
+.rec-card-author {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.rec-card-why {
+  margin-top: auto;
+  padding-top: 0.3rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.rec-card-why::before {
+  content: "✦ ";
+  font-style: normal;
+  color: var(--accent-text);
+}
+
 /* ── Hub pages (/topics/, /paths/) ─────────────────────────────────────────*/
 .hub-grid {
   display: grid;

@@ -3278,23 +3278,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const trackKey = latestEntryCategoryLookup.get(lookupKey) || getEntryBucketKey(entry);
         let score = 0;
-        let bestTag = "";
-        let bestTagWeight = 0;
         getEntryTopicTags(entry).forEach((tag) => {
-          const weight = tagWeights.get(tag) || 0;
-          if (!weight) {
-            return;
-          }
-          score += weight * 2;
-          if (weight > bestTagWeight) {
-            bestTagWeight = weight;
-            bestTag = tag;
-          }
+          score += (tagWeights.get(tag) || 0) * 2;
         });
         score += (trackWeights.get(trackKey) || 0) * 0.75;
         score += (levelWeights.get(getEntryLevel(entry)) || 0) * 0.25;
         if (score > 0) {
-          scored.push({ lookupKey, entry, trackKey, score, bestTag });
+          scored.push({ lookupKey, entry, trackKey, score });
         }
       });
       if (!scored.length) {
@@ -3329,27 +3319,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
+      // Each card explains itself with the strongest reason no earlier card in
+      // the row already used — one dominant tag in the profile would otherwise
+      // stamp the same sentence on all four picks.
+      const usedReasons = new Set();
       recsGrid.innerHTML = picks
-        .map(({ lookupKey, entry, trackKey, bestTag }) => {
+        .map(({ lookupKey, entry, trackKey }) => {
           const safeName = escapeHtml(entry.Name || "Untitled");
           const safeAuthor = escapeHtml(entry.Author || "");
           const trackLabel = trackLabels[trackKey] || "";
           const level = getEntryLevel(entry);
           const kind = [trackLabel, level].filter(Boolean).join(" · ");
-          let why;
-          if (bestTag && recommendationTagLabels[bestTag]) {
-            why = highlyRatedTags.has(bestTag)
-              ? `Because you rated ${recommendationTagLabels[bestTag]} resources highly`
-              : `Because you saved ${recommendationTagLabels[bestTag]} resources`;
-          } else if ((trackWeights.get(trackKey) || 0) > 0) {
-            why = `More ${trackLabel || "picks"} like your favorites`;
-          } else {
-            why = "Matches the level of your picks";
+          const reasons = getEntryTopicTags(entry)
+            .filter((tag) => (tagWeights.get(tag) || 0) > 0 && recommendationTagLabels[tag])
+            .sort((left, right) => (tagWeights.get(right) || 0) - (tagWeights.get(left) || 0))
+            .map((tag) =>
+              highlyRatedTags.has(tag)
+                ? `Because you rated ${recommendationTagLabels[tag]} resources highly`
+                : `Because you saved ${recommendationTagLabels[tag]} resources`
+            );
+          if ((trackWeights.get(trackKey) || 0) > 0 && trackLabel) {
+            reasons.push(`More ${trackLabel.toLowerCase()} like your favorites`);
           }
-          return `<a class="path-card" href="#r-${encodeURIComponent(lookupKey)}" data-rec-key="${escapeHtml(lookupKey)}">
-            <span class="path-card-kind">${escapeHtml(kind)}</span>
-            <span class="path-card-title">${safeName}</span>
-            <span class="path-card-why">${safeAuthor ? `${safeAuthor} — ` : ""}${escapeHtml(why)}</span>
+          reasons.push("Matches the level of your picks");
+          const why = reasons.find((reason) => !usedReasons.has(reason)) || reasons[0];
+          usedReasons.add(why);
+          return `<a class="rec-card" href="#r-${encodeURIComponent(lookupKey)}" data-rec-key="${escapeHtml(lookupKey)}">
+            <span class="rec-card-kind">${escapeHtml(kind)}</span>
+            <span class="rec-card-title">${safeName}</span>
+            ${safeAuthor ? `<span class="rec-card-author">${safeAuthor}</span>` : ""}
+            <span class="rec-card-why">${escapeHtml(why)}</span>
           </a>`;
         })
         .join("");
