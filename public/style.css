@@ -1016,6 +1016,47 @@ a.film-score:hover .film-score-value {
   color: var(--accent-text);
 }
 
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.05rem;
+  margin-right: 0.15rem;
+}
+
+.star-button {
+  border: none;
+  background: none;
+  padding: 0 0.06rem;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--border);
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.star-button.is-active {
+  color: #f2a91e;
+}
+
+/* Hover preview: light up every star from the first through the hovered one. */
+.star-rating:hover .star-button {
+  color: #f2a91e;
+}
+
+.star-rating:hover .star-button:hover ~ .star-button {
+  color: var(--border);
+}
+
+.star-button:hover {
+  transform: scale(1.2);
+}
+
+.star-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
 .resource-card.is-spotlighted {
   outline: 3px solid var(--accent);
   outline-offset: 4px;

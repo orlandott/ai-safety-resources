@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const metadataLookupTimeoutMs = 12000;
   const metadataHydrationConcurrency = 6;
   const readingListStorageKey = "rwwc-reading-list-v1";
+  const ratingsStorageKey = "rwwc-resource-ratings-v1";
   const readingProgressLabels = {
     "": "No status",
     to_read: "Up next",
@@ -1570,6 +1571,100 @@ document.addEventListener("DOMContentLoaded", () => {
     persistReadingListState();
   };
 
+  // ── Star ratings ──────────────────────────────────────────────────────────
+  // 1–5 star ratings per resource, stored locally like the reading list and
+  // keyed by the same lookup key. Ratings feed the recommender: highly rated
+  // resources pull similar picks in, low ratings push them away.
+  const MAX_STAR_RATING = 5;
+
+  const normalizeStarRating = (value) => {
+    const rating = Math.round(Number(value));
+    return Number.isFinite(rating) && rating >= 1 && rating <= MAX_STAR_RATING
+      ? rating
+      : 0;
+  };
+
+  const normalizeRatingRecord = (record) => {
+    const rating = normalizeStarRating(
+      record && typeof record === "object" ? record.rating : record
+    );
+    if (!rating) {
+      return null;
+    }
+    return {
+      rating,
+      ratedAt: normalizeStoredTimestamp(
+        record && typeof record === "object" ? record.ratedAt : ""
+      ),
+    };
+  };
+
+  const loadRatingsState = () => {
+    try {
+      const storedValue = window.localStorage.getItem(ratingsStorageKey);
+      if (!storedValue) {
+        return {};
+      }
+      const parsed = JSON.parse(storedValue);
+      if (!parsed || typeof parsed !== "object") {
+        return {};
+      }
+      const normalizedEntries = {};
+      Object.entries(parsed).forEach(([lookupKey, record]) => {
+        if (!lookupKey) {
+          return;
+        }
+        const normalizedRecord = normalizeRatingRecord(record);
+        if (normalizedRecord) {
+          normalizedEntries[lookupKey] = normalizedRecord;
+        }
+      });
+      return normalizedEntries;
+    } catch (error) {
+      logResilienceWarning("ratings_load_failed", {}, error);
+      return {};
+    }
+  };
+
+  let ratingsState = loadRatingsState();
+
+  const persistRatingsState = () => {
+    try {
+      window.localStorage.setItem(ratingsStorageKey, JSON.stringify(ratingsState));
+    } catch (error) {
+      logResilienceWarning("ratings_persist_failed", {}, error);
+    }
+  };
+
+  const getResourceRating = (lookupKey = "") =>
+    lookupKey && ratingsState[lookupKey] ? ratingsState[lookupKey].rating : 0;
+
+  const setResourceRating = (lookupKey, ratingValue) => {
+    if (!lookupKey) {
+      return;
+    }
+    const rating = normalizeStarRating(ratingValue);
+    const nextState = { ...ratingsState };
+    if (!rating) {
+      delete nextState[lookupKey];
+    } else {
+      nextState[lookupKey] = { rating, ratedAt: new Date().toISOString() };
+    }
+    ratingsState = nextState;
+    persistRatingsState();
+  };
+
+  const getStarRatingMarkup = (safeLookupKey, safeName, ratingValue = 0) => {
+    const stars = [];
+    for (let star = 1; star <= MAX_STAR_RATING; star += 1) {
+      const plural = star === 1 ? "" : "s";
+      stars.push(
+        `<button type="button" class="star-button${ratingValue >= star ? " is-active" : ""}" data-rate-key="${safeLookupKey}" data-rate-value="${star}" aria-pressed="${ratingValue === star ? "true" : "false"}" aria-label="Rate ${safeName} ${star} star${plural}" title="${star} star${plural}">★</button>`
+      );
+    }
+    return `<span class="star-rating" role="group" aria-label="Your rating for ${safeName}">${stars.join("")}</span>`;
+  };
+
   const keyIsCanonical = (key = "") => {
     if (!key || typeof key !== "string" || !key.includes("|")) {
       return false;
@@ -2422,6 +2517,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? readingRecord.status
         : "";
       const progressOptionsMarkup = getProgressOptionsMarkup(progressValue);
+      const ratingValue = getResourceRating(lookupKey);
       const entryDomKey = toSafeDomId(
         `${entry.Name || "untitled"}-${entry.Author || "unknown"}`
       );
@@ -2523,6 +2619,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${filmScoresMarkup}
             ${bookScoresMarkup}
             <div class="resource-actions">
+              ${getStarRatingMarkup(safeLookupKey, safeName, ratingValue)}
               <button type="button" class="resource-save-button${isSaved ? " is-saved" : ""}" data-save-toggle="${safeLookupKey}" aria-pressed="${isSaved ? "true" : "false"}">
                 ${isSaved ? "Saved" : "Save"}
               </button>
@@ -2594,6 +2691,35 @@ document.addEventListener("DOMContentLoaded", () => {
       statusPill.textContent = getReadingProgressLabel(nextStatus);
       statusPill.classList.toggle("is-hidden", !nextStatus);
     }
+  };
+
+  const applyRatingToCardElement = (cardElement, ratingValue = 0) => {
+    if (!cardElement) {
+      return;
+    }
+    cardElement.querySelectorAll("[data-rate-value]").forEach((starButton) => {
+      const starValue = Number(starButton.getAttribute("data-rate-value"));
+      if (!Number.isFinite(starValue)) {
+        return;
+      }
+      starButton.classList.toggle("is-active", ratingValue >= starValue);
+      starButton.setAttribute(
+        "aria-pressed",
+        ratingValue === starValue ? "true" : "false"
+      );
+    });
+  };
+
+  const syncRatingToRenderedCards = (lookupKey) => {
+    if (!lookupKey) {
+      return;
+    }
+    const ratingValue = getResourceRating(lookupKey);
+    document.querySelectorAll(".resource-card[data-lookup-key]").forEach((card) => {
+      if (card && card.getAttribute("data-lookup-key") === lookupKey) {
+        applyRatingToCardElement(card, ratingValue);
+      }
+    });
   };
 
   const syncReadingRecordToRenderedCards = (lookupKey) => {
@@ -3062,8 +3188,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── "Recommended for you" ─────────────────────────────────────────────────
   // A lightweight content-based recommender: builds a profile from the saved
-  // list (topic tags, formats, levels) and surfaces the highest-overlap unsaved
-  // resources. Everything runs client-side against the already-loaded dataset.
+  // list and star ratings (topic tags, formats, levels) and surfaces the
+  // highest-overlap resources the user hasn't saved or rated yet. Star ratings
+  // weight the profile — 4–5 stars pull similar resources in, 1–2 stars push
+  // them away. Everything runs client-side against the already-loaded dataset.
   const recsSection = document.getElementById("recs-section");
   const recsGrid = document.getElementById("recs-grid");
   const recommendationTagLabels = {
@@ -3092,57 +3220,79 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     try {
       const savedKeys = new Set(Object.keys(readingListState));
-      if (!savedKeys.size || !latestEntryLookup.size) {
+      const ratedEntries = Object.entries(ratingsState);
+      if ((!savedKeys.size && !ratedEntries.length) || !latestEntryLookup.size) {
         hideRecommendations();
         return;
       }
 
-      // Profile: how often each tag / track / level occurs among saved items.
-      const tagCounts = new Map();
-      const trackCounts = new Map();
-      const levelCounts = new Map();
-      savedKeys.forEach((lookupKey) => {
+      // Profile: weighted affinity for each tag / track / level. Saved items
+      // count once; rated items count by how far the rating sits from neutral
+      // (3 stars), so 5 stars is a stronger pull than a save and 1–2 stars is
+      // an active push away.
+      const ratingProfileWeights = { 1: -1.5, 2: -0.75, 3: 0.25, 4: 1, 5: 1.75 };
+      const tagWeights = new Map();
+      const trackWeights = new Map();
+      const levelWeights = new Map();
+      const highlyRatedTags = new Set();
+      const engagedKeys = new Set();
+
+      const addEntrySignals = (lookupKey, weight, isHighRating) => {
         const entry = latestEntryLookup.get(lookupKey);
-        if (!entry) {
+        if (!entry || !weight) {
           return;
         }
         getEntryTopicTags(entry).forEach((tag) => {
-          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+          tagWeights.set(tag, (tagWeights.get(tag) || 0) + weight);
+          if (isHighRating) {
+            highlyRatedTags.add(tag);
+          }
         });
         const trackKey = latestEntryCategoryLookup.get(lookupKey) || getEntryBucketKey(entry);
         if (trackKey) {
-          trackCounts.set(trackKey, (trackCounts.get(trackKey) || 0) + 1);
+          trackWeights.set(trackKey, (trackWeights.get(trackKey) || 0) + weight);
         }
         const level = getEntryLevel(entry);
         if (level) {
-          levelCounts.set(level, (levelCounts.get(level) || 0) + 1);
+          levelWeights.set(level, (levelWeights.get(level) || 0) + weight);
         }
+      };
+
+      savedKeys.forEach((lookupKey) => {
+        engagedKeys.add(lookupKey);
+        addEntrySignals(lookupKey, 1, false);
+      });
+      ratedEntries.forEach(([lookupKey, record]) => {
+        engagedKeys.add(lookupKey);
+        const weight = ratingProfileWeights[record.rating] || 0;
+        addEntrySignals(lookupKey, weight, record.rating >= 4);
       });
 
-      // Score every unsaved resource: shared topics dominate, format and level
-      // affinity break ties.
+      // Score every resource the user hasn't engaged with yet: shared topics
+      // dominate, format and level affinity break ties, and negative weights
+      // from low ratings drag lookalikes down.
       const scored = [];
       latestEntryLookup.forEach((entry, lookupKey) => {
-        if (savedKeys.has(lookupKey)) {
+        if (engagedKeys.has(lookupKey)) {
           return;
         }
         const trackKey = latestEntryCategoryLookup.get(lookupKey) || getEntryBucketKey(entry);
         let score = 0;
         let bestTag = "";
-        let bestTagCount = 0;
+        let bestTagWeight = 0;
         getEntryTopicTags(entry).forEach((tag) => {
-          const count = tagCounts.get(tag) || 0;
-          if (!count) {
+          const weight = tagWeights.get(tag) || 0;
+          if (!weight) {
             return;
           }
-          score += count * 2;
-          if (count > bestTagCount) {
-            bestTagCount = count;
+          score += weight * 2;
+          if (weight > bestTagWeight) {
+            bestTagWeight = weight;
             bestTag = tag;
           }
         });
-        score += (trackCounts.get(trackKey) || 0) * 0.75;
-        score += (levelCounts.get(getEntryLevel(entry)) || 0) * 0.25;
+        score += (trackWeights.get(trackKey) || 0) * 0.75;
+        score += (levelWeights.get(getEntryLevel(entry)) || 0) * 0.25;
         if (score > 0) {
           scored.push({ lookupKey, entry, trackKey, score, bestTag });
         }
@@ -3188,11 +3338,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const kind = [trackLabel, level].filter(Boolean).join(" · ");
           let why;
           if (bestTag && recommendationTagLabels[bestTag]) {
-            why = `Because you saved ${recommendationTagLabels[bestTag]} resources`;
-          } else if (trackCounts.get(trackKey)) {
-            why = `More ${trackLabel || "picks"} like the ones you saved`;
+            why = highlyRatedTags.has(bestTag)
+              ? `Because you rated ${recommendationTagLabels[bestTag]} resources highly`
+              : `Because you saved ${recommendationTagLabels[bestTag]} resources`;
+          } else if ((trackWeights.get(trackKey) || 0) > 0) {
+            why = `More ${trackLabel || "picks"} like your favorites`;
           } else {
-            why = "Matches the level of your saved picks";
+            why = "Matches the level of your picks";
           }
           return `<a class="path-card" href="#r-${encodeURIComponent(lookupKey)}" data-rec-key="${escapeHtml(lookupKey)}">
             <span class="path-card-kind">${escapeHtml(kind)}</span>
@@ -3876,6 +4028,24 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      const starButton = clickTarget.closest("[data-rate-value]");
+      if (starButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const lookupKey = (starButton.getAttribute("data-rate-key") || "").trim();
+        const starValue = normalizeStarRating(
+          starButton.getAttribute("data-rate-value")
+        );
+        if (lookupKey && starValue) {
+          // Clicking the current rating again clears it.
+          const nextRating = getResourceRating(lookupKey) === starValue ? 0 : starValue;
+          setResourceRating(lookupKey, nextRating);
+          syncRatingToRenderedCards(lookupKey);
+          renderRecommendations();
+        }
+        return;
+      }
+
       const youtubeCloseButton = clickTarget.closest("[data-youtube-close]");
       if (youtubeCloseButton) {
         event.preventDefault();
@@ -3977,12 +4147,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (readingListExportButton) {
     readingListExportButton.addEventListener("click", () => {
       const recordCount = Object.keys(readingListState).length;
-      if (!recordCount) {
-        showReadingListIoFeedback("No saved resources to export yet.");
+      const ratingCount = Object.keys(ratingsState).length;
+      if (!recordCount && !ratingCount) {
+        showReadingListIoFeedback("No saved or rated resources to export yet.");
         return;
       }
       const payload = JSON.stringify(
-        { version: 1, exportedAt: new Date().toISOString(), records: readingListState },
+        {
+          version: 2,
+          exportedAt: new Date().toISOString(),
+          records: readingListState,
+          ratings: ratingsState,
+        },
         null,
         2
       );
@@ -3995,9 +4171,14 @@ document.addEventListener("DOMContentLoaded", () => {
       downloadLink.click();
       document.body.removeChild(downloadLink);
       URL.revokeObjectURL(blobUrl);
-      showReadingListIoFeedback(
-        `Exported ${recordCount} saved resource${recordCount === 1 ? "" : "s"}.`
-      );
+      const exportedParts = [];
+      if (recordCount) {
+        exportedParts.push(`${recordCount} saved resource${recordCount === 1 ? "" : "s"}`);
+      }
+      if (ratingCount) {
+        exportedParts.push(`${ratingCount} rating${ratingCount === 1 ? "" : "s"}`);
+      }
+      showReadingListIoFeedback(`Exported ${exportedParts.join(" and ")}.`);
     });
   }
 
@@ -4018,33 +4199,63 @@ document.addEventListener("DOMContentLoaded", () => {
           const incomingRecords =
             parsed && typeof parsed === "object" && parsed.records && typeof parsed.records === "object"
               ? parsed.records
-              : parsed && typeof parsed === "object"
+              : parsed && typeof parsed === "object" && !parsed.ratings
                 ? parsed
                 : null;
-          if (!incomingRecords) {
+          const incomingRatings =
+            parsed && typeof parsed === "object" && parsed.ratings && typeof parsed.ratings === "object"
+              ? parsed.ratings
+              : null;
+          if (!incomingRecords && !incomingRatings) {
             throw new Error("Invalid reading list file.");
           }
           const nextState = { ...readingListState };
           let importedCount = 0;
-          Object.entries(incomingRecords).forEach(([lookupKey, record]) => {
+          Object.entries(incomingRecords || {}).forEach(([lookupKey, record]) => {
             if (!lookupKey || !record || typeof record !== "object") {
               return;
             }
             nextState[lookupKey] = normalizeReadingListRecord(lookupKey, record);
             importedCount += 1;
           });
-          if (!importedCount) {
+          const nextRatingsState = { ...ratingsState };
+          let importedRatingCount = 0;
+          Object.entries(incomingRatings || {}).forEach(([lookupKey, record]) => {
+            if (!lookupKey) {
+              return;
+            }
+            const normalizedRecord = normalizeRatingRecord(record);
+            if (normalizedRecord) {
+              nextRatingsState[lookupKey] = normalizedRecord;
+              importedRatingCount += 1;
+            }
+          });
+          if (!importedCount && !importedRatingCount) {
             throw new Error("No valid records found.");
           }
           readingListState = nextState;
           persistReadingListState();
+          ratingsState = nextRatingsState;
+          persistRatingsState();
           Object.keys(nextState).forEach((lookupKey) => {
             syncReadingRecordToRenderedCards(lookupKey);
           });
+          Object.keys(nextRatingsState).forEach((lookupKey) => {
+            syncRatingToRenderedCards(lookupKey);
+          });
           renderReadingDashboard();
-          showReadingListIoFeedback(
-            `Imported ${importedCount} saved resource${importedCount === 1 ? "" : "s"}.`
-          );
+          const importedParts = [];
+          if (importedCount) {
+            importedParts.push(
+              `${importedCount} saved resource${importedCount === 1 ? "" : "s"}`
+            );
+          }
+          if (importedRatingCount) {
+            importedParts.push(
+              `${importedRatingCount} rating${importedRatingCount === 1 ? "" : "s"}`
+            );
+          }
+          showReadingListIoFeedback(`Imported ${importedParts.join(" and ")}.`);
         } catch (error) {
           logResilienceWarning("reading_list_import_failed", {}, error);
           showReadingListIoFeedback(
