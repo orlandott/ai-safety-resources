@@ -33,6 +33,7 @@ import {
   escapeHtml,
   isValidHttpUrl,
   tagsFor,
+  TOPIC_TAGS,
   VALID_LEVELS,
   levelFor,
   timeLabelFor,
@@ -96,6 +97,19 @@ function validate(resources, fictionTitles) {
     }
     if (entry.Level !== undefined && !VALID_LEVELS.includes(entry.Level)) {
       errors.push(`${where}: "Level" must be one of ${VALID_LEVELS.join(", ")} (${entry.Level})`);
+    }
+    for (const field of ["ExcludeTopics", "IncludeTopics"]) {
+      if (entry[field] === undefined) continue;
+      const validTags = new Set(TOPIC_TAGS.map((t) => t.tag));
+      if (!Array.isArray(entry[field])) {
+        errors.push(`${where}: "${field}" must be an array of topic tags`);
+      } else {
+        for (const tag of entry[field]) {
+          if (!validTags.has(tag)) {
+            errors.push(`${where}: "${field}" has unknown topic tag "${tag}"`);
+          }
+        }
+      }
     }
     if (entry.Minutes !== undefined) {
       const m = Number(entry.Minutes);

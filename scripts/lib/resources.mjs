@@ -173,11 +173,22 @@ export function bucketKey(entry, fictionTitles) {
 // "governance" is found by the governance chip even if that exact word never
 // appears in its summary. `label` is the chip text; `keywords` are matched
 // case-insensitively as substrings.
+//
+// Substring matching is deliberately broad, so keep keywords specific enough to
+// avoid false positives (e.g. "catastrophic risk" rather than a bare
+// "catastroph" that also fires on "catastrophic forgetting"). Two optional
+// per-entry overrides let curators correct the residue keyword tuning can't:
+//   • `ExcludeTopics: ["existential-risk"]` drops a mis-derived tag when a
+//     strong keyword appears in an off-topic context (a spy thriller that
+//     mentions "existential risk" only to contrast it with AI).
+//   • `IncludeTopics: ["existential-risk"]` force-adds a tag the keywords miss
+//     (an explainer that is plainly about x-risk but never uses the words).
+// `ExcludeTopics` wins if a tag appears in both.
 export const TOPIC_TAGS = [
-  { tag: "interpretability", label: "Interpretability", keywords: ["interpretab", "mechanistic", "circuits", "superposition", "latent knowledge", "probing", "feature visualization"] },
+  { tag: "interpretability", label: "Interpretability", keywords: ["interpretab", "mechanistic", "circuits", "superposition", "latent knowledge", "feature visualization"] },
   { tag: "alignment", label: "Alignment", keywords: ["alignment", "aligned", "rlhf", "constitutional ai", "human feedback", "preference", "scalable oversight", "reward model"] },
   { tag: "governance", label: "Governance & policy", keywords: ["governance", "policy", "regulation", "windfall", "international", "treaty", "compute govern", "standards", "law"] },
-  { tag: "existential-risk", label: "Existential risk", keywords: ["existential", "x-risk", "extinction", "catastroph", "doom", "takeover", "power-seeking", "vulnerable world", "superintelligence"] },
+  { tag: "existential-risk", label: "Existential risk", keywords: ["existential", "x-risk", "extinction", "catastrophic risk", "takeover", "power-seeking", "vulnerable world", "superintelligence"] },
   { tag: "deception", label: "Deception & scheming", keywords: ["decepti", "sleeper", "mesa-optim", "mesa optim", "scheming", "treacherous", "deceptive alignment", "learned optimization"] },
   { tag: "rl", label: "Reinforcement learning", keywords: ["reinforcement", "ppo", "policy gradient", "reward hacking", "imitation learning", "specification gaming"] },
   { tag: "forecasting", label: "Forecasting & timelines", keywords: ["forecast", "timelines", "scaling law", "takeoff", "emergent abilities", "compute-optimal", "ai impacts"] },
@@ -188,13 +199,17 @@ export const TOPIC_TAGS = [
 
 export function tagsFor(entry, track) {
   const haystack = `${entry.Name || ""} ${entry.Author || ""} ${entry.Summary || ""}`.toLowerCase();
+  const excluded = new Set(Array.isArray(entry.ExcludeTopics) ? entry.ExcludeTopics : []);
+  const forced = new Set(Array.isArray(entry.IncludeTopics) ? entry.IncludeTopics : []);
   const tags = [];
   for (const t of TOPIC_TAGS) {
+    // `ExcludeTopics` wins over both keyword matches and `IncludeTopics`.
+    if (excluded.has(t.tag)) continue;
     if (t.tag === "fiction") {
-      if (track === "fiction_books") tags.push(t.tag);
+      if (track === "fiction_books" || forced.has(t.tag)) tags.push(t.tag);
       continue;
     }
-    if (t.keywords.some((kw) => haystack.includes(kw))) tags.push(t.tag);
+    if (forced.has(t.tag) || t.keywords.some((kw) => haystack.includes(kw))) tags.push(t.tag);
   }
   return tags;
 }
