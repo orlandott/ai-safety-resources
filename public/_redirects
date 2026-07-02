@@ -1,0 +1,6 @@
+# Learning-path merge: the ML-practitioner and engineer paths were combined
+# into a single technical path. Keep the old URLs alive for links and SEO.
+/paths/ml-to-safety /paths/technical/ 301
+/paths/ml-to-safety/* /paths/technical/ 301
+/paths/engineers /paths/technical/ 301
+/paths/engineers/* /paths/technical/ 301
