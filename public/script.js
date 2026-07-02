@@ -4312,8 +4312,11 @@ document.addEventListener("DOMContentLoaded", () => {
       setContactFeedback("", true);
     } catch (error) {
       logResilienceWarning("contact_submission_failed", {}, error);
+      // Surface the server's own error (e.g. Resend's test-mode restriction or
+      // "Email not configured") — a generic message makes this undebuggable.
+      const detail = error && error.message ? ` (${error.message})` : "";
       setContactFeedback(
-        "Couldn't send your message right now. Please try again, or use the email link below."
+        `Couldn't send your message right now${detail}. Please try again, or use the email link below.`
       );
     } finally {
       if (submitButton) {
