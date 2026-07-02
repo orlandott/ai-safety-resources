@@ -1835,6 +1835,7 @@
       "Category": "books",
       "goodreads": "3.89",
       "Year": 1984,
+      "Level": "Intermediate",
       "Summary": "Gibson invented cyberspace and portrayed autonomous AI agents like Wintermute and Neuromancer scheming to merge and transcend their constraints, anticipating self-improving AI concerns.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1842,7 +1843,7 @@
         "deception",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": "~8 hr read"
     },
     {
@@ -1922,6 +1923,7 @@
       "Category": "books",
       "goodreads": "4.16",
       "Year": 1995,
+      "Level": "Intermediate",
       "Summary": "Stephenson anticipated personalized AI tutors and their profound social effects decades before modern LLMs made them reality.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -1929,7 +1931,7 @@
         "llms",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2045,13 +2047,14 @@
       "Category": "books",
       "goodreads": "3.77",
       "Year": 2006,
+      "Level": "Intermediate",
       "Summary": "Vinge anticipates pervasive AR and subtle algorithmic influence over social reality, showing how technology can reshape perception without anyone making a conscious choice.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2097,6 +2100,7 @@
       "Category": "books",
       "goodreads": "4.05",
       "Year": 2013,
+      "Level": "Intermediate",
       "Summary": "Leckie examines distributed machine consciousness across many bodies, exploring what identity, loyalty, and moral agency mean for a mind that is simultaneously many people.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2104,7 +2108,7 @@
         "ethics",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2116,6 +2120,7 @@
       "Category": "books",
       "goodreads": "4.41",
       "Year": 2008,
+      "Level": "Intermediate",
       "Summary": "Liu's Dark Forest theory models a universe where any detectable intelligence is a threat, widely used as an analogy for unaligned AI strategic conflict and preemptive action.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2123,7 +2128,7 @@
         "alignment",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": "~15 hr read"
     },
     {
@@ -2133,6 +2138,7 @@
       "Category": "books",
       "goodreads": "3.89",
       "Year": 2014,
+      "Level": "Intermediate",
       "Summary": "Gibson uses timeline branching to examine governance, simulation, and how technological power asymmetries between eras can be exploited by those with more advanced tools.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2140,7 +2146,7 @@
         "governance",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2166,13 +2172,14 @@
       "Category": "books",
       "goodreads": "3.78",
       "Year": 2015,
+      "Level": "Intermediate",
       "Summary": "The ship's AI narrator gradually becomes the most dependable steward in a fragile closed system, a nuanced portrayal of AI competence growing beyond its original mandate.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2355,13 +2362,14 @@
       "Category": "books",
       "goodreads": "3.58",
       "Year": 2019,
+      "Level": "Intermediate",
       "Summary": "Stephenson details the institutions, conflicts, and power struggles around building a persistent digital afterlife, exploring the politics of simulated minds and who controls them.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2371,13 +2379,14 @@
       "Category": "books",
       "goodreads": "4.16",
       "Year": 2023,
+      "Level": "Intermediate",
       "Summary": "Carey imagines a multiversal machine intelligence enforcing its own version of order across realities, exploring the geopolitics of resisting an AI that operates at civilizational scale.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -2441,13 +2450,14 @@
       "page_count": 240,
       "Category": "books",
       "goodreads": "4.12",
+      "Level": "Intermediate",
       "Summary": "Exurb1a's philosophical adventure explores the absurd and terrifying implications of a computation-governed universe where intelligence reshapes reality.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": "~7 hr read"
     },
     {
@@ -2510,13 +2520,14 @@
       "page_count": 325,
       "Category": "books",
       "goodreads": "4.41",
+      "Level": "Intermediate",
       "Summary": "Exurb1a's sci-fi epic tackles the Great Filter, consciousness, and the long-run role of intelligence in determining whether civilizations survive or collapse.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": "~10 hr read"
     },
     {
@@ -2560,6 +2571,7 @@
       "Category": "books",
       "goodreads": "4.14",
       "Year": 2017,
+      "Level": "Intermediate",
       "Summary": "Reynolds' Revelation Space novel (first published as The Prefect) pits a society of orbital habitats against an emergent superintelligence, exploring how a single escaped AI can threaten an entire civilization.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
@@ -2568,7 +2580,7 @@
         "ethics",
         "fiction"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
@@ -4984,6 +4996,7 @@
       "Category": "youtube",
       "Year": 2017,
       "page_count": 0,
+      "Level": "Intermediate",
       "Summary": "The single most popular AI alignment video series, explaining technical safety concepts like the orthogonality thesis, instrumental convergence, inner misalignment, and reward hacking in clear, rigorous terms.",
       "track": "youtube",
       "trackLabel": "YouTube",
@@ -4991,7 +5004,7 @@
         "alignment",
         "rl"
       ],
-      "level": "Beginner",
+      "level": "Intermediate",
       "timeLabel": ""
     },
     {
