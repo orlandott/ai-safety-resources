@@ -111,9 +111,13 @@ function validate(resources, fictionTitles) {
     }
     if (
       entry.Wikipedia !== undefined &&
-      (typeof entry.Wikipedia !== "string" || !entry.Wikipedia.trim())
+      (typeof entry.Wikipedia !== "string" ||
+        !entry.Wikipedia.trim() ||
+        /[|#<>[\]{}]/.test(entry.Wikipedia))
     ) {
-      errors.push(`${where}: "Wikipedia" must be a non-empty article title`);
+      errors.push(
+        `${where}: "Wikipedia" must be a non-empty article title without |#<>[]{} (${entry.Wikipedia})`
+      );
     }
     if (entry.OpenLibraryWork !== undefined && !/^OL\d+[WM]$/.test(entry.OpenLibraryWork)) {
       errors.push(
@@ -612,6 +616,24 @@ function main() {
   }
   const groups = groupByTrack(resources, fictionTitles);
   console.log(`✓ Validated ${resources.length} resources across ${TRACKS.length} tracks.`);
+
+  // Informational only: film/TV/documentary posters resolve exclusively from
+  // pins (never fuzzy search), so an entry without one ships a letter
+  // placeholder. That is an accepted trade-off, but surface it so it is a
+  // choice rather than an accident.
+  const unpinnedFilms = resources.filter(
+    (e) =>
+      ["films", "tv", "documentaries"].includes((e.Category || "").toString()) &&
+      !(e.Image || "").toString().trim() &&
+      !(e.Wikipedia || "").toString().trim()
+  );
+  if (unpinnedFilms.length) {
+    console.log(
+      `  note: ${unpinnedFilms.length} film/TV/documentary entr${unpinnedFilms.length === 1 ? "y" : "ies"} have no Image or Wikipedia pin (placeholder by design): ${unpinnedFilms
+        .map((e) => e.Name)
+        .join("; ")}`
+    );
+  }
 
   if (CHECK_ONLY) {
     console.log("✓ Check passed (no files written).");

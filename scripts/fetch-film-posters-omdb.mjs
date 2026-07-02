@@ -14,6 +14,7 @@ const RESOURCES_PATH = "public/resources.js";
 const POSTER_CATEGORY_RE = /Category:\s*["'](?:films|tv|documentaries)["']/;
 const IMDB_LINK_RE = /Link:\s*["']https?:\/\/(?:www\.)?imdb\.com\/title\/(tt\d+)\/[^"']*["']/;
 const IMAGE_RE = /Image:\s*["']([^"']*)["']/;
+const WIKIPEDIA_PIN_RE = /Wikipedia:\s*["']([^"']+)["']/;
 const NAME_RE = /Name:\s*["']([^"']*)["']/;
 const REFRESH_ALL = process.argv.includes("--all");
 
@@ -56,6 +57,9 @@ async function main() {
     const linkMatch = line.match(IMDB_LINK_RE);
     if (!linkMatch) continue;
     const imdbId = linkMatch[1];
+    // A curated Wikipedia pin already resolves this entry's poster
+    // deterministically at runtime — never overwrite it with an OMDB image.
+    if (WIKIPEDIA_PIN_RE.test(line)) continue;
     const hasImage = IMAGE_RE.test(line);
     if (hasImage && !REFRESH_ALL) continue;
     if (!hasImage) missing++;

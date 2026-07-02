@@ -1328,17 +1328,21 @@ document.addEventListener("DOMContentLoaded", () => {
       entry.Image = preferredPortrait;
     }
     const preferredLogo = getPreferredOrganizationLogoFallback(entry);
-    // Only use org logo when we don't have a verified author portrait (e.g. keep Yudkowsky photo for his intelligence.org essays).
+    // Only use org logo when the entry has no image of its own (a curated
+    // pinned Image always wins) and we don't have a verified author portrait
+    // (e.g. keep Yudkowsky photo for his intelligence.org essays).
     if (
       preferredLogo &&
+      !entry.Image &&
       !entry.__disableImage &&
       !preferredPortrait
     ) {
       entry.Image = preferredLogo;
       entry.__coverIsLogo = true;
     } else {
-      // Entries may mark their own pinned Image as a logo (`ImageIsLogo`) so
-      // it gets the same padded logo treatment as org-logo fallbacks.
+      // Entries may mark their own image as a logo (`ImageIsLogo`) so it gets
+      // the same padded logo treatment as org-logo fallbacks. This also covers
+      // images hydrated later from an org-article Wikipedia pin.
       entry.__coverIsLogo = Boolean(entry.ImageIsLogo && entry.Image);
     }
     entry.Image = sanitizeImageUrl(entry.Image || "");
@@ -1353,7 +1357,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return primaryEntry;
     }
 
-    const mergeableTextFields = ["Author", "Link", "Image", "Summary", "Category", "Goodreads"];
+    const mergeableTextFields = [
+      "Author",
+      "Link",
+      "Image",
+      "Summary",
+      "Category",
+      "Goodreads",
+      "Wikipedia",
+      "OpenLibraryWork",
+      "YouTubeVideoId",
+    ];
+    const primaryHadImage = Boolean((primaryEntry.Image || "").toString().trim());
     mergeableTextFields.forEach((field) => {
       const primaryValue = (primaryEntry[field] || "").toString().trim();
       const secondaryValue = (secondaryEntry[field] || "").toString().trim();
@@ -1361,6 +1376,10 @@ document.addEventListener("DOMContentLoaded", () => {
         primaryEntry[field] = secondaryEntry[field];
       }
     });
+    // Keep the logo flag attached to the Image it describes.
+    if (!primaryHadImage && (primaryEntry.Image || "").toString().trim() && secondaryEntry.ImageIsLogo) {
+      primaryEntry.ImageIsLogo = true;
+    }
 
     if (!normalizePositiveInteger(primaryEntry.page_count) && normalizePositiveInteger(secondaryEntry.page_count)) {
       primaryEntry.page_count = secondaryEntry.page_count;
@@ -2085,17 +2104,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Loose title key for comparing our entry names against catalog titles:
-  // lowercase, strip accents/punctuation, drop a leading article.
+  // the shared lookup normalization plus dropping a leading article.
+  // (scripts/verify-image-pins.mjs mirrors this logic for CI checks — keep in sync.)
   const normalizeCatalogTitle = (value = "") =>
-    value
-      .toString()
-      .normalize("NFKD")
-      .replaceAll(/[̀-ͯ]/g, "")
-      .toLowerCase()
-      .replaceAll(/&/g, " and ")
-      .replaceAll(/[^a-z0-9]+/g, " ")
-      .trim()
-      .replace(/^(the|a|an) /, "");
+    normalizeTitleForLookup(value).replace(/^(the|a|an) /, "");
 
   const catalogTitleMatchesEntry = (catalogTitle = "", entryName = "") => {
     const catalogKey = normalizeCatalogTitle(catalogTitle);
@@ -2118,10 +2130,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return true;
     }
     const names = Array.isArray(catalogAuthors) ? catalogAuthors : [catalogAuthors];
-    const entryLastNames = entryKey.split(" ").filter((part) => part.length > 2);
+    // Compare whole name tokens, not substrings, so "Ord" never matches
+    // "Gordon". Initials and other short tokens are skipped as too ambiguous;
+    // when the entry author has no long token at all, require the full
+    // normalized name to match instead of failing every candidate.
+    const entryNameTokens = entryKey.split(" ").filter((part) => part.length > 2);
     return names.some((name) => {
       const nameKey = normalizeCatalogTitle(name || "");
-      return nameKey && entryLastNames.some((part) => nameKey.includes(part));
+      if (!nameKey) {
+        return false;
+      }
+      if (!entryNameTokens.length) {
+        return nameKey === entryKey;
+      }
+      const catalogTokens = new Set(nameKey.split(" "));
+      return entryNameTokens.some((part) => catalogTokens.has(part));
     });
   };
 
@@ -2181,7 +2204,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const payload = await response.json();
       const covers = Array.isArray(payload && payload.covers) ? payload.covers : [];
       const coverId = covers.find((id) => normalizePositiveInteger(id));
-      const publishYearMatch = ((payload && payload.publish_date) || "").match(/\b(18|19|20)\d{2}\b/);
+      // Editions carry publish_date/number_of_pages; works only carry
+      // first_publish_date and never a page count.
+      const publishDate = (payload && (payload.publish_date || payload.first_publish_date)) || "";
+      const publishYearMatch = publishDate.toString().match(/\b(18|19|20)\d{2}\b/);
       return {
         coverUrl: coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : "",
         pageCount: normalizePositiveInteger(payload && payload.number_of_pages),
@@ -2359,11 +2385,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "Wikipedia pinned image lookup"
       );
     } catch (error) {
-      logResilienceWarning("wikipedia_poster_lookup_failed", { title: pinnedArticle }, error);
+      logResilienceWarning("wikipedia_pinned_image_lookup_failed", { title: pinnedArticle }, error);
       return "";
     }
     if (!response.ok) {
-      logResilienceWarning("wikipedia_poster_unexpected_status", {
+      logResilienceWarning("wikipedia_pinned_image_unexpected_status", {
         title: pinnedArticle,
         status: response.status,
       });
@@ -2373,14 +2399,31 @@ document.addEventListener("DOMContentLoaded", () => {
       const payload = await response.json();
       return sanitizeImageUrl(extractWikipediaThumbnail(payload));
     } catch (error) {
-      logResilienceWarning("wikipedia_poster_parse_failed", { title: pinnedArticle }, error);
+      logResilienceWarning("wikipedia_pinned_image_parse_failed", { title: pinnedArticle }, error);
       return "";
     }
   };
 
+  // The trimmed Wikipedia pin, shared by the hydration gate and the metadata
+  // routing so the two can never disagree about what counts as pinned.
+  const getPinnedWikipediaTitle = (entry = {}) =>
+    (entry.Wikipedia || "").toString().trim();
+
   const fetchEntryMetadata = async (entry) => {
-    const key = `${(entry.Name || "").trim().toLowerCase()}::${(entry.Author || "").trim().toLowerCase()}`;
-    if (!key || key === "::") {
+    const lookupCategory = (entry.Category || "").toString();
+    const pinnedArticle = getPinnedWikipediaTitle(entry);
+    const pinnedOpenLibraryId = (entry.OpenLibraryWork || "").toString().trim();
+    // Cross-listed twins (same Name+Author in films AND documentaries) and
+    // future pin edits must not share a cache slot, so the key carries the
+    // category and pins alongside the identity.
+    const key = [
+      (entry.Name || "").trim().toLowerCase(),
+      (entry.Author || "").trim().toLowerCase(),
+      lookupCategory,
+      pinnedArticle,
+      pinnedOpenLibraryId,
+    ].join("::");
+    if (!(entry.Name || "").trim() && !(entry.Author || "").trim()) {
       return { coverUrl: "", pageCount: null, year: null };
     }
 
@@ -2394,61 +2437,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pendingLookup = (async () => {
       const metadata = { coverUrl: "", pageCount: null, year: null };
-      const lookupCategory = (entry.Category || "").toString();
-      const hasWikipediaPin = Boolean((entry.Wikipedia || "").toString().trim());
-      const isFilmCategory =
-        lookupCategory === "films" ||
-        lookupCategory === "tv" ||
-        lookupCategory === "documentaries";
-      // A pinned Wikipedia article resolves the image for any category:
-      // posters for film/TV/documentary pins, logos/portraits for org, site,
-      // and author pins on papers, websites, courses, and podcasts.
-      if (isFilmCategory || hasWikipediaPin) {
-        try {
-          metadata.coverUrl = sanitizeImageUrl(await queryPinnedWikipediaImage(entry));
-        } catch (error) {
-          logResilienceWarning("film_poster_lookup_failed", { name: entry && entry.Name }, error);
+      const isBookCategoryLookup = lookupCategory === "books";
+      // Only chase fields the entry is actually missing — pinned entries
+      // usually ship Year already, and every skipped lookup is one less
+      // network request (and one less chance of a bad fuzzy match).
+      const needsPageCount = !normalizePositiveInteger(entry.page_count);
+      const needsYear = !getEntryYear(entry);
+      const isComplete = () =>
+        metadata.coverUrl &&
+        (!needsPageCount || metadata.pageCount) &&
+        (!needsYear || metadata.year);
+      const fillMissing = (source) => {
+        if (!metadata.coverUrl) {
+          metadata.coverUrl = sanitizeImageUrl(source.coverUrl || "");
+        }
+        if (!metadata.pageCount) {
+          metadata.pageCount = normalizePositiveInteger(source.pageCount);
+        }
+        if (!metadata.year) {
+          metadata.year = normalizeYear(source.year);
+        }
+      };
+
+      // A pinned Wikipedia article resolves the image for any non-book
+      // category: posters for film/TV/documentary pins, logos/portraits for
+      // org, site, and author pins on papers, websites, courses, and podcasts.
+      // Books keep their cover/page/year pipeline (their Wikipedia pin, if
+      // any, is only a last-resort cover below), and unpinned films return
+      // nothing rather than risk a fuzzy match.
+      if (!isBookCategoryLookup) {
+        if (pinnedArticle) {
+          try {
+            metadata.coverUrl = sanitizeImageUrl(await queryPinnedWikipediaImage(entry));
+          } catch (error) {
+            logResilienceWarning("pinned_image_lookup_failed", { name: entry && entry.Name }, error);
+          }
         }
         entryMetadataCache.set(key, metadata);
         pendingMetadataLookups.delete(key);
         return metadata;
       }
       try {
-        const pinnedOpenLibraryMetadata = await queryOpenLibraryPinnedMetadata(entry);
-        metadata.coverUrl = sanitizeImageUrl(pinnedOpenLibraryMetadata.coverUrl || "");
-        metadata.pageCount = normalizePositiveInteger(pinnedOpenLibraryMetadata.pageCount);
-        metadata.year = normalizeYear(pinnedOpenLibraryMetadata.year);
+        fillMissing(await queryOpenLibraryPinnedMetadata(entry));
 
-        if (!metadata.coverUrl || !metadata.pageCount || !metadata.year) {
-          const openLibraryMetadata = await queryOpenLibraryMetadata(entry);
-          if (!metadata.coverUrl) {
-            metadata.coverUrl = sanitizeImageUrl(openLibraryMetadata.coverUrl || "");
-          }
-          if (!metadata.pageCount) {
-            metadata.pageCount = normalizePositiveInteger(openLibraryMetadata.pageCount);
-          }
-          if (!metadata.year) {
-            metadata.year = normalizeYear(openLibraryMetadata.year);
-          }
+        if (!isComplete()) {
+          fillMissing(await queryOpenLibraryMetadata(entry));
         }
 
-        if (!metadata.coverUrl || !metadata.pageCount || !metadata.year) {
-          const googleBooksMetadata = await queryGoogleBooksMetadata(entry);
-          if (!metadata.coverUrl) {
-            metadata.coverUrl = sanitizeImageUrl(googleBooksMetadata.coverUrl || "");
-          }
-          if (!metadata.pageCount) {
-            metadata.pageCount = normalizePositiveInteger(googleBooksMetadata.pageCount);
-          }
-          if (!metadata.year) {
-            metadata.year = normalizeYear(googleBooksMetadata.year);
-          }
+        if (!isComplete()) {
+          fillMissing(await queryGoogleBooksMetadata(entry));
         }
 
         if (!metadata.coverUrl && entry.Author) {
           metadata.coverUrl = getVerifiedAuthorPortraitFallback(entry.Author);
         }
 
+        if (!metadata.coverUrl && pinnedArticle) {
+          metadata.coverUrl = sanitizeImageUrl(await queryPinnedWikipediaImage(entry));
+        }
       } catch (error) {
         logResilienceWarning(
           "metadata_lookup_failed",
@@ -2482,10 +2528,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!entry.Image && safeCoverUrl && !entry.__disableImage) {
         entry.Image = safeCoverUrl;
+        // Entries flagged ImageIsLogo hydrate org logos (e.g. a pinned org
+        // article's lead image) and keep the padded logo treatment.
+        entry.__coverIsLogo = Boolean(entry.ImageIsLogo);
         const coverElement = document.getElementById(ids.coverElementId);
         if (coverElement) {
           const safeAlt = escapeHtml(`${entry.Name || "Book"} cover`);
-          coverElement.innerHTML = `<img class="book-image" src="${escapeHtml(safeCoverUrl)}" loading="lazy" alt="${safeAlt}" />`;
+          const coverClass = `book-image${entry.__coverIsLogo ? " is-logo" : ""}`;
+          coverElement.innerHTML = `<img class="${coverClass}" src="${escapeHtml(safeCoverUrl)}" loading="lazy" alt="${safeAlt}" />`;
         }
         wireCoverFallback(ids.coverElementId, entry.Name || "Book");
       }
@@ -2768,7 +2818,7 @@ document.addEventListener("DOMContentLoaded", () => {
         !entry.Image &&
         !entry.__disableImage &&
         !youtubeVideoId &&
-        (isBookCategory || Boolean(entry.Wikipedia));
+        (isBookCategory || Boolean(getPinnedWikipediaTitle(entry)));
       if (needsHydration) {
         queueMetadataHydration(entry, { coverElementId, pageElementId, yearElementId });
       }

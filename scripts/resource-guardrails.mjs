@@ -61,6 +61,7 @@ globalThis.__BOOK_ARRAYS__ = {
   scifi: typeof scifi !== "undefined" ? scifi : [],
   additional_resources: typeof additional_resources !== "undefined" ? additional_resources : [],
   categorized_resources: typeof categorized_resources !== "undefined" ? categorized_resources : [],
+  resources: typeof resources !== "undefined" ? resources : [],
 };`,
     sandbox
   );
@@ -101,6 +102,7 @@ const dedupeEntriesByTitle = (bookArrays) => {
     bookArrays.scifi,
     bookArrays.additional_resources,
     bookArrays.categorized_resources,
+    bookArrays.resources,
   ];
 
   const byTitleKey = new Map();
