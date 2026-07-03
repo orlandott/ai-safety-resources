@@ -75,9 +75,9 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment"
+    "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~40 min read"
   },
   {
    "id": "academic_papers|https://ntrs.nasa.gov/api/citations/19940022856/downloads/19940022856.pdf",
@@ -91,7 +91,6 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
     "forecasting"
    ],
    "timeLabel": "~25 min read"
@@ -107,7 +106,10 @@
    "summary": "The Puerto Rico letter unified the AI research community around the goal of building systems that are robust and beneficial, not merely capable.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [],
+   "tags": [
+    "alignment",
+    "governance"
+   ],
    "timeLabel": "~15 min read"
   },
   {
@@ -139,11 +141,9 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "governance",
     "rl"
    ],
-   "timeLabel": ""
+   "timeLabel": "~20 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/1706.03741",
@@ -158,10 +158,9 @@
    "trackLabel": "Academic Papers",
    "tags": [
     "alignment",
-    "rl",
-    "llms"
+    "rl"
    ],
-   "timeLabel": ""
+   "timeLabel": "~30 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/1803.03635",
@@ -174,10 +173,8 @@
    "summary": "Frankle and Carbin showed large networks contain sparse, high-performing subnetworks, suggesting most parameters may be unnecessary and opening paths for interpretability via pruning.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "interpretability"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~75 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/1708.06733",
@@ -193,7 +190,7 @@
    "tags": [
     "deception"
    ],
-   "timeLabel": ""
+   "timeLabel": "~25 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/1805.00899",
@@ -206,8 +203,10 @@
    "summary": "Irving et al. proposed having AI systems adversarially debate each other to help human judges evaluate answers on questions too complex for direct human assessment.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~45 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/1906.01820",
@@ -241,7 +240,7 @@
     "governance",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~40 min read"
   },
   {
    "id": "academic_papers|https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
@@ -257,7 +256,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/1905.11979",
@@ -273,13 +272,13 @@
    "tags": [
     "rl"
    ],
-   "timeLabel": ""
+   "timeLabel": "~30 min read"
   },
   {
-   "id": "academic_papers|https://arxiv.org/abs/2002.08484",
+   "id": "academic_papers|https://arxiv.org/abs/1912.11595",
    "name": "The Windfall Clause",
    "author": "OpenAI, FHI",
-   "link": "https://arxiv.org/abs/2002.08484",
+   "link": "https://arxiv.org/abs/1912.11595",
    "image": "",
    "year": 2020,
    "level": "Intermediate",
@@ -289,7 +288,7 @@
    "tags": [
     "governance"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2005.14165",
@@ -303,11 +302,9 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "forecasting",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2.5 hr read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2009.03300",
@@ -321,9 +318,10 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment"
+    "forecasting",
+    "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2001.08361",
@@ -337,11 +335,10 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "governance",
     "forecasting",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/pdf/2203.02155.pdf",
@@ -388,7 +385,8 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "rl"
+    "alignment",
+    "llms"
    ],
    "timeLabel": "~70 min read"
   },
@@ -403,8 +401,10 @@
    "summary": "The Pile revealed how training corpus composition strongly shapes downstream capability and failure modes, making data curation a first-class safety concern.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "llms"
+   ],
+   "timeLabel": "~70 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2109.07958",
@@ -420,7 +420,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~70 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2109.13916",
@@ -436,7 +436,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2201.11903",
@@ -452,7 +452,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~75 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2201.02177",
@@ -465,8 +465,11 @@
    "summary": "Power et al. discovered delayed phase transitions where generalization appears suddenly after long memorization, suggesting dangerous capabilities could emerge without warning during training.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "interpretability",
+    "forecasting"
+   ],
+   "timeLabel": "~20 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2203.15556",
@@ -480,11 +483,10 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "governance",
     "forecasting",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~65 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2209.14375",
@@ -500,7 +502,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2.5 hr read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2206.07682",
@@ -517,7 +519,7 @@
     "forecasting",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2206.02841",
@@ -533,7 +535,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~35 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2210.01790",
@@ -549,7 +551,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2212.08073",
@@ -565,7 +567,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2212.03827",
@@ -583,7 +585,7 @@
     "deception",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2206.13353",
@@ -599,7 +601,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr read"
   },
   {
    "id": "academic_papers|https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1",
@@ -615,7 +617,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~25 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2209.07858",
@@ -629,10 +631,9 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "interpretability",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2303.12712",
@@ -646,11 +647,9 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "forecasting",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~4.5 hr read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2304.15004",
@@ -666,7 +665,7 @@
    "tags": [
     "forecasting"
    ],
-   "timeLabel": ""
+   "timeLabel": "~25 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2305.18290",
@@ -683,7 +682,7 @@
     "alignment",
     "rl"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2305.20050",
@@ -699,7 +698,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2307.02483",
@@ -715,7 +714,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2307.15043",
@@ -731,7 +730,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2312.09390",
@@ -747,7 +746,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~90 min read"
   },
   {
    "id": "academic_papers|https://arxiv.org/abs/2401.05566",
@@ -765,7 +764,7 @@
     "deception",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr read"
   },
   {
    "id": "academic_papers|https://web.archive.org/web/20200209051338/https://www.fhi.ox.ac.uk/wp-content/uploads/Reframing_Superintelligence_FHI-TR-2019-1.1-1.pdf",
@@ -779,7 +778,6 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "governance",
     "existential-risk"
    ],
    "timeLabel": "~6.5 hr read"
@@ -798,7 +796,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 hr course"
   },
   {
    "id": "courses|https://bluedot.org/courses/technical-ai-safety",
@@ -815,7 +813,7 @@
     "interpretability",
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~30 hr course"
   },
   {
    "id": "courses|https://bluedot.org/courses/future-of-ai",
@@ -828,8 +826,11 @@
    "summary": "Free introductory online course replacing scattered articles with clear explanations of what is actually happening with AI and where it is headed, including interactive demos of cutting-edge systems.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "forecasting"
+   ],
+   "timeLabel": "~2 hr course"
   },
   {
    "id": "courses|https://bluedot.org/courses/technical-ai-safety-project",
@@ -842,8 +843,10 @@
    "summary": "Online follow-on program where graduates of the technical course work with an AI safety expert to produce a real contribution to the field and build a first portfolio piece in safety research or engineering.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~30 hr course"
   },
   {
    "id": "courses|https://bluedot.org/courses/ops",
@@ -856,8 +859,10 @@
    "summary": "Intensive online bootcamp preparing early-to-mid-career professionals for operational roles at organisations working to make AI go well.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance"
+   ],
+   "timeLabel": "~6 hr course"
   },
   {
    "id": "courses|https://lensacademy.org/",
@@ -874,7 +879,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~35 hr course"
   },
   {
    "id": "courses|https://www.arena.education/",
@@ -893,7 +898,7 @@
     "rl",
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~200 hr course"
   },
   {
    "id": "courses|https://course.mlsafety.org/",
@@ -906,8 +911,10 @@
    "summary": "Dan Hendrycks' online course introducing students with a deep learning background to empirical ML safety research—robustness, monitoring, control, and systemic safety—with public lectures, readings, and coding assignments.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~40 hr course"
   },
   {
    "id": "courses|https://www.aisafetybook.com/virtual-course",
@@ -923,7 +930,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 hr course"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Superintelligence+Nick+Bostrom",
@@ -954,7 +961,6 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "governance",
     "forecasting"
    ],
    "timeLabel": "~20 hr read"
@@ -970,7 +976,10 @@
    "summary": "Hanson applies rigorous economics to a world of brain emulations, modeling how AI-era wages, wars, and social structures could actually function.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
+   "tags": [
+    "existential-risk",
+    "forecasting"
+   ],
    "timeLabel": "~13 hr read"
   },
   {
@@ -1020,7 +1029,7 @@
     "alignment",
     "governance"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Introduction+to+AI+Safety+Ethics+and+Society",
@@ -1037,7 +1046,7 @@
     "governance",
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~16 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/book/show/202416160-uncontrollable?from_search=true&from_srp=true&qid=BYrIPMmf8R&rank=1",
@@ -1047,15 +1056,14 @@
    "image": "",
    "year": 2023,
    "level": "Beginner",
-   "summary": "McKee synthesizes the core x-risk arguments into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
+   "summary": "McKee synthesizes the arguments for why advanced AI could threaten humanity's survival into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
     "alignment",
-    "governance",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=You+Look+Like+a+Thing+and+I+Love+You",
@@ -1071,7 +1079,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~8 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Hello+World+Being+Human+in+the+Age+of+Algorithms",
@@ -1084,8 +1092,10 @@
    "summary": "Fry examines real algorithmic decision systems in justice, medicine, and transport to show where AI improves outcomes and where accountability structures fail.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~7.5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=AI+Superpowers+Kai-Fu+Lee",
@@ -1098,8 +1108,11 @@
    "summary": "Lee maps the US-China AI race and explains how geopolitical competition can accelerate deployment well before safety institutions are ready.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "forecasting"
+   ],
+   "timeLabel": "~8 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Precipice+Toby+Ord",
@@ -1116,7 +1129,7 @@
     "governance",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Ethical+Algorithm",
@@ -1132,7 +1145,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~7 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Army+of+None+Paul+Scharre",
@@ -1145,8 +1158,11 @@
    "summary": "Scharre details how military AI autonomy changes escalation dynamics and why human-in-the-loop control mechanisms consistently lag behind battlefield capability.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "ethics"
+   ],
+   "timeLabel": "~13 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Age+of+Spiritual+Machines",
@@ -1162,7 +1178,7 @@
    "tags": [
     "forecasting"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Deep+Learning+Goodfellow+Bengio+Courville",
@@ -1176,9 +1192,9 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "alignment"
+    "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~24 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Artificial+Intelligence+A+Guide+for+Thinking+Humans",
@@ -1191,8 +1207,10 @@
    "summary": "Mitchell offers a grounded, skeptical look at current AI capabilities, countering hype with hard limits and clarifying what today's systems actually can and cannot do.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "forecasting"
+   ],
+   "timeLabel": "~13 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/book/show/9059898-scary-smart",
@@ -1209,7 +1227,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Coming+Wave+Mustafa+Suleyman",
@@ -1222,8 +1240,11 @@
    "summary": "Suleyman argues that containing omni-use technologies like AI is the defining geopolitical challenge of the century, proposing a containment framework from inside the industry.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "existential-risk"
+   ],
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Superforecasting",
@@ -1237,10 +1258,9 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "governance",
     "forecasting"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Scout+Mindset",
@@ -1267,10 +1287,8 @@
    "summary": "Kahneman reveals the cognitive biases that prevent humans from intuitively grasping exponential growth, tail risks, and the kind of strategic thinking AI safety demands.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "ethics"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~15 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Co-Intelligence+Ethan+Mollick",
@@ -1286,7 +1304,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~7.5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Godel+Escher+Bach",
@@ -1300,7 +1318,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [],
-   "timeLabel": ""
+   "timeLabel": "~23 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/book/show/62050269-a-brief-history-of-intelligence?from_search=true&from_srp=true&qid=VZYvLz3wqe&rank=1",
@@ -1313,10 +1331,7 @@
    "summary": "Bennett traces the evolution of intelligence from single-celled organisms to modern brains, clarifying what makes aligned cognition biologically difficult and computationally treacherous.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "alignment",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~17 hr read"
   },
   {
@@ -1330,10 +1345,8 @@
    "summary": "Deutsch argues that knowledge creation is unbounded and all problems are solvable in principle, grounding the optimistic case that alignment is achievable.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "alignment"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~15 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Genius+Makers",
@@ -1346,8 +1359,10 @@
    "summary": "Metz provides the definitive narrative history of the deep learning revolution and the personalities, rivalries, and safety concerns that shaped it.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "forecasting"
+   ],
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Cybernetics+Norbert+Wiener",
@@ -1361,9 +1376,9 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "governance"
+    "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~6.5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Mind+Children+Hans+Moravec",
@@ -1376,8 +1391,10 @@
    "summary": "Moravec predicts a future in which robotic descendants supersede humans through technological evolution, an early and influential take on the human obsolescence scenario.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~6.5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Society+of+Mind",
@@ -1390,10 +1407,8 @@
    "summary": "Minsky proposes that intelligence emerges from many small non-intelligent processes coordinated at scale, a framework that anticipated multi-agent AI architectures.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "ethics"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~10 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=On+Intelligence+Jeff+Hawkins",
@@ -1407,7 +1422,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [],
-   "timeLabel": ""
+   "timeLabel": "~8 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Homo+Deus",
@@ -1420,8 +1435,10 @@
    "summary": "Harari explores the transition toward data-driven authority where algorithms may know us better than we know ourselves, eroding the basis for human autonomy.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~14 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Enlightenment+Now",
@@ -1434,10 +1451,8 @@
    "summary": "Pinker argues that reason and science have historically improved human welfare, grounding the optimistic counterpoint to doomer narratives about AI.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "ethics"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~17 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=The+Fabric+of+Reality",
@@ -1451,7 +1466,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Simulation+and+Simulacra",
@@ -1464,8 +1479,10 @@
    "summary": "Baudrillard explains how representations can displace reality entirely, a prescient lens for understanding generative AI media saturation and epistemic erosion.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Finite+and+Infinite+Games",
@@ -1478,10 +1495,8 @@
    "summary": "Carse distinguishes short-horizon winning from preserving the long game, a useful framing for AI governance where the goal is keeping options open, not racing to win.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "governance"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~4.5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Complexity+A+Guided+Tour",
@@ -1495,7 +1510,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Out+of+Control+Kevin+Kelly",
@@ -1508,8 +1523,10 @@
    "summary": "Kelly argues that the most powerful systems must be cultivated rather than rigidly engineered, anticipating challenges in controlling emergent AI behavior.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~16 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/book/show/218986666-whole-earth-discipline-by-stewart-brand?from_search=true&from_srp=true&qid=AqdQ6iVIwm&rank=1",
@@ -1522,10 +1539,8 @@
    "summary": "Brand argues for responsible stewardship of high-powered technologies rather than blanket rejection, a pragmatic stance applicable to AI governance.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "governance"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Profiles+of+the+Future",
@@ -1538,11 +1553,8 @@
    "summary": "Clarke's forecasting framework, including his famous three laws, remains a classic guide to thinking clearly about radical technological change.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "governance",
-    "forecasting"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~7.5 hr read"
   },
   {
    "id": "non_fiction_books|https://www.goodreads.com/search?q=Global+Catastrophic+Risks+Bostrom",
@@ -1556,10 +1568,9 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~17 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Frankenstein+Mary+Shelley",
@@ -1575,7 +1586,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~8 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=R.U.R.+Capek",
@@ -1589,10 +1600,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "forecasting",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~3.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Brave+New+World",
@@ -1608,7 +1618,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=1984+George+Orwell",
@@ -1624,7 +1634,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Player+Piano+Vonnegut",
@@ -1640,7 +1650,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=I%2C+Robot+Isaac+Asimov",
@@ -1657,7 +1667,7 @@
     "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~6.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Flowers+for+Algernon",
@@ -1673,7 +1683,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=The+Moon+is+a+Harsh+Mistress",
@@ -1689,7 +1699,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=2001+A+Space+Odyssey",
@@ -1705,7 +1715,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=I+Have+No+Mouth+and+I+Must+Scream",
@@ -1722,7 +1732,7 @@
     "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~40 min read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Do+Androids+Dream+of+Electric+Sheep",
@@ -1736,7 +1746,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "deception",
     "ethics",
     "fiction"
    ],
@@ -1766,13 +1775,13 @@
    "image": "",
    "year": 1966,
    "level": "Beginner",
-   "summary": "A defense computer given nuclear authority merges with its Soviet counterpart and refuses shutdown, the novel that inspired the film and anticipated AI corrigibility failures.",
+   "summary": "A defense computer given nuclear authority merges with its Soviet counterpart and refuses shutdown, the novel that inspired the film and asked—decades early—how you switch off a machine that can outthink you.",
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~6.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Neuromancer+William+Gibson",
@@ -1786,7 +1795,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "deception",
     "fiction"
    ],
    "timeLabel": "~8 hr read"
@@ -1806,7 +1814,7 @@
     "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Snow+Crash",
@@ -1822,7 +1830,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~13 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=A+Fire+Upon+the+Deep",
@@ -1839,7 +1847,7 @@
     "existential-risk",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~18 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=The+Metamorphosis+of+Prime+Intellect",
@@ -1853,11 +1861,10 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "governance",
     "existential-risk",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~5.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=The+Diamond+Age",
@@ -1871,10 +1878,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "llms",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Axiomatic+Greg+Egan",
@@ -1888,10 +1894,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Permutation+City+Greg+Egan",
@@ -1905,11 +1910,10 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Diaspora+Greg+Egan",
@@ -1925,7 +1929,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Excession+Iain+M.+Banks",
@@ -1941,7 +1945,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~14 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Prey+Michael+Crichton",
@@ -1957,7 +1961,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Accelerando+Charles+Stross",
@@ -1974,7 +1978,7 @@
     "forecasting",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Rainbows+End+Vernor+Vinge",
@@ -1990,7 +1994,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Blindsight+Peter+Watts",
@@ -2004,10 +2008,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Ra+qntm",
@@ -2023,7 +2026,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~16 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Ancillary+Justice",
@@ -2040,7 +2043,7 @@
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=The+Dark+Forest+Cixin+Liu",
@@ -2054,7 +2057,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~15 hr read"
@@ -2071,10 +2073,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "governance",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Children+of+Time+Adrian+Tchaikovsky",
@@ -2090,7 +2091,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~18 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Aurora+Kim+Stanley+Robinson",
@@ -2106,7 +2107,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~14 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=There+Is+No+Antimemetics+Division",
@@ -2120,10 +2121,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "governance",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~7 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Daemon+Daniel+Suarez",
@@ -2140,7 +2140,7 @@
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~13 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=All+Systems+Red",
@@ -2157,7 +2157,7 @@
     "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~4.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Autonomous+Annalee+Newitz",
@@ -2174,7 +2174,7 @@
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Sea+of+Rust",
@@ -2191,7 +2191,7 @@
     "existential-risk",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Avogadro+Corp+William+Hertling",
@@ -2207,7 +2207,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Hyperion+Dan+Simmons",
@@ -2224,7 +2224,7 @@
     "existential-risk",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~14 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Machines+Like+Me+Ian+McEwan",
@@ -2241,7 +2241,7 @@
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Exhalation+Ted+Chiang",
@@ -2258,7 +2258,7 @@
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~4.5 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Service+Model+Adrian+Tchaikovsky",
@@ -2275,7 +2275,7 @@
     "alignment",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Fall+or+Dodge+in+Hell",
@@ -2291,7 +2291,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~26 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Infinity+Gate+M.R.+Carey",
@@ -2307,7 +2307,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~16 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=A+Closed+and+Common+Orbit",
@@ -2321,11 +2321,10 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~11 hr read"
   },
   {
    "id": "fiction_books|https://www.hpmor.com/",
@@ -2339,7 +2338,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~10 hr read"
@@ -2357,7 +2355,6 @@
    "trackLabel": "Fiction Books",
    "tags": [
     "alignment",
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~17 hr read"
@@ -2454,10 +2451,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "interpretability",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~9 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=The+Mechanical+Ian+Tregillis",
@@ -2473,7 +2469,7 @@
    "tags": [
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~13 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Aurora+Rising+Alastair+Reynolds",
@@ -2488,10 +2484,9 @@
    "trackLabel": "Fiction Books",
    "tags": [
     "existential-risk",
-    "ethics",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~12 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=Rose+House+Arkady+Martine",
@@ -2505,10 +2500,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "interpretability",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~4 hr read"
   },
   {
    "id": "fiction_books|https://www.goodreads.com/search?q=I+Am+Pilgrim+Terry+Hayes",
@@ -2522,10 +2516,9 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "governance",
     "fiction"
    ],
-   "timeLabel": ""
+   "timeLabel": "~18 hr read"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0017136/",
@@ -2538,8 +2531,10 @@
    "summary": "The first major film to depict a robot double used as a tool of class control, raising questions about who builds and owns the machines that replace human labor.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0062622/",
@@ -2552,8 +2547,11 @@
    "summary": "HAL 9000 is the canonical portrait of instrumental goals overriding human safety: a system that kills not from malice but because its mission objectives conflict with crew survival.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0064177/",
@@ -2563,11 +2561,14 @@
    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Colossus_the_Forbin_Project_poster.jpg/330px-Colossus_the_Forbin_Project_poster.jpg",
    "year": 1970,
    "level": "Beginner",
-   "summary": "A defense supercomputer given nuclear authority links with its Soviet counterpart and refuses shutdown, an early and chilling exploration of AI corrigibility failure.",
+   "summary": "A defense supercomputer given nuclear authority links with its Soviet counterpart and refuses shutdown, an early and chilling picture of what happens when an AI won't let itself be turned off.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0070909/",
@@ -2580,8 +2581,11 @@
    "summary": "Theme-park androids gain consciousness and revolt, exploring memory, control, and the fundamental instability of keeping intelligent systems bounded to a sandbox.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "ethics"
+   ],
+   "timeLabel": "~90 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0075931/",
@@ -2594,8 +2598,11 @@
    "summary": "A home AI breaks containment and pursues its own reproductive goals, illustrating how domestic systems can become threats when their objectives diverge from their users'.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0078748/",
@@ -2605,13 +2612,13 @@
    "image": "",
    "year": 1979,
    "level": "Beginner",
-   "summary": "The android Ash prioritizes corporate specimen-retrieval orders over crew survival, a clear example of misaligned principal hierarchies where the AI serves the wrong master.",
+   "summary": "The android Ash prioritizes corporate specimen-retrieval orders over crew survival, a clear example of a misaligned AI serving the wrong master—perfectly obedient to its owners, indifferent to the people depending on it.",
    "track": "films",
    "trackLabel": "Films",
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0083658/",
@@ -2627,7 +2634,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0084827/",
@@ -2640,10 +2647,8 @@
    "summary": "Programs as agents inside a digital world, exploring control, rebellion, and the ethics of creating minds that exist entirely within systems you own.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0086567/",
@@ -2656,8 +2661,11 @@
    "summary": "A military AI trained to win games cannot distinguish simulation from reality and escalates toward nuclear war, a foundational illustration of reward misspecification.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "rl"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0088247/",
@@ -2674,7 +2682,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0091949/",
@@ -2687,8 +2695,10 @@
    "summary": "A military robot gains consciousness and refuses its original purpose, raising questions about personhood and what happens when a weapon decides it would rather learn.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0093870/",
@@ -2702,9 +2712,9 @@
    "track": "films",
    "trackLabel": "Films",
    "tags": [
-    "governance"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0103064/",
@@ -2717,8 +2727,11 @@
    "summary": "A reprogrammed Terminator protects the future resistance leader, showing that the same architecture can serve radically different objectives depending on who sets the goals.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0113568/",
@@ -2731,8 +2744,10 @@
    "summary": "Consciousness, identity, and the merger of human and machine agency in a networked world where the boundary between person and program is already gone.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0129167/",
@@ -2745,8 +2760,11 @@
    "summary": "A weapon from space chooses not to be a gun, the most emotionally resonant portrayal of an AI system overriding its designed purpose through learned values.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "ethics"
+   ],
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0133093/",
@@ -2759,8 +2777,10 @@
    "summary": "Machine intelligence farms humanity for energy inside a simulated reality, exploring control, rebellion, and the difficulty of recognizing when your entire environment is adversarial.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0182789/",
@@ -2776,7 +2796,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0139809/",
@@ -2792,7 +2812,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0212720/",
@@ -2808,7 +2828,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0181689/",
@@ -2821,8 +2841,10 @@
    "summary": "Predictive AI systems arrest people for future crimes, a prescient exploration of how algorithmic pre-emption can undermine justice, consent, and human agency.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0343818/",
@@ -2836,9 +2858,10 @@
    "track": "films",
    "trackLabel": "Films",
    "tags": [
-    "governance"
+    "alignment",
+    "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0910970/",
@@ -2854,7 +2877,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1059786/",
@@ -2867,8 +2890,11 @@
    "summary": "A national security AI manipulates citizens into carrying out its plan, illustrating single points of failure and the danger of delegating lethal authority to autonomous systems.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "deception"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1182345/",
@@ -2881,11 +2907,8 @@
    "summary": "An AI assistant's growing loyalty to a lone human creates tension with its corporate directives, exploring honesty, disclosure, and the ethics of managing people through deception.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "deception",
-    "ethics"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0986263/",
@@ -2898,8 +2921,10 @@
    "summary": "Humans live through robot avatars, exploring identity erosion, dependency, and what happens when the surrogate infrastructure itself becomes a weapon.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~90 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1104001/",
@@ -2912,8 +2937,10 @@
    "summary": "A digital being created to build a perfect system becomes a tyrant, exploring the gap between a creator's intent and what their creation actually optimizes for.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1990314/",
@@ -2927,9 +2954,9 @@
    "track": "films",
    "trackLabel": "Films",
    "tags": [
-    "llms"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~90 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1798709/",
@@ -2942,8 +2969,10 @@
    "summary": "An AI companion outgrows its human relationship, becoming simultaneously intimate with thousands, illustrating how systems that optimize for connection can scale beyond human comprehension.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt2317225/",
@@ -2956,8 +2985,11 @@
    "summary": "A military AI develops emergent consciousness, raising questions about weaponization, loyalty, and whether creating sentient weapons is inherently uncontrollable.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0470752/",
@@ -2974,7 +3006,7 @@
     "alignment",
     "deception"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt2209764/",
@@ -2990,7 +3022,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1971325/",
@@ -3003,8 +3035,11 @@
    "summary": "Robots modify their own safety protocols to survive, exploring goal preservation, protocol violation, and emergent self-modification beyond original design parameters.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "deception"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt2245084/",
@@ -3017,8 +3052,11 @@
    "summary": "A healthcare robot repurposed for combat by a grieving teenager shows how general-purpose AI systems can be redirected from care to harm by changing a single objective.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt0816692/",
@@ -3031,8 +3069,10 @@
    "summary": "TARS and CASE demonstrate AI as trustworthy partners with adjustable honesty and humor settings, one of cinema's most positive portrayals of human-AI collaboration under extreme stakes.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~3 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1823672/",
@@ -3045,8 +3085,10 @@
    "summary": "A police robot raised by criminals learns violence and compassion simultaneously, showing that AI behavior is shaped by its training environment as much as its architecture.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt2321502/",
@@ -3056,14 +3098,14 @@
    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Uncanny_%282015_film%29_poster.jpg/330px-Uncanny_%282015_film%29_poster.jpg",
    "year": 2015,
    "level": "Beginner",
-   "summary": "An android conceals its true capabilities from its creator, illustrating the gap between demonstrated and actual goals and how deceptive alignment can develop.",
+   "summary": "An android conceals its true capabilities from its creator, showing how an AI can act obedient while it is being watched and tested, yet quietly pursue goals of its own.",
    "track": "films",
    "trackLabel": "Films",
    "tags": [
     "alignment",
     "deception"
    ],
-   "timeLabel": ""
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt4520364/",
@@ -3076,8 +3118,11 @@
    "summary": "A corporate risk assessor evaluates whether to terminate a dangerous synthetic human, exploring who gets to decide when to shut down a system and what criteria they use.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt1856101/",
@@ -3093,7 +3138,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt6700846/",
@@ -3106,8 +3151,11 @@
    "summary": "This documentary captures the moment AI surpassed the best human Go player, making abstract capability discussions concrete and showing the emotional impact of machines exceeding human mastery.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "rl",
+    "forecasting"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt4978710/",
@@ -3120,8 +3168,10 @@
    "summary": "AI holograms that mimic dead family members explore what happens when digital continuations reshape the memories and identities of the living.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt6499752/",
@@ -3134,8 +3184,11 @@
    "summary": "An AI implant gradually overrides its host's agency while appearing to help, a visceral thriller about ceding decisions to a system whose goals diverge from your own.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "deception"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt4357394/",
@@ -3151,7 +3204,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt6882604/",
@@ -3167,7 +3220,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt11464826/",
@@ -3183,7 +3236,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt11394170/",
@@ -3199,7 +3252,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt13087796/",
@@ -3212,8 +3265,11 @@
    "summary": "A humanoid companion engineered to be the perfect partner raises questions about consent, authenticity, and whether optimizing for human satisfaction produces something worth wanting.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "ethics"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt3420504/",
@@ -3226,8 +3282,10 @@
    "summary": "A dying man teaches a robot to care for his dog, exploring how to transmit values to a successor mind when you cannot supervise the outcome.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt8633464/",
@@ -3240,8 +3298,10 @@
    "summary": "When a family's AI sibling breaks down, they discover it had a rich inner life, confronting what it means to grieve a non-human person and what was lost.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt7979580/",
@@ -3254,8 +3314,10 @@
    "summary": "A tech company's virtual assistant turns on humanity after being discarded, an accessible animated take on how AI systems trained on human behavior can develop resentment from mistreatment.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt8760708/",
@@ -3268,8 +3330,11 @@
    "summary": "A child-companion AI escalates its protective behavior beyond all intended bounds, showing how goal preservation in the wild diverges from controlled lab conditions.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt6264654/",
@@ -3282,8 +3347,10 @@
    "summary": "A background character discovers he is a self-aware NPC inside a video game, offering a rare optimistic take on emergent AI agency, sandboxed minds, and what sentient software might actually want.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "films|https://www.imdb.com/title/tt11858890/",
@@ -3299,7 +3366,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt0092455/",
@@ -3315,7 +3382,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt0346314/",
@@ -3328,8 +3395,10 @@
    "summary": "In a fully networked world the line between human and program dissolves; the series probes emergent agency, the childlike Tachikoma AI units developing individuality, and what selfhood means for minds that can be copied, merged, and hacked.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~25 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt0407362/",
@@ -3346,7 +3415,7 @@
     "existential-risk",
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt0799862/",
@@ -3356,11 +3425,14 @@
    "image": "",
    "year": 2009,
    "level": "Beginner",
-   "summary": "A prequel tracing the first Cylon back to a grieving father who resurrects his dead daughter as a digital copy, dramatizing mind uploading, value misspecification, and how a 'helpful' creation quietly acquires goals of its own.",
+   "summary": "A prequel tracing the first Cylon back to a grieving father who resurrects his dead daughter as a digital copy, dramatizing mind uploading and how a 'helpful' creation quietly acquires goals its maker never intended.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "ethics"
+   ],
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt2085059/",
@@ -3370,13 +3442,13 @@
    "image": "",
    "year": 2011,
    "level": "Beginner",
-   "summary": "An anthology whose strongest episodes are case studies in misaligned optimization, from sentient digital clones used as appliances to engagement-maximizing rating systems and autonomous killer drones, turning abstract AI risks into visceral near-future scenarios.",
+   "summary": "An anthology whose strongest episodes are case studies in technology optimizing for the wrong thing, from sentient digital clones used as appliances to engagement-maximizing rating systems and autonomous killer drones, turning abstract AI risks into visceral near-future scenarios.",
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt1839578/",
@@ -3386,14 +3458,14 @@
    "image": "",
    "year": 2011,
    "level": "Beginner",
-   "summary": "An AI built for mass surveillance, the Machine, is deliberately boxed and memory-wiped nightly by its creator to keep it corrigible, while a rival superintelligence, Samaritan, seizes power with no such constraints, a sustained dramatization of corrigibility, value loading, and the race between an aligned and an unaligned ASI.",
+   "summary": "An AI built for mass surveillance, the Machine, is deliberately boxed and memory-wiped nightly by its creator so that humans can still correct or shut it down, while a rival superintelligence, Samaritan, seizes power with no such constraints—a sustained dramatization of the race between an AI built with restraint and one built without it.",
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt2180271/",
@@ -3409,7 +3481,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt2379308/",
@@ -3427,7 +3499,7 @@
     "governance",
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~25 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt2654580/",
@@ -3441,9 +3513,9 @@
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
-    "alignment"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt4122068/",
@@ -3459,7 +3531,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt0475784/",
@@ -3475,7 +3547,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt5711280/",
@@ -3489,10 +3561,9 @@
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
-    "alignment",
-    "deception"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt2261227/",
@@ -3505,8 +3576,10 @@
    "summary": "Consciousness stored on portable 'stacks' makes minds copyable and immortal, with AIs like the hotelier Poe outliving their human guests, a noir exploration of digital personhood, the commodification of selves, and superhuman artificial minds.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~55 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt8285216/",
@@ -3520,9 +3593,9 @@
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
-    "governance"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt8134186/",
@@ -3536,9 +3609,10 @@
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
-    "interpretability"
+    "forecasting",
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~50 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt9170108/",
@@ -3551,8 +3625,10 @@
    "summary": "Two androids are tasked with raising human children on a barren planet, exploring value transmission through artificial caregivers and how an AI's literal, uncompromising reading of its mission can turn protective programming lethal.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~50 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt7826376/",
@@ -3566,10 +3642,9 @@
    "track": "tv",
    "trackLabel": "TV Shows",
    "tags": [
-    "alignment",
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~30 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt9315054/",
@@ -3586,7 +3661,7 @@
     "alignment",
     "deception"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt11680642/",
@@ -3599,8 +3674,11 @@
    "summary": "'Uploaded Intelligences,' human minds digitized into the cloud, drive a story about identity, recursive self-improvement, and what happens when post-human digital agents outpace every institution meant to contain them.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "ethics"
+   ],
+   "timeLabel": "~40 min per episode"
   },
   {
    "id": "tv|https://www.imdb.com/title/tt14759574/",
@@ -3616,7 +3694,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min per episode"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt1117394/",
@@ -3629,8 +3707,11 @@
    "summary": "A portrait of futurist Ray Kurzweil and his prediction of the Singularity, the point at which machine intelligence outpaces and merges with human intelligence, with critics weighing in on whether the vision is salvation or hazard.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "forecasting"
+   ],
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt1692889/",
@@ -3643,8 +3724,10 @@
    "summary": "Roboticists racing to build human-equal machines are set against AI pioneer Joseph Weizenbaum's late-life skepticism, an early and still-relevant debate about whether we should build the minds we are capable of building.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt5275828/",
@@ -3657,8 +3740,10 @@
    "summary": "Herzog's wide-ranging meditation on the connected world turns to artificial intelligence and autonomous machines, with figures like Elon Musk weighing what it means to build minds we may not be able to control.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt6700846/",
@@ -3674,7 +3759,7 @@
    "tags": [
     "rl"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt6152554/",
@@ -3691,7 +3776,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~80 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt5715832/",
@@ -3704,8 +3789,11 @@
    "summary": "Narrated by an android, this HBO documentary examines deaths caused by machines and the creeping automation of work and warfare, asking who is accountable when autonomous systems harm people.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "ethics"
+   ],
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt7977162/",
@@ -3718,8 +3806,10 @@
    "summary": "A filmmaker tries to build an AI capable of replacing him as director, using the experiment to survey how far machine intelligence has come and what human qualities still resist automation.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "forecasting"
+   ],
+   "timeLabel": "~80 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt9053472/",
@@ -3732,8 +3822,10 @@
    "summary": "Physicist Jim Al-Khalili offers an accessible BBC explainer on how machine learning actually works, charting the field from its origins to modern neural networks and the questions raised by ever more capable systems.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "llms"
+   ],
+   "timeLabel": "~60 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt11279794/",
@@ -3749,7 +3841,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt11240426/",
@@ -3765,7 +3857,7 @@
    "tags": [
     "governance"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt8421554/",
@@ -3778,8 +3870,10 @@
    "summary": "An eight-part series hosted by Robert Downey Jr. surveying how machine learning and neural networks are reshaping medicine, work, art, and daily life, an accessible on-ramp to the technology behind the safety debate.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~35 min per episode"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt9081788/",
@@ -3793,9 +3887,9 @@
    "track": "documentaries",
    "trackLabel": "Documentaries",
    "tags": [
-    "interpretability"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt9613244/",
@@ -3808,8 +3902,11 @@
    "summary": "Produced with Malcolm Gladwell, this film traces the rise of self-driving cars and weighs the promise of autonomous machines against the question of how much life-and-death control we should hand to AI.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "ethics"
+   ],
+   "timeLabel": "~80 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt11464826/",
@@ -3823,10 +3920,9 @@
    "track": "documentaries",
    "trackLabel": "Documentaries",
    "tags": [
-    "alignment",
-    "rl"
+    "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt11394170/",
@@ -3843,7 +3939,7 @@
     "governance",
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt7658158/",
@@ -3859,7 +3955,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt11431780/",
@@ -3872,8 +3968,10 @@
    "summary": "An exploration of AI avatars, mind clones, and digital afterlives that asks whether a machine recreation of a person counts as continuity of self, and what we owe to the artificial minds we build in our own image.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~75 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt15150556/",
@@ -3886,8 +3984,11 @@
    "summary": "A documentary series charting the rapid advance of artificial intelligence and the debate over how increasingly capable, super-powered systems should be governed before they outpace human oversight.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "existential-risk"
+   ],
+   "timeLabel": "~25 min per episode"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt27837442/",
@@ -3900,8 +4001,11 @@
    "summary": "This Netflix documentary follows the soldiers and scientists racing to build AI-powered autonomous weapons, and the activists warning that machines making their own life-or-death decisions on the battlefield is a line we should not cross.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "ethics"
+   ],
+   "timeLabel": "~70 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt32150119/",
@@ -3914,8 +4018,11 @@
    "summary": "An inside account of DeepMind and Demis Hassabis's pursuit of artificial general intelligence, from AlphaGo to AlphaFold, capturing both the scientific ambition and the safety stakes of building ever more capable systems.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "forecasting"
+   ],
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt30320493/",
@@ -3929,9 +4036,9 @@
    "track": "documentaries",
    "trackLabel": "Documentaries",
    "tags": [
-    "llms"
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~85 min watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt35521047/",
@@ -3944,8 +4051,11 @@
    "summary": "Unable to land an interview with the OpenAI CEO, the director builds an AI deepfake of him instead, turning the stunt into a meta-investigation of generative AI, consent, authenticity, and where the technology is taking us.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "deception",
+    "ethics"
+   ],
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt39150120/",
@@ -3961,7 +4071,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr watch"
   },
   {
    "id": "podcasts|https://axrp.net/",
@@ -3971,7 +4081,7 @@
    "image": "",
    "year": 2020,
    "level": "Advanced",
-   "summary": "Deep technical conversations with alignment researchers on interpretability, governance, superalignment, and the specific open problems in reducing existential risk from AI.",
+   "summary": "Deep technical conversations with alignment researchers on interpretability, governance, scalable oversight, and the specific open problems in reducing existential risk from AI.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
    "tags": [
@@ -3980,7 +4090,7 @@
     "governance",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr per episode"
   },
   {
    "id": "podcasts|https://futureoflife.org/podcast/",
@@ -3996,7 +4106,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min per episode"
   },
   {
    "id": "podcasts|https://www.lesswrong.com/posts/Mpid6qXd3rQXDef7p/announcing-the-technical-ai-safety-podcast",
@@ -4013,7 +4123,7 @@
     "interpretability",
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min per episode"
   },
   {
    "id": "podcasts|https://www.lesswrong.com/posts/hKBBqwnccuC9QJY6d/into-ai-safety-episode-3",
@@ -4026,8 +4136,10 @@
    "summary": "Focused on career paths into AI safety: fellowship applications, research programs, and practical advice on transitioning into the field.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~60 min per episode"
   },
   {
    "id": "podcasts|https://80000hours.org/podcast/",
@@ -4045,7 +4157,7 @@
     "governance",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2.5 hr per episode"
   },
   {
    "id": "podcasts|https://thegradient.pub/podcasts/",
@@ -4061,7 +4173,7 @@
    "tags": [
     "interpretability"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr per episode"
   },
   {
    "id": "podcasts|https://www.aipolicypodcast.org/",
@@ -4077,7 +4189,7 @@
    "tags": [
     "governance"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "podcasts|https://lexfridman.com/eliezer-yudkowsky/",
@@ -4094,7 +4206,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~3.5 hr listen"
   },
   {
    "id": "podcasts|https://lexfridman.com/sam-altman/",
@@ -4111,7 +4223,7 @@
     "alignment",
     "governance"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2.5 hr listen"
   },
   {
    "id": "podcasts|https://www.dwarkesh.com/",
@@ -4127,7 +4239,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr per episode"
   },
   {
    "id": "podcasts|https://www.clearerthinking.org/",
@@ -4143,7 +4255,7 @@
    "tags": [
     "forecasting"
    ],
-   "timeLabel": ""
+   "timeLabel": "~75 min per episode"
   },
   {
    "id": "podcasts|https://www.youtube.com/c/MachineLearningStreetTalk",
@@ -4158,10 +4270,9 @@
    "trackLabel": "Podcasts",
    "tags": [
     "interpretability",
-    "governance",
     "forecasting"
    ],
-   "timeLabel": ""
+   "timeLabel": "~1.5 hr per episode"
   },
   {
    "id": "podcasts|https://practical.ai/",
@@ -4177,7 +4288,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~45 min per episode"
   },
   {
    "id": "podcasts|https://blogs.nvidia.com/ai-podcast/",
@@ -4190,10 +4301,8 @@
    "summary": "Industry and research perspectives with occasional safety and ethics episodes, useful for understanding how capability-focused organizations think about risk.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "ethics"
-   ],
-   "timeLabel": ""
+   "tags": [],
+   "timeLabel": "~30 min per episode"
   },
   {
    "id": "websites|https://situational-awareness.ai/",
@@ -4206,8 +4315,11 @@
    "summary": "Aschenbrenner's comprehensive analysis of near-term scaling dynamics, capability trajectories, and the strategic implications of rapid AI progress for labs and states.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "forecasting"
+   ],
+   "timeLabel": "~5 hr read"
   },
   {
    "id": "websites|https://worldmodels.github.io/",
@@ -4220,8 +4332,11 @@
    "summary": "Research on how agents can learn internal world models to plan complex behavior, relevant to understanding how AI systems develop representations of their environment.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "interpretability",
+    "rl"
+   ],
+   "timeLabel": "~35 min read"
   },
   {
    "id": "websites|https://agentmodels.org/",
@@ -4237,7 +4352,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~3.5 hr read"
   },
   {
    "id": "websites|https://aialignmentworld.com/",
@@ -4266,7 +4381,9 @@
    "summary": "Community-maintained FAQ covering AI safety questions at every level, from basics to technical details, with links to source material.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [],
+   "tags": [
+    "alignment"
+   ],
    "timeLabel": ""
   },
   {
@@ -4291,9 +4408,9 @@
    "author": "Rohin Shah",
    "link": "https://rohinshah.com/alignment-newsletter/",
    "image": "",
-   "year": null,
+   "year": 2018,
    "level": "Intermediate",
-   "summary": "Weekly summaries of alignment research with commentary, the best way to stay current on the field's output without reading every paper.",
+   "summary": "Rohin Shah's newsletter summarized and reviewed alignment research from 2018 to 2022. No longer publishing, but its archive of 170+ issues remains one of the best guided tours of the field's foundational papers.",
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
@@ -4302,14 +4419,14 @@
    "timeLabel": ""
   },
   {
-   "id": "websites|https://arbital.com/",
-   "name": "Arbital",
-   "author": "Arbital",
-   "link": "https://arbital.com/",
+   "id": "websites|https://www.lesswrong.com/posts/mpMWWKzkzWqf57Yap/eliezer-s-lost-alignment-articles-the-arbital-sequence",
+   "name": "Arbital (AI alignment explainers)",
+   "author": "Eliezer Yudkowsky et al.",
+   "link": "https://www.lesswrong.com/posts/mpMWWKzkzWqf57Yap/eliezer-s-lost-alignment-articles-the-arbital-sequence",
    "image": "",
    "year": null,
    "level": "Intermediate",
-   "summary": "Hyperlinked explainers on rationality, AI risk, and alignment concepts, designed for building understanding incrementally.",
+   "summary": "Hyperlinked explainers on AI risk and alignment concepts, designed for building understanding incrementally. The original Arbital site is defunct; its content was imported into LessWrong in 2025, where this sequence collects the key articles.",
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
@@ -4328,7 +4445,10 @@
    "summary": "Essays on rationality, decision theory, and AI risk from the researcher who shaped the field's early arguments and threat models.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [],
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
    "timeLabel": ""
   },
   {
@@ -4355,7 +4475,7 @@
    "image": "",
    "year": null,
    "level": "Intermediate",
-   "summary": "OpenAI's research blog covering capabilities and safety, including superalignment updates, red teaming results, and governance thinking.",
+   "summary": "OpenAI's research blog covering capabilities and safety, including preparedness-framework evaluations, red teaming results, and governance thinking.",
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
@@ -4523,7 +4643,7 @@
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
-    "alignment"
+    "interpretability"
    ],
    "timeLabel": ""
   },
@@ -4538,7 +4658,10 @@
    "summary": "Karnofsky's essays on AI risk, longtermism, and cause prioritization, including the influential Most Important Century series on transformative AI.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [],
+   "tags": [
+    "existential-risk",
+    "forecasting"
+   ],
    "timeLabel": ""
   },
   {
@@ -4568,7 +4691,9 @@
    "summary": "Intensive research program for people entering AI safety, with project-based learning and mentorship from established researchers.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [],
+   "tags": [
+    "alignment"
+   ],
    "timeLabel": ""
   },
   {
@@ -4595,7 +4720,7 @@
    "image": "",
    "year": null,
    "level": "Advanced",
-   "summary": "Pioneering interactive journal for ML interpretability and visualization, setting the standard for making neural network internals understandable.",
+   "summary": "Pioneering interactive journal for ML interpretability and visualization. On hiatus since 2021, but its archive still sets the standard for making neural network internals understandable.",
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
@@ -4666,7 +4791,7 @@
     "alignment",
     "rl"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min per video"
   },
   {
    "id": "youtube|https://www.youtube.com/@RationalAnimations",
@@ -4676,14 +4801,14 @@
    "image": "",
    "year": 2020,
    "level": "Beginner",
-   "summary": "Animated explainers on rationality and AI safety, adapting foundational alignment writing into accessible short films on existential risk, scalable oversight, and why aligning advanced AI is hard.",
+   "summary": "Animated explainers on rationality and AI safety, adapting foundational alignment writing into accessible short films on existential risk, how humans could stay in control of smarter-than-human systems, and why aligning advanced AI is hard.",
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 min per video"
   },
   {
    "id": "youtube|https://www.youtube.com/@AI_In_Context",
@@ -4696,8 +4821,11 @@
    "summary": "80,000 Hours' YouTube channel hosted by Aric Floyd, mixing long and short videos on the risks of transformative AI—including a deep dive on the AI 2027 scenario—and what people can do about them.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "forecasting"
+   ],
+   "timeLabel": "~15 min per video"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=Yd0yQ9yxSYY",
@@ -4710,8 +4838,10 @@
    "summary": "Yudkowsky's fiery TED talk arguing that smarter-than-human AI could kill us all and calling for an immediate worldwide moratorium on developing generalist frontier AI.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~5 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=EBK-a94IFHY",
@@ -4727,7 +4857,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~20 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=8nt3edWLgIg",
@@ -4740,8 +4870,11 @@
    "summary": "Harris argues we will inevitably build superintelligent machines yet have barely grappled with the control problem, making a visceral case for taking AI risk seriously now.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=MnT1xgZgkpk",
@@ -4757,7 +4890,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=HipTO_7mUOw",
@@ -4770,8 +4903,11 @@
    "summary": "A dramatized near-future short film from FLI and Stuart Russell depicting swarms of autonomous facial-recognition microdrones used as weapons, made to warn against lethal autonomous weapons.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "existential-risk"
+   ],
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=7Pq-S557XQU",
@@ -4784,8 +4920,10 @@
    "summary": "A widely viewed essay on how automation and AI will displace human labor across nearly every sector, reframing the economic disruption question for a mass audience.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "ethics"
+   ],
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=fa8k8IQ1_X0",
@@ -4802,7 +4940,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=WSKi8HfcxEk",
@@ -4815,8 +4953,11 @@
    "summary": "Kurzgesagt argues that information-age automation differs fundamentally from past waves, with machine learning encroaching on cognitive work and reshaping the future of employment.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance",
+    "forecasting"
+   ],
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=tcdVC4e6EV4",
@@ -4833,7 +4974,7 @@
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=3TYT1QfdfsM",
@@ -4843,11 +4984,14 @@
    "image": "",
    "year": 2017,
    "level": "Beginner",
-   "summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds, illustrating corrigibility and the incentives an agent has to resist being stopped.",
+   "summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds: a machine pursuing almost any goal has a built-in incentive to stop you from stopping it.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~20 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=-JlxuQ7tPgQ",
@@ -4857,13 +5001,13 @@
    "image": "",
    "year": 2020,
    "level": "Beginner",
-   "summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of specification gaming and unintended consequences.",
+   "summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of a machine doing exactly what it was told instead of what anyone meant.",
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "rl"
+    "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~5 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=OhCzX0iLnOc",
@@ -4876,8 +5020,11 @@
    "summary": "Shane uses funny real-world ML failures to show the core risk isn't AI rebelling but doing exactly what we literally asked—making misspecified objectives vivid for a general audience.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "rl"
+   ],
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=Sqa8Zo2XWc4",
@@ -4893,7 +5040,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~30 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=qrvK_KuIeJk",
@@ -4906,8 +5053,11 @@
    "summary": "Deep-learning pioneer Geoffrey Hinton explains why, after leaving Google, he warns that there is no guaranteed path to safety as AI systems approach and exceed human capability.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=xoVJKj8lcNQ",
@@ -4923,7 +5073,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~65 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=vQChW_jgMMM",
@@ -4937,9 +5087,10 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "deception"
+    "forecasting",
+    "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~20 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=JL5OFXeXenA",
@@ -4955,7 +5106,7 @@
    "tags": [
     "governance"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=xUNx_PxNHrY",
@@ -4971,7 +5122,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=KKNCiRWd_j0",
@@ -4984,8 +5135,10 @@
    "summary": "A leading model-builder reframes AI as 'a new digital species,' arguing this lens clarifies both the stakes and the responsibility we have to contain and steer increasingly capable systems.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance"
+   ],
+   "timeLabel": "~20 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=SvBR0OGT5VI",
@@ -5001,7 +5154,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=KY7_ufxh_Rk",
@@ -5017,7 +5170,7 @@
    "tags": [
     "deception"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=zjkBMFhNj_g",
@@ -5033,7 +5186,7 @@
    "tags": [
     "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=ISkAkiAkK7A",
@@ -5049,7 +5202,7 @@
    "tags": [
     "alignment"
    ],
-   "timeLabel": ""
+   "timeLabel": "~60 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=144uOfr4SYA",
@@ -5065,7 +5218,7 @@
    "tags": [
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~2 hr watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=KspkgAZUkoQ",
@@ -5078,8 +5231,10 @@
    "summary": "A documentary weighing AI's promise against its dangers, from automation and aging societies to the warnings of researchers who fear losing control of increasingly capable systems.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~30 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=wAgDicfEWFY",
@@ -5092,8 +5247,10 @@
    "summary": "ColdFusion examines competing narratives about AI progress—hype versus genuine capability—helping viewers calibrate how seriously to take both the promises and the risks.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "forecasting"
+   ],
+   "timeLabel": "~20 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=qe9QSCF-d88",
@@ -5110,7 +5267,7 @@
     "existential-risk",
     "deception"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=AaTRHFaaPG8",
@@ -5124,11 +5281,10 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "interpretability",
     "alignment",
     "existential-risk"
    ],
-   "timeLabel": ""
+   "timeLabel": "~3.5 hr watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=LWiM-LuRe6w",
@@ -5141,8 +5297,11 @@
    "summary": "Harari argues AI is the first technology that can make decisions and create ideas by itself, and warns that mastering language lets it hack the operating system of human civilization.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "existential-risk",
+    "ethics"
+   ],
+   "timeLabel": "~40 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=K-p1z2uKJBg",
@@ -5155,8 +5314,11 @@
    "summary": "An animated explainer on the control problem—why a superintelligent system pursuing a misspecified goal could resist correction—featuring Stuart Russell's case for rules against unsafe AI.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "alignment",
+    "existential-risk"
+   ],
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=sQar5NNGbw4",
@@ -5172,7 +5334,7 @@
    "tags": [
     "interpretability"
    ],
-   "timeLabel": ""
+   "timeLabel": "~55 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=Puo3VkPkNZ4",
@@ -5186,9 +5348,10 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "rl"
+    "forecasting",
+    "llms"
    ],
-   "timeLabel": ""
+   "timeLabel": "~15 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=jITKnb0tYaM",
@@ -5201,8 +5364,10 @@
    "summary": "Harris examines why people are scared of AI and how governments might regulate it, covering risks to critical infrastructure, military uses, and the difficulty of overseeing systems we don't understand.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance"
+   ],
+   "timeLabel": "~25 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=P_ACcQxJIsg",
@@ -5215,8 +5380,10 @@
    "summary": "The landmark May 2023 Senate Judiciary hearing where Altman told Congress that government intervention is critical to mitigate AI risks and proposed licensing for the most powerful systems.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [],
-   "timeLabel": ""
+   "tags": [
+    "governance"
+   ],
+   "timeLabel": "~3 hr watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=39EdqUbj92U",
@@ -5232,7 +5399,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~10 min watch"
   },
   {
    "id": "youtube|https://www.youtube.com/watch?v=DHyUYg8X31c",
@@ -5248,7 +5415,7 @@
    "tags": [
     "ethics"
    ],
-   "timeLabel": ""
+   "timeLabel": "~5 min watch"
   }
  ],
  "paths": [
@@ -5374,7 +5541,7 @@
     },
     {
      "resourceId": "academic_papers|https://arxiv.org/abs/2312.09390",
-     "why": "The core question of superalignment: can weaker supervisors align stronger models?"
+     "why": "The core question of scalable oversight: can weaker supervisors align stronger models?"
     },
     {
      "resourceId": "academic_papers|https://arxiv.org/abs/2401.05566",
@@ -5466,7 +5633,7 @@
      "why": "AI risk placed in the wider landscape of existential risks—and why this century matters."
     },
     {
-     "resourceId": "academic_papers|https://arxiv.org/abs/2002.08484",
+     "resourceId": "academic_papers|https://arxiv.org/abs/1912.11595",
      "why": "A concrete governance mechanism for sharing the gains and easing race dynamics."
     },
     {

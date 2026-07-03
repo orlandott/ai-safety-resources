@@ -3005,6 +3005,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const pageCountText = getPageCountLabel(entry);
       const levelText = getEntryLevel(entry);
       const timeText = getEntryTimeLabel(entry);
+      // The build marks one curated pick per category (see START_HERE in
+      // scripts/lib/resources.mjs); mirror the server-rendered badge so it
+      // doesn't vanish on hydration.
+      const isStartHere =
+        (window.RESOURCE_START_HERE || {})[getEntryBucketKey(entry)] === entry.Name;
       const yearValue = getEntryYear(entry);
       const yearText = yearValue ? `${yearValue}` : "";
       const coverClassName = `book-image${entry.__coverIsLogo ? " is-logo" : ""}`;
@@ -3086,6 +3091,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="author" title="${safeAuthor}">${safeAuthor}</span>
             ${summaryMarkup}
             <div class="book-meta">
+              ${isStartHere ? `<span class="page-pill start-pill">Start here</span>` : ""}
               <span class="source-pill">${getDisplaySourceLabel(entry, normalizedLink)}</span>
               <span id="${statusElementId}" class="page-pill status-pill${progressValue ? "" : " is-hidden"}">${escapeHtml(getReadingProgressLabel(progressValue))}</span>
               <span class="page-pill level-pill${levelText ? "" : " is-hidden"}">${escapeHtml(levelText)}</span>

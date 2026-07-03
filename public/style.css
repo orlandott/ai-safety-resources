@@ -1833,6 +1833,14 @@ a.film-score:hover .film-score-value {
   background: var(--accent-soft);
   color: var(--accent-text);
 }
+/* The one curated pick per category (see START_HERE in scripts/lib/resources.mjs). */
+.ssr-card-pill-start,
+.start-pill {
+  border-color: var(--accent-text);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 700;
+}
 
 /* Per-category static pages */
 .category-page {
@@ -1943,12 +1951,14 @@ a.film-score:hover .film-score-value {
   max-width: 1100px;
   padding: 0 1.1rem;
 }
-.paths-grid {
+.paths-grid,
+.starter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 0.75rem;
 }
-.path-card {
+.path-card,
+.starter-card {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -1960,24 +1970,28 @@ a.film-score:hover .film-score-value {
   text-decoration: none;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.path-card:hover {
+.path-card:hover,
+.starter-card:hover {
   transform: translateY(-2px);
   border-color: var(--accent);
   box-shadow: var(--shadow);
 }
-.path-card-kind {
+.path-card-kind,
+.starter-card-kind {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--accent-text);
   font-weight: 700;
 }
-.path-card-title {
+.path-card-title,
+.starter-card-title {
   font-family: "Hahmlet", Georgia, serif;
   font-weight: 600;
   color: var(--text);
 }
-.path-card-why {
+.path-card-why,
+.starter-card-why {
   font-size: 0.85rem;
   color: var(--muted);
   line-height: 1.4;

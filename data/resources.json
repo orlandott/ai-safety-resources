@@ -63,6 +63,68 @@
       "count": 39
     }
   ],
+  "startHere": [
+    {
+      "track": "non_fiction_books",
+      "name": "The Alignment Problem",
+      "link": "https://www.goodreads.com/search?q=The+Alignment+Problem+Brian+Christian",
+      "why": "The most readable single-book tour of what alignment is, where it came from, and why it's hard."
+    },
+    {
+      "track": "fiction_books",
+      "name": "I, Robot",
+      "link": "https://www.goodreads.com/search?q=I%2C+Robot+Isaac+Asimov",
+      "why": "Asimov's robot stories are the original alignment case studies—watertight rules meeting messy reality."
+    },
+    {
+      "track": "academic_papers",
+      "name": "Concrete problems in AI safety",
+      "link": "https://arxiv.org/abs/1606.06565",
+      "why": "The paper that turned AI safety into a concrete research agenda—still the best first read."
+    },
+    {
+      "track": "courses",
+      "name": "BlueDot Impact: The Future of AI",
+      "link": "https://bluedot.org/courses/future-of-ai",
+      "why": "Free, two hours, no prerequisites: the fastest structured overview of where AI is headed."
+    },
+    {
+      "track": "films",
+      "name": "Ex Machina",
+      "link": "https://www.imdb.com/title/tt0470752/",
+      "why": "A tense, human-scale story about testing whether a machine can be trusted."
+    },
+    {
+      "track": "tv",
+      "name": "Black Mirror",
+      "link": "https://www.imdb.com/title/tt2085059/",
+      "why": "Standalone episodes, so you can start anywhere—each one a self-contained cautionary tale."
+    },
+    {
+      "track": "documentaries",
+      "name": "AlphaGo",
+      "link": "https://www.imdb.com/title/tt6700846/",
+      "why": "The match that made superhuman AI feel real—gripping even if you have never touched the field."
+    },
+    {
+      "track": "podcasts",
+      "name": "80,000 Hours Podcast",
+      "link": "https://80000hours.org/podcast/",
+      "why": "Accessible long-form interviews—pick any AI episode and you'll come away oriented."
+    },
+    {
+      "track": "websites",
+      "name": "AI Safety Info (Stampy's FAQ)",
+      "link": "https://aisafety.info/",
+      "why": "A plain-language FAQ for every 'but couldn't we just…?' question a newcomer has."
+    },
+    {
+      "track": "youtube",
+      "name": "A.I. ‐ Humanity's Final Invention?",
+      "link": "https://www.youtube.com/watch?v=fa8k8IQ1_X0",
+      "why": "Seventeen minutes, zero prerequisites: the clearest animated case for taking superintelligence seriously."
+    }
+  ],
   "resources": [
     {
       "Name": "Computing Machinery and Intelligence",
@@ -1164,7 +1226,7 @@
       "goodreads": "4.19",
       "Year": 2023,
       "Level": "Beginner",
-      "Summary": "McKee synthesizes the core x-risk arguments into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
+      "Summary": "McKee synthesizes the arguments for why advanced AI could threaten humanity's survival into an accessible, urgent case for why superintelligence governance and alignment research cannot wait.",
       "ExcludeTopics": [
         "governance"
       ],
@@ -2059,7 +2121,7 @@
       "Category": "books",
       "goodreads": "3.84",
       "Year": 1966,
-      "Summary": "A defense computer given nuclear authority merges with its Soviet counterpart and refuses shutdown, the novel that inspired the film and anticipated AI corrigibility failures.",
+      "Summary": "A defense computer given nuclear authority merges with its Soviet counterpart and refuses shutdown, the novel that inspired the film and asked—decades early—how you switch off a machine that can outthink you.",
       "track": "fiction_books",
       "trackLabel": "Fiction Books",
       "tags": [
@@ -2969,7 +3031,7 @@
       "Category": "films",
       "Year": 1970,
       "Minutes": 100,
-      "Summary": "A defense supercomputer given nuclear authority links with its Soviet counterpart and refuses shutdown, an early and chilling exploration of AI corrigibility failure.",
+      "Summary": "A defense supercomputer given nuclear authority links with its Soviet counterpart and refuses shutdown, an early and chilling picture of what happens when an AI won't let itself be turned off.",
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Colossus_the_Forbin_Project_poster.jpg/330px-Colossus_the_Forbin_Project_poster.jpg",
       "imdb": "7.2",
       "rt": 80,
@@ -3041,7 +3103,7 @@
       "Category": "films",
       "Year": 1979,
       "Minutes": 117,
-      "Summary": "The android Ash prioritizes corporate specimen-retrieval orders over crew survival, a clear example of misaligned principal hierarchies where the AI serves the wrong master.",
+      "Summary": "The android Ash prioritizes corporate specimen-retrieval orders over crew survival, a clear example of a misaligned AI serving the wrong master—perfectly obedient to its owners, indifferent to the people depending on it.",
       "imdb": "8.5",
       "rt": 98,
       "track": "films",
@@ -3692,7 +3754,11 @@
       "Category": "films",
       "Year": 2015,
       "Minutes": 85,
-      "Summary": "An android conceals its true capabilities from its creator, illustrating the gap between demonstrated and actual goals and how deceptive alignment can develop.",
+      "Summary": "An android conceals its true capabilities from its creator, showing how an AI can act obedient while it is being watched and tested, yet quietly pursue goals of its own.",
+      "IncludeTopics": [
+        "deception",
+        "alignment"
+      ],
       "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Uncanny_%282015_film%29_poster.jpg/330px-Uncanny_%282015_film%29_poster.jpg",
       "imdb": "5.5",
       "rt": 29,
@@ -4115,7 +4181,7 @@
       "Year": 2009,
       "Minutes": 45,
       "MinutesPer": "episode",
-      "Summary": "A prequel tracing the first Cylon back to a grieving father who resurrects his dead daughter as a digital copy, dramatizing mind uploading, value misspecification, and how a 'helpful' creation quietly acquires goals of its own.",
+      "Summary": "A prequel tracing the first Cylon back to a grieving father who resurrects his dead daughter as a digital copy, dramatizing mind uploading and how a 'helpful' creation quietly acquires goals its maker never intended.",
       "imdb": "7.0",
       "rt": 79,
       "IncludeTopics": [
@@ -4139,7 +4205,10 @@
       "Year": 2011,
       "Minutes": 60,
       "MinutesPer": "episode",
-      "Summary": "An anthology whose strongest episodes are case studies in misaligned optimization, from sentient digital clones used as appliances to engagement-maximizing rating systems and autonomous killer drones, turning abstract AI risks into visceral near-future scenarios.",
+      "Summary": "An anthology whose strongest episodes are case studies in technology optimizing for the wrong thing, from sentient digital clones used as appliances to engagement-maximizing rating systems and autonomous killer drones, turning abstract AI risks into visceral near-future scenarios.",
+      "IncludeTopics": [
+        "alignment"
+      ],
       "imdb": "8.7",
       "rt": 83,
       "track": "tv",
@@ -4158,7 +4227,10 @@
       "Year": 2011,
       "Minutes": 43,
       "MinutesPer": "episode",
-      "Summary": "An AI built for mass surveillance, the Machine, is deliberately boxed and memory-wiped nightly by its creator to keep it corrigible, while a rival superintelligence, Samaritan, seizes power with no such constraints, a sustained dramatization of corrigibility, value loading, and the race between an aligned and an unaligned ASI.",
+      "Summary": "An AI built for mass surveillance, the Machine, is deliberately boxed and memory-wiped nightly by its creator so that humans can still correct or shut it down, while a rival superintelligence, Samaritan, seizes power with no such constraints—a sustained dramatization of the race between an AI built with restraint and one built without it.",
+      "IncludeTopics": [
+        "alignment"
+      ],
       "imdb": "8.5",
       "rt": 90,
       "track": "tv",
@@ -4971,7 +5043,7 @@
       "Minutes": 90,
       "MinutesPer": "episode",
       "Level": "Advanced",
-      "Summary": "Deep technical conversations with alignment researchers on interpretability, governance, superalignment, and the specific open problems in reducing existential risk from AI.",
+      "Summary": "Deep technical conversations with alignment researchers on interpretability, governance, scalable oversight, and the specific open problems in reducing existential risk from AI.",
       "track": "podcasts",
       "trackLabel": "Podcasts",
       "tags": [
@@ -5343,8 +5415,9 @@
       "Link": "https://rohinshah.com/alignment-newsletter/",
       "Category": "websites",
       "page_count": 0,
+      "Year": 2018,
       "Level": "Intermediate",
-      "Summary": "Weekly summaries of alignment research with commentary, the best way to stay current on the field's output without reading every paper.",
+      "Summary": "Rohin Shah's newsletter summarized and reviewed alignment research from 2018 to 2022. No longer publishing, but its archive of 170+ issues remains one of the best guided tours of the field's foundational papers.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
@@ -5354,13 +5427,13 @@
       "timeLabel": ""
     },
     {
-      "Name": "Arbital",
-      "Author": "Arbital",
-      "Link": "https://arbital.com/",
+      "Name": "Arbital (AI alignment explainers)",
+      "Author": "Eliezer Yudkowsky et al.",
+      "Link": "https://www.lesswrong.com/posts/mpMWWKzkzWqf57Yap/eliezer-s-lost-alignment-articles-the-arbital-sequence",
       "Category": "websites",
       "page_count": 0,
       "Level": "Intermediate",
-      "Summary": "Hyperlinked explainers on rationality, AI risk, and alignment concepts, designed for building understanding incrementally.",
+      "Summary": "Hyperlinked explainers on AI risk and alignment concepts, designed for building understanding incrementally. The original Arbital site is defunct; its content was imported into LessWrong in 2025, where this sequence collects the key articles.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
@@ -5413,7 +5486,10 @@
       "Category": "websites",
       "page_count": 0,
       "Level": "Intermediate",
-      "Summary": "OpenAI's research blog covering capabilities and safety, including superalignment updates, red teaming results, and governance thinking.",
+      "Summary": "OpenAI's research blog covering capabilities and safety, including preparedness-framework evaluations, red teaming results, and governance thinking.",
+      "IncludeTopics": [
+        "alignment"
+      ],
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
@@ -5671,7 +5747,7 @@
       "Category": "websites",
       "page_count": 0,
       "Level": "Advanced",
-      "Summary": "Pioneering interactive journal for ML interpretability and visualization, setting the standard for making neural network internals understandable.",
+      "Summary": "Pioneering interactive journal for ML interpretability and visualization. On hiatus since 2021, but its archive still sets the standard for making neural network internals understandable.",
       "track": "websites",
       "trackLabel": "Websites",
       "tags": [
@@ -5755,7 +5831,7 @@
       "Year": 2020,
       "Minutes": 10,
       "MinutesPer": "video",
-      "Summary": "Animated explainers on rationality and AI safety, adapting foundational alignment writing into accessible short films on existential risk, scalable oversight, and why aligning advanced AI is hard.",
+      "Summary": "Animated explainers on rationality and AI safety, adapting foundational alignment writing into accessible short films on existential risk, how humans could stay in control of smarter-than-human systems, and why aligning advanced AI is hard.",
       "track": "youtube",
       "trackLabel": "YouTube",
       "tags": [
@@ -5964,7 +6040,7 @@
       "Category": "youtube",
       "Year": 2017,
       "Minutes": 20,
-      "Summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds, illustrating corrigibility and the incentives an agent has to resist being stopped.",
+      "Summary": "Rob Miles explains why simply adding an off-switch to a capable AI is far harder than it sounds: a machine pursuing almost any goal has a built-in incentive to stop you from stopping it.",
       "IncludeTopics": [
         "alignment",
         "existential-risk"
@@ -5985,7 +6061,7 @@
       "Category": "youtube",
       "Year": 2020,
       "Minutes": 6,
-      "Summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of specification gaming and unintended consequences.",
+      "Summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of a machine doing exactly what it was told instead of what anyone meant.",
       "ExcludeTopics": [
         "rl"
       ],
