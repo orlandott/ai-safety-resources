@@ -3,11 +3,12 @@ import {
   DarkTheme,
   DefaultTheme,
   NavigationContainer,
+  useNavigation,
   type Theme as NavTheme,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { Text } from "react-native";
+import { Platform, Pressable, Text } from "react-native";
 import { CategoryScreen } from "../screens/CategoryScreen";
 import { HomeScreen } from "../screens/HomeScreen";
 import { PathScreen } from "../screens/PathScreen";
@@ -22,6 +23,25 @@ const Tab = createBottomTabNavigator();
 
 function TabIcon({ glyph, focused }: { glyph: string; focused: boolean }) {
   return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{glyph}</Text>;
+}
+
+// On native the stack header draws the system back chevron; on web it renders
+// nothing, so provide an explicit back button there.
+function WebBackButton() {
+  const navigation = useNavigation();
+  const theme = useTheme();
+  if (!navigation.canGoBack()) return null;
+  return (
+    <Pressable
+      onPress={() => navigation.goBack()}
+      hitSlop={12}
+      accessibilityRole="button"
+      accessibilityLabel="Go back"
+      style={({ pressed }) => ({ paddingRight: 14, opacity: pressed ? 0.6 : 1 })}
+    >
+      <Text style={{ color: theme.accent, fontSize: 16, fontWeight: "700" }}>‹ Back</Text>
+    </Pressable>
+  );
 }
 
 function Tabs() {
@@ -80,6 +100,9 @@ export function AppNavigator() {
         screenOptions={{
           headerTintColor: theme.accent,
           headerTitleStyle: { color: theme.text },
+          ...(Platform.OS === "web"
+            ? { headerLeft: () => <WebBackButton /> }
+            : null),
         }}
       >
         <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
