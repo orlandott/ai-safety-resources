@@ -21,7 +21,7 @@ export const SITE_ORIGIN = "https://ai-safety-resources.com";
 // Sitemap <lastmod> for every generated page. Bump when the dataset or page
 // templates change meaningfully. Kept as a committed constant (rather than
 // build time) so the build stays deterministic and CI's diff check passes.
-export const DATASET_UPDATED = "2026-07-02";
+export const DATASET_UPDATED = "2026-07-03";
 
 // Display "tracks" in the same order as the tabs in index.html. `pane` matches
 // the container id the runtime renders into; `intro` mirrors the on-page copy.
@@ -382,6 +382,26 @@ export const TOPIC_PAGES = [
   },
 ];
 
+// ── "Start here" picks ─────────────────────────────────────────────────────
+// One curated entry point per category: the single resource we would hand a
+// newcomer first. Each pick references an existing resource by its exact Name
+// (plus `track` to disambiguate cross-listed titles) and is validated at build
+// time, like learning-path steps. The build surfaces the picks as a homepage
+// on-ramp strip, a "Start here" pill on each pick's card (server-rendered and
+// hydrated), and a `window.RESOURCE_START_HERE` map for the runtime.
+export const START_HERE = [
+  { track: "non_fiction_books", name: "The Alignment Problem", why: "The most readable single-book tour of what alignment is, where it came from, and why it's hard." },
+  { track: "fiction_books", name: "I, Robot", why: "Asimov's robot stories are the original alignment case studies—watertight rules meeting messy reality." },
+  { track: "academic_papers", name: "Concrete problems in AI safety", why: "The paper that turned AI safety into a concrete research agenda—still the best first read." },
+  { track: "courses", name: "BlueDot Impact: The Future of AI", why: "Free, two hours, no prerequisites: the fastest structured overview of where AI is headed." },
+  { track: "films", name: "Ex Machina", why: "A tense, human-scale story about testing whether a machine can be trusted." },
+  { track: "tv", name: "Black Mirror", why: "Standalone episodes, so you can start anywhere—each one a self-contained cautionary tale." },
+  { track: "documentaries", name: "AlphaGo", why: "The match that made superhuman AI feel real—gripping even if you have never touched the field." },
+  { track: "podcasts", name: "80,000 Hours Podcast", why: "Accessible long-form interviews—pick any AI episode and you'll come away oriented." },
+  { track: "websites", name: "AI Safety Info (Stampy's FAQ)", why: "A plain-language FAQ for every 'but couldn't we just…?' question a newcomer has." },
+  { track: "youtube", name: "A.I. ‐ Humanity's Final Invention?", why: "Seventeen minutes, zero prerequisites: the clearest animated case for taking superintelligence seriously." },
+];
+
 // ── Learning paths ("Where do I start?") ──────────────────────────────────
 // Audience-shaped, ordered on-ramps. Each step references an existing resource
 // by its exact Name (and `track` to disambiguate cross-listed titles); the
@@ -433,7 +453,7 @@ export const PATHS = [
       { name: "Training a Helpful and Harmless Assistant with RLHF", track: "academic_papers", why: "The engineering of an RLHF safety pipeline, end to end." },
       { name: "Direct Preference Optimization (DPO)", track: "academic_papers", why: "The simpler alternative to RLHF that reframes what preference training is doing." },
       { name: "Constitutional AI: Harmlessness from AI Feedback", track: "academic_papers", why: "A current, deployed approach to scalable oversight." },
-      { name: "Weak-to-Strong Generalization", track: "academic_papers", why: "The core question of superalignment: can weaker supervisors align stronger models?" },
+      { name: "Weak-to-Strong Generalization", track: "academic_papers", why: "The core question of scalable oversight: can weaker supervisors align stronger models?" },
       { name: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training", track: "academic_papers", why: "Empirical evidence that deceptive behavior can survive standard safety training." },
       { name: "Red Teaming Language Models to Reduce Harms", track: "academic_papers", why: "A repeatable methodology for finding model failures." },
       { name: "Jailbroken", track: "academic_papers", why: "Why safety training fails: the two failure modes behind most jailbreaks." },
