@@ -1135,50 +1135,23 @@ document.addEventListener("DOMContentLoaded", () => {
     return pageCount ? `${pageCount} pages` : "";
   };
 
-  // Resource metadata pills (difficulty + time to consume). Mirrors
-  // levelFor()/timeLabelFor() in scripts/lib/resources.mjs so the runtime cards
-  // match the server-rendered cards; keep the two in sync.
-  const validLevels = ["Beginner", "Intermediate", "Advanced"];
-  const levelByTrack = {
-    non_fiction_books: "Intermediate",
-    fiction_books: "Beginner",
-    academic_papers: "Advanced",
-    courses: "Beginner",
-    films: "Beginner",
-    tv: "Beginner",
-    documentaries: "Beginner",
-    podcasts: "Beginner",
-    websites: "Intermediate",
-    youtube: "Beginner",
-  };
-  const getEntryLevel = (entry = {}) => {
-    if (typeof entry.Level === "string" && validLevels.includes(entry.Level)) {
-      return entry.Level;
-    }
-    return levelByTrack[getEntryBucketKey(entry)] || "";
-  };
-  const humanizeMinutes = (minutes, verb) => {
-    if (!Number.isFinite(minutes) || minutes <= 0) return "";
-    if (minutes < 90) return `~${Math.round(minutes / 5) * 5 || 5} min ${verb}`;
-    const hours = minutes / 60;
-    const rounded = hours < 10 ? Math.round(hours * 2) / 2 : Math.round(hours);
-    return `~${rounded} hr ${verb}`;
-  };
-  const getEntryTimeLabel = (entry = {}) => {
-    const pages = normalizePositiveInteger(entry.page_count);
-    if (pages) return humanizeMinutes(pages * 1.8, "read");
-    const minutes = normalizePositiveInteger(entry.Minutes);
-    if (minutes) {
-      if (typeof entry.MinutesPer === "string" && entry.MinutesPer.trim()) {
-        return humanizeMinutes(minutes, `per ${entry.MinutesPer.trim()}`);
-      }
-      const track = getEntryBucketKey(entry);
-      if (track === "courses") return humanizeMinutes(minutes, "course");
-      const verb = track === "podcasts" ? "listen" : "watch";
-      return humanizeMinutes(minutes, verb);
-    }
-    return "";
-  };
+  // Resource metadata pills (difficulty + time to consume). The rules live in
+  // entry-meta.js (window.ENTRY_META), the single shared source also consumed
+  // by the build, so hydrated cards cannot drift from the server-rendered
+  // ones. If that script somehow failed to load, cards render without pills
+  // rather than crashing.
+  const entryMeta = window.ENTRY_META || {};
+  const validLevels = Array.isArray(entryMeta.VALID_LEVELS)
+    ? entryMeta.VALID_LEVELS
+    : ["Beginner", "Intermediate", "Advanced"];
+  const getEntryLevel = (entry = {}) =>
+    typeof entryMeta.levelFor === "function"
+      ? entryMeta.levelFor(entry, getEntryBucketKey(entry))
+      : "";
+  const getEntryTimeLabel = (entry = {}) =>
+    typeof entryMeta.timeLabelFor === "function"
+      ? entryMeta.timeLabelFor(entry, getEntryBucketKey(entry))
+      : "";
 
   const usedSummarySet = new Set();
   const summaryReasonRules = [

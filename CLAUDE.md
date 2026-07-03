@@ -58,6 +58,16 @@ or reusing code over adding parallel implementations. Server-rendered cards in
 generated HTML must not contain a `<div>` (the pane-injection regex depends on
 it — see `ssrPaneMarkup` in `scripts/build.mjs`).
 
+`public/entry-meta.js` is the single source of truth for the card metadata
+pills (difficulty level + time-to-consume labels). It is hand-edited,
+dependency-free, and DOM-free, and is consumed by **both** sides: the browser
+loads it as a classic script before `script.js` (which reads
+`window.ENTRY_META`), and the build evaluates it in a vm sandbox
+(`loadEntryMeta` in `scripts/lib/resources.mjs`). Edit pill rules there and
+only there — never re-implement them in `script.js` or the build lib, and
+after editing run `npm run build` since the labels are baked into generated
+pages and data exports.
+
 `functions/` are Cloudflare Pages Functions (suggestion/contact endpoint,
 optional accounts). The site must keep working without them: no-JS fallback,
 `mailto:` fallback, localStorage-only reading list by default.
