@@ -3859,10 +3859,10 @@
    "timeLabel": "~1.5 hr per episode"
   },
   {
-   "id": "podcasts|https://www.aipolicypodcast.org/",
+   "id": "podcasts|https://www.centeraipolicy.org/podcast",
    "name": "AI Policy Podcast",
    "author": "Center for AI Policy",
-   "link": "https://www.aipolicypodcast.org/",
+   "link": "https://www.centeraipolicy.org/podcast",
    "image": "",
    "year": 2023,
    "level": "Intermediate",
@@ -5238,7 +5238,7 @@
      "why": "A weekly newsletter tracking AI progress with a policy reader in mind."
     },
     {
-     "resourceId": "podcasts|https://www.aipolicypodcast.org/",
+     "resourceId": "podcasts|https://www.centeraipolicy.org/podcast",
      "why": "Ongoing coverage of the policy debates as they unfold."
     },
     {
