@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Google Play service-account key used by `eas submit` — never commit
+play-service-account.json

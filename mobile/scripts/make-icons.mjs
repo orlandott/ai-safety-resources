@@ -2,6 +2,7 @@
 // (public/images/logo-ai-safety-resources.png). The wordmark under the emblem
 // is illegible at icon size, so icons use just the emblem on the site's cream
 // background. Run from mobile/: `node scripts/make-icons.mjs`.
+import { mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -73,3 +74,25 @@ console.log("wrote assets/android-icon-monochrome.png");
 
 // Favicon for the web build.
 await centerOn(48, CREAM, 40, "favicon.png");
+
+// Google Play listing assets (not bundled into the app; uploaded in the
+// Play Console): a 512x512 hi-res icon and a 1024x500 feature graphic.
+// The feature graphic is wide enough for the full logo, wordmark included.
+const playDir = join(assets, "play-store");
+await mkdir(playDir, { recursive: true });
+
+await centerOn(512, CREAM, 370, join("play-store", "icon-512.png"));
+
+const fullLogo = await sharp(logoPath).trim().resize({ height: 380 }).png().toBuffer();
+const logoMeta = await sharp(fullLogo).metadata();
+await sharp({ create: { width: 1024, height: 500, channels: 4, background: CREAM } })
+  .composite([
+    {
+      input: fullLogo,
+      left: Math.round((1024 - logoMeta.width) / 2),
+      top: Math.round((500 - logoMeta.height) / 2),
+    },
+  ])
+  .png()
+  .toFile(join(playDir, "feature-graphic.png"));
+console.log("wrote assets/play-store/feature-graphic.png");
