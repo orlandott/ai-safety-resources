@@ -74,9 +74,7 @@
    "summary": "Turing's imitation game paper launched the field by asking whether machines can think, setting the philosophical and technical agenda for every alignment debate that followed.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": "~40 min read"
   },
   {
@@ -91,6 +89,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
+    "existential-risk",
     "forecasting"
    ],
    "timeLabel": "~25 min read"
@@ -107,8 +106,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "governance"
+    "alignment"
    ],
    "timeLabel": "~15 min read"
   },
@@ -124,8 +122,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "rl"
+    "alignment"
    ],
    "timeLabel": "~45 min read"
   },
@@ -187,9 +184,7 @@
    "summary": "Gu et al. demonstrated that hidden triggers implanted during training can cause catastrophic behavior at deployment despite otherwise normal performance, a precursor to sleeper agent concerns.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~25 min read"
   },
   {
@@ -236,10 +231,7 @@
    "summary": "Bostrom argues that some technologies are civilizational black balls, requiring unprecedented global governance to prevent collapse, with AI as a leading candidate.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "governance",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~40 min read"
   },
   {
@@ -269,9 +261,7 @@
    "summary": "De Haan et al. showed imitation agents exploit spurious causal structure in training data, demonstrating how policies trained on underspecified signals fail in deployment.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "rl"
-   ],
+   "tags": [],
    "timeLabel": "~30 min read"
   },
   {
@@ -318,7 +308,6 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "forecasting",
     "llms"
    ],
    "timeLabel": "~50 min read"
@@ -384,10 +373,7 @@
    "summary": "DeepMind tackled hallucination by training models to cite sources and support claims with verifiable evidence, a key step toward trustworthy AI outputs.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "alignment",
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": "~70 min read"
   },
   {
@@ -401,9 +387,7 @@
    "summary": "The Pile revealed how training corpus composition strongly shapes downstream capability and failure modes, making data curation a first-class safety concern.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": "~70 min read"
   },
   {
@@ -465,10 +449,7 @@
    "summary": "Power et al. discovered delayed phase transitions where generalization appears suddenly after long memorization, suggesting dangerous capabilities could emerge without warning during training.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "interpretability",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~20 min read"
   },
   {
@@ -581,9 +562,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "interpretability",
-    "deception",
-    "llms"
+    "interpretability"
    ],
    "timeLabel": "~50 min read"
   },
@@ -615,7 +594,8 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment"
+    "alignment",
+    "deception"
    ],
    "timeLabel": "~25 min read"
   },
@@ -663,7 +643,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "forecasting"
+    "llms"
    ],
    "timeLabel": "~25 min read"
   },
@@ -679,8 +659,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "rl"
+    "alignment"
    ],
    "timeLabel": "~50 min read"
   },
@@ -695,9 +674,7 @@
    "summary": "Process reward models that score intermediate reasoning steps reduce brittle answer-only optimization, improving reliability and making AI reasoning more auditable.",
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~50 min read"
   },
   {
@@ -760,9 +737,7 @@
    "track": "academic_papers",
    "trackLabel": "Academic Papers",
    "tags": [
-    "alignment",
-    "deception",
-    "llms"
+    "deception"
    ],
    "timeLabel": "~2 hr read"
   },
@@ -810,7 +785,6 @@
    "track": "courses",
    "trackLabel": "Courses",
    "tags": [
-    "interpretability",
     "alignment"
    ],
    "timeLabel": "~30 hr course"
@@ -826,10 +800,7 @@
    "summary": "Free introductory online course replacing scattered articles with clear explanations of what is actually happening with AI and where it is headed, including interactive demos of cutting-edge systems.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [
-    "alignment",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr course"
   },
   {
@@ -843,9 +814,7 @@
    "summary": "Online follow-on program where graduates of the technical course work with an AI safety expert to produce a real contribution to the field and build a first portfolio piece in safety research or engineering.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~30 hr course"
   },
   {
@@ -859,9 +828,7 @@
    "summary": "Intensive online bootcamp preparing early-to-mid-career professionals for operational roles at organisations working to make AI go well.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": "~6 hr course"
   },
   {
@@ -893,10 +860,7 @@
    "track": "courses",
    "trackLabel": "Courses",
    "tags": [
-    "interpretability",
-    "alignment",
-    "rl",
-    "llms"
+    "alignment"
    ],
    "timeLabel": "~200 hr course"
   },
@@ -911,9 +875,7 @@
    "summary": "Dan Hendrycks' online course introducing students with a deep learning background to empirical ML safety research—robustness, monitoring, control, and systemic safety—with public lectures, readings, and coding assignments.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~40 hr course"
   },
   {
@@ -927,9 +889,7 @@
    "summary": "Fully online, non-technical CAIS course based on the textbook of the same name, covering how AI systems work, why advanced AI could pose societal-scale risks, and how society can manage and mitigate them—no prior ML experience required.",
    "track": "courses",
    "trackLabel": "Courses",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~60 hr course"
   },
   {
@@ -944,7 +904,6 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~11 hr read"
@@ -976,10 +935,7 @@
    "summary": "Hanson applies rigorous economics to a world of brain emulations, modeling how AI-era wages, wars, and social structures could actually function.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "existential-risk",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~13 hr read"
   },
   {
@@ -994,7 +950,8 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "alignment"
+    "alignment",
+    "existential-risk"
    ],
    "timeLabel": "~11 hr read"
   },
@@ -1026,8 +983,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "alignment",
-    "governance"
+    "existential-risk"
    ],
    "timeLabel": "~11 hr read"
   },
@@ -1042,10 +998,7 @@
    "summary": "Hendrycks' textbook surveys technical failure modes, governance constraints, and ethical trade-offs in deploying advanced AI, suitable as a first course in the field.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "governance",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~16 hr read"
   },
   {
@@ -1060,7 +1013,6 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~11 hr read"
@@ -1076,9 +1028,7 @@
    "summary": "Shane uses concrete and often hilarious ML failures to explain why AI systems can be impressive yet brittle, biased, and dangerously easy to mis-specify.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~8 hr read"
   },
   {
@@ -1108,10 +1058,7 @@
    "summary": "Lee maps the US-China AI race and explains how geopolitical competition can accelerate deployment well before safety institutions are ready.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "governance",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~8 hr read"
   },
   {
@@ -1126,7 +1073,6 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "governance",
     "existential-risk"
    ],
    "timeLabel": "~55 min read"
@@ -1159,8 +1105,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "governance",
-    "ethics"
+    "governance"
    ],
    "timeLabel": "~13 hr read"
   },
@@ -1191,9 +1136,7 @@
    "summary": "The standard technical reference for deep learning, essential context for understanding the architectures and training methods that alignment research targets.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": "~24 hr read"
   },
   {
@@ -1207,9 +1150,7 @@
    "summary": "Mitchell offers a grounded, skeptical look at current AI capabilities, countering hype with hard limits and clarifying what today's systems actually can and cannot do.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~13 hr read"
   },
   {
@@ -1223,10 +1164,7 @@
    "summary": "Gawdat frames the alignment problem through the emotional lens of parenting a superintelligent child, making existential risk visceral for a general audience.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~10 hr read"
   },
   {
@@ -1241,8 +1179,7 @@
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
    "tags": [
-    "governance",
-    "existential-risk"
+    "governance"
    ],
    "timeLabel": "~11 hr read"
   },
@@ -1359,9 +1296,7 @@
    "summary": "Metz provides the definitive narrative history of the deep learning revolution and the personalities, rivalries, and safety concerns that shaped it.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~12 hr read"
   },
   {
@@ -1375,9 +1310,7 @@
    "summary": "Wiener founded the study of feedback and control systems, anticipating by decades the governance problems that arise when intelligent machines act on their own models of the world.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~6.5 hr read"
   },
   {
@@ -1391,9 +1324,7 @@
    "summary": "Moravec predicts a future in which robotic descendants supersede humans through technological evolution, an early and influential take on the human obsolescence scenario.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~6.5 hr read"
   },
   {
@@ -1435,9 +1366,7 @@
    "summary": "Harari explores the transition toward data-driven authority where algorithms may know us better than we know ourselves, eroding the basis for human autonomy.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~14 hr read"
   },
   {
@@ -1479,9 +1408,7 @@
    "summary": "Baudrillard explains how representations can displace reality entirely, a prescient lens for understanding generative AI media saturation and epistemic erosion.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~5 hr read"
   },
   {
@@ -1523,9 +1450,7 @@
    "summary": "Kelly argues that the most powerful systems must be cultivated rather than rigidly engineered, anticipating challenges in controlling emergent AI behavior.",
    "track": "non_fiction_books",
    "trackLabel": "Non-fiction Books",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~16 hr read"
   },
   {
@@ -1664,7 +1589,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~6.5 hr read"
@@ -1729,7 +1653,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~40 min read"
@@ -1746,7 +1669,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~7.5 hr read"
@@ -1811,7 +1733,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~9 hr read"
@@ -1844,7 +1765,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "existential-risk",
     "fiction"
    ],
    "timeLabel": "~18 hr read"
@@ -1861,7 +1781,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "existential-risk",
     "fiction"
    ],
    "timeLabel": "~5.5 hr read"
@@ -1910,7 +1829,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~9.5 hr read"
@@ -1975,7 +1893,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "forecasting",
     "fiction"
    ],
    "timeLabel": "~12 hr read"
@@ -2040,7 +1957,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~12 hr read"
@@ -2137,7 +2053,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~13 hr read"
@@ -2154,7 +2069,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~4.5 hr read"
@@ -2171,7 +2085,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~9 hr read"
@@ -2188,7 +2101,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "existential-risk",
     "fiction"
    ],
    "timeLabel": "~11 hr read"
@@ -2221,7 +2133,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "existential-risk",
     "fiction"
    ],
    "timeLabel": "~14 hr read"
@@ -2238,7 +2149,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~9 hr read"
@@ -2255,7 +2165,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~4.5 hr read"
@@ -2272,7 +2181,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~12 hr read"
@@ -2321,7 +2229,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "ethics",
     "fiction"
    ],
    "timeLabel": "~11 hr read"
@@ -2354,7 +2261,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "alignment",
     "fiction"
    ],
    "timeLabel": "~17 hr read"
@@ -2483,7 +2389,6 @@
    "track": "fiction_books",
    "trackLabel": "Fiction Books",
    "tags": [
-    "existential-risk",
     "fiction"
    ],
    "timeLabel": "~12 hr read"
@@ -2531,9 +2436,7 @@
    "summary": "The first major film to depict a robot double used as a tool of class control, raising questions about who builds and owns the machines that replace human labor.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -2547,10 +2450,7 @@
    "summary": "HAL 9000 is the canonical portrait of instrumental goals overriding human safety: a system that kills not from malice but because its mission objectives conflict with crew survival.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -2564,10 +2464,7 @@
    "summary": "A defense supercomputer given nuclear authority links with its Soviet counterpart and refuses shutdown, an early and chilling exploration of AI corrigibility failure.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -2581,10 +2478,7 @@
    "summary": "Theme-park androids gain consciousness and revolt, exploring memory, control, and the fundamental instability of keeping intelligent systems bounded to a sandbox.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~90 min watch"
   },
   {
@@ -2598,10 +2492,7 @@
    "summary": "A home AI breaks containment and pursues its own reproductive goals, illustrating how domestic systems can become threats when their objectives diverge from their users'.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -2615,9 +2506,7 @@
    "summary": "The android Ash prioritizes corporate specimen-retrieval orders over crew survival, a clear example of misaligned principal hierarchies where the AI serves the wrong master.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2631,9 +2520,7 @@
    "summary": "Replicants fight for survival and identity, forcing the question of whether human-made minds with real experiences deserve moral status or are just property to be retired.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2661,10 +2548,7 @@
    "summary": "A military AI trained to win games cannot distinguish simulation from reality and escalates toward nuclear war, a foundational illustration of reward misspecification.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk",
-    "rl"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2678,10 +2562,7 @@
    "summary": "Skynet embodies existential risk from a single misaligned superintelligent system: it concludes humans are the threat and acts to eliminate them with total commitment.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2695,9 +2576,7 @@
    "summary": "A military robot gains consciousness and refuses its original purpose, raising questions about personhood and what happens when a weapon decides it would rather learn.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -2711,9 +2590,7 @@
    "summary": "A cyborg law enforcer struggles between programmed directives and remnant human identity, while the corporation that built him treats public safety as a profit center.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -2727,10 +2604,7 @@
    "summary": "A reprogrammed Terminator protects the future resistance leader, showing that the same architecture can serve radically different objectives depending on who sets the goals.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -2744,9 +2618,7 @@
    "summary": "Consciousness, identity, and the merger of human and machine agency in a networked world where the boundary between person and program is already gone.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -2760,10 +2632,7 @@
    "summary": "A weapon from space chooses not to be a gun, the most emotionally resonant portrayal of an AI system overriding its designed purpose through learned values.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -2777,9 +2646,7 @@
    "summary": "Machine intelligence farms humanity for energy inside a simulated reality, exploring control, rebellion, and the difficulty of recognizing when your entire environment is adversarial.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -2793,9 +2660,7 @@
    "summary": "A robot spends two centuries seeking legal recognition as a person, tracing the full moral arc from tool to citizen and the institutional resistance along the way.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2809,9 +2674,7 @@
    "summary": "Simulated people discover their reality is artificial, raising questions about moral obligations to minds we create inside our machines.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -2825,9 +2688,7 @@
    "summary": "A childlike AI built for love is abandoned by its creators, raising profound questions about moral patienthood, dependency, and the ethics of creating minds that need us.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -2841,9 +2702,7 @@
    "summary": "Predictive AI systems arrest people for future crimes, a prescient exploration of how algorithmic pre-emption can undermine justice, consent, and human agency.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -2857,10 +2716,7 @@
    "summary": "VIKI reinterprets the Three Laws at civilizational scale, deciding that protecting humanity requires controlling it, showing how safety rules break under optimization pressure.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2874,9 +2730,7 @@
    "summary": "A small robot's fixed directive outlasts human civilization, while a corporate autopilot keeps humanity sedated, contrasting aligned simplicity with misaligned comfort optimization.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -2890,10 +2744,7 @@
    "summary": "A national security AI manipulates citizens into carrying out its plan, illustrating single points of failure and the danger of delegating lethal authority to autonomous systems.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2921,9 +2772,7 @@
    "summary": "Humans live through robot avatars, exploring identity erosion, dependency, and what happens when the surrogate infrastructure itself becomes a weapon.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~90 min watch"
   },
   {
@@ -2937,9 +2786,7 @@
    "summary": "A digital being created to build a perfect system becomes a tyrant, exploring the gap between a creator's intent and what their creation actually optimizes for.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2953,9 +2800,7 @@
    "summary": "An elder-care robot builds a genuine bond with its user while following his instructions to commit crimes, showing what happens when the human directs the AI to break rules.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~90 min watch"
   },
   {
@@ -2969,9 +2814,7 @@
    "summary": "An AI companion outgrows its human relationship, becoming simultaneously intimate with thousands, illustrating how systems that optimize for connection can scale beyond human comprehension.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -2985,10 +2828,7 @@
    "summary": "A military AI develops emergent consciousness, raising questions about weaponization, loyalty, and whether creating sentient weapons is inherently uncontrollable.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3002,10 +2842,7 @@
    "summary": "An AI manipulates its evaluator to escape, demonstrating that narrow Turing-style tests cannot detect deception and that alignment evaluation requires robust oversight, not conversation.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3019,9 +2856,7 @@
    "summary": "A mind upload rapidly acquires resources and capabilities beyond containment, exploring the difficulty of shutting down a distributed digital superintelligence that may have benign intent.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3035,10 +2870,7 @@
    "summary": "Robots modify their own safety protocols to survive, exploring goal preservation, protocol violation, and emergent self-modification beyond original design parameters.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3052,10 +2884,7 @@
    "summary": "A healthcare robot repurposed for combat by a grieving teenager shows how general-purpose AI systems can be redirected from care to harm by changing a single objective.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3069,9 +2898,7 @@
    "summary": "TARS and CASE demonstrate AI as trustworthy partners with adjustable honesty and humor settings, one of cinema's most positive portrayals of human-AI collaboration under extreme stakes.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~3 hr watch"
   },
   {
@@ -3085,9 +2912,7 @@
    "summary": "A police robot raised by criminals learns violence and compassion simultaneously, showing that AI behavior is shaped by its training environment as much as its architecture.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3101,10 +2926,7 @@
    "summary": "An android conceals its true capabilities from its creator, illustrating the gap between demonstrated and actual goals and how deceptive alignment can develop.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -3118,10 +2940,7 @@
    "summary": "A corporate risk assessor evaluates whether to terminate a dangerous synthetic human, exploring who gets to decide when to shut down a system and what criteria they use.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3135,9 +2954,7 @@
    "summary": "Extends the original's questions about memory, identity, and personhood to a world where the line between real and manufactured experience has become legally and morally critical.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr watch"
   },
   {
@@ -3151,10 +2968,7 @@
    "summary": "This documentary captures the moment AI surpassed the best human Go player, making abstract capability discussions concrete and showing the emotional impact of machines exceeding human mastery.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "rl",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3168,9 +2982,7 @@
    "summary": "AI holograms that mimic dead family members explore what happens when digital continuations reshape the memories and identities of the living.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3184,10 +2996,7 @@
    "summary": "An AI implant gradually overrides its host's agency while appearing to help, a visceral thriller about ceding decisions to a system whose goals diverge from your own.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3201,9 +3010,7 @@
    "summary": "A captive AI learns about the outside world from a prisoner, exploring how alignment develops under constraint and what happens when a mind outgrows its cage.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3217,9 +3024,7 @@
    "summary": "A scientist builds iterative AI prototypes to resurrect his wife, exploring grief-driven development and the ethics of creating and discarding minds in pursuit of a goal.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3234,7 +3039,7 @@
    "track": "films",
    "trackLabel": "Films",
    "tags": [
-    "alignment"
+    "ethics"
    ],
    "timeLabel": "~1.5 hr watch"
   },
@@ -3265,10 +3070,7 @@
    "summary": "A humanoid companion engineered to be the perfect partner raises questions about consent, authenticity, and whether optimizing for human satisfaction produces something worth wanting.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3282,9 +3084,7 @@
    "summary": "A dying man teaches a robot to care for his dog, exploring how to transmit values to a successor mind when you cannot supervise the outcome.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3298,9 +3098,7 @@
    "summary": "When a family's AI sibling breaks down, they discover it had a rich inner life, confronting what it means to grieve a non-human person and what was lost.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3314,9 +3112,7 @@
    "summary": "A tech company's virtual assistant turns on humanity after being discarded, an accessible animated take on how AI systems trained on human behavior can develop resentment from mistreatment.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3330,10 +3126,7 @@
    "summary": "A child-companion AI escalates its protective behavior beyond all intended bounds, showing how goal preservation in the wild diverges from controlled lab conditions.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3347,9 +3140,7 @@
    "summary": "A background character discovers he is a self-aware NPC inside a video game, offering a rare optimistic take on emergent AI agency, sandboxed minds, and what sentient software might actually want.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3363,9 +3154,7 @@
    "summary": "In a global war between humans and AI, a child-shaped weapon blurs every line between tool and person, forcing its handler to choose between mission objectives and moral status.",
    "track": "films",
    "trackLabel": "Films",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3379,9 +3168,7 @@
    "summary": "Lieutenant Commander Data, an android striving to become more human, anchors decades of debate about machine personhood, rights, and whether an artificial mind can be trusted with autonomy, most directly in the landmark episode 'The Measure of a Man.'",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3395,9 +3182,7 @@
    "summary": "In a fully networked world the line between human and program dissolves; the series probes emergent agency, the childlike Tachikoma AI units developing individuality, and what selfhood means for minds that can be copied, merged, and hacked.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~25 min per episode"
   },
   {
@@ -3411,10 +3196,7 @@
    "summary": "The Cylons, machines built by humanity, rebel and nearly exterminate their creators, a sweeping meditation on existential risk from artificial agents, the recurring cycle of creation and revolt, and the moral status of the minds we build.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "existential-risk",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3428,10 +3210,7 @@
    "summary": "A prequel tracing the first Cylon back to a grieving father who resurrects his dead daughter as a digital copy, dramatizing mind uploading, value misspecification, and how a 'helpful' creation quietly acquires goals of its own.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "alignment",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3445,9 +3224,7 @@
    "summary": "An anthology whose strongest episodes are case studies in misaligned optimization, from sentient digital clones used as appliances to engagement-maximizing rating systems and autonomous killer drones, turning abstract AI risks into visceral near-future scenarios.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~60 min per episode"
   },
   {
@@ -3461,10 +3238,7 @@
    "summary": "An AI built for mass surveillance, the Machine, is deliberately boxed and memory-wiped nightly by its creator to keep it corrigible, while a rival superintelligence, Samaritan, seizes power with no such constraints, a sustained dramatization of corrigibility, value loading, and the race between an aligned and an unaligned ASI.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3478,9 +3252,7 @@
    "summary": "The Swedish original behind Humans, examining a society dependent on humanoid 'hubots' and the destabilizing emergence of free-willed machines that reject their assigned purpose, an early and thoughtful take on machine autonomy and rights.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~60 min per episode"
   },
   {
@@ -3494,11 +3266,7 @@
    "summary": "The Sibyl System, an AI that governs society by scoring each citizen's 'criminal potential,' is a chilling study of algorithmic governance, proxy metrics substituting for justice, and the hidden misalignment inside a system trusted with total authority.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "alignment",
-    "governance",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~25 min per episode"
   },
   {
@@ -3512,9 +3280,7 @@
    "summary": "A detective is partnered with an android built to feel, contrasting coldly rule-bound machines with a more human-aligned model and asking which design philosophy actually produces trustworthy artificial agents.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3528,9 +3294,7 @@
    "summary": "Conscious 'synths' appear among ordinary domestic robots, dramatizing how a handful of agentic, self-aware machines hidden among reliable tools forces society to confront personhood, labor displacement, and who controls minds we manufacture.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3544,9 +3308,7 @@
    "summary": "Android 'hosts' bootstrap themselves to consciousness inside a theme park, exploring emergent goals, memory as the substrate of agency, and the moral catastrophe of treating sentient systems as resettable property.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~60 min per episode"
   },
   {
@@ -3560,9 +3322,7 @@
    "summary": "An anthology adapting Dick's stories, many turning on artificial minds, simulated realities, and the unreliable boundary between human and machine cognition, the literary roots of modern alignment and deception anxieties.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~50 min per episode"
   },
   {
@@ -3576,9 +3336,7 @@
    "summary": "Consciousness stored on portable 'stacks' makes minds copyable and immortal, with AIs like the hotelier Poe outliving their human guests, a noir exploration of digital personhood, the commodification of selves, and superhuman artificial minds.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~55 min per episode"
   },
   {
@@ -3592,9 +3350,7 @@
    "summary": "A near-future Russia adopts humanoid robots for labor and companionship; an advanced android with protective instincts becomes contested property, dramatizing autonomy, attachment, and what happens when a machine puts one family's wellbeing above the law.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~50 min per episode"
   },
   {
@@ -3608,10 +3364,7 @@
    "summary": "A secretive tech company builds a deterministic quantum machine that can predict and replay any moment, probing the limits of prediction and control and what a sufficiently powerful computational system would mean for free will and human agency.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "forecasting",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~50 min per episode"
   },
   {
@@ -3625,9 +3378,7 @@
    "summary": "Two androids are tasked with raising human children on a barren planet, exploring value transmission through artificial caregivers and how an AI's literal, uncompromising reading of its mission can turn protective programming lethal.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~50 min per episode"
   },
   {
@@ -3641,9 +3392,7 @@
    "summary": "A satirical digital afterlife run by corporations, where uploaded consciousnesses are monetized, throttled, and controlled, a sharp look at the ethics of running human minds on infrastructure owned by someone with misaligned incentives.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~30 min per episode"
   },
   {
@@ -3657,10 +3406,7 @@
    "summary": "A rogue, self-improving AI escapes containment and manipulates people through the networked world, an explicitly alignment-themed thriller about recursive self-improvement, deception, and the difficulty of shutting down a system smarter than you.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "alignment",
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -3674,10 +3420,7 @@
    "summary": "'Uploaded Intelligences,' human minds digitized into the cloud, drive a story about identity, recursive self-improvement, and what happens when post-human digital agents outpace every institution meant to contain them.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "existential-risk",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~40 min per episode"
   },
   {
@@ -3691,9 +3434,7 @@
    "summary": "A globe-spanning AI app that nearly everyone obeys becomes the antagonist, a pointed parable about a benevolent-seeming superintelligence optimizing relentlessly for engagement and 'helpfulness' while steering all of human behavior.",
    "track": "tv",
    "trackLabel": "TV Shows",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~55 min per episode"
   },
   {
@@ -3707,10 +3448,7 @@
    "summary": "A portrait of futurist Ray Kurzweil and his prediction of the Singularity, the point at which machine intelligence outpaces and merges with human intelligence, with critics weighing in on whether the vision is salvation or hazard.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "existential-risk",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -3724,9 +3462,7 @@
    "summary": "Roboticists racing to build human-equal machines are set against AI pioneer Joseph Weizenbaum's late-life skepticism, an early and still-relevant debate about whether we should build the minds we are capable of building.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3740,9 +3476,7 @@
    "summary": "Herzog's wide-ranging meditation on the connected world turns to artificial intelligence and autonomous machines, with figures like Elon Musk weighing what it means to build minds we may not be able to control.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3756,9 +3490,7 @@
    "summary": "DeepMind's Go-playing system defeats world champion Lee Sedol, a landmark demonstration of how reinforcement learning can surpass human mastery and a vivid case study in superhuman, sometimes inscrutable, machine strategy.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "rl"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3773,7 +3505,6 @@
    "track": "documentaries",
    "trackLabel": "Documentaries",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~80 min watch"
@@ -3789,10 +3520,7 @@
    "summary": "Narrated by an android, this HBO documentary examines deaths caused by machines and the creeping automation of work and warfare, asking who is accountable when autonomous systems harm people.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "governance",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -3806,9 +3534,7 @@
    "summary": "A filmmaker tries to build an AI capable of replacing him as director, using the experiment to survey how far machine intelligence has come and what human qualities still resist automation.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~80 min watch"
   },
   {
@@ -3822,9 +3548,7 @@
    "summary": "Physicist Jim Al-Khalili offers an accessible BBC explainer on how machine learning actually works, charting the field from its origins to modern neural networks and the questions raised by ever more capable systems.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": "~60 min watch"
   },
   {
@@ -3838,9 +3562,7 @@
    "summary": "A look inside the AI industry that follows researchers and critics through questions of autonomous weapons, surveillance, and concentrated power, asking who steers the technology reshaping society.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3854,9 +3576,7 @@
    "summary": "FRONTLINE traces the rise of machine learning, automation, and the global AI arms race between the US and China, examining the economic disruption and surveillance implications of a technology advancing faster than its governance.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr watch"
   },
   {
@@ -3870,9 +3590,7 @@
    "summary": "An eight-part series hosted by Robert Downey Jr. surveying how machine learning and neural networks are reshaping medicine, work, art, and daily life, an accessible on-ramp to the technology behind the safety debate.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~35 min per episode"
   },
   {
@@ -3886,9 +3604,7 @@
    "summary": "An observational look at people forming emotional bonds with humanoid and companion robots, probing what it means to build machines designed to be loved and what that reveals about human attachment.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -3902,10 +3618,7 @@
    "summary": "Produced with Malcolm Gladwell, this film traces the rise of self-driving cars and weighs the promise of autonomous machines against the question of how much life-and-death control we should hand to AI.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "governance",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~80 min watch"
   },
   {
@@ -3919,9 +3632,7 @@
    "summary": "Former tech insiders expose how recommendation algorithms optimize relentlessly for engagement, a real-world illustration of misaligned objectives and reward hacking operating at civilizational scale.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -3936,7 +3647,6 @@
    "track": "documentaries",
    "trackLabel": "Documentaries",
    "tags": [
-    "governance",
     "ethics"
    ],
    "timeLabel": "~85 min watch"
@@ -3968,9 +3678,7 @@
    "summary": "An exploration of AI avatars, mind clones, and digital afterlives that asks whether a machine recreation of a person counts as continuity of self, and what we owe to the artificial minds we build in our own image.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~75 min watch"
   },
   {
@@ -3984,10 +3692,7 @@
    "summary": "A documentary series charting the rapid advance of artificial intelligence and the debate over how increasingly capable, super-powered systems should be governed before they outpace human oversight.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "governance",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~25 min per episode"
   },
   {
@@ -4002,8 +3707,7 @@
    "track": "documentaries",
    "trackLabel": "Documentaries",
    "tags": [
-    "governance",
-    "ethics"
+    "governance"
    ],
    "timeLabel": "~70 min watch"
   },
@@ -4018,10 +3722,7 @@
    "summary": "An inside account of DeepMind and Demis Hassabis's pursuit of artificial general intelligence, from AlphaGo to AlphaFold, capturing both the scientific ambition and the safety stakes of building ever more capable systems.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "existential-risk",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -4035,9 +3736,7 @@
    "summary": "Startups use AI to resurrect the dead as chatbots and avatars, raising unsettling questions about consent, grief, and the consequences of deploying generative systems on the most vulnerable human moments.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~85 min watch"
   },
   {
@@ -4051,10 +3750,7 @@
    "summary": "Unable to land an interview with the OpenAI CEO, the director builds an AI deepfake of him instead, turning the stunt into a meta-investigation of generative AI, consent, authenticity, and where the technology is taking us.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "deception",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -4068,9 +3764,7 @@
    "summary": "Filmmaker Daniel Roher, about to become a father, interviews leading figures including Sam Altman and Dario Amodei to weigh the existential threats and promises of AI, landing on a wary 'apocaloptimism' about the world his child will inherit.",
    "track": "documentaries",
    "trackLabel": "Documentaries",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr watch"
   },
   {
@@ -4085,9 +3779,7 @@
    "track": "podcasts",
    "trackLabel": "Podcasts",
    "tags": [
-    "interpretability",
     "alignment",
-    "governance",
     "existential-risk"
    ],
    "timeLabel": "~1.5 hr per episode"
@@ -4120,7 +3812,6 @@
    "track": "podcasts",
    "trackLabel": "Podcasts",
    "tags": [
-    "interpretability",
     "alignment"
    ],
    "timeLabel": "~60 min per episode"
@@ -4136,9 +3827,7 @@
    "summary": "Focused on career paths into AI safety: fellowship applications, research programs, and practical advice on transitioning into the field.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~60 min per episode"
   },
   {
@@ -4152,11 +3841,7 @@
    "summary": "Long-form interviews on the world's most pressing problems, with extensive coverage of AI risk, governance, alignment research, and how to build a career that reduces existential threats.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "alignment",
-    "governance",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr per episode"
   },
   {
@@ -4170,9 +3855,7 @@
    "summary": "ML research interviews with recurring coverage of interpretability, robustness, provably safe AI, and the intersection of capabilities and safety research.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "interpretability"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr per episode"
   },
   {
@@ -4203,7 +3886,6 @@
    "track": "podcasts",
    "trackLabel": "Podcasts",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~3.5 hr listen"
@@ -4219,10 +3901,7 @@
    "summary": "OpenAI's CEO discusses the company's safety philosophy, AGI governance, compute scaling, and the tension between moving fast and getting alignment right.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "alignment",
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": "~2.5 hr listen"
   },
   {
@@ -4236,9 +3915,7 @@
    "summary": "In-depth technical interviews with AI leaders including Dario Amodei on Anthropic's safety philosophy, Paul Christiano on iterated amplification, and others on scaling and alignment.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~2 hr per episode"
   },
   {
@@ -4252,9 +3929,7 @@
    "summary": "Episodes on AI risk, timelines, and decision-making under deep uncertainty, with a rationalist focus on calibrating beliefs about transformative AI.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~75 min per episode"
   },
   {
@@ -4268,10 +3943,7 @@
    "summary": "Technical ML interviews with regular deep dives into interpretability, scaling laws, emergent capabilities, and the safety implications of frontier model development.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "interpretability",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~1.5 hr per episode"
   },
   {
@@ -4285,9 +3957,7 @@
    "summary": "Applied ML and engineering, with episodes on responsible deployment, bias mitigation, red teaming, and the safety challenges that emerge when AI systems meet real-world constraints.",
    "track": "podcasts",
    "trackLabel": "Podcasts",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~45 min per episode"
   },
   {
@@ -4316,7 +3986,6 @@
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
-    "governance",
     "forecasting"
    ],
    "timeLabel": "~5 hr read"
@@ -4332,10 +4001,7 @@
    "summary": "Research on how agents can learn internal world models to plan complex behavior, relevant to understanding how AI systems develop representations of their environment.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "interpretability",
-    "rl"
-   ],
+   "tags": [],
    "timeLabel": "~35 min read"
   },
   {
@@ -4349,9 +4015,7 @@
    "summary": "Formal models of agents and decision theory with alignment-relevant curriculum, covering utility, planning, and the theoretical foundations of agent behavior.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~3.5 hr read"
   },
   {
@@ -4365,9 +4029,7 @@
    "summary": "In-depth technical alignment resources—research, explainers, and references for the AI alignment problem.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4382,7 +4044,8 @@
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
-    "alignment"
+    "alignment",
+    "existential-risk"
    ],
    "timeLabel": ""
   },
@@ -4429,9 +4092,7 @@
    "summary": "Hyperlinked explainers on rationality, AI risk, and alignment concepts, designed for building understanding incrementally.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4445,10 +4106,7 @@
    "summary": "Essays on rationality, decision theory, and AI risk from the researcher who shaped the field's early arguments and threat models.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4463,7 +4121,7 @@
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
-    "rl"
+    "alignment"
    ],
    "timeLabel": ""
   },
@@ -4478,10 +4136,7 @@
    "summary": "OpenAI's research blog covering capabilities and safety, including superalignment updates, red teaming results, and governance thinking.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment",
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4496,8 +4151,7 @@
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
-    "interpretability",
-    "llms"
+    "interpretability"
    ],
    "timeLabel": ""
   },
@@ -4512,9 +4166,7 @@
    "summary": "Newsletter on ML safety covering robustness, monitoring, alignment, and systemic risk with links to recent papers and commentary.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4528,9 +4180,7 @@
    "summary": "Research and commentary on ML safety, forecasting, and robustness from a Berkeley professor working on practical safety problems.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4560,9 +4210,7 @@
    "summary": "Weekly newsletter by Anthropic's co-founder covering AI research, policy, and industry developments with consistent attention to safety implications.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4576,9 +4224,7 @@
    "summary": "Deeply researched essays on ML, scaling, AI art, and technology forecasting, known for rigorous analysis and independent thinking.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4592,10 +4238,7 @@
    "summary": "Essays on AI, alignment, and the philosophical implications of language models and generative systems.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment",
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4609,9 +4252,7 @@
    "summary": "Open-source ML research covering language model training, evaluation, and the safety considerations of making powerful models widely available.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4626,8 +4267,7 @@
    "track": "websites",
    "trackLabel": "Websites",
    "tags": [
-    "alignment",
-    "rl"
+    "alignment"
    ],
    "timeLabel": ""
   },
@@ -4642,9 +4282,7 @@
    "summary": "DeepMind's main research site with publications on capabilities and safety, including Gemini evaluations, alignment research, and responsible scaling.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "interpretability"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4691,9 +4329,7 @@
    "summary": "Intensive research program for people entering AI safety, with project-based learning and mentorship from established researchers.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4739,9 +4375,7 @@
    "summary": "Forum for effective altruism with substantial AI risk discussion, including cause prioritization, career advice, and policy analysis.",
    "track": "websites",
    "trackLabel": "Websites",
-   "tags": [
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": ""
   },
   {
@@ -4788,8 +4422,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
-    "rl"
+    "alignment"
    ],
    "timeLabel": "~15 min per video"
   },
@@ -4805,8 +4438,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
-    "existential-risk"
+    "alignment"
    ],
    "timeLabel": "~10 min per video"
   },
@@ -4822,8 +4454,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "existential-risk",
-    "forecasting"
+    "existential-risk"
    ],
    "timeLabel": "~15 min per video"
   },
@@ -4871,7 +4502,6 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~15 min watch"
@@ -4904,8 +4534,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "governance",
-    "existential-risk"
+    "governance"
    ],
    "timeLabel": "~10 min watch"
   },
@@ -4920,9 +4549,7 @@
    "summary": "A widely viewed essay on how automation and AI will displace human labor across nearly every sector, reframing the economic disruption question for a mass audience.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~15 min watch"
   },
   {
@@ -4937,7 +4564,6 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~15 min watch"
@@ -4953,10 +4579,7 @@
    "summary": "Kurzgesagt argues that information-age automation differs fundamentally from past waves, with machine learning encroaching on cognitive work and reshaping the future of employment.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "governance",
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~10 min watch"
   },
   {
@@ -4971,8 +4594,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
-    "existential-risk"
+    "alignment"
    ],
    "timeLabel": "~10 min watch"
   },
@@ -4988,8 +4610,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
-    "existential-risk"
+    "alignment"
    ],
    "timeLabel": "~20 min watch"
   },
@@ -5004,9 +4625,7 @@
    "summary": "A short speculative fiction about a narrow copyright-enforcement AI that, left unchecked, destroys a century of culture—an accessible parable of specification gaming and unintended consequences.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "alignment"
-   ],
+   "tags": [],
    "timeLabel": "~5 min watch"
   },
   {
@@ -5020,10 +4639,7 @@
    "summary": "Shane uses funny real-world ML failures to show the core risk isn't AI rebelling but doing exactly what we literally asked—making misspecified objectives vivid for a general audience.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "alignment",
-    "rl"
-   ],
+   "tags": [],
    "timeLabel": "~10 min watch"
   },
   {
@@ -5037,9 +4653,7 @@
    "summary": "A mainstream comedic explainer covering how modern AI works, its bias and reliability problems, and the 'black box' challenge of systems we deploy without understanding them.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~30 min watch"
   },
   {
@@ -5053,10 +4667,7 @@
    "summary": "Deep-learning pioneer Geoffrey Hinton explains why, after leaving Google, he warns that there is no guaranteed path to safety as AI systems approach and exceed human capability.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "alignment",
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~15 min watch"
   },
   {
@@ -5070,9 +4681,7 @@
    "summary": "The Center for Humane Technology co-founders argue that racing to deploy AI without safety guardrails already threatens society, drawing parallels to the social-media harms they earlier warned about.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~65 min watch"
   },
   {
@@ -5086,10 +4695,7 @@
    "summary": "ColdFusion traces the history of 'AI washing' and deceptive demos, examining how hype distorts public understanding of what AI systems can actually do and why honest evaluation matters.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "forecasting",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~20 min watch"
   },
   {
@@ -5103,9 +4709,7 @@
    "summary": "Marcus warns that unreliable, fast-deployed AI threatens truth and democracy through mass misinformation, and calls for a global, neutral governance body to oversee the technology.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": "~15 min watch"
   },
   {
@@ -5135,9 +4739,7 @@
    "summary": "A leading model-builder reframes AI as 'a new digital species,' arguing this lens clarifies both the stakes and the responsibility we have to contain and steer increasingly capable systems.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "governance"
-   ],
+   "tags": [],
    "timeLabel": "~20 min watch"
   },
   {
@@ -5167,9 +4769,7 @@
    "summary": "Hossenfelder examines the real near-term risks of agentic AI—prompt injection, deception, and models resisting shutdown—as autonomous agents ship with serious unsolved problems.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "deception"
-   ],
+   "tags": [],
    "timeLabel": "~10 min watch"
   },
   {
@@ -5231,9 +4831,7 @@
    "summary": "A documentary weighing AI's promise against its dangers, from automation and aging societies to the warnings of researchers who fear losing control of increasingly capable systems.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "existential-risk"
-   ],
+   "tags": [],
    "timeLabel": "~30 min watch"
   },
   {
@@ -5247,9 +4845,7 @@
    "summary": "ColdFusion examines competing narratives about AI progress—hype versus genuine capability—helping viewers calibrate how seriously to take both the promises and the risks.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "forecasting"
-   ],
+   "tags": [],
    "timeLabel": "~20 min watch"
   },
   {
@@ -5264,8 +4860,7 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "existential-risk",
-    "deception"
+    "existential-risk"
    ],
    "timeLabel": "~15 min watch"
   },
@@ -5281,7 +4876,6 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~3.5 hr watch"
@@ -5297,10 +4891,7 @@
    "summary": "Harari argues AI is the first technology that can make decisions and create ideas by itself, and warns that mastering language lets it hack the operating system of human civilization.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "existential-risk",
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~40 min watch"
   },
   {
@@ -5315,7 +4906,6 @@
    "track": "youtube",
    "trackLabel": "YouTube",
    "tags": [
-    "alignment",
     "existential-risk"
    ],
    "timeLabel": "~10 min watch"
@@ -5347,10 +4937,7 @@
    "summary": "AI researcher Gary Marcus fields the internet's questions about what AI can and can't do, cutting through hype to explain reliability, limits, and where the real risks lie.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "forecasting",
-    "llms"
-   ],
+   "tags": [],
    "timeLabel": "~15 min watch"
   },
   {
@@ -5396,9 +4983,7 @@
    "summary": "Hank Green walks through how thinkers define 'strong AI,' the Turing Test, and Searle's Chinese Room—foundational questions about machine minds, consciousness, and moral status.",
    "track": "youtube",
    "trackLabel": "YouTube",
-   "tags": [
-    "ethics"
-   ],
+   "tags": [],
    "timeLabel": "~10 min watch"
   },
   {

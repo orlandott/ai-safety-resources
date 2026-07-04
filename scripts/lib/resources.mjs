@@ -21,7 +21,7 @@ export const SITE_ORIGIN = "https://ai-safety-resources.com";
 // Sitemap <lastmod> for every generated page. Bump when the dataset or page
 // templates change meaningfully. Kept as a committed constant (rather than
 // build time) so the build stays deterministic and CI's diff check passes.
-export const DATASET_UPDATED = "2026-07-02";
+export const DATASET_UPDATED = "2026-07-04";
 
 // Display "tracks" in the same order as the tabs in index.html. `pane` matches
 // the container id the runtime renders into; `intro` mirrors the on-page copy.
@@ -167,49 +167,36 @@ export function bucketKey(entry, fictionTitles) {
 }
 
 // ── Topic tags ───────────────────────────────────────────────────────────
-// Tags are derived (not hand-maintained per entry) from keyword matches against
-// each resource's title + author + summary, plus its track. They are used to
-// augment search text and to power the topic chips, so a resource tagged
-// "governance" is found by the governance chip even if that exact word never
-// appears in its summary. `label` is the chip text; `keywords` are matched
-// case-insensitively as substrings.
+// Tags are explicit, hand-curated per entry via `IncludeTopics` (an array of
+// tag ids). Nothing is inferred from keywords: a wrong tag is worse than no
+// tag, so a resource carries a topic only when a curator is certain the topic
+// is its primary subject. The one derived exception is "fiction", which every
+// entry in the fiction-books track carries automatically.
 //
-// Substring matching is deliberately broad, so keep keywords specific enough to
-// avoid false positives (e.g. "catastrophic risk" rather than a bare
-// "catastroph" that also fires on "catastrophic forgetting"). Two optional
-// per-entry overrides let curators correct the residue keyword tuning can't:
-//   • `ExcludeTopics: ["existential-risk"]` drops a mis-derived tag when a
-//     strong keyword appears in an off-topic context (a spy thriller that
-//     mentions "existential risk" only to contrast it with AI).
-//   • `IncludeTopics: ["existential-risk"]` force-adds a tag the keywords miss
-//     (an explainer that is plainly about x-risk but never uses the words).
-// `ExcludeTopics` wins if a tag appears in both.
+// Tags power the topic chips, the /topics/<slug>/ landing pages, and the
+// client-side recommender. `label` is the chip text.
 export const TOPIC_TAGS = [
-  { tag: "interpretability", label: "Interpretability", keywords: ["interpretab", "mechanistic", "circuits", "superposition", "latent knowledge", "feature visualization"] },
-  { tag: "alignment", label: "Alignment", keywords: ["alignment", "aligned", "rlhf", "constitutional ai", "human feedback", "preference", "scalable oversight", "reward model"] },
-  { tag: "governance", label: "Governance & policy", keywords: ["governance", "policy", "regulation", "windfall", "international", "treaty", "compute govern", "standards", "law"] },
-  { tag: "existential-risk", label: "Existential risk", keywords: ["existential", "x-risk", "extinction", "catastrophic risk", "takeover", "power-seeking", "vulnerable world", "superintelligence"] },
-  { tag: "deception", label: "Deception & scheming", keywords: ["decepti", "sleeper", "mesa-optim", "mesa optim", "scheming", "treacherous", "deceptive alignment", "learned optimization"] },
-  { tag: "rl", label: "Reinforcement learning", keywords: ["reinforcement", "ppo", "policy gradient", "reward hacking", "imitation learning", "specification gaming"] },
-  { tag: "forecasting", label: "Forecasting & timelines", keywords: ["forecast", "timelines", "scaling law", "takeoff", "emergent abilities", "compute-optimal", "ai impacts"] },
-  { tag: "ethics", label: "Ethics & society", keywords: ["ethic", "welfare", "moral", "fairness", "bias", "rights", "society", "discrimination"] },
-  { tag: "llms", label: "Language models", keywords: ["language model", " gpt", "llm", "transformer", "chatbot", "chain-of-thought", "few-shot", "instruct"] },
-  { tag: "fiction", label: "Fiction & story", keywords: [] }, // assigned by track below
+  { tag: "interpretability", label: "Interpretability" },
+  { tag: "alignment", label: "Alignment" },
+  { tag: "governance", label: "Governance & policy" },
+  { tag: "existential-risk", label: "Existential risk" },
+  { tag: "deception", label: "Deception & scheming" },
+  { tag: "rl", label: "Reinforcement learning" },
+  { tag: "forecasting", label: "Forecasting & timelines" },
+  { tag: "ethics", label: "Ethics & society" },
+  { tag: "llms", label: "Language models" },
+  { tag: "fiction", label: "Fiction & story" }, // assigned by track below
 ];
 
 export function tagsFor(entry, track) {
-  const haystack = `${entry.Name || ""} ${entry.Author || ""} ${entry.Summary || ""}`.toLowerCase();
-  const excluded = new Set(Array.isArray(entry.ExcludeTopics) ? entry.ExcludeTopics : []);
-  const forced = new Set(Array.isArray(entry.IncludeTopics) ? entry.IncludeTopics : []);
+  const curated = new Set(Array.isArray(entry.IncludeTopics) ? entry.IncludeTopics : []);
   const tags = [];
   for (const t of TOPIC_TAGS) {
-    // `ExcludeTopics` wins over both keyword matches and `IncludeTopics`.
-    if (excluded.has(t.tag)) continue;
     if (t.tag === "fiction") {
-      if (track === "fiction_books" || forced.has(t.tag)) tags.push(t.tag);
+      if (track === "fiction_books" || curated.has(t.tag)) tags.push(t.tag);
       continue;
     }
-    if (forced.has(t.tag) || t.keywords.some((kw) => haystack.includes(kw))) tags.push(t.tag);
+    if (curated.has(t.tag)) tags.push(t.tag);
   }
   return tags;
 }

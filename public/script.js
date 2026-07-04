@@ -3400,6 +3400,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const resourceTagsByName =
     (typeof window !== "undefined" && window.RESOURCE_TAGS) || {};
 
+  // Topic tag ids, read off the homepage topic chips (their data-topic-query
+  // is the tag id). A search query that exactly equals one of these filters by
+  // curated tag membership instead of free-text matching, so choosing a topic
+  // never surfaces resources that merely mention the word.
+  const topicTagIds = new Set(
+    [...document.querySelectorAll(".topic-chip[data-topic-query]")]
+      .map((chip) => chip.getAttribute("data-topic-query") || "")
+      .filter(Boolean)
+  );
+
+  const getEntryTagList = (entry = {}) =>
+    Array.isArray(resourceTagsByName[entry.Name]) ? resourceTagsByName[entry.Name] : [];
+
   const getEntrySearchText = (entry = {}) => {
     if (!entry.__searchText) {
       const summary = (
@@ -3408,11 +3421,9 @@ document.addEventListener("DOMContentLoaded", () => {
         seededEntrySummaries[entry.Name] ||
         ""
       ).toString();
-      // Fold derived topic tags into the search text so topic chips (and typed
-      // topic words) match resources even when the term isn't in the summary.
-      const tags = Array.isArray(resourceTagsByName[entry.Name])
-        ? resourceTagsByName[entry.Name].join(" ")
-        : "";
+      // Fold curated topic tags into the search text so typed topic words
+      // match tagged resources even when the term isn't in the summary.
+      const tags = getEntryTagList(entry).join(" ");
       entry.__searchText =
         `${entry.Name || ""} ${entry.Author || ""} ${summary} ${tags}`.toLowerCase();
     }
@@ -3423,7 +3434,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!entry) {
       return false;
     }
-    if (filters.queryTokens && filters.queryTokens.length) {
+    if (filters.query && topicTagIds.has(filters.query)) {
+      // The query is a topic (a chip click, or the tag id typed verbatim):
+      // match on curated tag membership only. Substring matching would drag in
+      // false positives — "rl" appears inside "world", "fiction" inside
+      // "science fiction" summaries of non-fiction books about sci-fi, etc.
+      if (!getEntryTagList(entry).includes(filters.query)) {
+        return false;
+      }
+    } else if (filters.queryTokens && filters.queryTokens.length) {
       const searchText = getEntrySearchText(entry);
       if (!filters.queryTokens.every((token) => searchText.includes(token))) {
         return false;
@@ -3684,8 +3703,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fiction: "fiction",
   };
 
-  const getEntryTopicTags = (entry = {}) =>
-    Array.isArray(resourceTagsByName[entry.Name]) ? resourceTagsByName[entry.Name] : [];
+  const getEntryTopicTags = (entry = {}) => getEntryTagList(entry);
 
   const renderRecommendations = () => {
     if (!recsSection || !recsGrid) {
@@ -4523,8 +4541,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Topic chips: clicking one runs a cross-category search for that topic by
-  // dropping the tag into the search box and re-rendering. The chips are real
+  // Topic chips: clicking one drops the tag id into the search box and
+  // re-renders. A query that exactly equals a tag id filters by curated tag
+  // membership (see entryMatchesFilters), not free text. The chips are real
   // links to /topics/<slug>/ (so no-JS visitors and crawlers reach the landing
   // pages); with JS we intercept the click and filter in place instead. The
   // "All topics" chip carries no data-topic-query and is left to navigate.
