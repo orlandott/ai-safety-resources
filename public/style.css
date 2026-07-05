@@ -1785,6 +1785,19 @@ a.film-score:hover .film-score-value {
   background: var(--surface);
   box-shadow: var(--shadow-soft);
 }
+.ssr-card.has-cover {
+  display: flow-root;
+}
+.ssr-card-cover {
+  float: left;
+  width: 54px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(145deg, var(--cover-bg-start), var(--cover-bg-end));
+  margin: 0.1rem 0.8rem 0.35rem 0;
+}
 .ssr-card-heading {
   margin: 0;
   font: inherit;
