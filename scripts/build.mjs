@@ -206,6 +206,14 @@ function ssrCard(entry, track, headingLevel = 2) {
   const author = entry.Author ? `<span class="ssr-card-author">${escapeHtml(entry.Author)}</span>` : "";
   const summary = entry.Summary ? `<p class="ssr-card-summary">${escapeHtml(entry.Summary)}</p>` : "";
   const link = escapeHtml(entry.Link || "#");
+  // Cover art matching the hydrated cards (54x80, object-fit cover). Only
+  // https URLs; alt is empty because the adjacent heading already names it.
+  const imageUrl = typeof entry.Image === "string" && /^https:\/\//.test(entry.Image.trim())
+    ? escapeHtml(entry.Image.trim())
+    : "";
+  const cover = imageUrl
+    ? `<img class="ssr-card-cover" src="${imageUrl}" alt="" width="54" height="80" loading="lazy" referrerpolicy="no-referrer" />`
+    : "";
   const pills = track ? metaPillsFor(entry, track) : [];
   const year = entry.Year ? [{ kind: "year", text: String(entry.Year) }] : [];
   const meta = [...pills, ...year]
@@ -213,7 +221,8 @@ function ssrCard(entry, track, headingLevel = 2) {
     .join("");
   const metaRow = meta ? `<span class="ssr-card-meta">${meta}</span>` : "";
   return (
-    `<article class="ssr-card">` +
+    `<article class="ssr-card${cover ? " has-cover" : ""}">` +
+    cover +
     `<h${headingLevel} class="ssr-card-heading"><a class="ssr-card-link" href="${link}" target="_blank" rel="noopener noreferrer">${name}</a></h${headingLevel}>` +
     author +
     summary +
