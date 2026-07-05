@@ -54,9 +54,14 @@ routine does — no need to touch the schedule itself.
      it matters for AI safety. Read a few existing summaries first and match tone.
    - `Level` — optional on most categories; one of `Beginner`, `Intermediate`,
      `Advanced` (see `VALID_LEVELS` in `scripts/lib/resources.mjs`).
-   - Topic tags are **auto-derived** from keywords (see `TOPIC_TAGS` in
-     `scripts/lib/resources.mjs`). Only set `IncludeTopics` / `ExcludeTopics`
-     (arrays of valid tag ids) when the automatic derivation is wrong.
+   - Topic tags are **explicit and hand-curated**: set `IncludeTopics` (an
+     array of valid tag ids — see `TOPIC_TAGS` in `scripts/lib/resources.mjs`)
+     only when you are certain the topic is the resource's primary subject.
+     The bar: a reader browsing that topic page would unambiguously expect the
+     item there. A wrong tag is worse than no tag, so when in doubt add none —
+     most fiction, films, and TV carry no topic tags at all. Nothing is
+     inferred from keywords, and `ExcludeTopics` no longer exists (the build
+     rejects it).
 5. **Fiction books** additionally require adding the exact title to the
    `fictionBookTitles` Set in `public/script.js` — that list is what splits the
    `books` category into fiction and non-fiction tracks.

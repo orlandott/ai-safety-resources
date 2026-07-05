@@ -98,7 +98,6 @@ days. Rejections, if any, usually come with a specific reason — fix and resubm
 - Dataset refresh after the site's `npm run build`: `cd mobile && npm run sync-data`,
   commit, rebuild, `eas build` + `eas submit` again.
 
-## Android later?
+## Android
 
-The config is already in place (`android.package`, adaptive icons):
-`npx eas-cli build --platform android` + a Google Play Console account ($25 once).
+The Google Play release has its own walkthrough: [google-play-release.md](google-play-release.md).
