@@ -28,14 +28,14 @@ npm run check     # validate only (CI gate), no files written
 
 - `data/resources.json` — machine-readable export of the full dataset (with derived `track` and `tags`).
 - `data/search-index.json` — lightweight search index.
-- `public/resource-tags.js` — derived topic tags (keyed by title) folded into client-side search.
+- `public/resource-tags.js` — curated topic tags (keyed by title) powering the topic chips and client-side search. Tags are explicit per entry (`IncludeTopics` in `resources.js`), never inferred from keywords.
 - `public/index.html` — server-rendered resource cards injected into each category pane (for SEO and a no-JS fallback), a category `ItemList` JSON-LD, and the curated **Start here** cards.
 - `public/<category>/index.html` — a static, crawlable page per category with its own `ItemList` JSON-LD.
 - `public/sitemap.xml` — homepage + one URL per category page.
 
 After editing `public/resources.js`, run `npm run build` and commit the regenerated files. CI (`.github/workflows/build.yml`) runs the build and fails if the committed output is out of sync.
 
-Curated lists live in code: the **Start here** picks and the **topic tag** keyword map are in [`scripts/lib/resources.mjs`](scripts/lib/resources.mjs).
+Curated lists live in code: the **Start here** picks and the **topic tag** vocabulary are in [`scripts/lib/resources.mjs`](scripts/lib/resources.mjs); per-resource tags are the `IncludeTopics` arrays in [`public/resources.js`](public/resources.js).
 
 The difficulty-level and time-estimate rules behind the card metadata pills live in [`public/entry-meta.js`](public/entry-meta.js), a single dependency-free file shared by the browser (loaded before `script.js`) and the build (evaluated in a vm sandbox), so the server-rendered pills and the hydrated ones can't drift apart.
 
