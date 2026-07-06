@@ -2465,3 +2465,66 @@ body.account-modal-open {
   color: var(--muted);
   line-height: 1.45;
 }
+
+/* Cookie consent banner (injected by gtag-init.js) */
+.cookie-consent {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 950;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.cookie-consent-copy {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.cookie-consent-copy a {
+  color: var(--link);
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 10px;
+}
+.cookie-consent-button {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.cookie-consent-button:hover {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+.cookie-consent-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+.cookie-consent-accept {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.cookie-consent-accept:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
