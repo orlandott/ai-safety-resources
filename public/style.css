@@ -549,7 +549,7 @@ textarea {
 
 .category-controls {
   display: grid;
-  grid-template-columns: minmax(200px, 1.7fr) repeat(4, minmax(110px, 1fr)) auto;
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)) auto;
   align-items: end;
   gap: 0.65rem 0.7rem;
   margin-bottom: 0.9rem;
@@ -557,6 +557,12 @@ textarea {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
+}
+
+/* Search gets its own full-width row; sort/level/year filters share the row
+   below it, with extra room for the long sort labels. */
+.category-control-search {
+  grid-column: 1 / -1;
 }
 
 .category-control-label {
@@ -655,6 +661,12 @@ textarea {
 @media (max-width: 520px) {
   .search-shortcut-hint {
     display: none;
+  }
+
+  /* Half a phone screen clips "Newest publication year"; give Sort the
+     whole row so the options stay readable. */
+  .category-controls label[for="category-sort-control"] {
+    grid-column: 1 / -1;
   }
 }
 
@@ -1625,10 +1637,6 @@ a.film-score:hover .film-score-value {
 @media (max-width: 1020px) {
   .category-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .category-control-search {
-    grid-column: 1 / -1;
   }
 }
 
