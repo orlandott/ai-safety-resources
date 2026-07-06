@@ -310,7 +310,10 @@ function renderPage({ title, description, url, jsonLd, mainClass, main }) {
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#f4f1ea" />
-${ld}  <script src="/theme-init.js"></script>
+${ld}  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCRWR4G369"></script>
+  <script src="/gtag-init.js"></script>
+  <script src="/theme-init.js"></script>
   <link href="/images/favicon.png" rel="icon" type="image/png" />
   <link href="/images/favicon.png" rel="apple-touch-icon" />
   <link href="/style.css" rel="stylesheet" type="text/css" />
