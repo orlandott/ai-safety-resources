@@ -5,10 +5,11 @@
 // Analytics cookies are denied by default in the EEA, UK, and Switzerland and
 // only set after the visitor opts in via the consent banner below. Whether
 // (and in which variant) the banner shows is decided by a geo-IP lookup
-// against /api/geo (Cloudflare's country resolution); if the lookup fails the
-// strictest variant is shown. Google independently applies the regional
-// consent default from the request's origin, so a visitor whose banner never
-// appears still gets no cookies.
+// against /api/geo (Cloudflare's country resolution); when the country is
+// unknown (lookup failed, or Cloudflare answered XX/T1) the banner is shown
+// in its standard variant, without the FR/DE first-layer Decline. Google
+// independently applies the regional consent default from the request's
+// origin, so a visitor whose banner never appears still gets no cookies.
 //
 // Banner layout: first screen offers Accept and Configure; Configure opens a
 // second screen where Essential is always on and Analytics is an opt-in
@@ -53,8 +54,9 @@ function gtag(){dataLayer.push(arguments);}
   gtag("js", new Date());
   gtag("config", "G-MCRWR4G369");
 
-  // Resolves to an upper-cased ISO country code, or null when the lookup
-  // fails — null makes the caller fall back to the strictest banner variant.
+  // Resolves to an upper-cased ISO country code, or null when the country is
+  // unknown — the lookup failed, or Cloudflare answered XX (undetermined) or
+  // T1 (Tor). Null still shows the banner, but in the standard variant.
   function fetchCountry() {
     return fetch("/api/geo")
       .then(function (res) {
@@ -62,9 +64,11 @@ function gtag(){dataLayer.push(arguments);}
         return res.json();
       })
       .then(function (data) {
-        return typeof data.country === "string" && data.country.length === 2
-          ? data.country.toUpperCase()
-          : null;
+        var country =
+          typeof data.country === "string" && data.country.length === 2
+            ? data.country.toUpperCase()
+            : null;
+        return country === "XX" || country === "T1" ? null : country;
       })
       .catch(function () {
         return null;
@@ -161,10 +165,10 @@ function gtag(){dataLayer.push(arguments);}
       pendingGeo.then(function (country) {
         // A later visit in the same session may have stored a choice already.
         if (stored === "granted" || stored === "denied") return;
-        // Unknown country (lookup failed): fail safe to the strictest
-        // variant rather than silently skipping consent.
+        // Unknown country: still ask for consent rather than silently
+        // skipping it, but with the standard (no first-layer Decline) layout.
         if (country !== null && CONSENT_REGIONS.indexOf(country) === -1) return;
-        declineFirstLayer = country === null || IMMEDIATE_DECLINE.indexOf(country) !== -1;
+        declineFirstLayer = IMMEDIATE_DECLINE.indexOf(country) !== -1;
         showBanner();
       });
     }
