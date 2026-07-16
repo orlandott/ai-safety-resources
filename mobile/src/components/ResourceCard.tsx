@@ -1,5 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useLargeTextMode } from "../a11y";
 import { TRACK_ICONS } from "../data";
 import { useLibrary } from "../store/library";
 import { SERIF, useTheme } from "../theme";
@@ -25,6 +26,8 @@ export function ResourceCard({
 }: ResourceCardProps) {
   const theme = useTheme();
   const { isSaved, isFinished } = useLibrary();
+  // At accessibility text sizes, truncation eats too much — allow extra lines.
+  const largeText = useLargeTextMode();
 
   const finished = isFinished(resource.id);
   const saved = isSaved(resource.id);
@@ -72,7 +75,7 @@ export function ResourceCard({
       />
       <View style={styles.body}>
         <View style={styles.titleRow}>
-          <Text style={[styles.title, { color: theme.text }]} numberOfLines={2}>
+          <Text style={[styles.title, { color: theme.text }]} numberOfLines={largeText ? 4 : 2}>
             {resource.name}
           </Text>
           {finished ? (
@@ -82,16 +85,16 @@ export function ResourceCard({
           ) : null}
         </View>
         {meta ? (
-          <Text style={[styles.meta, { color: theme.textMuted }]} numberOfLines={1}>
+          <Text style={[styles.meta, { color: theme.textMuted }]} numberOfLines={largeText ? 2 : 1}>
             {meta}
           </Text>
         ) : null}
         {note ? (
-          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={3}>
+          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={largeText ? 6 : 3}>
             {note}
           </Text>
         ) : resource.summary ? (
-          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={2}>
+          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={largeText ? 4 : 2}>
             {resource.summary}
           </Text>
         ) : null}
