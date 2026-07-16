@@ -85,8 +85,9 @@ Ready-to-paste copy — edit freely:
   (needs outbound access to the cover-art hosts — see below); the exact-size PNGs
   land in `mobile/assets/app-store/iphone-6.9/` (1290×2796) and
   `mobile/assets/app-store/iphone-6.5/` (1242×2688). Each set is Explore, a
-  learning path with progress, a category list, a resource detail, and search,
-  plus a dark-mode shot. No frames or captions needed. To capture on a real
+  learning path with progress, a category list, a resource detail, search, and
+  the Library (finished/read list), plus a dark-mode shot. No frames or captions
+  needed. To capture on a real
   simulator instead, run `npx expo start --ios` and screenshot the same screens.
   Cover art loads over the network; `npm run screenshots` needs those hosts
   reachable (`upload.wikimedia.org`, `m.media-amazon.com`,

@@ -88,7 +88,8 @@ Grow → Store presence → **Main store listing**. Ready-to-paste copy — edit
 - **Phone screenshots**: at least 2 (up to 8), 9:16 portrait. Generate them with
   `cd mobile && npm run screenshots`; the 1080×1920 PNGs land in
   `mobile/assets/play-store/screenshots/` (Explore, a learning path with
-  progress, a category list, a resource detail, search, plus a dark-mode shot).
+  progress, a category list, a resource detail, search, the Library finished/read
+  list, plus a dark-mode shot).
   Cover art loads over the network, so that command needs the poster hosts
   reachable (`upload.wikimedia.org`, `m.media-amazon.com`,
   `images-na.ssl-images-amazon.com`, `covers.openlibrary.org`, `i.gr-assets.com`,

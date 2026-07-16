@@ -34,9 +34,17 @@ const data = JSON.parse(
   await readFile(join(mobileRoot, "src", "data", "app-data.json"), "utf8")
 );
 const firstPath = data.paths[0];
-// Mark the first several steps finished so the progress bar and ✅ markers show.
-const FINISHED = firstPath.steps.slice(0, 6).map((s) => s.resourceId);
-const SEED = JSON.stringify({ saved: [], finished: FINISHED });
+// Seed a finished/saved library so the path progress bar, the in-list ✅ markers,
+// and the Library screen all have real content. The first path steps drive the
+// progress bar; poster-rich documentaries give the Library's finished list cover
+// art without adding ✅ markers to the TV category or search screens.
+const pathSteps6 = firstPath.steps.slice(0, 6).map((s) => s.resourceId);
+const docPosters = data.resources
+  .filter((r) => r.track === "documentaries" && r.image)
+  .map((r) => r.id);
+const FINISHED = [...new Set([...pathSteps6, ...docPosters.slice(0, 6)])];
+const SAVED = docPosters.slice(6, 9);
+const SEED = JSON.stringify({ saved: SAVED, finished: FINISHED });
 // TV / documentaries have the most reliable poster art, so the category screen
 // shows a wall of covers; fall back to the first track if absent.
 const CATEGORY_LABEL =
@@ -208,11 +216,21 @@ async function capture(url) {
       await shot(page, dir, "05-detail");
       await ctx.close();
     }
-    // 6. Dark mode (Explore)
+    // 6. Library — finished (read/watched) list, the on-device progress tracking
+    {
+      const { ctx, page } = await newPage(dev, "light");
+      await home(page, url);
+      await page.getByText("Library", { exact: true }).first().click();
+      await page.getByText(/Finished \(\d+\)/).first().click();
+      await settleImages(page);
+      await shot(page, dir, "06-library");
+      await ctx.close();
+    }
+    // 7. Dark mode (Explore)
     {
       const { ctx, page } = await newPage(dev, "dark");
       await home(page, url);
-      await shot(page, dir, "06-explore-dark");
+      await shot(page, dir, "07-explore-dark");
       await ctx.close();
     }
   }
