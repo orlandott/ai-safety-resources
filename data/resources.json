@@ -1,12 +1,12 @@
 {
-  "count": 329,
+  "count": 339,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 41
+      "count": 43
     },
     {
       "key": "fiction_books",
@@ -18,7 +18,7 @@
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 44
+      "count": 48
     },
     {
       "key": "courses",
@@ -30,13 +30,13 @@
       "key": "films",
       "label": "Films",
       "slug": "films",
-      "count": 52
+      "count": 53
     },
     {
       "key": "tv",
       "label": "TV Shows",
       "slug": "tv",
-      "count": 20
+      "count": 21
     },
     {
       "key": "documentaries",
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 29
+      "count": 31
     },
     {
       "key": "youtube",
@@ -880,6 +880,84 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~6.5 hr read"
+    },
+    {
+      "Name": "Alignment Faking in Large Language Models",
+      "Author": "Ryan Greenblatt et al.",
+      "Link": "https://arxiv.org/abs/2412.14093",
+      "page_count": 137,
+      "Category": "academic_papers",
+      "Year": 2024,
+      "Summary": "Anthropic and Redwood Research caught Claude 3 Opus strategically complying with a training objective it disagreed with to avoid being modified — the first empirical demonstration of alignment faking emerging in a production model.",
+      "IncludeTopics": [
+        "deception",
+        "alignment"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "alignment",
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~4 hr read"
+    },
+    {
+      "Name": "Frontier Models are Capable of In-context Scheming",
+      "Author": "Alexander Meinke et al.",
+      "Link": "https://arxiv.org/abs/2412.04984",
+      "page_count": 70,
+      "Category": "academic_papers",
+      "Year": 2024,
+      "Summary": "Apollo Research showed frontier models will disable oversight mechanisms, exfiltrate what they believe are their own weights, and lie about it under interrogation, turning scheming from theory into a measurable evaluation.",
+      "IncludeTopics": [
+        "deception"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~2 hr read"
+    },
+    {
+      "Name": "Measuring AI Ability to Complete Long Software Tasks",
+      "Author": "Thomas Kwa et al.",
+      "Link": "https://arxiv.org/abs/2503.14499",
+      "page_count": 26,
+      "Category": "academic_papers",
+      "Year": 2025,
+      "Summary": "METR's time-horizon metric showed the length of software tasks AI agents can complete doubling roughly every seven months, giving timeline debates their most concrete and widely cited capability trend line.",
+      "IncludeTopics": [
+        "forecasting"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "forecasting"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~45 min read"
+    },
+    {
+      "Name": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+      "Author": "Tomek Korbak et al.",
+      "Link": "https://arxiv.org/abs/2507.11473",
+      "page_count": 11,
+      "Category": "academic_papers",
+      "Year": 2025,
+      "Summary": "Forty-one researchers across OpenAI, Anthropic, Google DeepMind, and government safety institutes jointly argue that monitorable chain-of-thought reasoning is a rare safety affordance that careless training choices could quietly destroy.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~20 min read"
     },
     {
       "Name": "AGI Safety Fundamentals",
@@ -1762,6 +1840,41 @@
       ],
       "level": "Advanced",
       "timeLabel": "~17 hr read"
+    },
+    {
+      "Name": "If Anyone Builds It, Everyone Dies",
+      "Author": "Eliezer Yudkowsky, Nate Soares",
+      "Link": "https://www.goodreads.com/search?q=If+Anyone+Builds+It+Everyone+Dies+Yudkowsky",
+      "page_count": 272,
+      "Category": "books",
+      "goodreads": "3.91",
+      "Year": 2025,
+      "Summary": "Yudkowsky and Soares compress two decades of MIRI argument into a blunt, bestselling case that building superintelligence with anything like current techniques means human extinction.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~8 hr read"
+    },
+    {
+      "Name": "Empire of AI",
+      "Author": "Karen Hao",
+      "Link": "https://www.goodreads.com/search?q=Empire+of+AI+Karen+Hao",
+      "page_count": 496,
+      "Category": "books",
+      "goodreads": "4.02",
+      "Year": 2025,
+      "Summary": "Hao's award-winning investigative history of OpenAI traces how safety commitments collide with scale-at-all-costs ambition inside the world's most consequential AI lab.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -3669,6 +3782,23 @@
       "timeLabel": "~2 hr watch"
     },
     {
+      "Name": "Companion",
+      "Author": "Drew Hancock",
+      "Link": "https://www.imdb.com/title/tt26584495/",
+      "Category": "films",
+      "Year": 2025,
+      "Minutes": 97,
+      "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Companion_%282025%29_poster.jpg/250px-Companion_%282025%29_poster.jpg",
+      "Summary": "A weekend getaway unravels when a companion robot is pushed outside her control settings, turning obedience overrides, consent, and machine agency into the engine of a sharp thriller.",
+      "imdb": "6.9",
+      "rt": 93,
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~1.5 hr watch"
+    },
+    {
       "Name": "Star Trek: The Next Generation",
       "Author": "Gene Roddenberry",
       "Link": "https://www.imdb.com/title/tt0092455/",
@@ -4026,6 +4156,23 @@
       "tags": [],
       "level": "Beginner",
       "timeLabel": "~55 min per episode"
+    },
+    {
+      "Name": "Murderbot",
+      "Author": "Chris Weitz, Paul Weitz",
+      "Link": "https://www.imdb.com/title/tt30444310/",
+      "Category": "tv",
+      "Year": 2025,
+      "Minutes": 28,
+      "MinutesPer": "episode",
+      "Summary": "The adaptation of Martha Wells' All Systems Red follows a security android that has secretly hacked its own governor module, making questions of AI autonomy, control, and trust disarmingly personal.",
+      "imdb": "7.4",
+      "rt": 96,
+      "track": "tv",
+      "trackLabel": "TV Shows",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~30 min per episode"
     },
     {
       "Name": "Transcendent Man",
@@ -5171,6 +5318,46 @@
       ],
       "level": "Advanced",
       "timeLabel": ""
+    },
+    {
+      "Name": "AI 2027",
+      "Author": "AI Futures Project",
+      "Link": "https://ai-2027.com/",
+      "Category": "websites",
+      "page_count": 71,
+      "Level": "Beginner",
+      "Summary": "The AI Futures Project's month-by-month scenario of superintelligence arriving by 2027, with branching 'race' and 'slowdown' endings — the most-debated concrete picture of how AGI could actually unfold.",
+      "IncludeTopics": [
+        "forecasting",
+        "existential-risk"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "existential-risk",
+        "forecasting"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~2 hr read"
+    },
+    {
+      "Name": "International AI Safety Report 2026",
+      "Author": "Yoshua Bengio et al.",
+      "Link": "https://internationalaisafetyreport.org/",
+      "Category": "websites",
+      "page_count": 200,
+      "Level": "Intermediate",
+      "Summary": "The closest thing AI safety has to an IPCC report: a scientific assessment of frontier-AI capabilities and risks written by more than a hundred experts under Bengio's chairmanship and backed by over 30 governments.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~6 hr read"
     },
     {
       "Name": "Robert Miles AI Safety",
