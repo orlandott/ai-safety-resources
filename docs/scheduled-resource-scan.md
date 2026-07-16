@@ -73,11 +73,22 @@ routine does — no need to touch the schedule itself.
    `public/sitemap.xml`). Fix any validation errors and commit the regenerated
    files together with the source edits. Then run
    `node scripts/resource-guardrails.mjs` and confirm no new link is flagged.
-8. **Open a pull request.** Commit on a fresh branch named
-   `claude/resource-scan-YYYY-MM-DD` (run date), push it, and open a PR against
-   the default branch titled `Scheduled scan: add N new AI safety resources`.
-   The PR body lists each addition with its link and a one-line rationale.
-   If there were no additions, push nothing and open no PR.
+8. **Publish the run.** If there were no additions, push nothing, open no PR,
+   and end with a short note on what was scanned and why nothing qualified.
+   Otherwise:
+   - If this run can push new branches (a web-form routine with repository
+     access), commit on a fresh branch named `claude/resource-scan-YYYY-MM-DD`
+     (run date), push it, and open a PR against the default branch titled
+     `Scheduled scan: add N new AI safety resources`. The PR body lists each
+     addition with its link and a one-line rationale.
+   - Otherwise (a session-created trigger), commit on the branch this session
+     was assigned (the `claude/...` branch named in your instructions) and
+     push it there. If pull-request tools are unavailable, do not treat that
+     as a failure: end the run with the would-be PR body (each addition, link,
+     one-line rationale) plus the branch name, so a human can open the PR from
+     the run's session page with one click.
+   - If even that push is rejected, still end with the same summary — the
+     diff remains reviewable on the run's session page.
 
 ## Adjusting or stopping the scan
 
@@ -86,11 +97,13 @@ repository. Ask Claude Code to list, update, or delete the trigger, or manage
 it from the Claude Code web UI. Deleting this file does not stop the schedule —
 the routine's built-in instructions cover the same process.
 
-**The routine must be created through the web form at
-[claude.ai/code/routines](https://claude.ai/code/routines)** with this
+**For fully self-serve runs, the routine should be created through the web
+form at [claude.ai/code/routines](https://claude.ai/code/routines)** with this
 repository selected under Repositories. Routines created that way can push
 `claude/`-prefixed branches and open pull requests on their own. A trigger
 created programmatically from inside a session (the `/schedule`-style meta
-tools) gets no repository branch-push permission and no GitHub tools, so its
-runs can find resources but cannot push a branch or open the PR — the July 16,
-2026 run failed exactly this way.
+tools) gets no repository branch-push permission and no GitHub tools — the
+July 16, 2026 run found resources but could push nothing and open no PR.
+Step 8 above now degrades gracefully for that case: such runs push to their
+own assigned branch (or, failing that, end with a reviewable summary), and a
+human opens the PR from the run's session page.
