@@ -3,10 +3,12 @@
 // 'unsafe-inline'.
 //
 // Analytics cookies are denied by default in the EEA, UK, and Switzerland and
-// only set after the visitor opts in via the consent banner below. Google
-// applies the regional default from the request's origin, so an EU visitor
-// the timezone heuristic misses still gets no cookies — the banner just never
-// shows and analytics stays denied.
+// only set after the visitor opts in via the consent banner below. Whether
+// (and in which variant) the banner shows is decided by a geo-IP lookup
+// against /api/geo (Cloudflare's country resolution); if the lookup fails the
+// strictest variant is shown. Google independently applies the regional
+// consent default from the request's origin, so a visitor whose banner never
+// appears still gets no cookies.
 //
 // Banner layout: first screen offers Accept and Configure; Configure opens a
 // second screen where Essential is always on and Analytics is an opt-in
@@ -24,6 +26,8 @@ function gtag(){dataLayer.push(arguments);}
     "IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE",
     "IS","LI","NO","GB","CH"
   ];
+  // Countries whose regulators require a first-layer decline button.
+  var IMMEDIATE_DECLINE = ["FR", "DE"];
 
   // This site runs no advertising: every ad signal stays permanently denied.
   gtag("consent", "default", {
@@ -49,31 +53,30 @@ function gtag(){dataLayer.push(arguments);}
   gtag("js", new Date());
   gtag("config", "G-MCRWR4G369");
 
-  function timeZone() {
-    try {
-      return Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-    } catch (e) {
-      return null; // unknown — fall back to the strictest behavior
-    }
+  // Resolves to an upper-cased ISO country code, or null when the lookup
+  // fails — null makes the caller fall back to the strictest banner variant.
+  function fetchCountry() {
+    return fetch("/api/geo")
+      .then(function (res) {
+        if (!res.ok) throw new Error("geo lookup failed: " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        return typeof data.country === "string" && data.country.length === 2
+          ? data.country.toUpperCase()
+          : null;
+      })
+      .catch(function () {
+        return null;
+      });
   }
 
-  // Timezone-based guess at whether the visitor is somewhere the banner is
-  // required. Over-matching (Europe/* includes non-EEA cities) is harmless;
-  // under-matching is covered by the regional consent default above.
-  function consentBannerNeeded() {
-    var tz = timeZone();
-    if (tz === null) return true;
-    return tz.indexOf("Europe/") === 0 ||
-      ["Atlantic/Reykjavik", "Atlantic/Canary", "Atlantic/Madeira",
-       "Atlantic/Azores", "Atlantic/Faroe"].indexOf(tz) !== -1;
-  }
+  // Kicked off at parse time (only when a choice is still needed) so the
+  // lookup runs in parallel with the rest of the page load.
+  var pendingGeo =
+    stored !== "granted" && stored !== "denied" ? fetchCountry() : null;
 
-  // France and Germany require a first-layer decline button.
-  function immediateDeclineRequired() {
-    var tz = timeZone();
-    if (tz === null) return true;
-    return ["Europe/Paris", "Europe/Berlin", "Europe/Busingen"].indexOf(tz) !== -1;
-  }
+  var declineFirstLayer = false;
 
   function setChoice(choice) {
     try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
@@ -84,7 +87,7 @@ function gtag(){dataLayer.push(arguments);}
   }
 
   function firstScreenMarkup() {
-    var decline = immediateDeclineRequired()
+    var decline = declineFirstLayer
       ? '<button type="button" class="cookie-consent-button" data-consent="denied">Decline</button>'
       : "";
     return (
@@ -154,8 +157,16 @@ function gtag(){dataLayer.push(arguments);}
         showBanner("config");
       });
     }
-    if (stored !== "granted" && stored !== "denied" && consentBannerNeeded()) {
-      showBanner();
+    if (pendingGeo) {
+      pendingGeo.then(function (country) {
+        // A later visit in the same session may have stored a choice already.
+        if (stored === "granted" || stored === "denied") return;
+        // Unknown country (lookup failed): fail safe to the strictest
+        // variant rather than silently skipping consent.
+        if (country !== null && CONSENT_REGIONS.indexOf(country) === -1) return;
+        declineFirstLayer = country === null || IMMEDIATE_DECLINE.indexOf(country) !== -1;
+        showBanner();
+      });
     }
   }
 
