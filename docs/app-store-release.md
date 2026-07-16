@@ -56,22 +56,28 @@ Ready-to-paste copy — edit freely:
 - **Age rating**: answer the questionnaire — nothing applies; results in 4+.
 - **App Privacy** section: select **"Data is not collected"** — the app has no
   accounts, analytics, or tracking; saved/finished lists stay on-device.
+- **Promotional text** (170 chars max, optional, editable without a new review):
+
+  > Explore 300+ curated AI safety books, papers, films, podcasts, and courses,
+  > with guided learning paths, offline search, and progress tracking. No
+  > account needed.
+
 - **Description**:
 
-  > Explore the ideas shaping AI safety and alignment — through the books,
+  > Explore the ideas shaping AI safety and alignment through the books,
   > papers, films, TV shows, documentaries, podcasts, courses, and channels
   > that explain them best.
   >
   > AI Safety Resources is the mobile companion to ai-safety-resources.com, a
   > community-curated library of 300+ resources:
   >
-  > • Four guided learning paths — whether you're completely new, technical, a
-  > policymaker, or just want great stories — with step-by-step ordering, the
-  > reasoning behind every pick, and progress tracking.
+  > • Four guided learning paths (for newcomers, technical readers,
+  > policymakers, and anyone who just wants great stories) with step-by-step
+  > ordering, the reasoning behind every pick, and progress tracking.
   > • Ten browsable categories with difficulty levels from beginner to advanced.
   > • Full-text search across titles, authors, summaries, and topics.
-  > • A personal library: save resources for later, mark them finished — stored
-  > on your device, no account required.
+  > • A personal library: save resources for later and mark them finished. All
+  > of it stays on your device, no account required.
   > • Works offline; the entire catalog ships with the app.
   > • Light and dark mode, following your system setting.
   >
