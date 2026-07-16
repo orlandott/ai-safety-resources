@@ -85,3 +85,12 @@ The schedule lives in a Claude Code routine (scheduled trigger), not in this
 repository. Ask Claude Code to list, update, or delete the trigger, or manage
 it from the Claude Code web UI. Deleting this file does not stop the schedule —
 the routine's built-in instructions cover the same process.
+
+**The routine must be created through the web form at
+[claude.ai/code/routines](https://claude.ai/code/routines)** with this
+repository selected under Repositories. Routines created that way can push
+`claude/`-prefixed branches and open pull requests on their own. A trigger
+created programmatically from inside a session (the `/schedule`-style meta
+tools) gets no repository branch-push permission and no GitHub tools, so its
+runs can find resources but cannot push a branch or open the PR — the July 16,
+2026 run failed exactly this way.
