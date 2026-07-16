@@ -20,8 +20,18 @@ import type { RootStackParamList } from "./types";
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
+// The emoji is decorative — the tab's own label carries the name — so keep
+// VoiceOver/TalkBack from reading "compass" etc. before each tab.
 function TabIcon({ glyph, focused }: { glyph: string; focused: boolean }) {
-  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{glyph}</Text>;
+  return (
+    <Text
+      style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+    >
+      {glyph}
+    </Text>
+  );
 }
 
 function Tabs() {

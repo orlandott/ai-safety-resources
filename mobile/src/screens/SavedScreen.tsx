@@ -33,11 +33,13 @@ export function SavedScreen() {
       <View style={styles.tabs}>
         <Chip
           label={`🔖 Saved (${saved.length})`}
+          accessibilityLabel={`Saved, ${saved.length} resources`}
           active={section === "saved"}
           onPress={() => setSection("saved")}
         />
         <Chip
           label={`✅ Finished (${finished.length})`}
+          accessibilityLabel={`Finished, ${finished.length} resources`}
           active={section === "finished"}
           onPress={() => setSection("finished")}
         />

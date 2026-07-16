@@ -31,7 +31,12 @@ export function CategoryScreen({ navigation, route }: RootScreenProps<"Category"
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.filters}
         >
-          <Chip label={`All (${all.length})`} active={level === null} onPress={() => setLevel(null)} />
+          <Chip
+            label={`All (${all.length})`}
+            accessibilityLabel={`All levels, ${all.length} resources`}
+            active={level === null}
+            onPress={() => setLevel(null)}
+          />
           {LEVELS.map((l) => {
             const count = all.filter((r) => r.level === l).length;
             if (count === 0) return null;
@@ -39,6 +44,7 @@ export function CategoryScreen({ navigation, route }: RootScreenProps<"Category"
               <Chip
                 key={l}
                 label={`${l} (${count})`}
+                accessibilityLabel={`${l}, ${count} resources`}
                 active={level === l}
                 onPress={() => setLevel(level === l ? null : l)}
               />

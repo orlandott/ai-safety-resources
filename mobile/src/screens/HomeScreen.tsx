@@ -15,17 +15,23 @@ export function HomeScreen() {
       style={{ backgroundColor: theme.background }}
       contentContainerStyle={styles.content}
     >
-      <Text style={[styles.heading, { color: theme.text }]}>AI Safety Resources</Text>
+      <Text accessibilityRole="header" style={[styles.heading, { color: theme.text }]}>
+        AI Safety Resources
+      </Text>
       <Text style={[styles.subheading, { color: theme.textMuted }]}>
         Books, papers, films, and more for exploring AI safety and alignment — for the
         curious and the deeply engaged.
       </Text>
 
-      <Text style={[styles.sectionTitle, { color: theme.text }]}>Where do I start?</Text>
+      <Text accessibilityRole="header" style={[styles.sectionTitle, { color: theme.text }]}>
+        Where do I start?
+      </Text>
       {paths.map((p) => (
         <Pressable
           key={p.slug}
           onPress={() => navigation.navigate("Path", { slug: p.slug })}
+          accessibilityRole="button"
+          accessibilityHint="Opens learning path"
           style={({ pressed }) => [
             styles.pathCard,
             { backgroundColor: theme.card, borderColor: theme.cardBorder },
@@ -43,12 +49,16 @@ export function HomeScreen() {
         </Pressable>
       ))}
 
-      <Text style={[styles.sectionTitle, { color: theme.text }]}>Browse by category</Text>
+      <Text accessibilityRole="header" style={[styles.sectionTitle, { color: theme.text }]}>
+        Browse by category
+      </Text>
       <View style={styles.grid}>
         {tracks.map((t) => (
           <Pressable
             key={t.key}
             onPress={() => navigation.navigate("Category", { trackKey: t.key })}
+            accessibilityRole="button"
+            accessibilityLabel={`${t.label}, ${t.count} resources`}
             style={({ pressed }) => [
               styles.trackCard,
               { backgroundColor: theme.card, borderColor: theme.cardBorder },

@@ -44,10 +44,15 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
         initialsSize={40}
       />
 
-      <Text style={[styles.trackLabel, { color: theme.accent }]}>
+      <Text
+        style={[styles.trackLabel, { color: theme.accent }]}
+        accessibilityLabel={resource.trackLabel}
+      >
         {TRACK_ICONS[resource.track] ?? ""} {resource.trackLabel}
       </Text>
-      <Text style={[styles.title, { color: theme.text }]}>{resource.name}</Text>
+      <Text accessibilityRole="header" style={[styles.title, { color: theme.text }]}>
+        {resource.name}
+      </Text>
       {meta ? <Text style={[styles.meta, { color: theme.textMuted }]}>{meta}</Text> : null}
 
       <View style={styles.badges}>
@@ -68,6 +73,9 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
 
       <Pressable
         onPress={() => Linking.openURL(resource.link).catch(() => {})}
+        accessibilityRole="link"
+        accessibilityLabel="Open resource"
+        accessibilityHint="Opens in the browser"
         style={({ pressed }) => [
           styles.primaryButton,
           { backgroundColor: theme.accent },
@@ -82,6 +90,12 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
       <View style={styles.actionRow}>
         <Pressable
           onPress={() => toggleSaved(resource.id)}
+          accessibilityRole="button"
+          accessibilityState={{ selected: saved }}
+          accessibilityLabel={saved ? "Saved" : "Save"}
+          accessibilityHint={
+            saved ? "Removes this resource from your library" : "Adds this resource to your library"
+          }
           style={({ pressed }) => [
             styles.secondaryButton,
             {
@@ -97,6 +111,12 @@ export function ResourceDetailScreen({ route }: RootScreenProps<"Resource">) {
         </Pressable>
         <Pressable
           onPress={() => toggleFinished(resource.id)}
+          accessibilityRole="button"
+          accessibilityState={{ selected: finished }}
+          accessibilityLabel={finished ? "Finished" : "Mark finished"}
+          accessibilityHint={
+            finished ? "Marks this resource as not finished" : "Marks this resource as finished"
+          }
           style={({ pressed }) => [
             styles.secondaryButton,
             {
@@ -194,7 +214,9 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     paddingVertical: 12,
+    minHeight: 44,
     alignItems: "center",
+    justifyContent: "center",
   },
   secondaryButtonText: {
     fontSize: 14,

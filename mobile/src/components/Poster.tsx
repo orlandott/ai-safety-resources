@@ -41,6 +41,9 @@ export function Poster({ uri, title, track, style, initialsSize = 22 }: PosterPr
   const theme = useTheme();
   const [failed, setFailed] = useState(false);
 
+  // Posters are decorative — the resource title is always adjacent text — so
+  // hide them from screen readers, and keep artwork un-inverted under iOS
+  // Smart Invert.
   if (uri && !failed) {
     return (
       <Image
@@ -48,6 +51,9 @@ export function Poster({ uri, title, track, style, initialsSize = 22 }: PosterPr
         style={style as StyleProp<any>}
         resizeMode="cover"
         onError={() => setFailed(true)}
+        accessibilityIgnoresInvertColors
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
       />
     );
   }
@@ -64,6 +70,8 @@ export function Poster({ uri, title, track, style, initialsSize = 22 }: PosterPr
       start={{ x: 0.1, y: 0 }}
       end={{ x: 0.9, y: 1 }}
       style={[style, styles.fallback]}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
     >
       <Text
         style={[styles.initials, { color: inkColor, fontSize: initialsSize, fontFamily: SERIF }]}

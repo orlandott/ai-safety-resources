@@ -6,7 +6,13 @@ export function EmptyState({ icon, title, body }: { icon: string; title: string;
   const theme = useTheme();
   return (
     <View style={styles.container}>
-      <Text style={styles.icon}>{icon}</Text>
+      <Text
+        style={styles.icon}
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+      >
+        {icon}
+      </Text>
       <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
       <Text style={[styles.body, { color: theme.textMuted }]}>{body}</Text>
     </View>

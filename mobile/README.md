@@ -10,7 +10,36 @@ A React Native (Expo) companion app for [ai-safety-resources.com](https://ai-saf
 - **Search** — full-text over titles, authors, summaries, and topic tags, with an optional category filter.
 - **Library** — save resources to a reading/watch list and mark them finished; stored on-device with AsyncStorage, no account needed.
 - **Dark mode** — follows the system appearance automatically.
+- **Accessible** — VoiceOver/TalkBack support throughout, Dynamic Type, iPhone and iPad in any orientation. See [Accessibility](#accessibility).
 - **Fully offline** — the entire dataset ships in the app bundle; only posters and outbound links need a connection.
+
+## Accessibility
+
+The app is built to work with the platform assistive technologies on iPhone and iPad
+(and their Android equivalents):
+
+- **VoiceOver / TalkBack** — every interactive element carries a role
+  (button, link, tab, search field, progress bar), a spoken label, and state
+  (selected filter chips, saved/finished toggles). Resource cards read as a single
+  element — title, author, level, category, saved/finished status, and summary —
+  with decorative emoji and poster artwork hidden from the screen reader. Learning-path
+  steps announce their position ("Step 2 of 8") and the progress bar reports its value.
+- **Headings** — screen and section titles expose the header trait, so VoiceOver users
+  can jump between sections with the rotor.
+- **Dynamic Type** — text respects the system font-size setting; layouts use flexible
+  spacing so enlarged text reflows instead of clipping.
+- **Touch targets** — small controls (filter chips, save/finish buttons) meet the
+  ~44 pt minimum via `hitSlop` and minimum heights.
+- **Smart Invert** — poster artwork is excluded from color inversion
+  (`accessibilityIgnoresInvertColors`).
+- **iPad & orientation** — `supportsTablet` is enabled and orientation is unlocked
+  (WCAG 1.3.4), so the app rotates freely and supports iPad multitasking/Split View.
+- **Dark mode & contrast** — both palettes keep body text at ≥ 4.5:1 against their
+  backgrounds.
+
+When adding UI, keep this bar: label anything interactive, hide decorative emoji from
+screen readers (`accessibilityElementsHidden` + `importantForAccessibility="no-hide-descendants"`),
+and avoid fixed heights around text.
 
 ## Running the app
 

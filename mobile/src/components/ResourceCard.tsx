@@ -12,11 +12,22 @@ interface ResourceCardProps {
   onPress: () => void;
   showTrack?: boolean;
   note?: string;
+  /** Spoken position context, e.g. "Step 2 of 8" on a learning path. */
+  positionLabel?: string;
 }
 
-export function ResourceCard({ resource, onPress, showTrack = false, note }: ResourceCardProps) {
+export function ResourceCard({
+  resource,
+  onPress,
+  showTrack = false,
+  note,
+  positionLabel,
+}: ResourceCardProps) {
   const theme = useTheme();
   const { isSaved, isFinished } = useLibrary();
+
+  const finished = isFinished(resource.id);
+  const saved = isSaved(resource.id);
 
   const meta = [
     resource.author,
@@ -26,9 +37,27 @@ export function ResourceCard({ resource, onPress, showTrack = false, note }: Res
     .filter(Boolean)
     .join(" · ");
 
+  // One spoken label for the whole card: says the status in words instead of
+  // the ✅/🔖 marker emoji, and folds in the same text VoiceOver would
+  // otherwise read piecemeal.
+  const accessibilityLabel = [
+    positionLabel,
+    resource.name,
+    meta,
+    resource.level,
+    showTrack ? resource.trackLabel : "",
+    finished ? "Finished" : saved ? "Saved" : "",
+    note ?? resource.summary,
+  ]
+    .filter(Boolean)
+    .join(". ");
+
   return (
     <Pressable
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint="Opens details"
       style={({ pressed }) => [
         styles.card,
         { backgroundColor: theme.card, borderColor: theme.cardBorder },
@@ -46,9 +75,9 @@ export function ResourceCard({ resource, onPress, showTrack = false, note }: Res
           <Text style={[styles.title, { color: theme.text }]} numberOfLines={2}>
             {resource.name}
           </Text>
-          {isFinished(resource.id) ? (
+          {finished ? (
             <Text style={styles.marker}>✅</Text>
-          ) : isSaved(resource.id) ? (
+          ) : saved ? (
             <Text style={styles.marker}>🔖</Text>
           ) : null}
         </View>
