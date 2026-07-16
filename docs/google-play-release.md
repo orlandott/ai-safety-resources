@@ -8,7 +8,7 @@ The iOS counterpart lives in [app-store-release.md](app-store-release.md).
 > **Heads-up for personal (non-organization) developer accounts:** Google
 > requires new personal accounts to run a **closed test with at least 12
 > testers opted in for 14 continuous days** before the app can apply for
-> production access. Budget for that in the timeline — step 5 below doubles
+> production access. Budget for that in the timeline; step 5 below doubles
 > as that test.
 
 ## 1. Link the project to EAS (once)
@@ -31,7 +31,7 @@ npx eas-cli build --platform android --profile production
 ```
 
 This produces an `.aab` (Android App Bundle) on Expo's servers (~10–20 min).
-On the first run EAS generates and stores the upload keystore for you — let it
+On the first run EAS generates and stores the upload keystore for you; let it
 (choosing "Generate new keystore"); it stays on EAS's servers and is reused for
 every future build. Google re-signs the app for distribution (Play App Signing),
 so there is nothing to back up locally.
@@ -48,35 +48,35 @@ so there is nothing to back up locally.
   - **App access**: all functionality available without special access (no login).
   - **Ads**: no, the app contains no ads.
   - **Content rating**: fill the questionnaire (category: Reference/Education;
-    nothing applies) — results in **Everyone / PEGI 3**.
+    nothing applies); results in **Everyone / PEGI 3**.
   - **Target audience**: 13 and over (not designed for children).
-  - **Data safety**: the app **collects no data and shares no data** — no
+  - **Data safety**: the app **collects no data and shares no data**: no
     accounts, analytics, or tracking; saved/finished lists stay on-device.
     Answer "No" to collection and sharing; no security-practices section needed.
   - **App category**: Education. Contact email: your developer address.
 
 ## 4. Fill in the store listing
 
-Grow → Store presence → **Main store listing**. Ready-to-paste copy — edit freely:
+Grow → Store presence → **Main store listing**. Ready-to-paste copy, edit freely:
 
 - **Short description** (80 chars max):
   `Curated AI safety library: books, papers, films, podcasts, and learning paths`
 - **Full description**:
 
-  > Explore the ideas shaping AI safety and alignment — through the books,
+  > Explore the ideas shaping AI safety and alignment through the books,
   > papers, films, TV shows, documentaries, podcasts, courses, and channels
   > that explain them best.
   >
   > AI Safety Resources is the mobile companion to ai-safety-resources.com, a
   > community-curated library of 300+ resources:
   >
-  > • Four guided learning paths — whether you're completely new, technical, a
-  > policymaker, or just want great stories — with step-by-step ordering, the
-  > reasoning behind every pick, and progress tracking.
+  > • Four guided learning paths (for newcomers, technical readers,
+  > policymakers, and anyone who just wants great stories) with step-by-step
+  > ordering, the reasoning behind every pick, and progress tracking.
   > • Ten browsable categories with difficulty levels from beginner to advanced.
   > • Full-text search across titles, authors, summaries, and topics.
-  > • A personal library: save resources for later, mark them finished — stored
-  > on your device, no account required.
+  > • A personal library: save resources for later and mark them finished. All
+  > of it stays on your device, no account required.
   > • Works offline; the entire catalog ships with the app.
   > • Light and dark mode, following your system setting.
   >
@@ -106,7 +106,7 @@ Google requires the **first** `.aab` to be uploaded by hand:
 
 Test and release → **Production** → Create release → add the tested build →
 roll out. First-time review typically takes a few days; rejections come with a
-specific policy reason — fix and resubmit.
+specific policy reason; fix and resubmit.
 
 ## Automating later submissions (optional)
 
@@ -116,9 +116,9 @@ account is wired up:
 1. Play Console → Users and permissions → **API access** (or Google Cloud
    Console): create a service account, grant it **Release manager** on this
    app, and download its JSON key.
-2. Save the key as `mobile/play-service-account.json` — it is gitignored;
+2. Save the key as `mobile/play-service-account.json`: it is gitignored;
    **never commit it**.
-3. `npx eas-cli submit --platform android --latest` — the track is set in
+3. `npx eas-cli submit --platform android --latest`; the track is set in
    `mobile/eas.json` (`submit.production.android.track`, currently
    `production`).
 

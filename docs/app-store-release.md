@@ -47,14 +47,14 @@ submitting for review.
 
 ## 5. Fill in the listing
 
-Ready-to-paste copy — edit freely:
+Ready-to-paste copy, edit freely:
 
 - **Subtitle** (30 chars max): `Curated AI safety library`
 - **Category**: Education (secondary: Books)
 - **Privacy Policy URL**: `https://ai-safety-resources.com/privacy/`
   (page lives in `public/privacy/index.html`; deploys with the site)
-- **Age rating**: answer the questionnaire — nothing applies; results in 4+.
-- **App Privacy** section: select **"Data is not collected"** — the app has no
+- **Age rating**: answer the questionnaire (nothing applies); results in 4+.
+- **App Privacy** section: select **"Data is not collected"**: the app has no
   accounts, analytics, or tracking; saved/finished lists stay on-device.
 - **Promotional text** (170 chars max, optional, editable without a new review):
 
@@ -95,7 +95,7 @@ Ready-to-paste copy — edit freely:
 
 Add the build to the version, answer export compliance (already declared in
 `app.json`: no non-exempt encryption), and Submit. Review typically takes 1–2
-days. Rejections, if any, usually come with a specific reason — fix and resubmit.
+days. Rejections, if any, usually come with a specific reason; fix and resubmit.
 
 ## Updating the app later
 
