@@ -9,11 +9,13 @@ membership ($99/year, approved) and a free [Expo account](https://expo.dev).
 ```bash
 cd mobile
 npm install
-npx eas-cli login       # your expo.dev credentials
-npx eas-cli init        # creates the EAS project and writes projectId into app.json
+npx eas-cli login
+npx eas-cli init
 ```
 
-Commit the `extra.eas.projectId` that `eas init` adds to `app.json`.
+`login` takes your expo.dev credentials; `init` creates the EAS project and
+writes the projectId into `app.json`. Commit the `extra.eas.projectId` that
+`eas init` adds to `app.json`.
 
 ## 2. Build for iOS
 
