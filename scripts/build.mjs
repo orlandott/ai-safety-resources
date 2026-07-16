@@ -354,6 +354,7 @@ ${main}
         <a href="/paths/">Learning paths</a>
         <a href="/topics/">Topics</a>
         ${footerCategoryLinks}
+        <a href="/privacy/">Privacy policy</a>
       </nav>
     </div>
     <p class="site-footer-fineprint">Free, forever. Your saved resources live only in your browser.</p>
