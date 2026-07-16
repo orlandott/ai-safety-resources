@@ -37,10 +37,10 @@ const firstPath = data.paths[0];
 // Mark the first several steps finished so the progress bar and ✅ markers show.
 const FINISHED = firstPath.steps.slice(0, 6).map((s) => s.resourceId);
 const SEED = JSON.stringify({ saved: [], finished: FINISHED });
-// Films/TV/documentaries carry real poster art for every entry, so the category
-// screen shows a wall of covers; fall back to the first track if absent.
+// TV / documentaries have the most reliable poster art, so the category screen
+// shows a wall of covers; fall back to the first track if absent.
 const CATEGORY_LABEL =
-  (data.tracks.find((t) => t.key === "films") ?? data.tracks[0]).label;
+  (data.tracks.find((t) => t.key === "tv") ?? data.tracks[0]).label;
 // A book with both a cover image and a summary makes the richest detail screen
 // (and shows a real book cover); fall back to any resource with a summary.
 const DETAIL =
@@ -48,7 +48,7 @@ const DETAIL =
     (r) => r.track === "non_fiction_books" && r.image && r.summary
   ) ?? data.resources.find((r) => r.summary);
 // A query whose results are poster-heavy, so the search screen shows cover art.
-const SEARCH_QUERY = "robot";
+const SEARCH_QUERY = "android";
 
 // deviceScaleFactor makes viewport*dsf == the store's required pixel size.
 const DEVICES = [
