@@ -81,9 +81,17 @@ Ready-to-paste copy — edit freely:
   `AI safety,alignment,artificial intelligence,AGI,machine learning,ethics,books,reading list,papers`
 
 - **Screenshots**: required for 6.9" (iPhone 16 Pro Max class) and 6.5"
-  displays. Run the app in those simulators (`npx expo start --ios`) or on
-  device and capture: Home (paths + categories), a learning path with progress,
-  a category list, a resource detail, and search. No frames or captions needed.
+  displays. Generate them from the web build with `cd mobile && npm run screenshots`
+  (needs outbound access to the cover-art hosts — see below); the exact-size PNGs
+  land in `mobile/assets/app-store/iphone-6.9/` (1290×2796) and
+  `mobile/assets/app-store/iphone-6.5/` (1242×2688). Each set is Explore, a
+  learning path with progress, a category list, a resource detail, and search,
+  plus a dark-mode shot. No frames or captions needed. To capture on a real
+  simulator instead, run `npx expo start --ios` and screenshot the same screens.
+  Cover art loads over the network; `npm run screenshots` needs those hosts
+  reachable (`upload.wikimedia.org`, `m.media-amazon.com`,
+  `images-na.ssl-images-amazon.com`, `covers.openlibrary.org`, `i.gr-assets.com`,
+  `books.google.com`) or posters fall back to the app's typographic covers.
 
 ## 6. Submit for review
 

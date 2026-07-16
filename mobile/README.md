@@ -98,6 +98,12 @@ Store builds go through EAS — see [docs/app-store-release.md](../docs/app-stor
 Icons and Play listing graphics are generated from the site logo with
 `node scripts/make-icons.mjs`.
 
+Store screenshots are generated from the web build with `npm run screenshots`
+(App Store 6.9"/6.5" and Play Store 9:16, at exact pixel sizes) into
+`assets/app-store/` and `assets/play-store/screenshots/`. Cover art loads over
+the network, so run it somewhere the poster hosts are reachable; otherwise the
+app's typographic covers stand in.
+
 ## Checks
 
 ```bash

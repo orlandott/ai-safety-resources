@@ -20,11 +20,13 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "playwright": "1.56.1",
     "sharp": "^0.35.3",
     "typescript": "~6.0.3"
   },
   "scripts": {
     "sync-data": "node scripts/sync-data.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
     "typecheck": "tsc --noEmit",
     "start": "expo start",
     "android": "expo start --android",
