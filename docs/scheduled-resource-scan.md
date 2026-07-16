@@ -1,7 +1,7 @@
 # Scheduled resource scan
 
-A scheduled Claude Code task (a "routine") runs twice a month — on the **1st and
-16th** (~every 15 days) — to scan the web for new AI safety resources and add
+A scheduled Claude Code task (a "routine") runs weekly — every **Monday
+morning** — to scan the web for new AI safety resources and add
 them to the collection. Each run works in a fresh session, follows the process
 below, and opens a pull request with its additions so a human reviews before
 anything goes live.
