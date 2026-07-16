@@ -2528,3 +2528,28 @@ body.account-modal-open {
   border-color: var(--accent-hover);
   color: var(--on-accent);
 }
+.cookie-consent-options {
+  flex-basis: 100%;
+  display: grid;
+  gap: 10px;
+}
+.cookie-consent-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text);
+  cursor: pointer;
+}
+.cookie-consent-option input[type="checkbox"] {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.cookie-consent-option input[type="checkbox"]:disabled {
+  cursor: default;
+}
