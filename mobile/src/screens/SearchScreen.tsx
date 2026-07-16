@@ -35,6 +35,8 @@ export function SearchScreen() {
           onChangeText={setQuery}
           placeholder="Search titles, authors, topics…"
           placeholderTextColor={theme.textMuted}
+          accessibilityLabel="Search titles, authors, topics"
+          accessibilityRole="search"
           autoCorrect={false}
           returnKeyType="search"
           clearButtonMode="while-editing"

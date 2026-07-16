@@ -6,13 +6,19 @@ interface ChipProps {
   label: string;
   active?: boolean;
   onPress: () => void;
+  /** Spoken label override, e.g. to drop emoji or expand counts. */
+  accessibilityLabel?: string;
 }
 
-export function Chip({ label, active = false, onPress }: ChipProps) {
+export function Chip({ label, active = false, onPress, accessibilityLabel }: ChipProps) {
   const theme = useTheme();
   return (
     <Pressable
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityState={{ selected: active }}
+      accessibilityLabel={accessibilityLabel}
+      hitSlop={{ top: 8, bottom: 8 }}
       style={({ pressed }) => [
         styles.chip,
         {

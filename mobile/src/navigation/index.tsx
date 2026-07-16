@@ -8,6 +8,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { Text } from "react-native";
+import { useReduceMotion } from "../a11y";
 import { CategoryScreen } from "../screens/CategoryScreen";
 import { HomeScreen } from "../screens/HomeScreen";
 import { PathScreen } from "../screens/PathScreen";
@@ -20,8 +21,18 @@ import type { RootStackParamList } from "./types";
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
+// The emoji is decorative — the tab's own label carries the name — so keep
+// VoiceOver/TalkBack from reading "compass" etc. before each tab.
 function TabIcon({ glyph, focused }: { glyph: string; focused: boolean }) {
-  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{glyph}</Text>;
+  return (
+    <Text
+      style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+    >
+      {glyph}
+    </Text>
+  );
 }
 
 function Tabs() {
@@ -62,6 +73,7 @@ function Tabs() {
 
 export function AppNavigator() {
   const theme = useTheme();
+  const reduceMotion = useReduceMotion();
   const navTheme: NavTheme = {
     ...(theme.dark ? DarkTheme : DefaultTheme),
     colors: {
@@ -80,6 +92,9 @@ export function AppNavigator() {
         screenOptions={{
           headerTintColor: theme.accent,
           headerTitleStyle: { color: theme.text },
+          // Reduce Motion: replace the slide transition with a cross-fade,
+          // matching what iOS does system-wide for modal presentations.
+          ...(reduceMotion ? { animation: "fade" as const } : null),
         }}
       >
         <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />

@@ -34,7 +34,13 @@ export function PathScreen({ navigation, route }: RootScreenProps<"Path">) {
           <Text style={[styles.description, { color: theme.textSecondary }]}>
             {path.description}
           </Text>
-          <View style={styles.progressRow}>
+          <View
+            style={styles.progressRow}
+            accessible
+            accessibilityRole="progressbar"
+            accessibilityLabel={`${done} of ${steps.length} steps finished`}
+            accessibilityValue={{ min: 0, max: steps.length, now: done }}
+          >
             <View style={[styles.progressTrack, { backgroundColor: theme.progressTrack }]}>
               <View
                 style={[
@@ -54,12 +60,21 @@ export function PathScreen({ navigation, route }: RootScreenProps<"Path">) {
       }
       renderItem={({ item, index }) => (
         <View style={styles.stepRow}>
-          <Text style={[styles.stepNumber, { color: theme.accent }]}>{index + 1}</Text>
+          {/* The card's positionLabel speaks the step; the bare number would
+              read out of context. */}
+          <Text
+            style={[styles.stepNumber, { color: theme.accent }]}
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+          >
+            {index + 1}
+          </Text>
           <View style={styles.stepCard}>
             <ResourceCard
               resource={item.resource}
               note={item.why}
               showTrack
+              positionLabel={`Step ${index + 1} of ${steps.length}`}
               onPress={() => navigation.navigate("Resource", { id: item.resource.id })}
             />
           </View>

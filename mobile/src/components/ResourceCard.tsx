@@ -1,5 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useLargeTextMode } from "../a11y";
 import { TRACK_ICONS } from "../data";
 import { useLibrary } from "../store/library";
 import { SERIF, useTheme } from "../theme";
@@ -12,11 +13,24 @@ interface ResourceCardProps {
   onPress: () => void;
   showTrack?: boolean;
   note?: string;
+  /** Spoken position context, e.g. "Step 2 of 8" on a learning path. */
+  positionLabel?: string;
 }
 
-export function ResourceCard({ resource, onPress, showTrack = false, note }: ResourceCardProps) {
+export function ResourceCard({
+  resource,
+  onPress,
+  showTrack = false,
+  note,
+  positionLabel,
+}: ResourceCardProps) {
   const theme = useTheme();
   const { isSaved, isFinished } = useLibrary();
+  // At accessibility text sizes, truncation eats too much — allow extra lines.
+  const largeText = useLargeTextMode();
+
+  const finished = isFinished(resource.id);
+  const saved = isSaved(resource.id);
 
   const meta = [
     resource.author,
@@ -26,9 +40,27 @@ export function ResourceCard({ resource, onPress, showTrack = false, note }: Res
     .filter(Boolean)
     .join(" · ");
 
+  // One spoken label for the whole card: says the status in words instead of
+  // the ✅/🔖 marker emoji, and folds in the same text VoiceOver would
+  // otherwise read piecemeal.
+  const accessibilityLabel = [
+    positionLabel,
+    resource.name,
+    meta,
+    resource.level,
+    showTrack ? resource.trackLabel : "",
+    finished ? "Finished" : saved ? "Saved" : "",
+    note ?? resource.summary,
+  ]
+    .filter(Boolean)
+    .join(". ");
+
   return (
     <Pressable
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      accessibilityHint="Opens details"
       style={({ pressed }) => [
         styles.card,
         { backgroundColor: theme.card, borderColor: theme.cardBorder },
@@ -43,26 +75,26 @@ export function ResourceCard({ resource, onPress, showTrack = false, note }: Res
       />
       <View style={styles.body}>
         <View style={styles.titleRow}>
-          <Text style={[styles.title, { color: theme.text }]} numberOfLines={2}>
+          <Text style={[styles.title, { color: theme.text }]} numberOfLines={largeText ? 4 : 2}>
             {resource.name}
           </Text>
-          {isFinished(resource.id) ? (
+          {finished ? (
             <Text style={styles.marker}>✅</Text>
-          ) : isSaved(resource.id) ? (
+          ) : saved ? (
             <Text style={styles.marker}>🔖</Text>
           ) : null}
         </View>
         {meta ? (
-          <Text style={[styles.meta, { color: theme.textMuted }]} numberOfLines={1}>
+          <Text style={[styles.meta, { color: theme.textMuted }]} numberOfLines={largeText ? 2 : 1}>
             {meta}
           </Text>
         ) : null}
         {note ? (
-          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={3}>
+          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={largeText ? 6 : 3}>
             {note}
           </Text>
         ) : resource.summary ? (
-          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={2}>
+          <Text style={[styles.note, { color: theme.textSecondary }]} numberOfLines={largeText ? 4 : 2}>
             {resource.summary}
           </Text>
         ) : null}
