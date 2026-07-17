@@ -75,6 +75,14 @@ console.log("wrote assets/android-icon-monochrome.png");
 // Favicon for the web build.
 await centerOn(48, CREAM, 40, "favicon.png");
 
+// In-app header logo: the emblem alone, tightly cropped on transparent so it
+// sits next to the app name in both light and dark themes. 256px wide covers
+// @3x at the ~60pt it renders at.
+await sharp(await emblemResized(256))
+  .png()
+  .toFile(join(assets, "logo-emblem.png"));
+console.log("wrote assets/logo-emblem.png");
+
 // Google Play listing assets (not bundled into the app; uploaded in the
 // Play Console): a 512x512 hi-res icon and a 1024x500 feature graphic.
 // The feature graphic is wide enough for the full logo, wordmark included.
