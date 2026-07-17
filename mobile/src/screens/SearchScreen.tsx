@@ -9,6 +9,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Chip } from "../components/Chip";
 import { EmptyState } from "../components/EmptyState";
 import { ResourceCard } from "../components/ResourceCard";
@@ -21,6 +22,7 @@ export function SearchScreen() {
   const theme = useTheme();
   const [query, setQuery] = useState("");
   const [trackKey, setTrackKey] = useState<string | null>(null);
+  const insets = useSafeAreaInsets();
 
   const results = useMemo(
     () => searchResources(query, trackKey ?? undefined),
@@ -29,7 +31,7 @@ export function SearchScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={styles.searchWrap}>
+      <View style={[styles.searchWrap, { paddingTop: insets.top + 12 }]}>
         <TextInput
           value={query}
           onChangeText={setQuery}
@@ -106,7 +108,6 @@ const styles = StyleSheet.create({
   },
   searchWrap: {
     paddingHorizontal: 16,
-    paddingTop: 12,
   },
   input: {
     borderRadius: 12,

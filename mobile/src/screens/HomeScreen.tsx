@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useLargeTextMode } from "../a11y";
 import { paths, TRACK_ICONS, tracks } from "../data";
 import type { RootStackParamList } from "../navigation/types";
@@ -11,15 +12,24 @@ export function HomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const theme = useTheme();
   const largeText = useLargeTextMode();
+  const insets = useSafeAreaInsets();
 
   return (
     <ScrollView
       style={{ backgroundColor: theme.background }}
-      contentContainerStyle={styles.content}
+      contentContainerStyle={[styles.content, { paddingTop: insets.top + 12 }]}
     >
-      <Text accessibilityRole="header" style={[styles.heading, { color: theme.text }]}>
-        AI Safety Resources
-      </Text>
+      <View style={styles.brand}>
+        <Image
+          source={require("../../assets/logo-emblem.png")}
+          style={styles.logo}
+          accessibilityElementsHidden
+          importantForAccessibility="no-hide-descendants"
+        />
+        <Text accessibilityRole="header" style={[styles.heading, { color: theme.text }]}>
+          AI Safety Resources
+        </Text>
+      </View>
       <Text style={[styles.subheading, { color: theme.textMuted }]}>
         Books, papers, films, and more for exploring AI safety and alignment — for the
         curious and the deeply engaged.
@@ -90,7 +100,18 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingBottom: 32,
   },
+  brand: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  logo: {
+    width: 60,
+    height: 44,
+    resizeMode: "contain",
+  },
   heading: {
+    flex: 1,
     fontSize: 26,
     fontWeight: "800",
     fontFamily: SERIF,

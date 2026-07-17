@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useMemo, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Chip } from "../components/Chip";
 import { EmptyState } from "../components/EmptyState";
 import { ResourceCard } from "../components/ResourceCard";
@@ -17,6 +18,7 @@ export function SavedScreen() {
   const theme = useTheme();
   const { saved, finished } = useLibrary();
   const [section, setSection] = useState<Section>("saved");
+  const insets = useSafeAreaInsets();
 
   const ids = section === "saved" ? saved : finished;
   const items = useMemo(
@@ -30,7 +32,7 @@ export function SavedScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={styles.tabs}>
+      <View style={[styles.tabs, { paddingTop: insets.top + 10 }]}>
         <Chip
           label={`🔖 Saved (${saved.length})`}
           accessibilityLabel={`Saved, ${saved.length} resources`}
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
   tabs: {
     flexDirection: "row",
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingBottom: 10,
   },
   list: {
     paddingBottom: 24,
