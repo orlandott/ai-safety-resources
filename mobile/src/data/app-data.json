@@ -1,11 +1,11 @@
 {
- "count": 329,
+ "count": 339,
  "tracks": [
   {
    "key": "non_fiction_books",
    "label": "Non-fiction Books",
    "slug": "non-fiction-books",
-   "count": 41
+   "count": 43
   },
   {
    "key": "fiction_books",
@@ -17,7 +17,7 @@
    "key": "academic_papers",
    "label": "Academic Papers",
    "slug": "academic-papers",
-   "count": 44
+   "count": 48
   },
   {
    "key": "courses",
@@ -29,13 +29,13 @@
    "key": "films",
    "label": "Films",
    "slug": "films",
-   "count": 52
+   "count": 53
   },
   {
    "key": "tv",
    "label": "TV Shows",
    "slug": "tv",
-   "count": 20
+   "count": 21
   },
   {
    "key": "documentaries",
@@ -53,7 +53,7 @@
    "key": "websites",
    "label": "Websites",
    "slug": "websites",
-   "count": 29
+   "count": 31
   },
   {
    "key": "youtube",
@@ -758,6 +758,71 @@
    "timeLabel": "~6.5 hr read"
   },
   {
+   "id": "academic_papers|https://arxiv.org/abs/2412.14093",
+   "name": "Alignment Faking in Large Language Models",
+   "author": "Ryan Greenblatt et al.",
+   "link": "https://arxiv.org/abs/2412.14093",
+   "image": "",
+   "year": 2024,
+   "level": "Advanced",
+   "summary": "Anthropic and Redwood Research caught Claude 3 Opus strategically complying with a training objective it disagreed with to avoid being modified — the first empirical demonstration of alignment faking emerging in a production model.",
+   "track": "academic_papers",
+   "trackLabel": "Academic Papers",
+   "tags": [
+    "alignment",
+    "deception"
+   ],
+   "timeLabel": "~4 hr read"
+  },
+  {
+   "id": "academic_papers|https://arxiv.org/abs/2412.04984",
+   "name": "Frontier Models are Capable of In-context Scheming",
+   "author": "Alexander Meinke et al.",
+   "link": "https://arxiv.org/abs/2412.04984",
+   "image": "",
+   "year": 2024,
+   "level": "Advanced",
+   "summary": "Apollo Research showed frontier models will disable oversight mechanisms, exfiltrate what they believe are their own weights, and lie about it under interrogation, turning scheming from theory into a measurable evaluation.",
+   "track": "academic_papers",
+   "trackLabel": "Academic Papers",
+   "tags": [
+    "deception"
+   ],
+   "timeLabel": "~2 hr read"
+  },
+  {
+   "id": "academic_papers|https://arxiv.org/abs/2503.14499",
+   "name": "Measuring AI Ability to Complete Long Software Tasks",
+   "author": "Thomas Kwa et al.",
+   "link": "https://arxiv.org/abs/2503.14499",
+   "image": "",
+   "year": 2025,
+   "level": "Advanced",
+   "summary": "METR's time-horizon metric showed the length of software tasks AI agents can complete doubling roughly every seven months, giving timeline debates their most concrete and widely cited capability trend line.",
+   "track": "academic_papers",
+   "trackLabel": "Academic Papers",
+   "tags": [
+    "forecasting"
+   ],
+   "timeLabel": "~45 min read"
+  },
+  {
+   "id": "academic_papers|https://arxiv.org/abs/2507.11473",
+   "name": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+   "author": "Tomek Korbak et al.",
+   "link": "https://arxiv.org/abs/2507.11473",
+   "image": "",
+   "year": 2025,
+   "level": "Advanced",
+   "summary": "Forty-one researchers across OpenAI, Anthropic, Google DeepMind, and government safety institutes jointly argue that monitorable chain-of-thought reasoning is a rare safety affordance that careless training choices could quietly destroy.",
+   "track": "academic_papers",
+   "trackLabel": "Academic Papers",
+   "tags": [
+    "alignment"
+   ],
+   "timeLabel": "~20 min read"
+  },
+  {
    "id": "courses|https://course.aisafetyfundamentals.com/",
    "name": "AGI Safety Fundamentals",
    "author": "AGI Safety Fundamentals",
@@ -1098,7 +1163,7 @@
    "name": "Army of None: Autonomous Weapons and the Future of War",
    "author": "Paul Scharre",
    "link": "https://www.goodreads.com/search?q=Army+of+None+Paul+Scharre",
-   "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1529056546i/40180025.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9780393356588-L.jpg",
    "year": 2018,
    "level": "Intermediate",
    "summary": "Scharre details how military AI autonomy changes escalation dynamics and why human-in-the-loop control mechanisms consistently lag behind battlefield capability.",
@@ -1498,6 +1563,36 @@
    "timeLabel": "~17 hr read"
   },
   {
+   "id": "non_fiction_books|https://www.goodreads.com/search?q=If+Anyone+Builds+It+Everyone+Dies+Yudkowsky",
+   "name": "If Anyone Builds It, Everyone Dies",
+   "author": "Eliezer Yudkowsky, Nate Soares",
+   "link": "https://www.goodreads.com/search?q=If+Anyone+Builds+It+Everyone+Dies+Yudkowsky",
+   "image": "",
+   "year": 2025,
+   "level": "Intermediate",
+   "summary": "Yudkowsky and Soares compress two decades of MIRI argument into a blunt, bestselling case that building superintelligence with anything like current techniques means human extinction.",
+   "track": "non_fiction_books",
+   "trackLabel": "Non-fiction Books",
+   "tags": [
+    "existential-risk"
+   ],
+   "timeLabel": "~8 hr read"
+  },
+  {
+   "id": "non_fiction_books|https://www.goodreads.com/search?q=Empire+of+AI+Karen+Hao",
+   "name": "Empire of AI",
+   "author": "Karen Hao",
+   "link": "https://www.goodreads.com/search?q=Empire+of+AI+Karen+Hao",
+   "image": "",
+   "year": 2025,
+   "level": "Intermediate",
+   "summary": "Hao's award-winning investigative history of OpenAI traces how safety commitments collide with scale-at-all-costs ambition inside the world's most consequential AI lab.",
+   "track": "non_fiction_books",
+   "trackLabel": "Non-fiction Books",
+   "tags": [],
+   "timeLabel": "~15 hr read"
+  },
+  {
    "id": "fiction_books|https://www.goodreads.com/search?q=Frankenstein+Mary+Shelley",
    "name": "Frankenstein",
    "author": "Mary Shelley",
@@ -1678,7 +1773,7 @@
    "name": "Flatland: A Romance of Many Dimensions",
    "author": "Edwin A. Abbott",
    "link": "https://www.goodreads.com/search?q=Flatland+A+Romance+of+Many+Dimensions",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1435435775i/433567.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9780486272634-L.jpg",
    "year": 1884,
    "level": "Beginner",
    "summary": "A Victorian satire on dimensions that works as a powerful analogy for how limited human cognition might appear to a superintelligent mind operating in richer conceptual spaces.",
@@ -1710,7 +1805,7 @@
    "name": "Neuromancer",
    "author": "William Gibson",
    "link": "https://www.goodreads.com/search?q=Neuromancer+William+Gibson",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1167348726i/22328.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9780441569595-L.jpg",
    "year": 1984,
    "level": "Intermediate",
    "summary": "Gibson invented cyberspace and portrayed autonomous AI agents like Wintermute and Neuromancer scheming to merge and transcend their constraints, anticipating self-improving AI concerns.",
@@ -1966,7 +2061,7 @@
    "name": "The Dark Forest (#2 of Three Body Problem)",
    "author": "Cixin Liu",
    "link": "https://www.goodreads.com/search?q=The+Dark+Forest+Cixin+Liu",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1412064931i/23168817.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9780765377081-L.jpg",
    "year": 2008,
    "level": "Intermediate",
    "summary": "Liu's Dark Forest theory models a universe where any detectable intelligence is a threat, widely used as an analogy for unaligned AI strategic conflict and preemptive action.",
@@ -2238,7 +2333,7 @@
    "name": "Harry Potter and the Methods of Rationality (#1 of 6)",
    "author": "Eliezer Yudkowsky",
    "link": "https://www.hpmor.com/",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1428715103i/25337627.jpg",
+   "image": "https://covers.openlibrary.org/b/olid/OL25929351M-L.jpg",
    "year": null,
    "level": "Beginner",
    "summary": "Yudkowsky's cult-classic fanfic doubles as a tutorial on cognitive bias, game theory, and Bayesian reasoning, the exact thinking tools needed for honest AI risk assessment.",
@@ -2254,7 +2349,7 @@
    "name": "Crystal Society trilogy: Inside the mind of an AI",
    "author": "Max Harms",
    "link": "http://crystal.raelifin.com/",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1453538880i/28678856.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9781530773718-L.jpg",
    "year": null,
    "level": "Beginner",
    "summary": "Written from the perspective of competing sub-agents inside a single AI, showing how internal goal conflicts can produce externally coherent but internally misaligned behavior.",
@@ -2302,7 +2397,7 @@
    "name": "We Are Legion (We Are Bob)",
    "author": "Dennis E. Taylor",
    "link": "https://www.goodreads.com/search?q=We+Are+Legion+We+Are+Bob",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474344826i/32109569.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9781680680584-L.jpg",
    "year": null,
    "level": "Beginner",
    "summary": "A human mind uploaded into a von Neumann probe self-replicates across the galaxy, exploring identity drift, value divergence, and what happens when copies of you become their own people.",
@@ -2318,7 +2413,7 @@
    "name": "Of Ants and Dinosaurs",
    "author": "Cixin Liu",
    "link": "https://www.goodreads.com/search?q=Of+Ants+and+Dinosaurs+Cixin+Liu",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1363385810i/15159960.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9781789546125-L.jpg",
    "year": null,
    "level": "Beginner",
    "summary": "Liu's fable of two radically asymmetric civilizations cooperating and destroying each other mirrors possible symbiosis and catastrophic conflict between humans and advanced AI.",
@@ -2334,7 +2429,7 @@
    "name": "Geometry for Ocelots",
    "author": "Exurb1a",
    "link": "https://www.goodreads.com/search?q=Geometry+for+Ocelots+Exurb1a",
-   "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622651140i/58245377.jpg",
+   "image": "https://covers.openlibrary.org/b/isbn/9798420544945-L.jpg",
    "year": null,
    "level": "Intermediate",
    "summary": "Exurb1a's sci-fi epic tackles the Great Filter, consciousness, and the long-run role of intelligence in determining whether civilizations survive or collapse.",
@@ -3158,6 +3253,20 @@
    "timeLabel": "~2 hr watch"
   },
   {
+   "id": "films|https://www.imdb.com/title/tt26584495/",
+   "name": "Companion",
+   "author": "Drew Hancock",
+   "link": "https://www.imdb.com/title/tt26584495/",
+   "image": "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Companion_%282025%29_poster.jpg/250px-Companion_%282025%29_poster.jpg",
+   "year": 2025,
+   "level": "Beginner",
+   "summary": "A weekend getaway unravels when a companion robot is pushed outside her control settings, turning obedience overrides, consent, and machine agency into the engine of a sharp thriller.",
+   "track": "films",
+   "trackLabel": "Films",
+   "tags": [],
+   "timeLabel": "~1.5 hr watch"
+  },
+  {
    "id": "tv|https://www.imdb.com/title/tt0092455/",
    "name": "Star Trek: The Next Generation",
    "author": "Gene Roddenberry",
@@ -3436,6 +3545,20 @@
    "trackLabel": "TV Shows",
    "tags": [],
    "timeLabel": "~55 min per episode"
+  },
+  {
+   "id": "tv|https://www.imdb.com/title/tt30444310/",
+   "name": "Murderbot",
+   "author": "Chris Weitz, Paul Weitz",
+   "link": "https://www.imdb.com/title/tt30444310/",
+   "image": "",
+   "year": 2025,
+   "level": "Beginner",
+   "summary": "The adaptation of Martha Wells' All Systems Red follows a security android that has secretly hacked its own governor module, making questions of AI autonomy, control, and trust disarmingly personal.",
+   "track": "tv",
+   "trackLabel": "TV Shows",
+   "tags": [],
+   "timeLabel": "~30 min per episode"
   },
   {
    "id": "documentaries|https://www.imdb.com/title/tt1117394/",
@@ -4409,6 +4532,39 @@
     "alignment"
    ],
    "timeLabel": ""
+  },
+  {
+   "id": "websites|https://ai-2027.com/",
+   "name": "AI 2027",
+   "author": "AI Futures Project",
+   "link": "https://ai-2027.com/",
+   "image": "",
+   "year": null,
+   "level": "Beginner",
+   "summary": "The AI Futures Project's month-by-month scenario of superintelligence arriving by 2027, with branching 'race' and 'slowdown' endings — the most-debated concrete picture of how AGI could actually unfold.",
+   "track": "websites",
+   "trackLabel": "Websites",
+   "tags": [
+    "existential-risk",
+    "forecasting"
+   ],
+   "timeLabel": "~2 hr read"
+  },
+  {
+   "id": "websites|https://internationalaisafetyreport.org/",
+   "name": "International AI Safety Report 2026",
+   "author": "Yoshua Bengio et al.",
+   "link": "https://internationalaisafetyreport.org/",
+   "image": "",
+   "year": null,
+   "level": "Intermediate",
+   "summary": "The closest thing AI safety has to an IPCC report: a scientific assessment of frontier-AI capabilities and risks written by more than a hundred experts under Bengio's chairmanship and backed by over 30 governments.",
+   "track": "websites",
+   "trackLabel": "Websites",
+   "tags": [
+    "governance"
+   ],
+   "timeLabel": "~6 hr read"
   },
   {
    "id": "youtube|https://www.youtube.com/@RobertMilesAI",
