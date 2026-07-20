@@ -1,12 +1,12 @@
 {
-  "count": 339,
+  "count": 343,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 43
+      "count": 44
     },
     {
       "key": "fiction_books",
@@ -18,7 +18,7 @@
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 48
+      "count": 49
     },
     {
       "key": "courses",
@@ -48,13 +48,13 @@
       "key": "podcasts",
       "label": "Podcasts",
       "slug": "podcasts",
-      "count": 14
+      "count": 15
     },
     {
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 31
+      "count": 32
     },
     {
       "key": "youtube",
@@ -784,6 +784,25 @@
       "tags": [],
       "level": "Advanced",
       "timeLabel": "~50 min read"
+    },
+    {
+      "Name": "Model evaluation for extreme risks",
+      "Author": "Toby Shevlane et al.",
+      "Link": "https://arxiv.org/abs/2305.15324",
+      "page_count": 20,
+      "Category": "academic_papers",
+      "Year": 2023,
+      "Summary": "Shevlane et al. proposed evaluating frontier models for dangerous capabilities and the propensity to misuse them before deployment, a framework that now underpins the responsible scaling policies and pre-release evaluations major labs run to catch extreme risks early.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~35 min read"
     },
     {
       "Name": "Jailbroken",
@@ -1875,6 +1894,22 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~15 hr read"
+    },
+    {
+      "Name": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "Author": "Yuval Noah Harari",
+      "Link": "https://www.goodreads.com/search?q=Nexus+Yuval+Noah+Harari",
+      "page_count": 528,
+      "Category": "books",
+      "goodreads": "4.16",
+      "Year": 2024,
+      "Level": "Beginner",
+      "Summary": "Harari traces information networks from myth to algorithm and closes with a stark warning that AI is the first technology able to make decisions and generate ideas by itself, putting human oversight of our own institutions at stake.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~16 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -4840,6 +4875,27 @@
       "timeLabel": "~30 min per episode"
     },
     {
+      "Name": "For Humanity: An AI Risk Podcast",
+      "Author": "John Sherman",
+      "Link": "https://theairisknetwork.substack.com/s/for-humanity-an-ai-risk-podcast",
+      "Category": "podcasts",
+      "Year": 2023,
+      "Minutes": 60,
+      "MinutesPer": "episode",
+      "Level": "Beginner",
+      "Summary": "Emmy-winning journalist John Sherman interviews AI safety researchers in plain language for a general audience, treating the possibility of human extinction from AGI as the urgent story he thinks the mainstream press is still missing.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "podcasts",
+      "trackLabel": "Podcasts",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~60 min per episode"
+    },
+    {
       "Name": "Situational Awareness",
       "Link": "https://situational-awareness.ai/",
       "Author": "Leopold Aschenbrenner",
@@ -5358,6 +5414,25 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~6 hr read"
+    },
+    {
+      "Name": "AI Safety Index — Summer 2026",
+      "Author": "Future of Life Institute",
+      "Link": "https://futureoflife.org/ai-safety-index-summer-2026/",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Intermediate",
+      "Summary": "FLI's independent scorecard grades nine frontier AI developers—including Anthropic, OpenAI, and Google DeepMind—on safety practices across risk assessment, governance, and existential safety, with the best-scoring lab managing only a C+.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Robert Miles AI Safety",
