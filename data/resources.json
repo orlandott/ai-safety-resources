@@ -1,5 +1,5 @@
 {
-  "count": 339,
+  "count": 345,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -18,7 +18,7 @@
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 48
+      "count": 51
     },
     {
       "key": "courses",
@@ -48,13 +48,13 @@
       "key": "podcasts",
       "label": "Podcasts",
       "slug": "podcasts",
-      "count": 14
+      "count": 15
     },
     {
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 31
+      "count": 33
     },
     {
       "key": "youtube",
@@ -958,6 +958,68 @@
       ],
       "level": "Advanced",
       "timeLabel": "~20 min read"
+    },
+    {
+      "Name": "Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development",
+      "Author": "Jan Kulveit et al.",
+      "Link": "https://arxiv.org/abs/2501.16946",
+      "page_count": 32,
+      "Category": "academic_papers",
+      "Year": 2025,
+      "Level": "Intermediate",
+      "Summary": "Kulveit et al. reframe existential risk away from sudden takeover, arguing that purely incremental, individually rational AI adoption could permanently erode human influence over the economy, culture, and government without any single dramatic failure.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~60 min read"
+    },
+    {
+      "Name": "The Singapore Consensus on Global AI Safety Research Priorities",
+      "Author": "Yoshua Bengio et al.",
+      "Link": "https://arxiv.org/abs/2506.20702",
+      "page_count": 64,
+      "Category": "academic_papers",
+      "Year": 2025,
+      "Level": "Intermediate",
+      "Summary": "Nearly 100 researchers across 11 countries converge on a shared technical safety research agenda spanning trustworthy development, risk assessment, and post-deployment control, turning the International AI Safety Report's findings into concrete research priorities.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~2 hr read"
+    },
+    {
+      "Name": "An International Agreement to Prevent the Premature Creation of Artificial Superintelligence",
+      "Author": "Aaron Scher, David Abecassis, Peter Barnett, Brian Abeyta",
+      "Link": "https://arxiv.org/abs/2511.10783",
+      "page_count": 45,
+      "Category": "academic_papers",
+      "Year": 2025,
+      "Level": "Intermediate",
+      "Summary": "MIRI's Technical Governance Team sketches a concrete US-China coalition and verification regime, compute tracking, chip governance, and legal prohibitions, for halting the race toward superintelligence before it can be built safely.",
+      "IncludeTopics": [
+        "governance",
+        "existential-risk"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "governance",
+        "existential-risk"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~80 min read"
     },
     {
       "Name": "AGI Safety Fundamentals",
@@ -4840,6 +4902,27 @@
       "timeLabel": "~30 min per episode"
     },
     {
+      "Name": "For Humanity: An AI Risk Podcast",
+      "Author": "John Sherman",
+      "Link": "https://theairisknetwork.substack.com/s/for-humanity-an-ai-risk-podcast",
+      "Category": "podcasts",
+      "Year": 2023,
+      "Minutes": 90,
+      "MinutesPer": "episode",
+      "Level": "Beginner",
+      "Summary": "A former broadcast journalist turned full-time AI-extinction-risk communicator interviews researchers and advocates for a general audience, translating alignment debates into plain-language stakes for people outside the field.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "podcasts",
+      "trackLabel": "Podcasts",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~1.5 hr per episode"
+    },
+    {
       "Name": "Situational Awareness",
       "Link": "https://situational-awareness.ai/",
       "Author": "Leopold Aschenbrenner",
@@ -5358,6 +5441,39 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~6 hr read"
+    },
+    {
+      "Name": "State of AI Safety in China",
+      "Author": "Concordia AI",
+      "Link": "https://aisafetychina.com/",
+      "Category": "websites",
+      "page_count": 150,
+      "Level": "Intermediate",
+      "Summary": "Concordia AI's annual report and interactive companion site tracks China's domestic and international AI safety governance, technical research, and industry practice, filling the biggest blind spot in Western-centric AI safety discourse.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~4.5 hr read"
+    },
+    {
+      "Name": "Machines of Loving Grace",
+      "Author": "Dario Amodei",
+      "Link": "https://darioamodei.com/essay/machines-of-loving-grace",
+      "Category": "websites",
+      "page_count": 40,
+      "Level": "Beginner",
+      "Summary": "Anthropic's CEO lays out his most detailed public case for what aligned, powerful AI could achieve in biology, neuroscience, and economic development within a decade, a deliberately optimistic counterweight to doom-focused safety writing.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~70 min read"
     },
     {
       "Name": "Robert Miles AI Safety",

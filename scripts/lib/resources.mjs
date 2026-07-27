@@ -21,7 +21,7 @@ export const SITE_ORIGIN = "https://ai-safety-resources.com";
 // Sitemap <lastmod> for every generated page. Bump when the dataset or page
 // templates change meaningfully. Kept as a committed constant (rather than
 // build time) so the build stays deterministic and CI's diff check passes.
-export const DATASET_UPDATED = "2026-07-04";
+export const DATASET_UPDATED = "2026-07-27";
 
 // Display "tracks" in the same order as the tabs in index.html. `pane` matches
 // the container id the runtime renders into; `intro` mirrors the on-page copy.
