@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { loadResources } from "./lib/resources.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,26 +49,6 @@ const getTitleKey = (title = "") => {
   return titleAliasLookup[normalized] || normalized;
 };
 
-const readBooks = () => {
-  const source = fs.readFileSync(resourcesPath, "utf8");
-  const sandbox = {};
-  vm.createContext(sandbox);
-  vm.runInContext(
-    `${source}
-globalThis.__BOOK_ARRAYS__ = {
-  first_entry: typeof first_entry !== "undefined" ? first_entry : [],
-  ml: typeof ml !== "undefined" ? ml : [],
-  ais: typeof ais !== "undefined" ? ais : [],
-  scifi: typeof scifi !== "undefined" ? scifi : [],
-  additional_resources: typeof additional_resources !== "undefined" ? additional_resources : [],
-  categorized_resources: typeof categorized_resources !== "undefined" ? categorized_resources : [],
-};`,
-    sandbox
-  );
-
-  return sandbox.__BOOK_ARRAYS__;
-};
-
 const readGuardrailsConfig = () => {
   if (!fs.existsSync(guardrailsConfigPath)) {
     return { disabledTitles: [], disabledLinks: [] };
@@ -93,31 +74,17 @@ window.RWWC_RESOURCE_GUARDRAILS = ${JSON.stringify(config, null, 2)};
   fs.writeFileSync(guardrailsConfigPath, content, "utf8");
 };
 
-const dedupeEntriesByTitle = (bookArrays) => {
-  const orderedArrays = [
-    bookArrays.first_entry,
-    bookArrays.ml,
-    bookArrays.ais,
-    bookArrays.scifi,
-    bookArrays.additional_resources,
-    bookArrays.categorized_resources,
-  ];
-
+const dedupeEntriesByTitle = (entries) => {
   const byTitleKey = new Map();
-  for (const list of orderedArrays) {
-    if (!Array.isArray(list)) {
+  for (const entry of entries) {
+    if (!entry || !entry.Name) {
       continue;
     }
-    for (const entry of list) {
-      if (!entry || !entry.Name) {
-        continue;
-      }
-      const key = getTitleKey(entry.Name);
-      if (!key || byTitleKey.has(key)) {
-        continue;
-      }
-      byTitleKey.set(key, entry);
+    const key = getTitleKey(entry.Name);
+    if (!key || byTitleKey.has(key)) {
+      continue;
     }
+    byTitleKey.set(key, entry);
   }
 
   return [...byTitleKey.values()];
@@ -212,8 +179,7 @@ const main = async () => {
     process.exit(1);
   }
 
-  const bookArrays = readBooks();
-  const entries = dedupeEntriesByTitle(bookArrays);
+  const entries = dedupeEntriesByTitle(loadResources());
   const results = [];
 
   for (let index = 0; index < entries.length; index += 1) {
