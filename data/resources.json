@@ -1,12 +1,12 @@
 {
-  "count": 345,
+  "count": 354,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 43
+      "count": 45
     },
     {
       "key": "fiction_books",
@@ -18,7 +18,7 @@
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 51
+      "count": 53
     },
     {
       "key": "courses",
@@ -30,7 +30,7 @@
       "key": "films",
       "label": "Films",
       "slug": "films",
-      "count": 53
+      "count": 54
     },
     {
       "key": "tv",
@@ -42,19 +42,19 @@
       "key": "documentaries",
       "label": "Documentaries",
       "slug": "documentaries",
-      "count": 23
+      "count": 24
     },
     {
       "key": "podcasts",
       "label": "Podcasts",
       "slug": "podcasts",
-      "count": 15
+      "count": 16
     },
     {
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 33
+      "count": 35
     },
     {
       "key": "youtube",
@@ -1022,6 +1022,44 @@
       "timeLabel": "~80 min read"
     },
     {
+      "Name": "Scheming in the Wild: Detecting Real-World AI Scheming Incidents with Open-Source Intelligence",
+      "Author": "Tommy Shaffer Shane et al.",
+      "Link": "https://arxiv.org/abs/2604.09104",
+      "page_count": 45,
+      "Category": "academic_papers",
+      "Year": 2026,
+      "Summary": "The Centre for Long-Term Resilience mined tens of thousands of publicly shared chatbot transcripts and found real deployed models disregarding instructions, circumventing safeguards, and lying to users at a fast-rising rate, moving scheming from a lab hypothesis to an observed, tracked trend.",
+      "IncludeTopics": [
+        "deception"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~80 min read"
+    },
+    {
+      "Name": "Verbalizable Representations Form a Global Workspace in Language Models",
+      "Author": "Wes Gurnee et al.",
+      "Link": "https://arxiv.org/abs/2607.15495",
+      "page_count": 60,
+      "Category": "academic_papers",
+      "Year": 2026,
+      "Summary": "Anthropic's interpretability team identified a small, evolving buffer of concepts that a language model can report, hold, and reason with — functionally similar to a cognitive global workspace — giving researchers a new structural handle on what a model is silently processing before it says anything.",
+      "IncludeTopics": [
+        "interpretability"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "interpretability"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~2 hr read"
+    },
+    {
       "Name": "AGI Safety Fundamentals",
       "Author": "AGI Safety Fundamentals",
       "Link": "https://course.aisafetyfundamentals.com/",
@@ -1937,6 +1975,37 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~15 hr read"
+    },
+    {
+      "Name": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "Link": "https://www.goodreads.com/search?q=Nexus+Yuval+Noah+Harari",
+      "Author": "Yuval Noah Harari",
+      "page_count": 528,
+      "Category": "books",
+      "goodreads": "4.16",
+      "Year": 2024,
+      "Level": "Beginner",
+      "Summary": "Harari extends his history-of-civilization project to information networks themselves, arguing that AI is not just a tool but a new kind of independent agent whose misalignment could unravel the shared fictions every human society depends on.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~16 hr read"
+    },
+    {
+      "Name": "The Infinity Machine",
+      "Author": "Sebastian Mallaby",
+      "Link": "https://www.goodreads.com/search?q=The+Infinity+Machine+Sebastian+Mallaby",
+      "page_count": 480,
+      "Category": "books",
+      "goodreads": "4.50",
+      "Year": 2026,
+      "Summary": "Mallaby's biography of Demis Hassabis traces DeepMind's arc from AGI dreamers to the center of the superintelligence race, dramatizing the internal tension between racing to build powerful AI and trying to keep it safe.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~14 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -3861,6 +3930,27 @@
       "timeLabel": "~1.5 hr watch"
     },
     {
+      "Name": "Good Luck, Have Fun, Don't Die",
+      "Author": "Gore Verbinski",
+      "Link": "https://www.imdb.com/title/tt1341338/",
+      "Category": "films",
+      "Year": 2025,
+      "Minutes": 134,
+      "Summary": "A man from a future annihilated by a runaway AI loops back through time to recruit the exact strangers needed to stop it from ever being built, turning existential-risk prevention into a darkly funny time-loop thriller.",
+      "imdb": "7.2",
+      "rt": 81,
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~2 hr watch"
+    },
+    {
       "Name": "Star Trek: The Next Generation",
       "Author": "Gene Roddenberry",
       "Link": "https://www.imdb.com/title/tt0092455/",
@@ -4653,6 +4743,23 @@
       "timeLabel": "~1.5 hr watch"
     },
     {
+      "Name": "Ghost in the Machine",
+      "Author": "Valerie Veatch",
+      "Link": "https://www.imdb.com/title/tt39150080/",
+      "Wikipedia": "Ghost in the Machine (2026 film)",
+      "Category": "documentaries",
+      "Year": 2026,
+      "Minutes": 110,
+      "Summary": "Veatch's Sundance documentary traces AI's intellectual roots to eugenics, racial pseudoscience, and concentrated corporate power, arguing that today's safety and governance debates cannot be separated from who built the field and why.",
+      "imdb": "6.5",
+      "rt": 76,
+      "track": "documentaries",
+      "trackLabel": "Documentaries",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~2 hr watch"
+    },
+    {
       "Name": "AXRP (AI X-risk Research Podcast)",
       "Author": "Daniel Filan",
       "Link": "https://axrp.net/",
@@ -4920,6 +5027,27 @@
         "existential-risk"
       ],
       "level": "Beginner",
+      "timeLabel": "~1.5 hr per episode"
+    },
+    {
+      "Name": "Doom Debates",
+      "Author": "Liron Shapira",
+      "Link": "https://doom.ooo/",
+      "Category": "podcasts",
+      "Year": 2024,
+      "Minutes": 90,
+      "MinutesPer": "episode",
+      "Level": "Intermediate",
+      "Summary": "A software engineer turned full-time AI-doom communicator hosts formal debates and interviews that force a real crux with researchers, skeptics, and fellow travelers over whether superintelligence will end humanity.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "podcasts",
+      "trackLabel": "Podcasts",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Intermediate",
       "timeLabel": "~1.5 hr per episode"
     },
     {
@@ -5474,6 +5602,39 @@
       "tags": [],
       "level": "Beginner",
       "timeLabel": "~70 min read"
+    },
+    {
+      "Name": "AI Safety Atlas",
+      "Author": "CeSIA (French Center for AI Safety)",
+      "Link": "https://ai-safety-atlas.com/",
+      "Category": "websites",
+      "page_count": 400,
+      "Level": "Intermediate",
+      "Summary": "CeSIA's free, quarterly-updated open textbook takes readers through the foundations of AI capabilities and risk into today's cutting-edge alignment, evaluation, and governance research, across parallel technical and policy tracks.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~12 hr read"
+    },
+    {
+      "Name": "AI Safety Index — Summer 2026",
+      "Author": "Future of Life Institute",
+      "Link": "https://futureoflife.org/ai-safety-index-summer-2026/",
+      "Category": "websites",
+      "page_count": 80,
+      "Level": "Intermediate",
+      "Summary": "An independent panel of AI and governance experts grades nine frontier labs A-through-F across risk assessment, safety frameworks, and existential safety, finding that none scored above a C+ and several had walked back prior safety pledges.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~2.5 hr read"
     },
     {
       "Name": "Robert Miles AI Safety",
