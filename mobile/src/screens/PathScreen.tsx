@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import { ProgressBar } from "../components/ProgressBar";
 import { ResourceCard } from "../components/ResourceCard";
 import { getPath, getResource } from "../data";
 import type { RootScreenProps } from "../navigation/types";
@@ -34,28 +35,12 @@ export function PathScreen({ navigation, route }: RootScreenProps<"Path">) {
           <Text style={[styles.description, { color: theme.textSecondary }]}>
             {path.description}
           </Text>
-          <View
-            style={styles.progressRow}
-            accessible
-            accessibilityRole="progressbar"
+          <ProgressBar
+            value={done}
+            max={steps.length}
+            caption={`${done}/${steps.length}`}
             accessibilityLabel={`${done} of ${steps.length} steps finished`}
-            accessibilityValue={{ min: 0, max: steps.length, now: done }}
-          >
-            <View style={[styles.progressTrack, { backgroundColor: theme.progressTrack }]}>
-              <View
-                style={[
-                  styles.progressFill,
-                  {
-                    backgroundColor: theme.accent,
-                    width: `${steps.length ? (done / steps.length) * 100 : 0}%`,
-                  },
-                ]}
-              />
-            </View>
-            <Text style={[styles.progressLabel, { color: theme.textMuted }]}>
-              {done}/{steps.length} done
-            </Text>
-          </View>
+          />
         </View>
       }
       renderItem={({ item, index }) => (
@@ -95,25 +80,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     lineHeight: 20,
-  },
-  progressRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-  },
-  progressTrack: {
-    flex: 1,
-    height: 6,
-    borderRadius: 3,
-    overflow: "hidden",
-  },
-  progressFill: {
-    height: "100%",
-    borderRadius: 3,
-  },
-  progressLabel: {
-    fontSize: 12,
-    fontWeight: "600",
   },
   stepRow: {
     flexDirection: "row",

@@ -11,9 +11,10 @@ import { Text } from "react-native";
 import { useReduceMotion } from "../a11y";
 import { CategoryScreen } from "../screens/CategoryScreen";
 import { HomeScreen } from "../screens/HomeScreen";
+import { LibraryScreen } from "../screens/LibraryScreen";
 import { PathScreen } from "../screens/PathScreen";
+import { ProgressScreen } from "../screens/ProgressScreen";
 import { ResourceDetailScreen } from "../screens/ResourceDetailScreen";
-import { SavedScreen } from "../screens/SavedScreen";
 import { SearchScreen } from "../screens/SearchScreen";
 import { useTheme } from "../theme";
 import type { RootStackParamList } from "./types";
@@ -62,9 +63,16 @@ function Tabs() {
       />
       <Tab.Screen
         name="Library"
-        component={SavedScreen}
+        component={LibraryScreen}
         options={{
           tabBarIcon: ({ focused }) => <TabIcon glyph="🔖" focused={focused} />,
+        }}
+      />
+      <Tab.Screen
+        name="Progress"
+        component={ProgressScreen}
+        options={{
+          tabBarIcon: ({ focused }) => <TabIcon glyph="📈" focused={focused} />,
         }}
       />
     </Tab.Navigator>
