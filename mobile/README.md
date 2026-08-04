@@ -4,11 +4,32 @@ A React Native (Expo) companion app for [ai-safety-resources.com](https://ai-saf
 
 ## Features
 
-- **Explore** — the four curated learning paths ("New to AI safety", "I'm technical", "I'm a policymaker", "I just want stories") plus all ten resource categories.
-- **Learning paths with progress** — each path shows the curator's step-by-step ordering and per-step rationale, with a progress bar driven by what you've marked finished.
-- **Category browsing** — every category filterable by level (Beginner / Intermediate / Advanced).
-- **Search** — full-text over titles, authors, summaries, and topic tags, with an optional category filter.
-- **Library** — save resources to a reading/watch list and mark them finished; stored on-device with AsyncStorage, no account needed.
+The dataset is curated upstream; what the app adds is a record of what *you* did
+with it. Everything below is computed on-device — there is no account, no server,
+and no network call in any of it.
+
+- **Shelves, ratings, and notes** — every resource sits on one of three shelves
+  (to start / in progress / finished), takes a 1–5 star rating, and holds a
+  free-text note. Persisted with AsyncStorage; nothing leaves the device.
+- **Progress** — a dedicated tab that works out time invested from each
+  resource's listed length, category and topic coverage, the beginner /
+  intermediate / advanced mix, per-path completion, and how you're tracking
+  against a monthly goal you set.
+- **Suggestions** — [`src/recommend.ts`](src/recommend.ts) ranks what you haven't
+  shelved against a taste profile built from your shelves and ratings: the next
+  unfinished step of any path you've started first, then topic and category
+  affinity with a level fit, spread across categories so one track can't take
+  every slot. An empty library falls back to the curator's opening sequence.
+- **Related resources** — each detail screen scores the rest of the collection by
+  shared author, topics, category, and level, so a resource is a jumping-off
+  point rather than a dead end.
+- **Time-budget search** — full-text over titles, authors, summaries, and topic
+  tags, filterable by category and by how long you've actually got.
+- **Learning paths** — the four curated paths ("New to AI safety", "I'm
+  technical", "I'm a policymaker", "I just want stories") with the curator's
+  step-by-step ordering, per-step rationale, and a progress bar.
+- **Category browsing** — every category filterable by level.
+- **Share** — the native share sheet, for passing a resource on.
 - **Dark mode** — follows the system appearance automatically.
 - **Accessible** — VoiceOver/TalkBack support throughout, Dynamic Type, iPhone and iPad in any orientation. See [Accessibility](#accessibility).
 - **Fully offline** — the entire dataset ships in the app bundle; only posters and outbound links need a connection.
@@ -22,20 +43,24 @@ accessibility-features list:
 
 - **VoiceOver** (and TalkBack) — every interactive element carries a role
   (button, link, tab, search field, progress bar), a spoken label, and state
-  (selected filter chips, saved/finished toggles). Resource cards read as a single
-  element — title, author, level, category, saved/finished status, and summary —
-  with decorative emoji and poster artwork hidden from the screen reader. Learning-path
-  steps announce their position ("Step 2 of 8") and the progress bar reports its value.
+  (selected filter chips, the current shelf, the star you've given). Resource cards
+  read as a single element — title, author, level, category, shelf, rating, whether
+  you've written a note, and summary — with decorative emoji and poster artwork
+  hidden from the screen reader. Learning-path steps announce their position
+  ("Step 2 of 8"), progress bars report their value, and the monthly goal is an
+  `adjustable` element that responds to VoiceOver's increment/decrement swipes.
   Screen and section titles expose the header trait for rotor navigation.
 - **Voice Control** — spoken labels start with each control's visible text
   ("Save", "Beginner", "Open resource"), so voice commands match what's on screen.
 - **Larger Text** — text respects Dynamic Type at every size; at accessibility sizes
-  (font scale ≥ 1.35) cards also relax their line clamps so enlarged text reflows
-  instead of truncating (`useLargeTextMode` in [`src/a11y.ts`](src/a11y.ts)).
+  (font scale ≥ 1.35) cards relax their line clamps so enlarged text reflows
+  instead of truncating, and the three-across shelf picker stacks into rows
+  (`useLargeTextMode` in [`src/a11y.ts`](src/a11y.ts)).
 - **Dark Interface** — follows the system appearance automatically.
 - **Differentiate Without Color Alone** — state is never color-only: selected chips
-  fill and announce "selected", saved/finished changes the label text and symbol, and
-  path progress shows a "3/8 done" count beside the bar.
+  fill and announce "selected", the shelf picker changes its label and symbol, star
+  ratings are spoken as "Rated 4 out of 5", and every progress bar shows a "3/8"
+  count beside it.
 - **Sufficient Contrast** — both palettes keep text at ≥ 4.5:1 (WCAG AA). When iOS
   **Increase Contrast** (or Android **High contrast text**) is on, the theme switches
   to high-contrast variants with text at ≥ 7:1 and borders at ≥ 3:1
@@ -79,13 +104,18 @@ npm run sync-data   # regenerates src/data/app-data.json from ../data and ../scr
 ```
 mobile/
 ├── App.tsx                  # providers + navigator
-├── scripts/sync-data.mjs    # dataset sync from the repo root
+├── scripts/
+│   ├── sync-data.mjs        # dataset sync from the repo root
+│   ├── make-icons.mjs       # draws the app mark and every icon size from it
+│   └── screenshots.mjs      # store screenshots, driven through the web build
 └── src/
-    ├── data/                # bundled dataset + lookup/search helpers
+    ├── data/                # bundled dataset + lookup/search/duration helpers
     ├── navigation/          # root stack + bottom tabs
-    ├── screens/             # Home, Category, Path, Search, Saved, ResourceDetail
-    ├── components/          # ResourceCard, Chip, LevelBadge, EmptyState
-    ├── store/library.tsx    # saved/finished lists persisted with AsyncStorage
+    ├── screens/             # Home, Category, Path, Search, Library, Progress, ResourceDetail
+    ├── components/          # ResourceCard, ShelfPicker, StarRating, ProgressBar, Chip, LevelBadge, EmptyState
+    ├── store/library.tsx    # shelves, ratings, notes, and the goal, in AsyncStorage
+    ├── recommend.ts         # on-device suggestions and related-resource scoring
+    ├── stats.ts             # everything the Progress screen displays
     ├── a11y.ts              # system accessibility-setting hooks
     └── theme.ts             # light/dark palette (+ high-contrast variants)
 ```
@@ -95,14 +125,21 @@ mobile/
 Store builds go through EAS — see [docs/app-store-release.md](../docs/app-store-release.md)
 (build, TestFlight, listing copy, review) and [docs/google-play-release.md](../docs/google-play-release.md)
 (build, closed testing, data safety, listing copy) for the full walkthroughs.
-Icons and Play listing graphics are generated from the site logo with
-`node scripts/make-icons.mjs`.
+Icons and Play listing graphics are generated with `node scripts/make-icons.mjs`,
+which draws the app's shield-and-book mark as vectors and renders every size from
+it: the iOS universal icon plus the iOS 18 dark and tinted variants, the Android
+adaptive foreground / background / monochrome set, the splash icon, the web
+favicon, the in-app header logo, and the Play Store icon and feature graphic.
+Editing the mark means editing the paths at the top of that script and re-running
+it — the outputs are committed, not built at release time.
 
 Store screenshots are generated from the web build with `npm run screenshots`
 (App Store 6.9"/6.5" and Play Store 9:16, at exact pixel sizes) into
 `assets/app-store/` and `assets/play-store/screenshots/`. Cover art loads over
 the network, so run it somewhere the poster hosts are reachable; otherwise the
-app's typographic covers stand in.
+app's typographic covers stand in. The script seeds a half-finished library into
+`localStorage` first, so the shelves, ratings, notes, and Progress stats have
+something real to show.
 
 ## Checks
 
