@@ -27,6 +27,7 @@
   "scripts": {
     "sync-data": "node scripts/sync-data.mjs",
     "screenshots": "node scripts/screenshots.mjs",
+    "preview": "expo export --platform web --output-dir dist-preview && node scripts/build-preview.mjs preview.html",
     "typecheck": "tsc --noEmit",
     "start": "expo start",
     "android": "expo start --android",

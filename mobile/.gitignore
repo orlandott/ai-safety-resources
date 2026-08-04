@@ -39,3 +39,7 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Single-file preview build
+dist-preview/
+preview.html

@@ -133,6 +133,14 @@ favicon, the in-app header logo, and the Play Store icon and feature graphic.
 Editing the mark means editing the paths at the top of that script and re-running
 it — the outputs are committed, not built at release time.
 
+A shareable preview — the whole app as one self-contained HTML file, for
+showing someone the build before a native one exists — comes from `npm run preview`.
+It inlines the JS bundle, the navigation icons, and (best effort) the cover art, so
+the page needs no network at all. It also fills two gaps the app doesn't have on
+device: a `matchMedia` shim so the page follows a host theme toggle as well as the
+OS setting, and a device frame on pointer-fine viewports so a phone layout isn't
+stretched across a desktop window.
+
 Store screenshots are generated from the web build with `npm run screenshots`
 (App Store 6.9"/6.5" and Play Store 9:16, at exact pixel sizes) into
 `assets/app-store/` and `assets/play-store/screenshots/`. Cover art loads over
