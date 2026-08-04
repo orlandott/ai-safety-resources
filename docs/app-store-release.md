@@ -116,14 +116,17 @@ Version 1.0 was rejected on two guidelines; both are fixed in the tree, and the
 notes below are what to say when resubmitting.
 
 **2.3.8 — Accurate Metadata (placeholder icons).** The 1.0 icons put the site's
-wide emblem on a cream square, which left most of the canvas empty and read as
-unfinished art. `mobile/scripts/make-icons.mjs` now draws an original
-shield-and-book mark and renders every icon the app ships from it — the iOS
-universal icon plus the iOS 18 dark and tinted variants, the Android adaptive
-foreground / background / monochrome set, the web favicon, the Play 512 icon and
-feature graphic, and the in-app header logo. They are one mark on one green
-ground at every size, so the app is recognisable in Spotlight and on the home
-screen. Re-run `node scripts/make-icons.mjs` after any change to the mark.
+677x250 landscape emblem on a cream square, so roughly three quarters of the
+canvas was empty and the illustration's line detail turned to mud at the ~40pt an
+icon actually renders at — which is what reads as unfinished art.
+`mobile/scripts/make-icons.mjs` now draws the same robot as a flat mark built
+from rounded rectangles — same face, same cyan eyes, same gold crest — and
+renders every icon the app ships from it: the iOS universal icon plus the iOS 18
+dark and tinted variants, the Android adaptive foreground / background /
+monochrome set, the web favicon, the Play 512 icon and feature graphic, and the
+in-app header logo. One mark on one green ground at every size, legible down to
+29px, so the app is recognisable in Spotlight and on the home screen. Re-run
+`node scripts/make-icons.mjs` after any change to the mark.
 
 **4.2.2 — Minimum Functionality (links aggregated from the web).** The app was a
 browsable catalogue with an outbound link on each entry. It now keeps a reading

@@ -1,11 +1,16 @@
 // Generates the app's icon set from the vector mark defined below.
 // Run from mobile/: `node scripts/make-icons.mjs`.
 //
-// The mark is a shield holding an open book — "safety" over "the reading
-// list" — drawn as two flat shapes so it stays legible at the 40pt the icon
-// actually renders at on a home screen. Every output here is the same mark on
-// the same green ground, so the iOS icon, the Android adaptive icon, the web
-// favicon, the store listings, and the in-app header logo all read as one app.
+// The mark is a flat redraw of the site's robot emblem. The original artwork is
+// a 677x250 landscape illustration: it can't fill a square without leaving most
+// of the canvas empty, and its line detail turns to mud below about 60pt, which
+// is what the icon actually renders at on a home screen. So the robot is rebuilt
+// here from rounded rectangles — same face, same cyan eyes, same gold crest —
+// as a shape that survives being shrunk to 29px.
+//
+// Every output is that one mark on one green ground, so the iOS icon, the
+// Android adaptive icon, the web favicon, the store listings, and the in-app
+// header logo all read as the same app.
 import { mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,69 +19,79 @@ import sharp from "sharp";
 const here = dirname(fileURLToPath(import.meta.url));
 const assets = join(here, "..", "assets");
 
-// Site palette (public/style.css): warm cream on the green accent.
+// Site palette (public/style.css) plus the emblem's own cyan and gold.
 const CREAM = "#f4f1ea";
 const GREEN = "#2f7a52";
 const GREEN_LIGHT = "#3c9265";
 const GREEN_DARK = "#17492f";
 const GOLD = "#c8a45c";
+const CYAN = "#6fe3dd";
 const INK = "#12100d";
 
 // --- the mark -------------------------------------------------------------
-// Drawn in a 1000x1000 box. The shield spans 110..890 across and 60..940 down;
-// the book sits in the shield's wide upper half, above the taper.
-const SHIELD = `M166 60H834a56 56 0 0 1 56 56v404c0 206-164 358-390 420C274 878 110 726 110 520V116a56 56 0 0 1 56-56z`;
-const PAGE_LEFT = `M489 357C424 308 327 290 208 294v290c119-5 216 14 281 62z`;
-const PAGE_RIGHT = `M511 357c65-49 162-67 281-63v290c-119-5-216 14-281 62z`;
-const SPINE = `M489 359h22v285h-22z`;
+// Drawn in a local box spanning x 36..564 (528 wide) and y 0..478, then scaled
+// and centred into the 1000-unit icon canvas by `mark()`.
+const ROBOT_W = 528;
+const ROBOT_H = 478;
+const ROBOT_X = 36;
+
+// `mouth` is separate from `trim` only so the monochrome variant can knock it
+// out; everywhere else it takes the crest's colour.
+function shapes({ body, eye, trim, mouth = trim }) {
+  return `
+    <rect x="268" y="0"   width="64"  height="78"  rx="16" fill="${trim}"/>
+    <rect x="36"  y="196" width="72"  height="150" rx="26" fill="${body}"/>
+    <rect x="492" y="196" width="72"  height="150" rx="26" fill="${body}"/>
+    <rect x="88"  y="58"  width="424" height="420" rx="96" fill="${body}"/>
+    <rect x="168" y="188" width="112" height="70"  rx="30" fill="${eye}"/>
+    <rect x="320" y="188" width="112" height="70"  rx="30" fill="${eye}"/>
+    <rect x="216" y="344" width="168" height="52"  rx="20" fill="${mouth}"/>`;
+}
 
 /**
- * The mark as a standalone SVG. `ground` paints the shield, `figure` the book
- * cut into it; passing `ground: "none"` leaves a book-shaped hole instead.
+ * The mark centred in a `size` square, occupying `fill` of its width.
+ * `inner` lets a caller substitute differently-coloured shapes.
  */
-function markSvg({ size, shield, book, spine }) {
-  return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 1000 1000">
-  <path d="${SHIELD}" fill="${shield}"/>
-  <path d="${PAGE_LEFT}" fill="${book}"/>
-  <path d="${PAGE_RIGHT}" fill="${book}"/>
-  <path d="${SPINE}" fill="${spine}"/>
-</svg>`);
+function mark({ size, fill = 0.72, inner }) {
+  const scale = (fill * 1000) / ROBOT_W;
+  const x = (1000 - fill * 1000) / 2 - ROBOT_X * scale;
+  const y = (1000 - ROBOT_H * scale) / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 1000 1000">
+    <g transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${scale.toFixed(4)})">${inner}</g>
+  </svg>`;
 }
 
 /** Full-bleed background: a soft diagonal gradient so the tile isn't flat. */
-function groundSvg({ width, height, from, to }) {
-  return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="${from}"/><stop offset="1" stop-color="${to}"/>
-  </linearGradient></defs>
-  <rect width="${width}" height="${height}" fill="url(#g)"/>
-</svg>`);
+function gradient(width, height, from, to) {
+  return `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${from}"/><stop offset="1" stop-color="${to}"/>
+    </linearGradient></defs>
+    <rect width="${width}" height="${height}" fill="url(#g)"/>`;
 }
 
 /**
- * The icon tile: the mark centred on the gradient ground at `markScale` of the
- * canvas. Returns a PNG buffer with no alpha channel — iOS rejects app icons
+ * An icon tile. Returns a PNG with no alpha channel — iOS rejects app icons
  * that carry one.
  */
-async function tile(size, { markScale = 0.78, from = GREEN_LIGHT, to = GREEN_DARK, shield = CREAM, book = GREEN, spine = GOLD } = {}) {
-  const mark = Math.round(size * markScale);
-  const offset = Math.round((size - mark) / 2);
-  return sharp(groundSvg({ width: size, height: size, from, to }))
-    .composite([{ input: markSvg({ size: mark, shield, book, spine }), left: offset, top: offset }])
+async function tile(
+  size,
+  { from = GREEN_LIGHT, to = GREEN_DARK, body = CREAM, eye = CYAN, trim = GOLD, fill = 0.72 } = {}
+) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 1000 1000">
+    ${gradient(1000, 1000, from, to)}
+  </svg>`;
+  const art = mark({ size, fill, inner: shapes({ body, eye, trim }) });
+  return sharp(Buffer.from(svg))
+    .composite([{ input: Buffer.from(art) }])
     .flatten({ background: from })
     .removeAlpha()
     .png()
     .toBuffer();
 }
 
-/** The mark alone on transparency, centred in a square canvas. */
-async function markOnly(size, { markScale, shield, book, spine }) {
-  const mark = Math.round(size * markScale);
-  const offset = Math.round((size - mark) / 2);
-  return sharp({
-    create: { width: size, height: size, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } },
-  })
-    .composite([{ input: markSvg({ size: mark, shield, book, spine }), left: offset, top: offset }])
+/** The mark alone on transparency. */
+async function markOnly(size, { body, eye, trim, fill }) {
+  return sharp(Buffer.from(mark({ size, fill, inner: shapes({ body, eye, trim }) })))
     .png()
     .toBuffer();
 }
@@ -105,45 +120,62 @@ async function write(buffer, ...parts) {
 // All three are the same mark at the same size so the app stays recognisable
 // however the home screen is themed.
 await write(await tile(1024), "icon.png");
+await write(await tile(1024, { from: "#1d2420", to: INK }), "icon-dark.png");
+// Tinted icons are graded by the system from the image's luminance, so this one
+// is grayscale end to end.
 await write(
-  await tile(1024, { from: "#1d2420", to: INK, shield: CREAM, book: "#1d2420", spine: GOLD }),
-  "icon-dark.png"
-);
-// Tinted icons are graded by the system from the image's luminance, so this
-// one is grayscale end to end.
-await write(
-  await tile(1024, { from: "#3a3a3a", to: "#101010", shield: "#e8e8e8", book: "#3a3a3a", spine: "#9a9a9a" }),
+  await tile(1024, { from: "#3a3a3a", to: "#101010", body: "#e8e8e8", eye: "#8f8f8f", trim: "#9a9a9a" }),
   "icon-tinted.png"
 );
 
 // --- Android --------------------------------------------------------------
-// The launcher masks the outer ~25% of an adaptive icon, so the foreground
-// runs at a smaller scale than the iOS tile to stay inside the safe zone.
-const ANDROID_SCALE = 0.58;
+// The launcher masks the outer ~25% of an adaptive icon, so the foreground runs
+// smaller than the iOS tile to stay inside the safe zone.
+const ANDROID_FILL = 0.55;
 await write(
-  await markOnly(1024, { markScale: ANDROID_SCALE, shield: CREAM, book: GREEN, spine: GOLD }),
+  await markOnly(1024, { body: CREAM, eye: CYAN, trim: GOLD, fill: ANDROID_FILL }),
   "android-icon-foreground.png"
 );
-await write(await sharp(groundSvg({ width: 1024, height: 1024, from: GREEN_LIGHT, to: GREEN_DARK })).png().toBuffer(), "android-icon-background.png");
-// Themed icons are re-coloured by the launcher: ship a flat white silhouette
-// with the book knocked out so the shape survives the tint.
 await write(
-  await markOnly(1024, {
-    markScale: ANDROID_SCALE,
-    shield: "#ffffff",
-    book: "rgba(0,0,0,0)",
-    spine: "rgba(0,0,0,0)",
-  }),
+  await sharp(
+    Buffer.from(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1000 1000">${gradient(1000, 1000, GREEN_LIGHT, GREEN_DARK)}</svg>`
+    )
+  )
+    .png()
+    .toBuffer(),
+  "android-icon-background.png"
+);
+// Themed icons get re-coloured flat by the launcher, so a solid silhouette
+// would lose the face entirely. Knock the eyes and mouth out instead.
+const monoScale = (ANDROID_FILL * 1000) / ROBOT_W;
+const monoX = (1000 - ANDROID_FILL * 1000) / 2 - ROBOT_X * monoScale;
+const monoY = (1000 - ROBOT_H * monoScale) / 2;
+await write(
+  await sharp(
+    Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1000 1000">
+      <mask id="m">
+        <rect width="1000" height="1000" fill="#000"/>
+        <g transform="translate(${monoX.toFixed(2)} ${monoY.toFixed(2)}) scale(${monoScale.toFixed(4)})">
+          ${shapes({ body: "#fff", eye: "#000", trim: "#fff", mouth: "#000" })}
+        </g>
+      </mask>
+      <rect width="1000" height="1000" fill="#fff" mask="url(#m)"/>
+    </svg>`)
+  )
+    .png()
+    .toBuffer(),
   "android-icon-monochrome.png"
 );
 
 // --- Splash and web -------------------------------------------------------
-await write(await markOnly(1024, { markScale: 0.62, shield: GREEN, book: CREAM, spine: GOLD }), "splash-icon.png");
+// The splash asset sits on a light ground, so the robot runs in green here.
+await write(await markOnly(1024, { body: GREEN, eye: "#2aa9a2", trim: GOLD, fill: 0.6 }), "splash-icon.png");
 await write(await tile(48), "favicon.png");
 
 // --- In-app header --------------------------------------------------------
-// A miniature of the home-screen icon, so the app's own chrome matches what
-// the user tapped. 256px covers @3x at the ~44pt it renders at.
+// A miniature of the home-screen icon, so the app's own chrome matches what the
+// user tapped. 256px covers @3x at the ~44pt it renders at.
 await write(await rounded(await tile(256), 256, 58), "logo-emblem.png");
 
 // --- Store listings -------------------------------------------------------
@@ -152,7 +184,11 @@ await write(await tile(512), "play-store", "icon-512.png");
 
 const featureIcon = await rounded(await tile(300), 300, 68);
 await write(
-  await sharp(groundSvg({ width: 1024, height: 500, from: GREEN_LIGHT, to: GREEN_DARK }))
+  await sharp(
+    Buffer.from(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500">${gradient(1024, 500, GREEN_LIGHT, GREEN_DARK)}</svg>`
+    )
+  )
     .composite([
       { input: featureIcon, left: 96, top: 100 },
       {

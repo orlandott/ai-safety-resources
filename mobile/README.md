@@ -125,13 +125,17 @@ mobile/
 Store builds go through EAS — see [docs/app-store-release.md](../docs/app-store-release.md)
 (build, TestFlight, listing copy, review) and [docs/google-play-release.md](../docs/google-play-release.md)
 (build, closed testing, data safety, listing copy) for the full walkthroughs.
-Icons and Play listing graphics are generated with `node scripts/make-icons.mjs`,
-which draws the app's shield-and-book mark as vectors and renders every size from
+Icons and Play listing graphics are generated with `node scripts/make-icons.mjs`.
+It draws a flat redraw of the site's robot emblem — same face, same cyan eyes,
+same gold crest, rebuilt from rounded rectangles — and renders every size from
 it: the iOS universal icon plus the iOS 18 dark and tinted variants, the Android
 adaptive foreground / background / monochrome set, the splash icon, the web
 favicon, the in-app header logo, and the Play Store icon and feature graphic.
-Editing the mark means editing the paths at the top of that script and re-running
-it — the outputs are committed, not built at release time.
+The original emblem is a 677x250 landscape illustration, so it can't fill a
+square without leaving most of the canvas empty, and its line detail disappears
+at the ~40pt an icon actually renders at; the redraw is what survives that.
+Editing the mark means editing the rects in `shapes()` at the top of that script
+and re-running it — the outputs are committed, not built at release time.
 
 A shareable preview — the whole app as one self-contained HTML file, for
 showing someone the build before a native one exists — comes from `npm run preview`.
