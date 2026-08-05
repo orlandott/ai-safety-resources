@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Service Model",
     "The Mechanical",
     "Aurora Rising",
+    "House of Suns",
     "Rose/House",
     "I Am Pilgrim",
     "Infinity Gate",

@@ -1,5 +1,5 @@
 {
-  "count": 354,
+  "count": 355,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -12,7 +12,7 @@
       "key": "fiction_books",
       "label": "Fiction Books",
       "slug": "fiction-books",
-      "count": 58
+      "count": 59
     },
     {
       "key": "academic_papers",
@@ -2983,6 +2983,24 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~12 hr read"
+    },
+    {
+      "Name": "House of Suns",
+      "Author": "Alastair Reynolds",
+      "Link": "https://www.goodreads.com/book/show/1126719.House_of_Suns",
+      "page_count": 502,
+      "Category": "books",
+      "goodreads": "4.24",
+      "Year": 2008,
+      "Level": "Intermediate",
+      "Summary": "Reynolds sets his six-million-year epic in a galaxy shared with the Machine People, then reveals that humanity once exterminated an earlier machine civilization and erased the evidence, making moral status, trust across the organic-machine divide, and the fear of retribution the engine of the plot.",
+      "track": "fiction_books",
+      "trackLabel": "Fiction Books",
+      "tags": [
+        "fiction"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~15 hr read"
     },
     {
       "Name": "Rose/House",
