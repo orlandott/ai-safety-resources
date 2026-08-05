@@ -141,6 +141,57 @@ a wrapper around a website.
 
 Point the reviewer at the Progress tab and at any resource's detail screen.
 
+## If Apple authentication fails
+
+`eas build` and `eas submit` both sign in to Apple: the build to create the
+signing certificate and provisioning profile, the submit to upload. Two failure
+modes are worth knowing.
+
+**"Apple Service Error -20209 — This Apple Account has been locked for security
+reasons."** The account is locked on Apple's side; nothing in this repo is
+involved. Unlock it at [iforgot.apple.com](https://iforgot.apple.com) — Apple
+generally requires a password reset to clear a security lock.
+
+Before retrying, clear the cached credentials, or the same thing happens again.
+The CLI stores an Apple session and falls back to a password in the macOS
+Keychain, and if that stored password is stale it gets replayed on every attempt
+— repeated bad attempts are themselves a common cause of the lock:
+
+```bash
+rm -rf ~/.app-store/auth/<your-apple-id>       # the cached session
+security delete-generic-password -s "deliver.<your-apple-id>"   # the Keychain entry
+```
+
+(The Keychain entry can also be removed from Keychain Access — search for
+`deliver.` and your Apple ID.) Don't retry the build in a loop while locked;
+each failure deepens it.
+
+**Avoiding Apple ID auth entirely.** An App Store Connect API key replaces the
+Apple ID password for both build and submit, and doesn't expire the way a
+session does. In App Store Connect → Users and Access → Integrations → App Store
+Connect API, generate a Team Key with the **App Manager** role, download the
+`.p8` (Apple only offers it once), and note the Key ID and Issuer ID. Then either
+run `eas credentials` and choose the App Store Connect API key option to store it
+with EAS, or point `eas.json` at a local copy:
+
+```json
+"submit": {
+  "production": {
+    "ios": {
+      "ascApiKeyPath": "./asc-api-key.p8",
+      "ascApiKeyId": "<key id>",
+      "ascApiKeyIssuerId": "<issuer id>",
+      "ascAppId": "<app id from App Store Connect>",
+      "appleTeamId": "<team id>"
+    }
+  }
+}
+```
+
+`.p8` files are already gitignored — keep it that way; the key is equivalent to
+account access. `ascAppId` also skips the "Ensuring your app exists on App Store
+Connect" step, which is where the submit above was failing.
+
 ## Updating the app later
 
 - Bump `version` in `mobile/app.json` (e.g. `1.1.0`) for store releases; the
