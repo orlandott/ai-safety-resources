@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <title>Compare Curricula – AI Safety Resources</title>
+  <!-- Unlisted page: reachable by direct link only. Not linked from the site
+       navigation, excluded from sitemap.xml, and noindexed here and via an
+       X-Robots-Tag header in _headers. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Side-by-side comparison of structured AI safety courses and curricula—level, time commitment, format, prerequisites, and focus." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Compare Curricula – AI Safety Resources" />
+  <meta property="og:description" content="Side-by-side comparison of structured AI safety courses and curricula—level, time commitment, format, prerequisites, and focus." />
+  <meta property="og:site_name" content="AI Safety Resources" />
+  <meta name="twitter:card" content="summary" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCRWR4G369"></script>
+  <script src="/gtag-init.js"></script>
+  <script src="/theme-init.js"></script>
+  <link href="/images/favicon.png" rel="icon" type="image/png" />
+  <link href="/images/favicon.png" rel="apple-touch-icon" />
+  <link href="/style.css" rel="stylesheet" type="text/css" />
+  <script src="/theme-toggle.js" defer></script>
+  <script src="/curriculum-comparison/app.js" defer></script>
+  <style>
+    .compare-unlisted-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0 0 1.2rem;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid var(--accent-soft-border);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      font-size: 0.82rem;
+    }
+    .compare-controls {
+      margin: 1.6rem 0 1rem;
+      display: none;
+    }
+    .compare-controls.is-ready { display: block; }
+    .compare-controls-label {
+      margin: 0 0 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .compare-preset-row,
+    .compare-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 0.9rem;
+    }
+    .compare-preset,
+    .compare-chip {
+      appearance: none;
+      font: inherit;
+      font-size: 0.86rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .compare-preset:hover,
+    .compare-chip:hover { border-color: var(--accent); }
+    .compare-chip[aria-pressed="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--on-accent);
+    }
+    .compare-fade-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .compare-fade-label input { accent-color: var(--accent); }
+    .compare-count {
+      margin: 0.4rem 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .compare-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      margin: 1rem 0 1.4rem;
+    }
+    .compare-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 72rem;
+      font-size: 0.9rem;
+    }
+    .compare-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .compare-table th,
+    .compare-table td {
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      min-width: 9.5rem;
+    }
+    .compare-table thead th {
+      background: var(--surface-raised);
+      font-size: 0.92rem;
+      line-height: 1.3;
+    }
+    .compare-table thead .compare-provider {
+      display: block;
+      margin-top: 0.15rem;
+      font-weight: 400;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .compare-table th[scope="row"] {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: var(--surface-raised);
+      font-weight: 600;
+      min-width: 8.5rem;
+      max-width: 10rem;
+    }
+    .compare-table tr:last-child th,
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table .col-hidden { display: none; }
+    .compare-table tr.is-identical th,
+    .compare-table tr.is-identical td { opacity: 0.45; }
+    .compare-table a { color: var(--link); }
+    .compare-fineprint {
+      margin: 0 0 2.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body class="site-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" class="brand">
+        <img src="/images/logo-ai-safety-resources.png" width="128" alt="AI Safety Resources" class="nav-logo" />
+      </a>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content" class="page category-page">
+    <nav class="category-page-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">All resources</a> / <span>Compare curricula</span>
+    </nav>
+    <h1 class="hero-title">Compare AI safety curricula</h1>
+    <p class="hero-copy">All nine structured courses from the <a href="/courses/">Courses</a> category, side by side—level, time commitment, format, prerequisites, and what each one is actually for.</p>
+    <p class="compare-unlisted-note">Unlisted — this page isn&#39;t linked from the site or indexed by search engines. Share the URL directly.</p>
+
+    <div id="comparison-controls" class="compare-controls">
+      <p class="compare-controls-label">Quick views</p>
+      <div class="compare-preset-row" role="group" aria-label="Preset comparisons"></div>
+      <p class="compare-controls-label">Curricula</p>
+      <div class="compare-chip-row" role="group" aria-label="Toggle curricula"></div>
+      <label class="compare-fade-label"><input type="checkbox" id="compare-fade" /> Fade rows where every selected course matches</label>
+      <p class="compare-count" aria-live="polite"></p>
+    </div>
+
+    <div class="compare-table-wrap">
+      <table id="comparison-table" class="compare-table">
+        <caption>Comparison of nine AI safety curricula across provider, level, time commitment, format, application, prerequisites, focus, outcomes, and cost.</caption>
+        <thead>
+          <tr>
+            <th scope="col" aria-label="Dimension"></th>
+            <th scope="col" data-course="future-of-ai" data-short-name="Future of AI">The Future of AI<span class="compare-provider">BlueDot Impact</span></th>
+            <th scope="col" data-course="lens-academy" data-short-name="Lens Academy">Lens Academy<span class="compare-provider">Lens Academy</span></th>
+            <th scope="col" data-course="aises" data-short-name="AI Safety, Ethics &amp; Society">AI Safety, Ethics &amp; Society<span class="compare-provider">Center for AI Safety</span></th>
+            <th scope="col" data-course="ops-bootcamp" data-short-name="Ops Bootcamp">AI Safety Operations Bootcamp<span class="compare-provider">BlueDot Impact</span></th>
+            <th scope="col" data-course="tech-ai-safety" data-short-name="Technical AI Safety">Technical AI Safety<span class="compare-provider">BlueDot Impact</span></th>
+            <th scope="col" data-course="agisf" data-short-name="AGI Safety Fundamentals">AGI Safety Fundamentals<span class="compare-provider">AGI Safety Fundamentals</span></th>
+            <th scope="col" data-course="project-sprint" data-short-name="Project Sprint">Technical AI Safety Project Sprint<span class="compare-provider">BlueDot Impact</span></th>
+            <th scope="col" data-course="intro-ml-safety" data-short-name="Intro to ML Safety">Intro to ML Safety<span class="compare-provider">Center for AI Safety</span></th>
+            <th scope="col" data-course="arena" data-short-name="ARENA">ARENA<span class="compare-provider">ARENA</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-compare="value">
+            <th scope="row">Level</th>
+            <td data-course="future-of-ai" data-value="beginner"><span class="ssr-card-pill ssr-card-pill-level">Beginner</span></td>
+            <td data-course="lens-academy" data-value="beginner"><span class="ssr-card-pill ssr-card-pill-level">Beginner</span></td>
+            <td data-course="aises" data-value="beginner"><span class="ssr-card-pill ssr-card-pill-level">Beginner</span></td>
+            <td data-course="ops-bootcamp" data-value="intermediate"><span class="ssr-card-pill ssr-card-pill-level">Intermediate</span></td>
+            <td data-course="tech-ai-safety" data-value="intermediate"><span class="ssr-card-pill ssr-card-pill-level">Intermediate</span></td>
+            <td data-course="agisf" data-value="intermediate"><span class="ssr-card-pill ssr-card-pill-level">Intermediate</span></td>
+            <td data-course="project-sprint" data-value="advanced"><span class="ssr-card-pill ssr-card-pill-level">Advanced</span></td>
+            <td data-course="intro-ml-safety" data-value="advanced"><span class="ssr-card-pill ssr-card-pill-level">Advanced</span></td>
+            <td data-course="arena" data-value="advanced"><span class="ssr-card-pill ssr-card-pill-level">Advanced</span></td>
+          </tr>
+          <tr data-compare="value">
+            <th scope="row">Time commitment</th>
+            <td data-course="future-of-ai" data-value="2"><span class="ssr-card-pill ssr-card-pill-time">~2 hr</span></td>
+            <td data-course="lens-academy" data-value="35"><span class="ssr-card-pill ssr-card-pill-time">~35 hr</span></td>
+            <td data-course="aises" data-value="60"><span class="ssr-card-pill ssr-card-pill-time">~60 hr</span></td>
+            <td data-course="ops-bootcamp" data-value="6"><span class="ssr-card-pill ssr-card-pill-time">~6 hr</span></td>
+            <td data-course="tech-ai-safety" data-value="30"><span class="ssr-card-pill ssr-card-pill-time">~30 hr</span></td>
+            <td data-course="agisf" data-value="60"><span class="ssr-card-pill ssr-card-pill-time">~60 hr</span></td>
+            <td data-course="project-sprint" data-value="30"><span class="ssr-card-pill ssr-card-pill-time">~30 hr</span></td>
+            <td data-course="intro-ml-safety" data-value="40"><span class="ssr-card-pill ssr-card-pill-time">~40 hr</span></td>
+            <td data-course="arena" data-value="200"><span class="ssr-card-pill ssr-card-pill-time">~200 hr</span></td>
+          </tr>
+          <tr data-compare="value">
+            <th scope="row">Format</th>
+            <td data-course="future-of-ai" data-value="self-paced">Self-paced online</td>
+            <td data-course="lens-academy" data-value="self-paced">Self-paced with a 1-on-1 AI tutor and guided group discussions</td>
+            <td data-course="aises" data-value="cohort">Virtual course with cohort discussions</td>
+            <td data-course="ops-bootcamp" data-value="cohort">Intensive online bootcamp</td>
+            <td data-course="tech-ai-safety" data-value="cohort">Facilitated cohorts; curriculum readable at your own pace</td>
+            <td data-course="agisf" data-value="cohort">Facilitated cohorts; curriculum readable at your own pace</td>
+            <td data-course="project-sprint" data-value="cohort">Mentored project sprint with an AI safety expert</td>
+            <td data-course="intro-ml-safety" data-value="self-paced">Self-paced public lectures, readings, and assignments</td>
+            <td data-course="arena" data-value="hybrid">In-person program; full materials free online</td>
+          </tr>
+          <tr data-compare="value">
+            <th scope="row">Application needed</th>
+            <td data-course="future-of-ai" data-value="no">No — start any time</td>
+            <td data-course="lens-academy" data-value="no">No application process</td>
+            <td data-course="aises" data-value="yes">Yes, for the facilitated course</td>
+            <td data-course="ops-bootcamp" data-value="yes">Yes</td>
+            <td data-course="tech-ai-safety" data-value="yes">Yes, for cohorts; materials open</td>
+            <td data-course="agisf" data-value="yes">Yes, for cohorts; materials open</td>
+            <td data-course="project-sprint" data-value="yes">Yes — for graduates of the technical course</td>
+            <td data-course="intro-ml-safety" data-value="no">No — materials are public</td>
+            <td data-course="arena" data-value="yes">Yes, for the in-person program; materials open</td>
+          </tr>
+          <tr>
+            <th scope="row">Prerequisites</th>
+            <td data-course="future-of-ai">None</td>
+            <td data-course="lens-academy">None</td>
+            <td data-course="aises">None — no prior ML experience required</td>
+            <td data-course="ops-bootcamp">None technical; aimed at early-to-mid-career professionals</td>
+            <td data-course="tech-ai-safety">Basic familiarity with how modern ML works</td>
+            <td data-course="agisf">Comfort with core ML ideas helps; no coding required</td>
+            <td data-course="project-sprint">BlueDot&#39;s technical course or equivalent background</td>
+            <td data-course="intro-ml-safety">Deep learning background</td>
+            <td data-course="arena">Strong Python and deep learning fundamentals</td>
+          </tr>
+          <tr>
+            <th scope="row">Focus</th>
+            <td data-course="future-of-ai">What is actually happening with AI and where it is headed</td>
+            <td data-course="lens-academy">Why misaligned superintelligence is the central risk and why alignment is hard</td>
+            <td data-course="aises">Societal-scale risks from AI and how society can manage them</td>
+            <td data-course="ops-bootcamp">Operational roles at organisations working to make AI go well</td>
+            <td data-course="tech-ai-safety">Open problems in technical safety: RLHF, interpretability, evals, control, oversight</td>
+            <td data-course="agisf">Alignment, from core concepts to open research problems</td>
+            <td data-course="project-sprint">Producing a real contribution to the field with expert guidance</td>
+            <td data-course="intro-ml-safety">Empirical ML safety: robustness, monitoring, control, systemic safety</td>
+            <td data-course="arena">Research engineering: transformers, mechanistic interpretability, RL, evals</td>
+          </tr>
+          <tr>
+            <th scope="row">You&#39;ll come away with</th>
+            <td data-course="future-of-ai">A clear mental model of near-term AI</td>
+            <td data-course="lens-academy">A grounded view of the alignment problem</td>
+            <td data-course="aises">A broad, non-technical map of AI risk</td>
+            <td data-course="ops-bootcamp">Readiness for ops roles in the field</td>
+            <td data-course="tech-ai-safety">A working understanding of the open technical problems</td>
+            <td data-course="agisf">Fluency in the alignment research landscape</td>
+            <td data-course="project-sprint">A first portfolio piece in safety research or engineering</td>
+            <td data-course="intro-ml-safety">Hands-on empirical safety research skills</td>
+            <td data-course="arena">An engineering portfolio across interpretability, RL, and evals</td>
+          </tr>
+          <tr data-compare="value">
+            <th scope="row">Cost</th>
+            <td data-course="future-of-ai" data-value="free">Free</td>
+            <td data-course="lens-academy" data-value="free">Free</td>
+            <td data-course="aises" data-value="free">Free</td>
+            <td data-course="ops-bootcamp" data-value="free">Free</td>
+            <td data-course="tech-ai-safety" data-value="free">Free</td>
+            <td data-course="agisf" data-value="free">Free</td>
+            <td data-course="project-sprint" data-value="free">Free</td>
+            <td data-course="intro-ml-safety" data-value="free">Free</td>
+            <td data-course="arena" data-value="free">Free</td>
+          </tr>
+          <tr>
+            <th scope="row">Course site</th>
+            <td data-course="future-of-ai"><a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="lens-academy"><a href="https://lensacademy.org/" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="aises"><a href="https://www.aisafetybook.com/virtual-course" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="ops-bootcamp"><a href="https://bluedot.org/courses/ops" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="tech-ai-safety"><a href="https://bluedot.org/courses/technical-ai-safety" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="agisf"><a href="https://course.aisafetyfundamentals.com/" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="project-sprint"><a href="https://bluedot.org/courses/technical-ai-safety-project" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="intro-ml-safety"><a href="https://course.mlsafety.org/" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+            <td data-course="arena"><a href="https://www.arena.education/" target="_blank" rel="noopener noreferrer">Visit course →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-fineprint">Levels, hours, and summaries come from the <a href="/courses/">Courses</a> category. Formats and application details drift—check each course site before planning around them. Last reviewed August 2026.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <p class="site-footer-title"><a href="/">AI Safety Resources</a></p>
+        <p class="site-footer-copy">
+          A community-maintained collection of books, papers, films, podcasts, and websites to explore and enjoy the questions of AI safety and alignment.
+        </p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="/paths/">Learning paths</a>
+        <a href="/topics/">Topics</a>
+        <a href="/non-fiction-books/">Non-fiction Books</a>
+        <a href="/fiction-books/">Fiction Books</a>
+        <a href="/academic-papers/">Academic Papers</a>
+        <a href="/courses/">Courses</a>
+        <a href="/films/">Films</a>
+        <a href="/tv/">TV Shows</a>
+        <a href="/documentaries/">Documentaries</a>
+        <a href="/podcasts/">Podcasts</a>
+        <a href="/websites/">Websites</a>
+        <a href="/youtube/">YouTube</a>
+        <a href="/privacy/">Privacy policy</a>
+      </nav>
+    </div>
+    <p class="site-footer-fineprint">Free, forever. Your saved resources live only in your browser.</p>
+  </footer>
+</body>
+</html>

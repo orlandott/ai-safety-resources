@@ -8,3 +8,12 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Unlisted pages: live and shareable by direct link, but kept out of search
+# engines (belt-and-braces with the <meta name="robots"> tag on the page) and
+# out of sitemap.xml. Both patterns are needed: `/x` matches the bare path,
+# `/x/*` matches the trailing-slash form and any assets beneath it.
+/curriculum-comparison
+  X-Robots-Tag: noindex, nofollow
+/curriculum-comparison/*
+  X-Robots-Tag: noindex, nofollow
