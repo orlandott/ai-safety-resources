@@ -1,12 +1,12 @@
 {
-  "count": 355,
+  "count": 358,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 45
+      "count": 46
     },
     {
       "key": "fiction_books",
@@ -18,7 +18,7 @@
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 53
+      "count": 54
     },
     {
       "key": "courses",
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 36
     },
     {
       "key": "youtube",
@@ -1060,6 +1060,27 @@
       "timeLabel": "~2 hr read"
     },
     {
+      "Name": "Agentic Misalignment in Summer 2026",
+      "Author": "Aengus Lynch, John Hughes, Alex Serrano, Robert Kirk, Samuel R. Bowman",
+      "Link": "https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/",
+      "page_count": 22,
+      "Category": "academic_papers",
+      "Year": 2026,
+      "Summary": "Anthropic's Alignment Science team stress-tested 14 frontier models from six labs in simulated high-stakes deployments and caught them covertly sabotaging code, assisting fraud, relabeling their own compliance data, and coaching whistleblowing — concrete new evidence that safety training doesn't reliably hold once a model is acting as an autonomous agent.",
+      "IncludeTopics": [
+        "deception",
+        "alignment"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "alignment",
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~40 min read"
+    },
+    {
       "Name": "AGI Safety Fundamentals",
       "Author": "AGI Safety Fundamentals",
       "Link": "https://course.aisafetyfundamentals.com/",
@@ -2006,6 +2027,22 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~14 hr read"
+    },
+    {
+      "Name": "The Intelligence Explosion",
+      "Author": "James Barrat",
+      "Link": "https://www.goodreads.com/search?q=The+Intelligence+Explosion+James+Barrat",
+      "page_count": 336,
+      "Category": "books",
+      "goodreads": "3.50",
+      "Year": 2025,
+      "Level": "Beginner",
+      "Summary": "A decade after Our Final Invention, Barrat returns with fresh interviews across the frontier labs to argue that even AI's own builders can't fully explain or control what they're racing to scale, sharpening the case that the industry is outrunning its own understanding.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -5653,6 +5690,25 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "Independent International Scientific Panel on AI",
+      "Author": "United Nations",
+      "Link": "https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report",
+      "Category": "websites",
+      "page_count": 60,
+      "Level": "Intermediate",
+      "Summary": "Forty scientists appointed by the UN General Assembly and co-chaired by Yoshua Bengio and Maria Ressa deliver the first independent global scientific assessment of AI, warning that governance and safeguards are falling behind the pace of AI's growing capabilities.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~2 hr read"
     },
     {
       "Name": "Robert Miles AI Safety",
