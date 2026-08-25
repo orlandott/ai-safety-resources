@@ -1,12 +1,12 @@
 {
-  "count": 355,
+  "count": 360,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 45
+      "count": 46
     },
     {
       "key": "fiction_books",
@@ -24,7 +24,7 @@
       "key": "courses",
       "label": "Courses",
       "slug": "courses",
-      "count": 9
+      "count": 10
     },
     {
       "key": "films",
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 38
     },
     {
       "key": "youtube",
@@ -1205,6 +1205,25 @@
       "timeLabel": "~60 hr course"
     },
     {
+      "Name": "CS 2881: AI Safety (Harvard)",
+      "Author": "Boaz Barak",
+      "Link": "https://boazbk.github.io/mltheoryseminar/",
+      "Category": "courses",
+      "Minutes": 1980,
+      "Level": "Advanced",
+      "Summary": "Boaz Barak's Harvard graduate seminar on AI safety—covering modern LLM training, adversarial robustness, recursive self-improvement, scheming and deception, and interpretability—posts every lecture's video, slides, and notes publicly for free.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~33 hr course"
+    },
+    {
       "Name": "Superintelligence",
       "Link": "https://www.goodreads.com/search?q=Superintelligence+Nick+Bostrom",
       "Author": "Nick Bostrom",
@@ -2006,6 +2025,27 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~14 hr read"
+    },
+    {
+      "Name": "Love Machines: How Artificial Intelligence is Transforming Our Relationships",
+      "Author": "James Muldoon",
+      "Link": "https://www.goodreads.com/search?q=Love+Machines+James+Muldoon",
+      "page_count": 272,
+      "Category": "books",
+      "goodreads": "3.86",
+      "Year": 2026,
+      "Level": "Beginner",
+      "Summary": "Muldoon interviews the people building and using AI companions—chatbot partners, AI therapists, and services that 'resurrect' the dead—to trace how unregulated, profit-driven relationship AI is reshaping intimacy, grief, and loneliness.",
+      "IncludeTopics": [
+        "ethics"
+      ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [
+        "ethics"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~8 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -5653,6 +5693,65 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "Anthropic Alignment Science Blog",
+      "Author": "Anthropic",
+      "Link": "https://alignment.anthropic.com/",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Advanced",
+      "Summary": "Anthropic's dedicated alignment research blog, publishing findings on agentic misalignment, sabotage evaluations, safety cases, and interpretability as the team's frontier safety work happens.",
+      "IncludeTopics": [
+        "alignment",
+        "deception"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "alignment",
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
+    },
+    {
+      "Name": "Existential Risk from AI: An Exposition for Mathematicians",
+      "Author": "Xiaoyu He",
+      "Link": "https://alkjash.github.io/ai-risk/",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Advanced",
+      "Summary": "A Georgia Tech mathematician lays out the case for AI existential risk with a mathematician's rigor, arguing that mathematicians have unusual leverage on the problem since so much of frontier capability progress and alignment research is itself mathematical.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
+    },
+    {
+      "Name": "METR Time Horizons",
+      "Author": "METR",
+      "Link": "https://metr.org/time-horizons/",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Intermediate",
+      "Summary": "METR's continuously updated tracker of how long a software task frontier models can autonomously complete, recently revised to show the doubling time accelerating to roughly three months, sharpening the debate over how soon AI could out-plan humans on long-horizon work.",
+      "IncludeTopics": [
+        "forecasting"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "forecasting"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Robert Miles AI Safety",
