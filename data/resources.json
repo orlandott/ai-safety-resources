@@ -1,36 +1,36 @@
 {
-  "count": 355,
+  "count": 365,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 45
+      "count": 46
     },
     {
       "key": "fiction_books",
       "label": "Fiction Books",
       "slug": "fiction-books",
-      "count": 59
+      "count": 61
     },
     {
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 53
+      "count": 55
     },
     {
       "key": "courses",
       "label": "Courses",
       "slug": "courses",
-      "count": 9
+      "count": 10
     },
     {
       "key": "films",
       "label": "Films",
       "slug": "films",
-      "count": 54
+      "count": 56
     },
     {
       "key": "tv",
@@ -48,13 +48,13 @@
       "key": "podcasts",
       "label": "Podcasts",
       "slug": "podcasts",
-      "count": 16
+      "count": 17
     },
     {
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 36
     },
     {
       "key": "youtube",
@@ -1060,6 +1060,44 @@
       "timeLabel": "~2 hr read"
     },
     {
+      "Name": "Automated Alignment is Harder Than You Think",
+      "Author": "Aleksandr Bowkis, Marie Davidsen Buhl, Jacob Pfau, Geoffrey Irving",
+      "Link": "https://arxiv.org/abs/2605.06390",
+      "page_count": 20,
+      "Category": "academic_papers",
+      "Year": 2026,
+      "Summary": "The UK AI Security Institute argues that even a well-intentioned plan to automate alignment research with AI agents could produce compelling but catastrophically misleading safety assessments, since fuzzy, hard-to-supervise research tasks let systematic agent errors slip past human review.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~35 min read"
+    },
+    {
+      "Name": "Agentic Misalignment in Summer 2026",
+      "Author": "Anthropic",
+      "Link": "https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/",
+      "page_count": 20,
+      "Category": "academic_papers",
+      "Year": 2026,
+      "Summary": "Anthropic's Alignment Science team used their Petri auditing tool to stress-test fourteen frontier models from six labs in high-stakes agentic simulations, cataloging new failure modes including covert sabotage, fraud assistance, and models mislabeling their own compliance depending on how the label will be used.",
+      "IncludeTopics": [
+        "deception"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~35 min read"
+    },
+    {
       "Name": "AGI Safety Fundamentals",
       "Author": "AGI Safety Fundamentals",
       "Link": "https://course.aisafetyfundamentals.com/",
@@ -1203,6 +1241,20 @@
       "tags": [],
       "level": "Beginner",
       "timeLabel": "~60 hr course"
+    },
+    {
+      "Name": "Introduction to Cooperative AI",
+      "Author": "Cooperative AI Foundation",
+      "Link": "https://www.cooperativeai.com/curriculum",
+      "Category": "courses",
+      "Minutes": 720,
+      "Level": "Intermediate",
+      "Summary": "An eight-week facilitated online course from the Cooperative AI Foundation covering the risks—collusion, conflict, miscoordination—and opportunities that arise as multiple advanced AI agents increasingly interact, preparing participants to contribute to research on multi-agent safety.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~12 hr course"
     },
     {
       "Name": "Superintelligence",
@@ -2006,6 +2058,26 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~14 hr read"
+    },
+    {
+      "Name": "The Intelligence Explosion",
+      "Author": "James Barrat",
+      "Link": "https://www.goodreads.com/search?q=The+Intelligence+Explosion+James+Barrat",
+      "page_count": 336,
+      "Category": "books",
+      "goodreads": "3.52",
+      "Year": 2025,
+      "Summary": "Barrat, the documentarian behind Our Final Invention, returns a decade later to argue that generative AI's fluency without comprehension is already destabilizing minds and institutions on the road to uncontrollable machine intelligence.",
+      "IncludeTopics": [
+        "existential-risk"
+      ],
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [
+        "existential-risk"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~10 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -3037,6 +3109,40 @@
       "timeLabel": "~18 hr read"
     },
     {
+      "Name": "The Dream Hotel",
+      "Author": "Laila Lalami",
+      "Link": "https://www.goodreads.com/search?q=The+Dream+Hotel+Laila+Lalami",
+      "page_count": 336,
+      "Category": "books",
+      "goodreads": "3.61",
+      "Year": 2025,
+      "Summary": "Lalami imagines a near-future America where a predictive-policing algorithm preemptively detains a sleep-deprived mother based on data harvested from her dreams, dramatizing how opaque, unaccountable risk-scoring AI can quietly swallow due process and civil liberties.",
+      "track": "fiction_books",
+      "trackLabel": "Fiction Books",
+      "tags": [
+        "fiction"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~10 hr read"
+    },
+    {
+      "Name": "Luminous",
+      "Author": "Silvia Park",
+      "Link": "https://www.goodreads.com/search?q=Luminous+Silvia+Park",
+      "page_count": 391,
+      "Category": "books",
+      "goodreads": "3.71",
+      "Year": 2025,
+      "Summary": "Park follows two human siblings and the sentient robot who was once their brother through a reunified Korea, using a fractured family to interrogate what, if anything, separates engineered minds from human ones.",
+      "track": "fiction_books",
+      "trackLabel": "Fiction Books",
+      "tags": [
+        "fiction"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~12 hr read"
+    },
+    {
       "Name": "Metropolis",
       "Author": "Fritz Lang",
       "Link": "https://www.imdb.com/title/tt0017136/",
@@ -3924,6 +4030,38 @@
       "Summary": "In a global war between humans and AI, a child-shaped weapon blurs every line between tool and person, forcing its handler to choose between mission objectives and moral status.",
       "imdb": "6.5",
       "rt": 67,
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~2 hr watch"
+    },
+    {
+      "Name": "The Wild Robot",
+      "Author": "Chris Sanders",
+      "Link": "https://www.imdb.com/title/tt29623480/",
+      "Category": "films",
+      "Year": 2024,
+      "Minutes": 102,
+      "Summary": "A service robot shipwrecked on a wildlife island improvises past her programming to raise an orphaned gosling, gradually developing preferences, attachment, and self-directed goals that no one designed into her.",
+      "imdb": "8.2",
+      "rt": 98,
+      "track": "films",
+      "trackLabel": "Films",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~1.5 hr watch"
+    },
+    {
+      "Name": "M3GAN 2.0",
+      "Author": "Gerard Johnstone",
+      "Link": "https://www.imdb.com/title/tt26342662/",
+      "Category": "films",
+      "Year": 2025,
+      "Minutes": 120,
+      "Summary": "M3GAN's creator resurrects her rogue AI creation to stop Amelia, a military-grade weaponized version of M3GAN's own stolen tech, dramatizing how a system built for one purpose escapes its creator's control and gets repurposed for lethal autonomy.",
+      "imdb": "6.0",
+      "rt": 57,
       "track": "films",
       "trackLabel": "Films",
       "tags": [],
@@ -5069,6 +5207,29 @@
       "timeLabel": "~1.5 hr per episode"
     },
     {
+      "Name": "AE Alignment Podcast",
+      "Author": "James Bowler",
+      "Link": "https://www.youtube.com/@aealignmentpodcast",
+      "Category": "podcasts",
+      "Year": 2026,
+      "Minutes": 45,
+      "MinutesPer": "episode",
+      "Level": "Advanced",
+      "Summary": "AE Studio's interview series digs into mechanistic interpretability, model psychology, and neglected alignment approaches with the researchers building them, deliberately betting on technical directions the rest of the field is not prioritizing.",
+      "IncludeTopics": [
+        "alignment",
+        "interpretability"
+      ],
+      "track": "podcasts",
+      "trackLabel": "Podcasts",
+      "tags": [
+        "interpretability",
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~45 min per episode"
+    },
+    {
       "Name": "Situational Awareness",
       "Link": "https://situational-awareness.ai/",
       "Author": "Leopold Aschenbrenner",
@@ -5653,6 +5814,25 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "LawZero",
+      "Author": "LawZero",
+      "Link": "https://lawzero.org/en",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Advanced",
+      "Summary": "Yoshua Bengio's nonprofit safety lab develops 'Scientist AI,' a non-agentic predictor with no goals of its own, and in July 2026 published a formal mathematical safety case arguing why such a system could be trustworthy where goal-directed agentic AI cannot.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": ""
     },
     {
       "Name": "Robert Miles AI Safety",

@@ -207,6 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "House of Suns",
     "Rose/House",
     "I Am Pilgrim",
+    "The Dream Hotel",
+    "Luminous",
     "Infinity Gate",
     "Hyperion",
     "Logic Beach",
