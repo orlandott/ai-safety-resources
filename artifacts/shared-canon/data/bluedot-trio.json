@@ -1,0 +1,310 @@
+{
+ "courses": [
+  {
+   "course": "The Future of AI",
+   "source_urls": [
+    "https://bluedot.org/courses/future-of-ai",
+    "https://bluedot.org/courses/future-of-ai/1",
+    "https://bluedot.org/courses/future-of-ai/1/1",
+    "https://bluedot.org/courses/future-of-ai/1/2",
+    "https://bluedot.org/courses/future-of-ai/1/3",
+    "https://bluedot.org/courses/future-of-ai/1/4",
+    "https://bluedot.org/courses/future-of-ai/2/1",
+    "https://bluedot.org/courses/future-of-ai/2/3",
+    "https://bluedot.org/courses/future-of-ai/2/4",
+    "https://bluedot.org/courses/future-of-ai/3?chunk=1",
+    "https://bluedot.org/courses/future-of-ai/4?chunk=1",
+    "https://bluedot.org/courses/future-of-ai/4/2",
+    "https://bluedot.org/courses/future-of-ai/4/3",
+    "https://bluedot.org/courses/future-of-ai/4/5"
+   ],
+   "sessions": [
+    {
+     "unit": "Unit 1: What can the most powerful AI systems do today?",
+     "readings": [
+      {
+       "title": "What's already possible",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/1/1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "The pace of progress",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/1/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "From tools to agents",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/1/3",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "So... how do AI systems work?",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/1/4",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    },
+    {
+     "unit": "Unit 2: The path to AGI (what AGI is and how we might get there)",
+     "readings": [
+      {
+       "title": "What is AGI?",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/2/1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Vending-Bench: measuring progress towards AGI",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Building AGI and beyond",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/2/3",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "The huge bet on AGI",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/2/4",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Teaching AI the next action",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/2?chunk=4",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    },
+    {
+     "unit": "Unit 3: How could AGI change our lives? (also described as 'What's at stake')",
+     "readings": [
+      {
+       "title": "Why does AGI matter?",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/3",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "What benefits could AGI bring?",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/3?chunk=1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "What risks does AGI pose?",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/3",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    },
+    {
+     "unit": "Unit 4: How can I help make AI go well?",
+     "readings": [
+      {
+       "title": "Three ways you can contribute (career, advocacy, donations)",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/4?chunk=1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "How our courses work",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/4/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Getting started",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/4/3",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Your AI Safety Action Plan",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai/4/5",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    }
+   ],
+   "notes": "IMPORTANT ACCESS CAVEAT: this sandbox's network egress policy blocks direct fetches of bluedot.org (and aisafetyfundamentals.com); per the environment's proxy policy I did not route around the block. All data here comes from the public search-engine index (WebSearch titles/snippets), so it is a verified-but-partial reconstruction. VERIFIED FINDINGS: The Future of AI is a free, fully public, self-paced ~2-hour interactive course of 4 units. It does NOT have a traditional assigned reading list of external papers/blogs; each unit consists of BlueDot-authored in-platform content 'chunks' (with videos and interactive demos), listed above as core/type 'other'. Chunk titles and URLs above are individually verified from the search index; exact chunk ordering/numbering within units 2-4 is partly uncertain (some chunks were indexed only via '?chunk=N' URLs), and a few chunks may be missing (e.g., /4/4 was not indexed). External resources are embedded inline within chunks rather than listed as readings; the only clearly identifiable embedded external resource is the Vending-Bench benchmark discussed in Unit 2 (the underlying paper is 'Vending-Bench: A Benchmark for Long-Term Coherence of Autonomous Agents', Backlund & Petersson, Andon Labs, 2025, arXiv:2502.15840, but I could not verify whether the course links the paper itself). A complete inline-resource inventory would require fetching each chunk URL from an unrestricted network."
+  },
+  {
+   "course": "AI Safety Operations Bootcamp",
+   "source_urls": [
+    "https://bluedot.org/courses/ops",
+    "https://bluedot.org/courses/ops/1",
+    "https://bluedot.org/courses/ops/2",
+    "https://bluedot.org/courses/ops/2/3",
+    "https://blog.bluedot.org/p/first-ops-bootcamp-lessons"
+   ],
+   "sessions": [
+    {
+     "unit": "Unit 1: Starting your journey (Understand the future of AI)",
+     "readings": [
+      {
+       "title": "The Future of AI course (BlueDot's own ~2h course, assigned as Unit 1 content)",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/future-of-ai",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    },
+    {
+     "unit": "Unit 2: Become a top-tier operator",
+     "readings": [
+      {
+       "title": "Key organisations in the AI value chain",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/ops/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Case study: Spotlight on AISI",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/ops/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Being high-agency",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/ops/2/3",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Turbocharging operations with AI",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/ops/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Applying your learning (exercise set, ~90 min; exercises 2-9)",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/ops/2",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    }
+   ],
+   "notes": "IMPORTANT ACCESS CAVEAT: direct fetch of bluedot.org is blocked by this sandbox's network egress policy; data reconstructed from the public search index only. VERIFIED FINDINGS: the bootcamp (first run May 2025) has public curriculum pages with two indexed units: Unit 1 'Starting your journey' (https://bluedot.org/courses/ops/1), whose main assigned content is BlueDot's own Future of AI course plus prep work and a ~90-minute applying-your-learning exercise, and Unit 2 'Become a top-tier operator' (https://bluedot.org/courses/ops/2) with the BlueDot-authored chunks listed above plus exercises. No Unit 3+ pages appear in the search index. NO public list of external readings (papers/blogs/videos with external authors) was surfaced for this course \u2014 the curriculum appears to be in-platform authored content and exercises rather than a reading list. Chunk titles are verified; only /courses/ops/1, /courses/ops/2 and /courses/ops/2/3 ('Being high-agency') have individually verified URLs, so other chunk entries carry the unit landing URL. Any inline-linked external resources within chunks could not be enumerated from this environment."
+  },
+  {
+   "course": "Technical AI Safety Project Sprint",
+   "source_urls": [
+    "https://bluedot.org/courses/technical-ai-safety-project",
+    "https://bluedot.org/courses/technical-ai-safety-project/1/1",
+    "https://blog.bluedot.org/p/rapid-small-grants-for-the-bluedot"
+   ],
+   "sessions": [
+    {
+     "unit": "Unit 1: Pick your project",
+     "readings": [
+      {
+       "title": "You can make AI systems safer",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/technical-ai-safety-project/1/1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "Should you do an AI safety research/engineering project? (chunk topic within Unit 1)",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/technical-ai-safety-project/1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      },
+      {
+       "title": "How experienced software engineers can contribute to AI safety (chunk topic within Unit 1)",
+       "authors": "BlueDot Impact",
+       "year": null,
+       "url": "https://bluedot.org/courses/technical-ai-safety-project/1",
+       "arxiv": null,
+       "core": true,
+       "type": "other"
+      }
+     ]
+    }
+   ],
+   "notes": "IMPORTANT ACCESS CAVEAT: direct fetch of bluedot.org is blocked by this sandbox's network egress policy; data reconstructed from the public search index only. VERIFIED FINDINGS: this is a ~30-hour project-based sprint for graduates of BlueDot's Technical AI Safety course (participants extend papers or improve research code \u2014 past projects reproduced METR findings, fixed TransformerLens issues, replicated evals using Inspect \u2014 with expert check-ins, culminating in a published blog post/X thread). It has NO traditional reading list. The only publicly indexed curriculum page is Unit 1 'Pick your project' with chunk 1/1 'You can make AI systems safer'; the two 'chunk topic' entries above are verified as Unit 1 topics but their exact chunk URLs were not indexed, so they carry the unit URL. No Unit 2+ pages and no assigned external readings (papers/blogs/videos) appear in the public search index; project reading is self-directed based on the paper/codebase each participant chooses. Note this course is distinct from the 6-unit 'Technical AI Safety' course (https://bluedot.org/courses/technical-ai-safety), which does have per-unit content pages."
+  }
+ ]
+}

@@ -1,0 +1,624 @@
+<title>The Shared Canon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --surface: #ffffff;
+    --surface-soft: #f9f7f1;
+    --text: #382110;
+    --muted: #6f6659;
+    --border: #e6ddce;
+    --border-strong: #d5cab7;
+    --accent: #2f7a52;
+    --on-accent: #ffffff;
+    --accent-soft: #eef8f1;
+    --accent-soft-border: #b5d6bf;
+    --accent-text: #2f7a52;
+    --link: #166b4c;
+    --shadow: 0 10px 25px rgba(56, 33, 16, 0.09);
+    --focus-ring: rgba(64, 157, 105, 0.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15110d;
+      --surface: #1f1913;
+      --surface-soft: #251e17;
+      --text: #ede4d3;
+      --muted: #a99b85;
+      --border: #3b3128;
+      --border-strong: #4d4034;
+      --accent: #4fb87e;
+      --on-accent: #0e231a;
+      --accent-soft: rgba(79, 184, 126, 0.14);
+      --accent-soft-border: rgba(79, 184, 126, 0.42);
+      --accent-text: #7fd2a4;
+      --link: #7fd2a4;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      --focus-ring: rgba(79, 184, 126, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15110d;
+    --surface: #1f1913;
+    --surface-soft: #251e17;
+    --text: #ede4d3;
+    --muted: #a99b85;
+    --border: #3b3128;
+    --border-strong: #4d4034;
+    --accent: #4fb87e;
+    --on-accent: #0e231a;
+    --accent-soft: rgba(79, 184, 126, 0.14);
+    --accent-soft-border: rgba(79, 184, 126, 0.42);
+    --accent-text: #7fd2a4;
+    --link: #7fd2a4;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    --focus-ring: rgba(79, 184, 126, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Sora", "Open Sans", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .page { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+  /* ── Header ─────────────────────────────────────────── */
+  header.hero { padding: 3.2rem 0 1rem; }
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 0.9rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+  .lede {
+    max-width: 62ch;
+    font-size: 1.02rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+
+  /* ── Stat tiles ─────────────────────────────────────── */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin: 2.2rem 0 0;
+  }
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem 0.9rem;
+  }
+  .tile .num {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+  .tile .lbl { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+  .tile.hot .num { color: var(--accent-text); }
+
+  /* ── Sections ───────────────────────────────────────── */
+  section { margin-top: 3.4rem; }
+  h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.35rem;
+    text-wrap: balance;
+  }
+  .section-note { color: var(--muted); font-size: 0.92rem; max-width: 68ch; margin: 0 0 1.3rem; }
+  .section-note strong { color: var(--text); }
+
+  /* ── Controls ───────────────────────────────────────── */
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 1rem;
+  }
+  .seg {
+    display: inline-flex;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .seg button {
+    font: inherit;
+    font-size: 0.84rem;
+    padding: 0.35rem 0.9rem;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 600;
+  }
+  input[type="search"] {
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    min-width: min(260px, 100%);
+  }
+  input[type="search"]::placeholder { color: var(--muted); }
+
+  /* ── Leaderboard ────────────────────────────────────── */
+  .board { display: flex; flex-direction: column; gap: 0.55rem; }
+  .brow {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr auto;
+    gap: 0.9rem;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+  }
+  .brow .cnt {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--accent-text);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    line-height: 1;
+  }
+  .brow .cnt small { display: block; font-size: 0.62rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; margin-top: 0.2rem; }
+  .brow .ttl { font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+  .brow .meta { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+  .brow .chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
+  .chip {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.12rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent-soft-border);
+    background: var(--accent-soft);
+    color: var(--accent-text);
+    white-space: nowrap;
+  }
+  .chip.opt {
+    background: transparent;
+    border-color: var(--border-strong);
+    color: var(--muted);
+    border-style: dashed;
+  }
+  .brow .cites {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.86rem;
+    font-weight: 600;
+    min-width: 6.2rem;
+  }
+  .brow .cites small { display: block; font-weight: 400; font-size: 0.68rem; color: var(--muted); }
+  .kind {
+    display: inline-block;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0 0.3rem;
+    margin-left: 0.4rem;
+    vertical-align: 1px;
+  }
+  .empty-note { color: var(--muted); font-size: 0.9rem; padding: 1rem 0; }
+
+  /* ── Matrix ─────────────────────────────────────────── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0 0 0.8rem;
+    align-items: center;
+  }
+  .legend .dot { margin-right: 0.35rem; }
+  .dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    vertical-align: -1px;
+  }
+  .dot.core { background: var(--accent); }
+  .dot.optional { background: transparent; border: 2px solid var(--accent); width: 9px; height: 9px; }
+  .matrix-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    max-height: 72vh;
+    overflow-y: auto;
+  }
+  table.matrix { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 760px; }
+  .matrix th, .matrix td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.84rem;
+  }
+  .matrix thead th {
+    position: sticky;
+    top: 0;
+    background: var(--surface-soft);
+    z-index: 3;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    border-bottom: 1px solid var(--border-strong);
+    white-space: nowrap;
+  }
+  .matrix thead th:first-child { text-align: left; z-index: 4; }
+  .matrix td.name {
+    position: sticky;
+    left: 0;
+    background: var(--surface);
+    max-width: 340px;
+    min-width: 220px;
+    z-index: 2;
+    border-right: 1px solid var(--border);
+  }
+  .matrix thead th:first-child { position: sticky; left: 0; border-right: 1px solid var(--border); }
+  .matrix td.name .w { display: flex; flex-direction: column; }
+  .matrix td.name a, .matrix td.name span.t {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    color: var(--text);
+  }
+  .matrix td.name a:hover { color: var(--link); }
+  .matrix td.name .sub { font-size: 0.7rem; color: var(--muted); }
+  .matrix td.mark { text-align: center; }
+  .matrix td.num {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--accent-text);
+  }
+  .matrix tbody tr:hover td { background: var(--surface-soft); }
+  .matrix tbody tr:hover td.name { background: var(--surface-soft); }
+  .matrix tbody tr:last-child td { border-bottom: none; }
+  .count-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.55rem; }
+
+  /* ── Profiles ───────────────────────────────────────── */
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.75rem;
+  }
+  .prof {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+  }
+  .prof h3 { margin: 0; font-size: 0.98rem; font-weight: 700; }
+  .prof .prov { font-size: 0.75rem; color: var(--muted); margin: 0.1rem 0 0.55rem; }
+  .prof .nums {
+    display: flex;
+    gap: 1.1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.55rem;
+    margin-top: 0.7rem;
+  }
+  .prof .nums b { color: var(--text); font-variant-numeric: tabular-nums; }
+  .prof p { margin: 0; font-size: 0.86rem; }
+
+  .aside {
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 0.9rem;
+  }
+  .aside strong { color: var(--text); }
+
+  /* ── Findings prose ─────────────────────────────────── */
+  .findings { max-width: 70ch; }
+  .findings p { margin: 0 0 1rem; }
+  .findings em { font-style: normal; font-weight: 600; color: var(--accent-text); }
+
+  /* ── Methodology ────────────────────────────────────── */
+  details {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    padding: 0.8rem 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  summary { cursor: pointer; font-weight: 600; font-size: 0.92rem; }
+  details p, details li { font-size: 0.86rem; color: var(--muted); }
+  details ul { padding-left: 1.2rem; }
+  details strong { color: var(--text); }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .brow, .tile { transition: border-color 120ms ease; }
+    .brow:hover, .tile:hover { border-color: var(--border-strong); }
+  }
+</style>
+
+<div class="page">
+  <header class="hero">
+    <p class="eyebrow">AI Safety Resources · Course syllabi, compared</p>
+    <h1>The Shared Canon</h1>
+    <p class="lede">Nine AI-safety curricula were pulled apart reading by reading — <strong>668 distinct works</strong> across the six with public reading lists. This page maps which papers the courses actually share, which are one syllabus's obsession, and how small the common canon really is.</p>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section id="canon">
+    <h2>The most-assigned readings</h2>
+    <p class="section-note">Every work assigned by <strong>two or more courses</strong>, ranked by how many syllabi carry it, then by real-world citations. No paper appears on more than three of the six syllabi — the field's courses agree on far less than you might expect.</p>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Filter by kind">
+        <button id="lb-papers" aria-pressed="true">Papers only</button>
+        <button id="lb-all" aria-pressed="false">All readings</button>
+      </div>
+    </div>
+    <div class="board" id="board"></div>
+  </section>
+
+  <section id="matrix-sec">
+    <h2>Reading × course matrix</h2>
+    <p class="section-note">Which course assigns what. <strong>Core</strong> means the course lists it as required/central; <strong>optional</strong> means further or suggested reading, as labeled by the course itself.</p>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Row scope">
+        <button id="mx-shared" aria-pressed="true">Shared only</button>
+        <button id="mx-every" aria-pressed="false">Everything</button>
+      </div>
+      <div class="seg" role="group" aria-label="Kind filter">
+        <button id="mx-paper" aria-pressed="true">Papers</button>
+        <button id="mx-anykind" aria-pressed="false">All kinds</button>
+      </div>
+      <input type="search" id="mx-search" placeholder="Search title or author…" aria-label="Search readings">
+    </div>
+    <div class="legend">
+      <span><span class="dot core"></span> core reading</span>
+      <span><span class="dot optional"></span> optional / further</span>
+      <span>№ = syllabi assigning it</span>
+    </div>
+    <div class="matrix-wrap">
+      <table class="matrix" id="mx-table"></table>
+    </div>
+    <p class="count-note" id="mx-count"></p>
+  </section>
+
+  <section>
+    <h2>What the overlaps say</h2>
+    <div class="findings">
+      <p>There is no universal reading. Not one of the 668 works appears on four syllabi, and only four make it onto three: Hugging Face's <em>Illustrating RLHF</em> explainer, Anthropic's <em>Scaling Monosemanticity</em>, BlueDot's own <em>Introduction to Mechanistic Interpretability</em>, and Apollo Research's <em>We need a Science of Evals</em>. If the field has a canon, it is mechanistic interpretability plus RLHF — and it is thin.</p>
+      <p>The overlaps split into <em>two separate canons</em>. ARENA and Intro to ML Safety share the ML-engineering backbone (ResNet, AdamW, induction heads, representation engineering, the GCG jailbreak paper). AGI Safety Fundamentals and Technical AI Safety — both BlueDot courses — share the alignment canon (Constitutional AI, debate, weak-to-strong generalization, deep RL from human preferences). Almost nothing crosses between the two clusters.</p>
+      <p>The two CAIS courses barely overlap <em>with each other</em>. Intro to ML Safety assigns ~76 papers; AI Safety, Ethics &amp; Society assigns essentially none — it is the Hendrycks textbook plus lectures. Their one shared work is <em>An Overview of Catastrophic AI Risks</em>, which is simultaneously the textbook's first chapter and a paper on the ML Safety reading list.</p>
+      <p>Lens Academy confirms its different bet. Its flagship course assigns <em>zero academic papers</em> — it is a guided read of Yudkowsky &amp; Soares' <em>If Anyone Builds It, Everyone Dies</em>. Where Lens touches the shared canon it is through essays (<em>What failure looks like</em>, <em>Simulators</em>, <em>We need a Science of Evals</em>), while its compute-verification course carries a 9-paper technical canon that no other course touches at all.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Course profiles</h2>
+    <div class="profiles" id="profiles"></div>
+    <div class="aside" id="no-syllabus"></div>
+  </section>
+
+  <section>
+    <h2>Methodology &amp; sources</h2>
+    <div id="method"></div>
+  </section>
+
+  <footer>
+    Compiled __DATE__ · An unofficial companion to <a href="https://ai-safety-resources.com/" rel="noopener">AI Safety Resources</a> · Course content belongs to its providers; citation counts are approximate Google Scholar figures and drift daily.
+  </footer>
+</div>
+
+<script id="data" type="application/json">__PAYLOAD__</script>
+<script>
+(function () {
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("data").textContent);
+  var COURSES = DATA.courses;
+  var WORKS = DATA.works;
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
+  function fmt(n) {
+    if (n == null) return null;
+    if (n >= 1000) return "≈" + (n >= 10000 ? Math.round(n / 1000) + "k" : (n / 1000).toFixed(1).replace(/\.0$/, "") + "k");
+    return "≈" + n;
+  }
+  var KIND_LABEL = { paper: "paper", blog: "blog", video: "video", book: "book", "book-chapter": "chapter", other: "other" };
+
+  /* ── Stat tiles ── */
+  var shared = WORKS.filter(function (w) { return w.n >= 2; });
+  var tiles = [
+    { num: "9", lbl: "curricula examined, 6 with public reading lists" },
+    { num: String(WORKS.length), lbl: "distinct readings across those six syllabi" },
+    { num: String(shared.length), lbl: "readings shared by two or more courses", hot: true },
+    { num: "0", lbl: "readings on four or more syllabi — no universal paper" }
+  ];
+  document.getElementById("tiles").innerHTML = tiles.map(function (t) {
+    return '<div class="tile' + (t.hot ? " hot" : "") + '"><div class="num">' + t.num + '</div><div class="lbl">' + t.lbl + "</div></div>";
+  }).join("");
+
+  /* ── Leaderboard ── */
+  var lbPapersOnly = true;
+  function sortKey(a, b) {
+    if (b.n !== a.n) return b.n - a.n;
+    var ca = a.cite == null ? -1 : a.cite, cb = b.cite == null ? -1 : b.cite;
+    if (cb !== ca) return cb - ca;
+    return (a.t || "").localeCompare(b.t || "");
+  }
+  function courseShort(id) {
+    for (var i = 0; i < COURSES.length; i++) if (COURSES[i].id === id) return COURSES[i].short;
+    return id;
+  }
+  function renderBoard() {
+    var rows = shared.filter(function (w) { return lbPapersOnly ? w.k === "paper" : true; }).slice().sort(sortKey);
+    var html = rows.map(function (w) {
+      var chips = COURSES.filter(function (c) { return w.c[c.id]; }).map(function (c) {
+        var opt = w.c[c.id] === 1;
+        return '<span class="chip' + (opt ? " opt" : "") + '" title="' + esc(c.name) + (opt ? " (optional reading)" : " (core reading)") + '">' + esc(c.short) + "</span>";
+      }).join("");
+      var meta = [w.a, w.y].filter(Boolean).join(" · ");
+      var kind = w.k !== "paper" ? '<span class="kind">' + esc(KIND_LABEL[w.k] || w.k) + "</span>" : "";
+      var title = w.u ? '<a href="' + esc(w.u) + '" rel="noopener">' + esc(w.t) + "</a>" : esc(w.t);
+      var cites = w.cite != null
+        ? '<div class="cites">' + fmt(w.cite) + "<small>citations</small></div>"
+        : '<div class="cites"><small>—</small></div>';
+      return '<div class="brow"><div class="cnt">' + w.n + "×<small>COURSES</small></div>" +
+        '<div><div class="ttl">' + title + kind + "</div>" +
+        (meta ? '<div class="meta">' + esc(meta) + "</div>" : "") +
+        '<div class="chips">' + chips + "</div></div>" + cites + "</div>";
+    }).join("");
+    document.getElementById("board").innerHTML = html ||
+      '<p class="empty-note">Nothing here with the current filter.</p>';
+  }
+  function setSeg(onBtn, offBtn) {
+    onBtn.setAttribute("aria-pressed", "true");
+    offBtn.setAttribute("aria-pressed", "false");
+  }
+  var lbP = document.getElementById("lb-papers"), lbA = document.getElementById("lb-all");
+  lbP.addEventListener("click", function () { lbPapersOnly = true; setSeg(lbP, lbA); renderBoard(); });
+  lbA.addEventListener("click", function () { lbPapersOnly = false; setSeg(lbA, lbP); renderBoard(); });
+  renderBoard();
+
+  /* ── Matrix ── */
+  var mxSharedOnly = true, mxPapersOnly = true, mxQuery = "";
+  function renderMatrix() {
+    var q = mxQuery.trim().toLowerCase();
+    var rows = WORKS.filter(function (w) {
+      if (mxSharedOnly && w.n < 2) return false;
+      if (mxPapersOnly && w.k !== "paper") return false;
+      if (q && (w.t + " " + (w.a || "")).toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    }).sort(sortKey);
+    var head = "<thead><tr><th>Reading</th><th>№</th>" + COURSES.map(function (c) {
+      return '<th title="' + esc(c.name + " — " + c.provider) + '">' + esc(c.short) + "</th>";
+    }).join("") + "</tr></thead>";
+    var LIMIT = 800;
+    var shown = rows.slice(0, LIMIT);
+    var body = "<tbody>" + shown.map(function (w) {
+      var sub = [w.a, w.y, w.k !== "paper" ? (KIND_LABEL[w.k] || w.k) : null].filter(Boolean).join(" · ");
+      var name = w.u
+        ? '<a href="' + esc(w.u) + '" rel="noopener" title="' + esc(w.t) + '">' + esc(w.t) + "</a>"
+        : '<span class="t" title="' + esc(w.t) + '">' + esc(w.t) + "</span>";
+      var cells = COURSES.map(function (c) {
+        var v = w.c[c.id];
+        if (!v) return '<td class="mark"></td>';
+        var cls = v === 2 ? "core" : "optional";
+        var lbl = c.short + ": " + (v === 2 ? "core reading" : "optional reading");
+        return '<td class="mark" title="' + esc(lbl) + '"><span class="dot ' + cls + '"></span></td>';
+      }).join("");
+      return '<tr><td class="name"><div class="w">' + name +
+        (sub ? '<span class="sub">' + esc(sub) + "</span>" : "") +
+        '</div></td><td class="num">' + w.n + "</td>" + cells + "</tr>";
+    }).join("") + "</tbody>";
+    document.getElementById("mx-table").innerHTML = head + body;
+    var note = shown.length + " of " + rows.length + " matching readings shown";
+    if (rows.length <= LIMIT) note = rows.length + " readings shown";
+    document.getElementById("mx-count").textContent = note + " · sorted by number of syllabi, then citations.";
+  }
+  var mxS = document.getElementById("mx-shared"), mxE = document.getElementById("mx-every");
+  var mxP = document.getElementById("mx-paper"), mxK = document.getElementById("mx-anykind");
+  mxS.addEventListener("click", function () { mxSharedOnly = true; setSeg(mxS, mxE); renderMatrix(); });
+  mxE.addEventListener("click", function () { mxSharedOnly = false; setSeg(mxE, mxS); renderMatrix(); });
+  mxP.addEventListener("click", function () { mxPapersOnly = true; setSeg(mxP, mxK); renderMatrix(); });
+  mxK.addEventListener("click", function () { mxPapersOnly = false; setSeg(mxK, mxP); renderMatrix(); });
+  document.getElementById("mx-search").addEventListener("input", function (e) {
+    mxQuery = e.target.value || "";
+    renderMatrix();
+  });
+  renderMatrix();
+
+  /* ── Profiles ── */
+  var BLURBS = {
+    agisf: "The classic alignment curriculum (Richard Ngo's AGI Safety Fundamentals, now BlueDot's AI Alignment course). Mixes explainer blogs with the alignment paper canon: RLHF lineage, Constitutional AI, debate, weak-to-strong, mech interp landmarks.",
+    tais: "BlueDot's current flagship. Mostly fresh 2024–2026 material — system cards, evals, AI control — leaning on explainers and lab blogs, with papers as optional depth. Updated continuously; this snapshot is from August 2026.",
+    arena: "The hands-on engineering accelerator. By far the most paper-dense syllabus: exercises replicate the papers themselves, from transformer circuits and SAEs to RL, evals, and alignment science.",
+    mls: "CAIS's academic course. A classic ML-safety reading list — robustness, monitoring, trojans, OOD detection — dense with peer-reviewed papers, many predating the LLM era.",
+    aises: "CAIS's conceptual course. Assigns its own textbook (Hendrycks, 2024) chapter by chapter plus lectures — a self-contained canon rather than a reading list.",
+    lens: "A multi-course platform. Its flagship is a guided read of 'If Anyone Builds It, Everyone Dies'; its compute-verification course carries its own 9-paper technical canon shared with no one."
+  };
+  document.getElementById("profiles").innerHTML = COURSES.map(function (c) {
+    return '<div class="prof"><h3><a href="' + esc(c.url) + '" rel="noopener">' + esc(c.name) + "</a></h3>" +
+      '<div class="prov">' + esc(c.provider) + "</div>" +
+      "<p>" + esc(BLURBS[c.id] || "") + "</p>" +
+      '<div class="nums"><span><b>' + c.papers + "</b> papers</span><span><b>" + c.readings + "</b> readings</span></div></div>";
+  }).join("");
+  document.getElementById("no-syllabus").innerHTML =
+    "<strong>Three courses have no paper syllabus at all.</strong> BlueDot's The Future of AI, AI Safety Operations Bootcamp, and the Technical AI Safety Project Sprint are built from in-platform authored content, exercises, and self-directed projects rather than assigned readings — so they are counted among the nine curricula examined but sit outside the matrix.";
+
+  /* ── Methodology ── */
+  var METHOD = [
+    { s: "Where the reading lists come from",
+      b: "<ul>" +
+        "<li><strong>Intro to ML Safety</strong> — extracted from the course site's own source repository (github.com/centerforaisafety/course.mlsafety.org, readings.md), which renders the live Readings page.</li>" +
+        "<li><strong>ARENA</strong> — extracted from the canonical curriculum repo (ARENA_3.0), the exact markdown rendered by the course's chapter sites; includes the 2025–26 Alignment Science chapter.</li>" +
+        "<li><strong>AI Alignment (AGI-SF) and Technical AI Safety</strong> — bluedot.org blocks automated fetching, so these were reconstructed from the public search index, a verbatim scrape of the live course dated 2026-08-20, and two participants' course-note repositories, cross-checked against each other. Optional-reading lists may be incomplete.</li>" +
+        "<li><strong>AI Safety, Ethics &amp; Society</strong> — from the course pages via search snapshots plus the AISES textbook source repo. The dated week-by-week syllabus is email-gated; sessions follow the textbook's chapter order, which the lecture series confirms.</li>" +
+        "<li><strong>Lens Academy</strong> — from Lens Academy's public GitHub content repositories, which directly serve lensacademy.org.</li>" +
+        "</ul><p>All snapshots taken 2026-08-21. Courses update their curricula continuously — BlueDot especially.</p>" },
+    { s: "How papers are matched across courses",
+      b: "<p>Readings are unified by <strong>arXiv ID</strong> when any course links one, then by normalized title (subtitles after a colon or question mark are ignored), so the same work counts once whether a course links arXiv, a PDF mirror, or a lab blog announcement. Pieces on transformer-circuits.pub and distill.pub are counted as papers. \"Core\" vs \"optional\" reflects each course's own labeling (required/assigned vs further/suggested/bonus).</p>" },
+    { s: "How Lens Academy is scoped",
+      b: "<p>Lens Academy is a platform hosting many courses. Its column aggregates the five first-party AI-safety courses: AI Risk Fundamentals, Navigating Superintelligence, Forecasting/Modeling/Shaping AI Futures, AI-safety plans, and Verifying International AI Agreements. Excluded: the EA Introductory Program (EA Handbook, not AI safety), the Facilitator Training Program (pedagogy), partner-run curricula hosted on the platform (AI Safety Atlas, AFFINE), and the unpublished AI Futurism modules that exist in the repo but have no public course page.</p>" },
+    { s: "About the citation counts",
+      b: "<p>Citation figures are approximate Google Scholar counts collected via web search in August 2026, rounded, and shown only for the shared papers. Figures are shown only where a search-result snippet corroborated them; papers whose counts could not be verified show no figure rather than a guess. They are context, not a ranking metric — a 2015 vision paper and a 2025 alignment paper cannot be compared on raw citations.</p>" }
+  ];
+  document.getElementById("method").innerHTML = METHOD.map(function (m, i) {
+    return "<details" + (i === 0 ? " open" : "") + "><summary>" + m.s + "</summary>" + m.b + "</details>";
+  }).join("");
+})();
+</script>

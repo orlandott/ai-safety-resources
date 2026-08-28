@@ -1,0 +1,5380 @@
+{
+ "course": "Lens Academy",
+ "source_urls": [
+  "https://lensacademy.org/",
+  "https://lensacademy.org/courses",
+  "https://lensacademy.org/course",
+  "https://lensacademy.org/courses/compute-verification",
+  "https://github.com/Lens-Academy/lens-edu-production",
+  "https://github.com/Lens-Academy/lens-edu-staging",
+  "https://www.lesswrong.com/posts/Lg3tZCXC8NMGbFrzm/superintelligence-risk-education-that-scales-lens-academy",
+  "https://www.lesswrong.com/posts/uX5go9R5Zx5S6EmhP/if-everyone-reads-it-nobody-dies-course-launch",
+  "https://ai-2040.com/supplements/verification-plan/get-involved"
+ ],
+ "sessions": [
+  {
+   "n": 1,
+   "course": "AI Risk Fundamentals (a.k.a. Superintelligence 101)",
+   "course_status": "live",
+   "session_in_course": 1,
+   "title": "Introduction",
+   "readings": [
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Introduction: Hard Calls and Easy Calls",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 1: Humanity's Special Power",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 2: Grown, Not Crafted",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Why write a book about superhuman AI as an extinction threat?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/why-write-a-book-about-superhuman-ai-as-an-extinction-threat",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Are you suggesting that ChatGPT could kill us all?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/are-you-suggesting-that-chatgpt-could-kill-us-all",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aren't people always panicking and overreacting to things?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/arent-people-always-panicking-and-overreacting-to-things",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "When is this worrisome sort of AI going to be developed?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/when-is-this-worrisome-sort-of-ai-going-to-be-developed",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can we use past progress to extrapolate when we'll build smarter-than-human AI?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/can-we-use-past-progress-to-extrapolate-when-well-build-smarter-than-human-ai",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What are your incentives and conflicts of interest, as authors?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/what-are-your-incentives-and-conflicts-of-interest-as-authors",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't this AI stuff just science fiction?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/isnt-this-ai-stuff-just-science-fiction",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI Experts on Catastrophe Scenarios",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/ai-experts-on-catastrophe-scenarios",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "When Leo Szilard Saw the Future",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/intro/when-leo-szilard-saw-the-future",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Is intelligence a meaningful concept?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/is-intelligence-a-meaningful-concept",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Is 'human-level intelligence' a meaningful concept?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/is-human-level-intelligence-a-meaningful-concept",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Doesn't intelligence consist of multiple skills?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/doesnt-intelligence-consist-of-multiple-skills",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't intelligence overrated?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/isnt-intelligence-overrated",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Is 'general intelligence' a meaningful concept?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/is-general-intelligence-a-meaningful-concept",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Is 'intelligence' a simple scalar quantity?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/is-intelligence-a-simple-scalar-quantity",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Will AI cross critical thresholds and take off?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/will-ai-cross-critical-thresholds-and-take-off",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't ChatGPT already a general intelligence?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/isnt-chatgpt-already-a-general-intelligence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How smart could a superintelligence get?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/how-smart-could-a-superintelligence-get",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "But aren't there big obstacles to reaching superintelligence?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/but-arent-there-big-obstacles-to-reaching-superintelligence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't it impossible to predict the behavior of a superintelligence?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/isnt-it-impossible-to-predict-the-behavior-of-a-superintelligence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't machines be fundamentally uncreative, or otherwise fatally flawed?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/wont-machines-be-fundamentally-uncreative-or-otherwise-fatally-flawed",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't there something special about humans that mere machines could never emulate?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/isnt-there-something-special-about-humans-that-mere-machines-could-never-emulate",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Are you saying machines will become conscious?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/are-you-saying-machines-will-become-conscious",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "More on Intelligence as Prediction and Steering",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/more-on-intelligence-as-prediction-and-steering",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Shallowness of Current AIs",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/the-shallowness-of-current-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Appreciating the Power of Intelligence",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/appreciating-the-power-of-intelligence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Special Behavior is Built out of Mundane Parts",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/special-behavior-is-built-out-of-mundane-parts",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Same Work Can Be Done in Many Different Ways",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/1/the-same-work-can-be-done-in-many-different-ways",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why does gradient descent matter?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/why-does-gradient-descent-matter",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Do experts understand what's going on inside AIs?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/do-experts-understand-whats-going-on-inside-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Is intelligence understandable in principle?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/is-intelligence-understandable-in-principle",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "But some AIs partly think in English \u2014 doesn't that help?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/but-some-ais-partly-think-in-english-doesnt-that-help",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aren't AIs 'just math'?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/arent-ais-just-math",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aren't AIs just predicting the next token?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/arent-ais-just-predicting-the-next-token",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aren't AIs only able to parrot back what humans say?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/arent-ais-only-able-to-parrot-back-what-humans-say",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AIs inevitably be cold and logical, or otherwise missing some crucial spark?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/wont-ais-inevitably-be-cold-and-logical-or-otherwise-missing-some-crucial-spark",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't LLMs be like the humans in the data they're trained on?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/wont-llms-be-like-the-humans-in-the-data-theyre-trained-on",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How could an AI trained only on human data surpass humans?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/how-could-an-ai-trained-only-on-human-data-surpass-humans",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What makes you think people can build superhuman AI when they don't even understand intelligence?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/what-makes-you-think-people-can-build-superhuman-ai-when-they-dont-even-understand-intelligence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Don't hallucinations show that modern AIs are weak?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/dont-hallucinations-show-that-modern-ais-are-weak",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "But won't we run out of data before AI goes all the way? Or electrical power? Or funding?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/but-wont-we-run-out-of-data-before-ai-goes-all-the-way-or-electrical-power-or-funding",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Could LLMs advance all the way to superintelligence?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/could-llms-advance-all-the-way-to-superintelligence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What Good Does Knowledge of LLMs Do?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/what-good-does-knowledge-of-llms-do",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Obvious' Insights Take Time",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/obvious-insights-take-time",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A Full Description of an LLM",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/a-full-description-of-an-llm",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Intelligence Isn't Ineffable",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/2/intelligence-isnt-ineffable",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "course": "AI Risk Fundamentals (a.k.a. Superintelligence 101)",
+   "course_status": "live",
+   "session_in_course": 2,
+   "title": "Nonhuman Minds",
+   "readings": [
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 3: Learning to Want",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 4: You Don't Get What You Train For",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Will AIs have human-like emotions?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/will-ais-have-human-like-emotions",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How could a machine end up with its own priorities?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/how-could-a-machine-end-up-with-its-own-priorities",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aren't AIs just tools?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/arent-ais-just-tools",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can we just train AIs to be more passive and docile?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/can-we-just-train-ais-to-be-more-passive-and-docile",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Anthropomorphism and Mechanomorphism",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/anthropomorphism-and-mechanomorphism",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Road to Wanting",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/the-road-to-wanting",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Smart AIs Spot Lies and Opportunities",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/3/smart-ais-spot-lies-and-opportunities",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why would an AI steer toward anything other than what it was trained to steer toward?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/why-would-an-ai-steer-toward-anything-other-than-what-it-was-trained-to-steer-toward",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aren't developers regularly making their AIs nice and safe and obedient?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/arent-developers-regularly-making-their-ais-nice-and-safe-and-obedient",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Doesn't the Claude chatbot show signs of being aligned?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/doesnt-the-claude-chatbot-show-signs-of-being-aligned",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "If current AIs are mostly weird in extreme cases, what's the problem?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/if-current-ais-are-mostly-weird-in-extreme-cases-whats-the-problem",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AIs fix their own flaws as they get smarter?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/wont-ais-fix-their-own-flaws-as-they-get-smarter",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can't we just train it to act like a human? Or raise the AI like a child?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/cant-we-just-train-it-to-act-like-a-human-or-raise-the-ai-like-a-child",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Should we avoid talking about AI dangers, so AIs don't get any bad ideas?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/should-we-avoid-talking-about-ai-dangers-so-ais-dont-get-any-bad-ideas",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A lot of people want kids. So aren't humans 'aligned' with natural selection after all?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/a-lot-of-people-want-kids-so-arent-humans-aligned-with-natural-selection-after-all",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Maybe no matter what goal you train on, you get kindness out?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/maybe-no-matter-what-goal-you-train-on-you-get-kindness-out",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What about the experimental result suggesting good behaviors correlate?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/what-about-the-experimental-result-suggesting-good-behaviors-correlate",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Terminal Goals and Instrumental Goals",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/terminal-goals-and-instrumental-goals",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Curiosity Isn't Convergent",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/curiosity-isnt-convergent",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Human Values Are Contingent",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/human-values-are-contingent",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Deep Differences Between AIs and Evolved Species",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/deep-differences-between-ais-and-evolved-species",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Brittle Unpredictable Proxies",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/brittle-unpredictable-proxies",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Reflection and Self-Modification Make It All Harder",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/reflection-and-self-modification-make-it-all-harder",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI-Induced Psychosis",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/4/ai-induced-psychosis",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 5: Its Favorite Things",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Will AI find us useful to keep around?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/will-ai-find-us-useful-to-keep-around",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AI find us fascinating or historically important?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wont-ai-find-us-fascinating-or-historically-important",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Will AI treat us as its 'parents'?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/will-ai-treat-us-as-its-parents",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AIs need the rule of law?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wont-ais-need-the-rule-of-law",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "To a powerful AI, wouldn't preserving humans be a negligible expense?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/to-a-powerful-ai-wouldnt-preserving-humans-be-a-negligible-expense",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Wouldn't AI recognize our intrinsic moral worth?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wouldnt-ai-recognize-our-intrinsic-moral-worth",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AI want to keep us happy and healthy for ecological preservation or similar drive?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wont-ai-want-to-keep-us-happy-and-healthy-for-the-sake-of-ecological-preservation-or-some-similar-drive",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "But we still have horses. Why wouldn't AI keep us around?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/but-we-still-have-horses-why-wouldnt-ai-keep-us-around",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AIs care at least a little about humans?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wont-ais-care-at-least-a-little-about-humans",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "So there's at least a chance of AI keeping us alive?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/so-theres-at-least-a-chance-of-ai-keeping-us-alive",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "If AIs are trained on human data, doesn't that make them likelier to care about human concepts?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/if-ais-are-trained-on-human-data-doesnt-that-make-them-likelier-to-care-about-human-concepts",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can't we make the AI promise to be friendly?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/cant-we-make-the-ai-promise-to-be-friendly",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What if we make it think it's in a simulation?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/what-if-we-make-it-think-its-in-a-simulation",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Humans evolved to be selfish, aggressive, and greedy. Won't AI lack those evolved drives?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/humans-evolved-to-be-selfish-aggressive-and-greedy-wont-ai-lack-those-evolved-drives",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Wouldn't AI only care about the digital realm?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wouldnt-ai-only-care-about-the-digital-realm",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can the AI be satisfied to just leave us alone?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/can-the-ai-be-satisfied-to-the-point-where-it-just-leaves-us-alone",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can we just make it lazy?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/can-we-just-make-it-lazy",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Humans tend to get kinder as they get smarter. Wouldn't AIs too?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/humans-tend-to-get-kinder-as-they-get-smarter-or-wiser-wouldnt-ais-too",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't it realize that its goals are boring?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/wont-it-realize-that-its-goals-are-boring",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why are you imagining a smart AI doing such stupid, trivial things?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/why-are-you-imagining-a-smart-ai-doing-such-stupid-trivial-things",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Are you just pessimistic?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/are-you-just-pessimistic",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Would smarter-than-human AI be conscious?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/would-smarter-than-human-ai-be-conscious",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why don't you care about non-human entities?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/why-dont-you-care-about-the-values-of-any-entities-other-than-humans",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Taking the AI's Perspective",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/taking-the-ais-perspective",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Humans Are Almost Never the Most Efficient Solution",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/humans-are-almost-never-the-most-efficient-solution",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Orthogonality: AIs Can Have (Almost) Any Goal",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/orthogonality-ais-can-have-almost-any-goal",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "course": "AI Risk Fundamentals (a.k.a. Superintelligence 101)",
+   "course_status": "live",
+   "session_in_course": 3,
+   "title": "One Extinction Scenario",
+   "readings": [
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 6: We'd Lose",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Coda",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Can we just pull the plug?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/can-we-just-pull-the-plug",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How will AIs be able to affect us if they're digital?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/how-will-ais-be-able-to-affect-us-if-theyre-digital",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can developers just keep the AI in a box?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/can-developers-just-keep-the-ai-in-a-box",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't we be able to exploit the AI's critical weakness?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/wont-we-be-able-to-exploit-the-ais-critical-weakness",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can we enhance humans so they keep pace with AI?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/can-we-enhance-humans-so-they-keep-pace-with-ai",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Wouldn't AI need to grow into a whole civilization before it could be dangerous?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/wouldnt-ai-need-to-grow-into-a-whole-civilization-before-it-could-be-dangerous",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't AIs be limited by their ability to design and run experiments?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/wont-ais-be-limited-by-their-ability-to-design-and-run-experiments",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Nanotechnology and Protein Synthesis",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/nanotechnology-and-protein-synthesis",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A New Way to Discover Optical Illusions",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/6/a-new-way-to-discover-optical-illusions",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "\"Intelligent\" (Usually) Implies \"Incorrigible\"",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/intelligent-usually-implies-incorrigible",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "It's Hard to Get Robust Laziness",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/its-hard-to-get-robust-laziness",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AIs Won't Keep Their Promises",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/ais-wont-keep-their-promises",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Effectiveness, Consciousness, and AI Welfare",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/effectiveness-consciousness-and-ai-welfare",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Losing the Future",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/losing-the-future",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "POV: What You Would See During an AI Takeover",
+     "authors": "Species | Documenting AGI",
+     "url": "https://www.youtube.com/watch?v=D8RtMHuFsUw",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Why did you pick this setup?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-did-you-pick-this-setup",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why does Sable end up thinking the way it does?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-does-sable-end-up-thinking-the-way-it-does",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why is Galvanic depicted as being fairly careful?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-is-galvanic-depicted-as-being-fairly-careful",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why is Galvanic depicted as being insufficiently careful?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-is-galvanic-depicted-as-being-insufficiently-careful",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why did you tell a story with only one AI as smart as Sable?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-did-you-tell-a-story-with-only-one-ai-as-smart-as-sable",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "If the story started later, would the world be better prepared?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/if-the-story-started-later-would-the-world-be-better-prepared",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why did you have Sable's expansion phase go that way?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-did-you-have-sables-expansion-phase-go-that-way",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Instrumental Convergence",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/5/instrumental-convergence",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why did you write the ending in the way that you did?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/ii/why-did-you-write-the-ending-in-the-way-that-you-did",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "course": "AI Risk Fundamentals (a.k.a. Superintelligence 101)",
+   "course_status": "live",
+   "session_in_course": 4,
+   "title": "Facing the Challenge, part 1",
+   "readings": [
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 10: A Cursed Problem",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 11: An Alchemy, Not a Science",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Won't AI differ from all the historical precedents?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/10/wont-ai-differ-from-all-the-historical-precedents",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How long would it take to solve the ASI alignment problem?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/10/how-long-would-it-take-to-solve-the-asi-alignment-problem",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What if there are lots of different AIs?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/10/what-if-there-are-lots-of-different-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What if AI is developed only slowly, and it slowly integrates with society?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/10/what-if-ai-is-developed-only-slowly-and-it-slowly-integrates-with-society",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A Closer Look at Before and After",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/10/a-closer-look-at-before-and-after",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Tale of Chicago Pile-1",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/10/the-tale-of-chicago-pile-1",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't we just muddle through, like always?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/wont-we-just-muddle-through-like-always",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Do you see alignment as all-or-nothing?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/do-you-see-alignment-as-all-or-nothing",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't the situation get better once governments get more involved?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/wont-the-situation-get-better-once-governments-get-more-involved",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't the most reckless companies naturally be the most incompetent, and thus not a threat?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/wont-the-most-reckless-companies-naturally-be-the-most-incompetent-and-thus-not-a-threat",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't it important to race ahead because of 'hardware overhang'?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/isnt-it-important-to-race-ahead-because-of-hardware-overhang",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't it important to race ahead so we can do alignment research?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/isnt-it-important-to-race-ahead-so-we-can-do-alignment-research",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What if AI companies only deploy their AIs for non-dangerous actions?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/what-if-ai-companies-only-deploy-their-ais-for-non-dangerous-actions",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why not just read the AI's thoughts?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/why-not-just-read-the-ais-thoughts",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What if we made AIs debate, compete with, or oversee each other?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/what-if-we-made-ais-debate-compete-with-or-oversee-each-other",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What about various other AI alignment plans?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/what-about-various-other-ai-alignment-plans",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't there be early warnings researchers can use to identify problems?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/wont-there-be-early-warnings-researchers-can-use-to-identify-problems",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "More on Some of the Plans We Critiqued in the Book",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/more-on-some-of-the-plans-we-critiqued-in-the-book",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "We Know What It Looks Like When a Problem Is Being Treated with Respect, And This Isn't It",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/we-know-what-it-looks-like-when-a-problem-is-being-treated-with-respect-and-this-isnt-it",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Shutdown Buttons and Corrigibility",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/shutdown-buttons-and-corrigibility",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "course": "AI Risk Fundamentals (a.k.a. Superintelligence 101)",
+   "course_status": "live",
+   "session_in_course": 5,
+   "title": "Facing the Challenge, part 2",
+   "readings": [
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 12: I Don't Want to Be Alarmist",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 13: Shut It Down",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Chapter 14: Where There's Life, There's Hope",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "If Anyone Builds It, Everyone Dies \u2014 Closing Words",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": null,
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "But what about the benefits of smarter-than-human AI?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/but-what-about-the-benefits-of-smarter-than-human-ai",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't the danger from smarter-than-human AI a distraction from other issues?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/isnt-the-danger-from-smarter-than-human-ai-a-distraction-from-other-issues",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Are you anti-technology?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/are-you-anti-technology",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't it smarter to rush ahead and make sure good guys have the lead?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/isnt-it-smarter-to-rush-ahead-and-make-sure-good-guys-have-the-lead",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why not use international cooperation to build AI safely, rather than to shut it all down?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/why-not-use-international-cooperation-to-build-ai-safely-rather-than-to-shut-it-all-down",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Are you saying we need provably safe AI?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/are-you-saying-we-need-provably-safe-ai",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What does it do to your daily life to believe all of this?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/what-does-it-do-to-your-daily-life-to-believe-all-of-this",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Are you saying we should panic?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/are-you-saying-we-should-panic",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't this all just fear-mongering by AI leaders to increase status and raise investment?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/isnt-this-all-just-fear-mongering-by-ai-leaders-to-increase-status-and-raise-investment",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "But experts don't all agree about the risks!",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/but-experts-dont-all-agree-about-the-risks",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Lemoine Effect",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/the-lemoine-effect",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Workable Plans Will Involve Telling AI Companies \"No",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/workable-plans-will-involve-telling-ai-companies-no",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Making Sense of the Death Race",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/12/making-sense-of-the-death-race",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Won't there be early warnings researchers can use to identify problems?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/11/wont-there-be-early-warnings-researchers-can-use-to-identify-problems",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A Tentative Draft of a Treaty, with Annotations",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/a-tentative-draft-of-a-treaty-with-annotations",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can we adopt a wait-and-see approach?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/can-we-adopt-a-wait-and-see-approach",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Will there be warning shots?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/will-there-be-warning-shots",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How would stopping everyone be possible without installing spyware on every computer?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/how-would-stopping-everyone-be-possible-without-installing-spyware-on-every-computer",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "But you're advocating control of how many advanced AI computer chips individuals can own.",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/but-youre-advocating-control-of-how-many-advanced-ai-computer-chips-individuals-can-own",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why a research ban? That seems extreme.",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/why-a-research-ban-that-seems-extreme",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can a technology really be stopped?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/can-a-technology-really-be-stopped",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't this handing too much power to governments?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/isnt-this-handing-too-much-power-to-governments",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Wouldn't some nations reject a ban?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/wouldnt-some-nations-reject-a-ban",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can a monitoring regime last forever?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/can-a-monitoring-regime-last-forever",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why would making humans smarter help?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/why-would-making-humans-smarter-help",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Aligned to whom?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/aligned-to-whom",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Isn't it smarter to avoid talking about extinction?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/isnt-it-smarter-to-avoid-talking-about-extinction",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Will elected officials recognize this as a real threat?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/will-elected-officials-recognize-this-as-a-real-threat",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Is the situation hopeless?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/is-the-situation-hopeless",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What Would It Take to Shut Down Global AI Development?",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/what-would-it-take-to-shut-down-global-ai-development",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Keep the Coalition Large",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://ifanyonebuildsit.com/13/keep-the-coalition-large",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "course": "Navigating Superintelligence",
+   "course_status": "live (default course at lensacademy.org/course)",
+   "session_in_course": 1,
+   "title": "Introduction",
+   "readings": [
+    {
+     "title": "The AI book that's freaking out national security advisors",
+     "authors": "AI In Context",
+     "url": "https://www.youtube.com/watch?v=Nl7-bRFSZBs",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Risks from power-seeking AI systems",
+     "authors": "Cody Fenwick, Zershaaneh Qureshi",
+     "year": 2025,
+     "url": "https://80000hours.org/problem-profiles/risks-from-power-seeking-ai/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "10 Reasons to Ignore AI Safety",
+     "authors": "Robert Miles AI Safety",
+     "url": "https://www.youtube.com/watch?v=9i1WlcCudpU",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Four Background Claims - Machine Intelligence Research Institute",
+     "authors": "Nate Soares",
+     "year": 2015,
+     "url": "https://intelligence.org/2015/07/24/four-background-claims/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Worst-case thinking in AI alignment",
+     "authors": "Buck Shlegeris",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/yTvBSFrXhZfL8vr5a/worst-case-thinking-in-ai-alignment",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "course": "Navigating Superintelligence",
+   "course_status": "live (default course at lensacademy.org/course)",
+   "session_in_course": 2,
+   "title": "AI and Feedback Loops",
+   "readings": [
+    {
+     "title": "AI Is Grown, Not Built - The Atlantic",
+     "authors": "Eliezer Yudkowsky, Nate Soares",
+     "year": 2025,
+     "url": "https://archive.is/blU6r",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Security Mindset and Ordinary Paranoia",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2017,
+     "url": "https://www.lesswrong.com/posts/8gqrbnW758qjHFTrH/security-mindset-and-ordinary-paranoia",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How can LLMs be understood as \u201csimulators\u201d?",
+     "authors": "AISafety.info",
+     "year": 2025,
+     "url": "https://aisafety.info/questions/9FQK/How-can-LLMs-be-understood-as-%E2%80%9Csimulators%E2%80%9D",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Janus' Simulators",
+     "authors": "Scott Alexander",
+     "year": 2023,
+     "url": "https://www.astralcodexten.com/p/janus-simulators",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Simulators",
+     "authors": "janus",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/s/N7nDePaNabJdnbXeE/p/vJFdjigzmcXMhNTsx",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Cascades, Cycles, Insight...",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2008,
+     "url": "https://www.lesswrong.com/posts/dq3KsCsqNotWc8nAK/cascades-cycles-insight",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Speculations Concerning the First Ultraintelligent Machine",
+     "authors": "Irving John Good",
+     "year": 1964,
+     "url": "https://flyingpenguin.com/wp-content/uploads/2022/04/good-1964-.pdf",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What are the differences between a singularity, an intelligence explosion, and a hard takeoff?",
+     "authors": "AISafety.info",
+     "year": 2026,
+     "url": "https://aisafety.info/questions/8IHO/What-are-the-differences-between-a-singularity,-an-intelligence-explosion,-and-a-hard-takeoff",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "...Recursion, Magic",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2008,
+     "url": "https://www.lesswrong.com/posts/rJLviHqJMTy8WQkow/recursion-magic",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "1960: The Year The Singularity Was Cancelled",
+     "authors": "Scott Alexander",
+     "year": 2019,
+     "url": "https://www.slatestarcodexabridged.com/1960-The-Year-The-Singularity-Was-Cancelled",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "A new Moore's Law for AI agents",
+     "authors": "AI Digest",
+     "year": 2026,
+     "url": "https://theaidigest.org/time-horizons",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The \"most important century\" blog post series",
+     "authors": "Holden Karnofsky",
+     "year": 2021,
+     "url": "https://www.cold-takes.com/most-important-century/",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "course": "Navigating Superintelligence",
+   "course_status": "live (default course at lensacademy.org/course)",
+   "session_in_course": 3,
+   "title": "Cognitive Superpowers",
+   "readings": [
+    {
+     "title": "The Power of Intelligence",
+     "authors": "Rational Animations",
+     "url": "https://www.youtube.com/watch?v=q9Figerh89g",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Slow motion videos as AI risk intuition pumps",
+     "authors": "Andrew Critch",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/Ccsx339LE9Jhoii9K/slow-motion-videos-as-ai-risk-intuition-pumps",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Adam Magyar - Stainless, Alexanderplatz (excerpt)",
+     "authors": "Adam Magyar Photographer",
+     "url": "https://www.youtube.com/watch?v=N0F3OyuP9LA",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "How it feels to have your mind hacked by an AI",
+     "authors": "Blaked",
+     "year": 2023,
+     "url": "https://www.lesswrong.com/posts/9kQFure4hdDmRBNdH/how-it-feels-to-have-your-mind-hacked-by-an-ai",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Credible Threats in Negotiations: Commitment and Endogenous Threats",
+     "authors": "Harold Houba, Wilko Bolt",
+     "year": 2002,
+     "url": "https://link.springer.com/chapter/10.1007/0-306-47539-1_7",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Sources of advantage for digital agents over biological agents",
+     "authors": "AI Impacts",
+     "year": 2016,
+     "url": "https://aiimpacts.org/sources-of-advantage-for-artificial-intelligence/",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "course": "Navigating Superintelligence",
+   "course_status": "live (default course at lensacademy.org/course)",
+   "session_in_course": 4,
+   "title": "Fundamental Difficulties",
+   "readings": [
+    {
+     "title": "AI Alignment: Why It's Hard, and Where to Start",
+     "authors": "Machine Intelligence Research Institute",
+     "url": "https://www.youtube.com/watch?v=EUjc1WuyPT8",
+     "core": false,
+     "type": "video"
+    },
+    {
+     "title": "6 reasons why \u201calignment-is-hard\u201d discourse seems alien to human intuitions, and vice-versa",
+     "authors": "Steven Byrnes",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/d4HNRdw6z7Xqbnu5E/6-reasons-why-alignment-is-hard-discourse-seems-alien-to",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "When should we worry about AI power-seeking?",
+     "authors": "Joe Carlsmith",
+     "year": 2025,
+     "url": "https://joecarlsmith.substack.com/p/when-should-we-worry-about-ai-power",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A central AI alignment problem: capabilities generalization, and the sharp left turn",
+     "authors": "So8res",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/GNhMPAWcfBCASy8e6/a-central-ai-alignment-problem-capabilities-generalization",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Discovering when an agent is present in a system",
+     "authors": "Zachary Kenton, Ramana Kumar, Sebastian Farquhar, Jonathan Richens, Matt MacDermott, Tom Everitt",
+     "year": 2022,
+     "url": "https://deepmind.google/blog/discovering-when-an-agent-is-present-in-a-system/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Pythia",
+     "authors": "plex",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/qqEndN5Cuzbat9fyx/pythia",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Without fundamental advances, misalignment and catastrophe are the default outcomes of training powerful AI",
+     "authors": "Jeremy Gillen, peterbarnett",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/GfZfDHZHCuYwrHGCd/without-fundamental-advances-misalignment-and-catastrophe",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Meditations On Moloch",
+     "authors": "Scott Alexander",
+     "year": 2014,
+     "url": "https://www.slatestarcodexabridged.com/Meditations-On-Moloch",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 10,
+   "course": "Navigating Superintelligence",
+   "course_status": "live (default course at lensacademy.org/course)",
+   "session_in_course": 5,
+   "title": "Existing Approaches",
+   "readings": [
+    {
+     "title": "AI for AI safety",
+     "authors": "Joe Carlsmith",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/F3j4xqpxjxgQD3xXh/ai-for-ai-safety",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Carefully Bootstrapped Alignment is organizationally hard",
+     "authors": "Raemon",
+     "year": 2023,
+     "url": "https://www.lesswrong.com/posts/thkAtqoQwN6DtaiGT/carefully-bootstrapped-alignment-is-organizationally-hard",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Introduction to Mechanistic Interpretability",
+     "authors": "Sarah",
+     "year": 2024,
+     "url": "https://blog.bluedot.org/p/introduction-to-mechanistic-interpretability",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AGI Safety | Connor Leahy | FLI Interpretability Conference, MIT | March 2023",
+     "authors": "Conjecture",
+     "url": "https://www.youtube.com/watch?v=wKI9hmaIbpg",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Interpretability Will Not Reliably Find Deceptive AI",
+     "authors": "Neel Nanda",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A starter guide for evals",
+     "authors": "Marius Hobbhahn, J\u00e9r\u00e9my Scheurer, Mikita Balesni, rusheb, AlexMeinke",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/2PiawPFJeyCQGcwXG/a-starter-guide-for-evals",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "We Need A \u2018Science of Evals\u2019",
+     "authors": "Chris",
+     "year": 2024,
+     "url": "https://www.apolloresearch.ai/blog/we-need-a-science-of-evals/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What AI evaluations for preventing catastrophic risks can and cannot do",
+     "authors": "Peter Barnett, Lisa Thiergart",
+     "year": 2024,
+     "url": "https://arxiv.org/html/2412.08653v1",
+     "arxiv": "2412.08653",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "The case for ensuring that powerful AIs are controlled",
+     "authors": "Ryan Greenblatt, Buck Shlegeris",
+     "year": 2024,
+     "url": "https://www.alignmentforum.org/posts/kcKrE9mzEHrdqtDpE/the-case-for-ensuring-that-powerful-ais-are-controlled",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI Control May Increase Existential Risk",
+     "authors": "Jan Kulveit",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/rZcyemEpBHgb2hqLP/ai-control-may-increase-existential-risk",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Case Against AI Control Research",
+     "authors": "John Wentworth",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Agent foundations: not really math, not really science",
+     "authors": "Alex Altair",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/Dt4DuCCok3Xv5HEnG/agent-foundations-not-really-math-not-really-science",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Embedded Agency (full-text version)",
+     "authors": "Scott Garrabrant, abramdemski",
+     "year": 2018,
+     "url": "https://www.lesswrong.com/posts/i3BTagvt3HbPMx6PN/embedded-agency-full-text-version",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Realism about rationality",
+     "authors": "Richard Ngo",
+     "year": 2018,
+     "url": "https://www.alignmentforum.org/posts/suxvE2ddnYMPJN9HD/realism-about-rationality",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 11,
+   "course": "Navigating Superintelligence",
+   "course_status": "live (default course at lensacademy.org/course)",
+   "session_in_course": 6,
+   "title": "What do we do next? (Last module: What comes next)",
+   "readings": [
+    {
+     "title": "1960: The Year The Singularity Was Cancelled",
+     "authors": "Scott Alexander",
+     "year": 2019,
+     "url": "https://www.slatestarcodexabridged.com/1960-The-Year-The-Singularity-Was-Cancelled",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Deadly by Default",
+     "authors": "Duncan Sabien",
+     "year": 2024,
+     "url": "https://homosabiens.substack.com/p/deadly-by-default",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Machines of Loving Grace",
+     "authors": "Dario Amodei",
+     "year": 2024,
+     "url": "https://darioamodei.com/essay/machines-of-loving-grace",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Artificial Intelligence That Deleted A Century",
+     "authors": "Tom Scott",
+     "url": "https://www.youtube.com/watch?v=-JlxuQ7tPgQ",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "The World Keeps Getting Saved and You Don\u2019t Notice",
+     "authors": "Bogoed",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/qnvmZCjzspceWdgjC/the-world-keeps-getting-saved-and-you-don-t-notice",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Goddess of Everything Else",
+     "authors": "Rational Animations",
+     "url": "https://www.youtube.com/watch?v=Bbwp4PbWYzw",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 12,
+   "course": "Forecasting, Modeling, and Shaping AI Futures",
+   "course_status": "live",
+   "session_in_course": 1,
+   "title": "Unit 1",
+   "readings": [
+    {
+     "title": "Fun with +12 OOMs of Compute",
+     "authors": "Daniel Kokotajlo",
+     "year": 2021,
+     "url": "https://www.alignmentforum.org/posts/rzqACeBGycZtqCfaX/fun-with-12-ooms-of-compute",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Discontinuous progress in history: an update",
+     "authors": "Katja Grace at AI Impacts",
+     "year": 2020,
+     "url": "https://aiimpacts.org/discontinuous-progress-in-history-an-update/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Measuring AI Ability to Complete Long Software Tasks",
+     "authors": "METR",
+     "year": 2025,
+     "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "We're Not Ready for Superintelligence",
+     "authors": "AI In Context",
+     "year": 2025,
+     "url": "https://www.youtube.com/watch?v=5KVDDfAkRgc",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 13,
+   "course": "Forecasting, Modeling, and Shaping AI Futures",
+   "course_status": "live",
+   "session_in_course": 2,
+   "title": "Unit 2",
+   "readings": [
+    {
+     "title": "How We're Predicting AI - or Failing To",
+     "authors": "Stuart Armstrong, Kaj Sotala",
+     "year": 2015,
+     "url": "https://intelligence.org/files/PredictingAI.pdf",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Evidence on good forecasting practices from the Good Judgment Project",
+     "authors": "Daniel Kokotajlo",
+     "year": 2019,
+     "url": "https://aiimpacts.org/evidence-on-good-forecasting-practices-from-the-good-judgment-project/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Taboo \"Outside View\"",
+     "authors": "Daniel Kokotajlo",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/BcYfsi7vmhDvzQGiF/taboo-outside-view",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Fractional progress estimates for AI timelines and implied resource requirements",
+     "authors": "Mark Xu, Carl Shulman",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/h3ejmEeNniDNFXTgp/xu-shulman-fractional-progress-estimates",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI Futures Model: Dec 2025 Update",
+     "authors": "Daniel Kokotajlo",
+     "year": 2026,
+     "url": "https://blog.ai-futures.org/p/ai-futures-model-dec-2025-update",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI 2027",
+     "authors": "Ai-2027",
+     "year": 2026,
+     "url": "https://ai-2027.com/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "My thesis (Algorithmic Bayesian Epistemology) explained in more depth",
+     "authors": "Eric Neyman",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/j6EhfL2hRubaKL9ca/neyman-algorithmic-bayesian-epistemology-explained",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI 2040: Plan A",
+     "authors": "Thomas Larsen, Romeo Dean, Brendan Halstead, Eli Lifland, Ryan Greenblatt",
+     "year": 2026,
+     "url": "https://ai-2040.com/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Selective Optimism: a critique of AI 2040",
+     "authors": "Richard Ngo",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/BBd2EJywf2xXftyFn/selective-optimism-a-critique-of-ai-2040",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Parable of Predict-O-Matic",
+     "authors": "Abram Demski",
+     "year": 2019,
+     "url": "https://www.alignmentforum.org/posts/SwcyMEgLyd4C3Dern/the-parable-of-predict-o-matic",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Clarifying limitations of time horizon",
+     "authors": "METR",
+     "year": 2026,
+     "url": "https://metr.org/notes/2026-01-22-time-horizon-limitations/",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 14,
+   "course": "Forecasting, Modeling, and Shaping AI Futures",
+   "course_status": "live",
+   "session_in_course": 3,
+   "title": "Unit 3",
+   "readings": [
+    {
+     "title": "Three Types of Intelligence Explosion",
+     "authors": "Forethought",
+     "year": 2025,
+     "url": "https://www.forethought.org/research/three-types-of-intelligence-explosion",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What failure looks like",
+     "authors": "Paul Christiano",
+     "year": 2019,
+     "url": "https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development",
+     "authors": "Jan Kulveit, Raymond Douglas, Nora Ammann, Deger Turan, David Krueger, David Duvenaud",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2501.16946",
+     "arxiv": "2501.16946",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "A central AI alignment problem: capabilities generalization, and the sharp left turn",
+     "authors": "So8res",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/GNhMPAWcfBCASy8e6/a-central-ai-alignment-problem-capabilities-generalization",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Case Against AI Control Research",
+     "authors": "John Wentworth",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI Control May Increase Existential Risk",
+     "authors": "Jan Kulveit",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/rZcyemEpBHgb2hqLP/ai-control-may-increase-existential-risk",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 15,
+   "course": "Forecasting, Modeling, and Shaping AI Futures",
+   "course_status": "live",
+   "session_in_course": 4,
+   "title": "Unit 4",
+   "readings": [
+    {
+     "title": "Plans A, B, C, and D for misalignment risk",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/plans-a-b-c-and-d-for-misalignment",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "An International Agreement to Prevent the Premature Creation of Artificial Superintelligence",
+     "authors": "Aaron Scher, David Abecassis, Peter Barnett, Brian Abeyta",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2511.10783",
+     "arxiv": "2511.10783",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Ten people on the inside",
+     "authors": "Buck Shlegeris",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/ten-people-on-the-inside",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Should the US do a Manhattan Project for AGI?",
+     "authors": "Oscar Delaney, Bill Anderson-Samways, Peter Wildeford",
+     "year": 2025,
+     "url": "https://peterwildeford.substack.com/cp/179934553",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "No, the 2017 New Generation AI Development Plan did not include a goal of building AGI",
+     "authors": "Karson Elmgren",
+     "year": 2026,
+     "url": "https://substack.com/home/post/p-186039653",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Chinese AI models have lagged the US frontier by 7 months on average since 2023",
+     "authors": "Luke Emberson",
+     "year": 2026,
+     "url": "https://epoch.ai/data-insights/us-vs-china-eci",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How an AI company CEO could quietly take over the world",
+     "authors": "Alex Kastner",
+     "year": 2025,
+     "url": "https://blog.ai-futures.org/p/how-an-ai-company-ceo-could-quietly",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 16,
+   "course": "Forecasting, Modeling, and Shaping AI Futures",
+   "course_status": "live",
+   "session_in_course": 5,
+   "title": "Unit 5",
+   "readings": [
+    {
+     "title": "AI for AI safety",
+     "authors": "Joe Carlsmith",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/F3j4xqpxjxgQD3xXh/ai-for-ai-safety",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Introducing Better Futures",
+     "authors": "Forethought",
+     "year": 2026,
+     "url": "https://www.forethought.org/research/introducing-better-futures",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Concrete projects to prepare for superintelligence",
+     "authors": "Will MacAskill",
+     "year": 2026,
+     "url": "https://newsletter.forethought.org/p/concrete-projects-to-prepare-for",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 17,
+   "course": "AI-safety plans",
+   "course_status": "live",
+   "session_in_course": 1,
+   "title": "Brain-related AI safety approaches",
+   "readings": [
+    {
+     "title": "[Intro to brain-like-AGI safety] 1. What's the problem & Why work on it now?",
+     "authors": "Steven Byrnes",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/4basF9w9jaPZpoC8R/intro-to-brain-like-agi-safety-1-what-s-the-problem-and-why",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "6 reasons why \u201calignment-is-hard\u201d discourse seems alien to human intuitions, and vice-versa",
+     "authors": "Steven Byrnes",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/d4HNRdw6z7Xqbnu5E/6-reasons-why-alignment-is-hard-discourse-seems-alien-to",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Distillation of Neurotech and Alignment Workshop January 2023",
+     "authors": "lisathiergart, Sumner L Norman",
+     "year": 2023,
+     "url": "https://www.lesswrong.com/posts/KQSpRoQBz7f6FcXt3/distillation-of-neurotech-and-alignment-workshop-january-1",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Using Brain-Computer Interfaces to get more data for AI alignment",
+     "authors": "Robbo",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/iWv6Pu2fWPKqevzFE/using-brain-computer-interfaces-to-get-more-data-for-ai",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Neuralink and the Brain's Magical Future",
+     "authors": "Tim Urban",
+     "year": 2017,
+     "url": "https://waitbutwhy.com/2017/04/neuralink.html",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Cyborgism",
+     "authors": "Niki Dupuis, janus",
+     "year": 2023,
+     "url": "https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Whole brain emulation",
+     "authors": "Benjamin Hilton",
+     "year": 2026,
+     "url": "https://80000hours.org/problem-profiles/whole-brain-emulation/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "State of Brain Emulation Report 2025",
+     "authors": "Niccol\u00f2 Zanichelli, Maximilian Schons, Isaak Freeman, Philip Shiu, Anton Arkhipov",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2510.15745",
+     "arxiv": "2510.15745",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "How to Make Superbabies",
+     "authors": "GeneSmith, kman",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/DfrSZaf3JC8vJdbZL/how-to-make-superbabies",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Brain-Computer Interfaces and AI Alignment",
+     "authors": "niplav",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "A New X-Risk Factor: Brain-Computer Interfaces",
+     "authors": "Jack",
+     "year": 2020,
+     "url": "https://forum.effectivealtruism.org/posts/qfDeCGxBTFhJANAWm/a-new-x-risk-factor-brain-computer-interfaces-1",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 18,
+   "course": "AI-safety plans",
+   "course_status": "live",
+   "session_in_course": 2,
+   "title": "AI safety field building and advocacy",
+   "readings": [
+    {
+     "title": "The case for AI safety capacity-building work",
+     "authors": "abergal",
+     "year": 2026,
+     "url": "https://forum.effectivealtruism.org/posts/rAqKSSXankvys2Fzu/the-case-for-ai-safety-capacity-building-work",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI safety fieldbuilding",
+     "authors": "Aaron Gertler",
+     "year": 2026,
+     "url": "https://80000hours.org/career-reviews/ai-safety-fieldbuilding/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI Safety Talent Needs in 2026: Insights for Field-Building Organizations",
+     "authors": "jteichma",
+     "year": 2026,
+     "url": "https://forum.effectivealtruism.org/posts/jwwrC4n9H53doRjRH/ai-safety-talent-needs-in-2026-insights-for-field-building",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How Educational Courses Help Build Fields: Lessons from AI Safety Fundamentals",
+     "authors": "Jamie Bernardi",
+     "year": 2024,
+     "url": "https://jamiebernardi.com/2024/03/20/how-educational-courses-help-build-fields-lessons-from-ai-safety-fundamentals/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Case for AI Safety Advocacy to the Public",
+     "authors": "Holly Elmore \u23f8\ufe0f \ud83d\udd38",
+     "year": 2023,
+     "url": "https://forum.effectivealtruism.org/posts/Y4SaFM5LfsZzbnymu/the-case-for-ai-safety-advocacy-to-the-public",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "MIRI 2024 Communications Strategy",
+     "authors": "Greaterwrong",
+     "year": 2026,
+     "url": "https://www.greaterwrong.com/posts/tKk37BFkMzchtZThx/miri-2024-communications-strategy",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What mistakes has the AI safety movement made?",
+     "authors": "EuanMcLean",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/cGzQBRDrpNHoYtbKN/what-mistakes-has-the-ai-safety-movement-made",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Don\u2019t Build An AI Safety Movement",
+     "authors": "Anton Leicht",
+     "year": 2025,
+     "url": "https://writing.antonleicht.me/p/dont-build-an-ai-safety-movement",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI is on the March. Is the AI Safety Movement Ready? \u2014 Social Change Lab",
+     "authors": "Socialchangelab",
+     "year": 2026,
+     "url": "https://www.socialchangelab.org/ai-safety-movement",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 19,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 1,
+   "title": "The Effectiveness Mindset",
+   "readings": [
+    {
+     "title": "About this handbook",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/XKfnWebzJsdxecBDw/about-this-handbook",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Effectiveness Mindset",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/5nkeh7LWFYQ9YGdLS/the-effectiveness-mindset",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Introduction to Effective Altruism",
+     "authors": "EA Handbook",
+     "year": 2022,
+     "url": "https://www.effectivealtruism.org/articles/introduction-to-effective-altruism",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Four Ideas You Already Agree With",
+     "authors": "Sam Deere",
+     "year": 2022,
+     "url": "https://www.givingwhatwecan.org/blog/four-things-you-already-agree-with-effective-altruism",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The world is much better. The world is awful. The world can be much better.",
+     "authors": "Max Roser",
+     "year": 2022,
+     "url": "https://ourworldindata.org/much-better-awful-can-be-better",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "On Caring",
+     "authors": "Nate Soares",
+     "year": 2014,
+     "url": "https://mindingourway.com/on-caring/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Scope Insensitivity: Failing to Appreciate the Numbers of Those Who Need Our Help",
+     "authors": "Animal Ethics",
+     "year": 2016,
+     "url": "https://www.animal-ethics.org/scope-insensitivity-failing-to-appreciate-the-numbers-of-those-who-need-our-help/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Why you think you're right \u2014 even if you're wrong",
+     "authors": "TED",
+     "url": "https://www.youtube.com/watch?v=w4RLfVxTGH4",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "What Cognitive Biases Feel Like From the Inside",
+     "authors": "chaosmage",
+     "year": 2013,
+     "url": "https://www.lesswrong.com/posts/ERWeEA8op6s6tYCKy/what-cognitive-biases-feel-like-from-the-inside",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Purchase Fuzzies and Utilons Separately",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2010,
+     "url": "https://www.lesswrong.com/posts/3p3CYauiX8oLjmwRF/purchase-fuzzies-and-utilons-separately",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "We Are in Triage Every Second of Every Day",
+     "authors": "Holly Elmore",
+     "year": 2016,
+     "url": "https://forum.effectivealtruism.org/s/B79ro5zkhndbBKRRX/p/vQpk3cxdAe5RX9xzo",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "500 Million, But Not a Single One More",
+     "authors": "jai",
+     "year": 2020,
+     "url": "https://laneless.substack.com/p/500-million-but-not-a-single-one-more",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 20,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 2,
+   "title": "Differences in Impact",
+   "readings": [
+    {
+     "title": "Differences in Impact",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/eNwfbeZmzaHnmAaAj/differences-in-impact",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How can you figure out which global problem is most pressing?",
+     "authors": "Robert Wiblin",
+     "year": 2016,
+     "url": "https://80000hours.org/articles/problem-framework/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Comparing Charities: How Big is the Difference?",
+     "authors": "Giving What We Can",
+     "year": 2022,
+     "url": "https://www.givingwhatwecan.org/en/charity-comparisons",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Marginal Impact: Making the Most of Additional Effort",
+     "authors": "Probably Good",
+     "year": 2023,
+     "url": "https://probablygood.org/core-concepts/marginal-impact/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Fermi Estimate",
+     "authors": "EA Handbook",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/topics/fermi-estimate",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Number of Seabirds and Sea Mammals Killed by Marine Plastic Pollution is Quite Small Relative to the Catch of Fish",
+     "authors": "Vasco Grilo",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/tFfWpsEcCCKAXr8Zg/the-number-of-seabirds-and-sea-mammals-killed-by-marine",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Global Economic Inequality",
+     "authors": "Max Roser",
+     "year": 2022,
+     "url": "https://ourworldindata.org/global-economic-inequality-introduction",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "GiveWell's Giving 101 Guide",
+     "authors": "GiveWell",
+     "year": 2020,
+     "url": "https://www.givewell.org/giving101",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Global Health",
+     "authors": "Esteban Ortiz-Ospina, Max Roser",
+     "year": 2016,
+     "url": "https://ourworldindata.org/health-meta",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Introducing LEEP: Lead Exposure Elimination Project",
+     "authors": "Jack Rafferty, Lucia Coulter",
+     "year": 2020,
+     "url": "https://forum.effectivealtruism.org/posts/fd96FtLFACeAshqJP/introducing-leep-lead-exposure-elimination-project",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 21,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 3,
+   "title": "Radical Empathy",
+   "readings": [
+    {
+     "title": "Radical empathy (intro)",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/7pDe4y3KtwwyF6kTS/radical-empathy-1",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Radical Empathy",
+     "authors": "Holden Karnofsky",
+     "year": 2017,
+     "url": "https://coefficientgiving.org/research/radical-empathy",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Moral progress and \"Cause X\"",
+     "authors": "Toby Ord, Will MacAskill",
+     "year": 2016,
+     "url": "https://forum.effectivealtruism.org/posts/9K8Yiv9Fdm7XNsmCm/moral-progress-and-cause-x",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Possibility of an Ongoing Moral Catastrophe (Summary)",
+     "authors": "Linch",
+     "year": 2019,
+     "url": "https://forum.effectivealtruism.org/posts/Dtr8aHqCQSDhyueFZ/the-possibility-of-an-ongoing-moral-catastrophe-summary",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "On \"fringe\" ideas",
+     "authors": "Kelsey Piper",
+     "year": 2019,
+     "url": "https://theunitofcaring.tumblr.com/post/185847413171/what-do-you-think-about-the-more-fringe-parts-of",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Factory farming",
+     "authors": "Benjamin Hilton",
+     "year": 2024,
+     "url": "https://80000hours.org/problem-profiles/factory-farming/",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 22,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 4,
+   "title": "Our Final Century?",
+   "readings": [
+    {
+     "title": "Our final century? (intro)",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/rwz7E7FWB59ngunrL/our-final-century",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Case for Reducing Existential Risk",
+     "authors": "Benjamin Todd",
+     "year": 2017,
+     "url": "https://80000hours.org/articles/existential-risks/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Preventing Catastrophic Pandemics",
+     "authors": "80,000 Hours",
+     "year": 2020,
+     "url": "https://80000hours.org/problem-profiles/preventing-catastrophic-pandemics/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Concrete Biosecurity Projects (some of which could be big)",
+     "authors": "Andrew Snyder-Beattie, Ethan Alley",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/u5JesqQ3jdLENXBtB/concrete-biosecurity-projects-some-of-which-could-be-big-1",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Expected Value: How to Make Decisions Under Uncertainty",
+     "authors": "Non-Trivial",
+     "year": 2022,
+     "url": "https://non-trivial.org/lessons/making-decisions-under-uncertainty",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Donating like a startup investor: Hits-based giving, explained",
+     "authors": "Giving What We Can",
+     "year": 2023,
+     "url": "https://www.givingwhatwecan.org/blog/donating-like-a-startup-investor-hits-based-giving-explained",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Crucial Consideration",
+     "authors": "Nick Bostrom",
+     "year": 2014,
+     "url": "https://forum.effectivealtruism.org/topics/crucial-consideration",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 23,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 5,
+   "title": "What Could the Future Hold?",
+   "readings": [
+    {
+     "title": "What Could the Future Hold? And Why Care?",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/a8myKSh4KWDmuj6BA/what-could-the-future-hold-and-why-care",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What We Owe the Future, Chapter 1",
+     "authors": "William MacAskill",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/rdigzNQqDgiou5AmZ/what-we-owe-the-future-chapter-1",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Why I Find Longtermism Hard, and What Keeps Me Motivated",
+     "authors": "Michelle Hutchinson",
+     "year": 2021,
+     "url": "https://80000hours.org/2021/02/why-i-find-longtermism-hard/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Why I Am Probably Not a Longtermist",
+     "authors": "Denise Melchin",
+     "year": 2021,
+     "url": "https://forum.effectivealtruism.org/posts/Jxfq6xCP9ZoTBFewA/why-i-am-probably-not-a-longtermist",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "This Can't Go On",
+     "authors": "Holden Karnofsky",
+     "year": 2021,
+     "url": "https://www.cold-takes.com/this-cant-go-on/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Superforecasting in a Nutshell",
+     "authors": "Luke Muehlhauser",
+     "year": 2021,
+     "url": "http://lukemuehlhauser.com/superforecasting-in-a-nutshell/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Top open Metaculus forecasts",
+     "authors": "EA Handbook",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/qyBkTkHcdi6xxEcgk/top-open-metaculus-forecasts",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Longtermism and Animal Advocacy",
+     "authors": "Tobias Baumann",
+     "year": 2020,
+     "url": "https://centerforreducingsuffering.org/longtermism-and-animal-advocacy/",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 24,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 6,
+   "title": "Risks from Artificial Intelligence",
+   "readings": [
+    {
+     "title": "Risks from Artificial Intelligence (AI)",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/XLmFXLpCMEnwXQqnz/risks-from-artificial-intelligence-ai",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How AI could create the world\u2019s biggest problems",
+     "authors": "Zershaaneh Qureshi",
+     "year": 2026,
+     "url": "https://80000hours.org/problem-profiles/artificial-intelligence/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Longtermist AI Governance Landscape: A Basic Overview",
+     "authors": "Sam Clarke",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/ydpo7LcJWhrr2GJrx/the-longtermist-ai-governance-landscape-a-basic-overview",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Why S-Risks Are the Worst Existential Risks, and How to Prevent Them",
+     "authors": "Max Daniel",
+     "year": 2017,
+     "url": "https://longtermrisk.org/s-risks-talk-eag-boston-2017/",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 25,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 7,
+   "title": "What Do You Think?",
+   "readings": [
+    {
+     "title": "What Do You Think?",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/zGavnmS5hCC4mDHS8/what-do-you-think",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Bayes' Rule: Guide",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2022,
+     "url": "https://arbital.com/p/bayes_rule/?l=1zq",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Making Beliefs Pay Rent",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2015,
+     "url": "https://www.lesswrong.com/s/6xgy8XYEisLk3tCjH/p/a7n8GdKiAZRX86T5A",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What Is Evidence?",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2007,
+     "url": "https://www.lesswrong.com/s/6xgy8XYEisLk3tCjH/p/6s3xABaXKPdFwA3FS",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Independent Impressions",
+     "authors": "Michael Aird",
+     "year": 2021,
+     "url": "https://forum.effectivealtruism.org/posts/2WS3i7eY4CdLH99eg/independent-impressions",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Reflecting on the Last Year \u2014 Lessons for EA",
+     "authors": "Effective Altruism",
+     "url": "https://www.youtube.com/watch?v=3a6xb6vj6AA",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "EA Is About Maximization, and Maximization Is Perilous",
+     "authors": "Holden Karnofsky",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/T975ydo3mx8onH3iS/ea-is-about-maximization-and-maximization-is-perilous",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "A Big List of Cause Candidates",
+     "authors": "Nuno Sempere",
+     "year": 2020,
+     "url": "https://forum.effectivealtruism.org/posts/SCqRu6shoa8ySvRAa/",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 26,
+   "course": "EA Introductory Program",
+   "course_status": "live (tagged work-in-progress)",
+   "session_in_course": 8,
+   "title": "Putting It Into Practice",
+   "readings": [
+    {
+     "title": "Putting it into practice",
+     "authors": "Max Dalton",
+     "year": 2022,
+     "url": "https://forum.effectivealtruism.org/posts/FtXHtyJAm8zjiunEW/putting-it-into-practice",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Call to Vigilance",
+     "authors": "Holden Karnofsky",
+     "year": 2021,
+     "url": "https://www.cold-takes.com/call-to-vigilance/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Effective altruism as the most exciting cause in the world",
+     "authors": "Kaj Sotala",
+     "year": 2014,
+     "url": "https://forum.effectivealtruism.org/posts/LwmEr3B9dpBrFq3du/effective-altruism-as-the-most-exciting-cause-in-the-world",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Summary of 80,000 Hours' key ideas",
+     "authors": "80,000 Hours",
+     "year": 2022,
+     "url": "https://80000hours.org/key-ideas/summary/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "My current impressions on career choice for longtermists",
+     "authors": "Holden Karnofsky",
+     "year": 2021,
+     "url": "https://forum.effectivealtruism.org/posts/bud2ssJLQ33pSemKH/my-current-impressions-on-career-choice-for-longtermists",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "You have more than one goal, and that's fine",
+     "authors": "Julia Wise",
+     "year": 2019,
+     "url": "https://web.archive.org/web/20200220221815/http://www.givinggladly.com/2019/02/you-have-more-than-one-goal-and-thats.html",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 27,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 1,
+   "title": "Capabilities",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Current Capabilities",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/current-capabilities/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Foundation Models",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/foundation-models/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Defining and Measuring AGI",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/defining-and-measuring-agi/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Leveraging Scale",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/leveraging-scale/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Forecasting Timelines",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/forecasting-timelines/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Takeoff",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/takeoff/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Forecasting",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/appendix-forecasting/",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Takeoff",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/appendix-takeoff/",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Expert Surveys",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/appendix-expert-surveys/",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Discussion on LLMs",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/capabilities/appendix-discussion-on-llms/",
+     "core": false,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 28,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 2,
+   "title": "Risks",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Risk Decomposition",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/risk-decomposition/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Dangerous Capabilities",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/dangerous-capabilities/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Misuse Risks",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/misuse-risks/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Misalignment Risks",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/misalignment-risks/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Systemic Risks",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/systemic-risks/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Risk Amplifiers",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/risk-amplifiers/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Conclusion",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/conclusion/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Quantifying Existential Risks",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/appendix-quantifying-existential-risks/",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Forecasting Scenarios",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/risks/appendix-forecasting-scenarios/",
+     "core": false,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 29,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 3,
+   "title": "Strategies",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Definitions",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/definitions/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Misuse Prevention Strategies",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/misuse-prevention-strategies/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "AGI Safety Strategies",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/agi-safety-strategies/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "ASI Safety Strategies",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/asi-safety-strategies/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Socio-Technical Strategies",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/socio-technical-strategies/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Combining Strategies",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/combining-strategies/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Challenges",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/challenges/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Conclusion",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/conclusion/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Long-term questions",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/strategies/appendix-long-term-questions/",
+     "core": false,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 30,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 4,
+   "title": "Governance",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Governance Problems",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/governance-problems/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Compute Governance",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/compute-governance/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Systemic Challenges",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/systemic-challenges/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Governance Architectures",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/governance-architectures/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Implementation",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/implementation/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Conclusion",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/conclusion/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: Data Governance",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/appendix-data-governance/",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "Appendix: National Governance",
+     "authors": "Charles Martinet, Markov Grey, Su Cizem, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/governance/appendix-national-governance/",
+     "core": false,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 31,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 5,
+   "title": "Evaluations",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Benchmarks",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/benchmarks/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Evaluated Properties",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/evaluated-properties/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Evaluation Techniques",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/evaluation-techniques/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Evaluation Frameworks",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/evaluation-frameworks/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Dangerous Capability Evaluations",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/dangerous-capability-evaluations/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Dangerous Propensity Evaluations",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/dangerous-propensity-evaluations/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Control Evaluations",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/control-evaluations/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Evaluation Design",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/evaluation-design/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Limitations",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/limitations/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Conclusion",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/evaluations/conclusion/",
+     "core": true,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 32,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 6,
+   "title": "Specification Gaming",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/specification-gaming/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Reinforcement Learning",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/specification-gaming/reinforcement-learning/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Optimization",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/specification-gaming/optimization/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Specification Gaming",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/specification-gaming/specification-gaming/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Learning from imitation",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/specification-gaming/learning-from-imitation/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Learning from feedback",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/specification-gaming/learning-from-feedback/",
+     "core": true,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 33,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 7,
+   "title": "Goal Misgeneralization",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Multi Objective Generalization",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/multi-objective-generalization/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Learning Dynamics",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/learning-dynamics/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Goal-Directedness",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/goal-directedness/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Scheming",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/scheming/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Detection",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/detection/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Mitigations",
+     "authors": "Markov Grey",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/goal-misgeneralization/mitigations/",
+     "core": true,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 34,
+   "course": "AI Safety Atlas (partner course)",
+   "course_status": "live",
+   "session_in_course": 8,
+   "title": "Scalable Oversight",
+   "readings": [
+    {
+     "title": "Introduction",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/introduction/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Oversight",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/oversight/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Task Decomposition",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/task-decomposition/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Process Oversight",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/process-oversight/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Iterated Amplification",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/iterated-amplification/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Debate",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/debate/",
+     "core": true,
+     "type": "book"
+    },
+    {
+     "title": "Weak-to-Strong (W2S)",
+     "authors": "Markov Grey, Charbel-Rapha\u00ebl Segerie",
+     "year": 2026,
+     "url": "https://ai-safety-atlas.com/chapters/v1/scalable-oversight/weak-to-strong-w2s/",
+     "core": true,
+     "type": "book"
+    }
+   ]
+  },
+  {
+   "n": 35,
+   "course": "AFFINE - Superintelligence Alignment 101 (partner course)",
+   "course_status": "live",
+   "session_in_course": 1,
+   "title": "Introduction to Navigating Superintelligence",
+   "readings": [
+    {
+     "title": "The AI book that's freaking out national security advisors",
+     "authors": "AI In Context",
+     "url": "https://www.youtube.com/watch?v=Nl7-bRFSZBs",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Risks from power-seeking AI systems",
+     "authors": "Cody Fenwick, Zershaaneh Qureshi",
+     "year": 2025,
+     "url": "https://80000hours.org/problem-profiles/risks-from-power-seeking-ai/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "10 Reasons to Ignore AI Safety",
+     "authors": "Robert Miles AI Safety",
+     "url": "https://www.youtube.com/watch?v=9i1WlcCudpU",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Four Background Claims - Machine Intelligence Research Institute",
+     "authors": "Nate Soares",
+     "year": 2015,
+     "url": "https://intelligence.org/2015/07/24/four-background-claims/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Worst-case thinking in AI alignment",
+     "authors": "Buck Shlegeris",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/yTvBSFrXhZfL8vr5a/worst-case-thinking-in-ai-alignment",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 36,
+   "course": "AFFINE - Superintelligence Alignment 101 (partner course)",
+   "course_status": "live",
+   "session_in_course": 2,
+   "title": "AI, Optimization, Superintelligence",
+   "readings": [
+    {
+     "title": "Efficient Cross-Domain Optimization",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2008,
+     "url": "https://www.lesswrong.com/posts/yLeEPFnnB9wE7KLx2/efficient-cross-domain-optimization",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Cascades, Cycles, Insight...",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2008,
+     "url": "https://www.lesswrong.com/posts/dq3KsCsqNotWc8nAK/cascades-cycles-insight",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Speculations Concerning the First Ultraintelligent Machine",
+     "authors": "Irving John Good",
+     "year": 1964,
+     "url": "https://flyingpenguin.com/wp-content/uploads/2022/04/good-1964-.pdf",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What are the differences between a singularity, an intelligence explosion, and a hard takeoff?",
+     "authors": "AISafety.info",
+     "year": 2026,
+     "url": "https://aisafety.info/questions/8IHO/What-are-the-differences-between-a-singularity,-an-intelligence-explosion,-and-a-hard-takeoff",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "...Recursion, Magic",
+     "authors": "Eliezer Yudkowsky",
+     "year": 2008,
+     "url": "https://www.lesswrong.com/posts/rJLviHqJMTy8WQkow/recursion-magic",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 37,
+   "course": "AFFINE - Superintelligence Alignment 101 (partner course)",
+   "course_status": "live",
+   "session_in_course": 3,
+   "title": "Cognitive Superpowers",
+   "readings": [
+    {
+     "title": "The Power of Intelligence",
+     "authors": "Rational Animations",
+     "url": "https://www.youtube.com/watch?v=q9Figerh89g",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 38,
+   "course": "AFFINE - Superintelligence Alignment 101 (partner course)",
+   "course_status": "live",
+   "session_in_course": 4,
+   "title": "Fundamental Difficulties",
+   "readings": [
+    {
+     "title": "AI Alignment: Why It's Hard, and Where to Start",
+     "authors": "Machine Intelligence Research Institute",
+     "url": "https://www.youtube.com/watch?v=EUjc1WuyPT8",
+     "core": false,
+     "type": "video"
+    },
+    {
+     "title": "6 reasons why \u201calignment-is-hard\u201d discourse seems alien to human intuitions, and vice-versa",
+     "authors": "Steven Byrnes",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/d4HNRdw6z7Xqbnu5E/6-reasons-why-alignment-is-hard-discourse-seems-alien-to",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Without fundamental advances, misalignment and catastrophe are the default outcomes of training powerful AI",
+     "authors": "Jeremy Gillen, peterbarnett",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/GfZfDHZHCuYwrHGCd/without-fundamental-advances-misalignment-and-catastrophe",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 39,
+   "course": "AFFINE - Superintelligence Alignment 101 (partner course)",
+   "course_status": "live",
+   "session_in_course": 5,
+   "title": "Existing Approaches: Agent Foundations",
+   "readings": [
+    {
+     "title": "Agent foundations: not really math, not really science",
+     "authors": "Alex Altair",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/Dt4DuCCok3Xv5HEnG/agent-foundations-not-really-math-not-really-science",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Embedded Agency (full-text version)",
+     "authors": "Scott Garrabrant, abramdemski",
+     "year": 2018,
+     "url": "https://www.lesswrong.com/posts/i3BTagvt3HbPMx6PN/embedded-agency-full-text-version",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Realism about rationality",
+     "authors": "Richard Ngo",
+     "year": 2018,
+     "url": "https://www.alignmentforum.org/posts/suxvE2ddnYMPJN9HD/realism-about-rationality",
+     "core": true,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 40,
+   "course": "Facilitator Training Program",
+   "course_status": "live",
+   "session_in_course": 1,
+   "title": "Foundations \u2014 What Is a Facilitator?",
+   "readings": [
+    {
+     "title": "Bill Wilder \u2014 Instructor vs Facilitator (5 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Curiosity Society \u2014 A Facilitator's Handbook, pp. 4-13 (12 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Instructor vs Facilitator \u2014 Bill Wilder (5 min)",
+     "url": "https://www.youtube.com/watch?v=J3IUyZiXAQo",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Methods of Leadership",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=NLuWmScjyeM",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 41,
+   "course": "Facilitator Training Program",
+   "course_status": "live",
+   "session_in_course": 2,
+   "title": "How People Learn \u2014 Why Discussions Work",
+   "readings": [
+    {
+     "title": "Kosslyn \u2014 The Science of Learning (20 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Univ. of Tasmania \u2014 The Flipped Classroom Approach (5 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Durrington Research School \u2014 How Effective Is Think-Pair-Share (3 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Blended learning & flipped classroom",
+     "authors": "Osmosis from Elsevier",
+     "url": "https://www.youtube.com/watch?v=paQCE58334M",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 42,
+   "course": "Facilitator Training Program",
+   "course_status": "live",
+   "session_in_course": 3,
+   "title": "Preparing to Facilitate a Session",
+   "readings": [
+    {
+     "title": "Sara Ness \u2014 Establishing Norms and Agreements (12 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Sara Ness \u2014 Opening the Event (6 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Sara Ness \u2014 Virtual Introductions (5 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Sara Ness \u2014 Facilitating Online (11 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Establishing Norms and Agreements",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=MmdXHPqaJ7M",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Opening the Event",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=AJIwv5dLCTM",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Virtual Introductions",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=wMd7DJX-HDM",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "New Norms of Online Facilitation",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=BwsjOF4UECY",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 43,
+   "course": "Facilitator Training Program",
+   "course_status": "live",
+   "session_in_course": 4,
+   "title": "Running the Session \u2014 In-the-Moment Craft",
+   "readings": [
+    {
+     "title": "Sara Ness \u2014 Leadership Perspectives (9 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Sara Ness \u2014 Reading the Room (7 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Jonathan Sandling \u2014 Questioning Techniques for Teachers (10 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Jason Digges \u2014 Taking Shares (7 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Jason Digges \u2014 Keeping Participants Engaged (5 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Leadership Perspectives",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=aRYlpVkp02c",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Reading the Room",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=XORppu4rOCk",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "My TOP 5 Questioning Techniques for Teachers [Generate More Discussion & Debate in Your Lessons]",
+     "authors": "Jonathan Sandling",
+     "url": "https://www.youtube.com/watch?v=CaE_4NlNM74",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Taking Shares",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=IA0nCzAK2ZY",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Keeping Participants Engaged",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=u4UD8a0PYQQ",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Following Aliveness",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=AjYGfO5Ly0E",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Naming the Elephant",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=-xuV62G8gq4",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Skills of a Time Lord",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=25aQ4_g02W0",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "The Steps Of Facilitation",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=crXBGmcki8w",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 44,
+   "course": "Facilitator Training Program",
+   "course_status": "live",
+   "session_in_course": 5,
+   "title": "Hard Moments, Coaching, and Closing",
+   "readings": [
+    {
+     "title": "Sara Ness \u2014 The Pufferfish and the Hermit Crab (6 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Linn Vizard \u2014 Challenging Behaviours in Your Facilitation Flow (10 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Hannah Pixel \u2014 12 Top Takeaways from The Coaching Habit (4 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "NYU Coaching \u2014 The GROW framework (5 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Sara Ness \u2014 The Elegant Finale (10 min)",
+     "url": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "The Pufferfish and The Hermit Crab Posture and Collapse",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=KkVxUyv4UAo",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "The Elegant Finale",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=ZCl8FNYhEIA",
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Naming the Elephant",
+     "authors": "Lens Academy",
+     "url": "https://www.youtube.com/watch?v=-xuV62G8gq4",
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 45,
+   "course": "AI Futurism (4-week course; modules in production repo, no public course page found)",
+   "course_status": "unlisted",
+   "session_in_course": 1,
+   "title": "Week 1: Timelines and Takeoff (Timelines & Takeoff Modeling)",
+   "readings": [
+    {
+     "title": "Three Types of Intelligence Explosion",
+     "authors": "Forethought",
+     "year": 2025,
+     "url": "https://www.forethought.org/research/three-types-of-intelligence-explosion",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "A breakdown of AI capability levels focused on AI R&D labor acceleration",
+     "authors": "Ryan Greenblatt",
+     "year": 2024,
+     "url": "https://www.alignmentforum.org/posts/LjgcRbptarrRfJWtR/a-breakdown-of-ai-capability-levels-focused-on-ai-r-and-d",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Will AI R&D Automation Cause a Software Intelligence Explosion?",
+     "authors": "Forethought",
+     "year": 2025,
+     "url": "https://www.forethought.org/research/will-ai-r-and-d-automation-cause-a-software-intelligence-explosion",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Full automation of AI R&D probably yields a large speed up even without a software-only singularity",
+     "authors": "Ryan Greenblatt",
+     "year": 2026,
+     "url": "https://blog.redwoodresearch.org/p/full-automation-of-ai-r-and-d-probably",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI Futures Model: Dec 2025 Update",
+     "authors": "Daniel Kokotajlo",
+     "year": 2026,
+     "url": "https://blog.ai-futures.org/p/ai-futures-model-dec-2025-update",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "ECI Documentation",
+     "authors": "Epoch AI",
+     "year": 2026,
+     "url": "https://epoch.ai/data/eci-documentation",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Clarifying limitations of time horizon",
+     "authors": "METR",
+     "year": 2026,
+     "url": "https://metr.org/notes/2026-01-22-time-horizon-limitations/",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Does AI Progress Have a Speed Limit?",
+     "url": "https://citp.princeton.edu/news/2025/does-ai-progress-have-speed-limit-ajeya-cotra-and-arvind-narayanan-conversation",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The case for multi-decade AI timelines",
+     "url": "https://epoch.ai/gradient-updates/the-case-for-multi-decade-ai-timelines",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Broad Timelines",
+     "url": "https://www.lesswrong.com/posts/6pDMLYr7my2QMTz3s/broad-timelines#GvJ5C3YbngEeSkNMb",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "If Mythos actually made Anthropic employees 4x more productive, I would radically shorten my timelines",
+     "url": "https://blog.redwoodresearch.org/p/if-mythos-actually-made-anthropic",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AIs can now often do massive easy-to-verify SWE tasks",
+     "url": "https://blog.redwoodresearch.org/p/ais-can-now-often-do-massive-easy",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI's capability improvements haven't come from it getting less affordable",
+     "url": "https://blog.redwoodresearch.org/p/ais-capability-improvements-havent",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Do the returns to software R&D point towards a singularity?",
+     "url": "https://epoch.ai/blog/do-the-returns-to-software-rnd-point-towards-a-singularity",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How quick and big would a software intelligence explosion be?",
+     "url": "https://www.forethought.org/research/how-quick-and-big-would-a-software-intelligence-explosion-be#summary",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What a Compute-Centric Framework Says About Takeoff Speeds",
+     "url": "https://coefficientgiving.org/research/what-a-compute-centric-framework-says-about-takeoff-speeds/#3-long-summary",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Can AI scaling continue through 2030?",
+     "url": "https://epoch.ai/blog/can-ai-scaling-continue-through-2030",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Industrial Explosion",
+     "url": "https://www.forethought.org/research/the-industrial-explosion",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 46,
+   "course": "AI Futurism (4-week course; modules in production repo, no public course page found)",
+   "course_status": "unlisted",
+   "session_in_course": 2,
+   "title": "Week 2: Takeover Threat Modeling (Misaligned AI Takeover Threat Modeling)",
+   "readings": [
+    {
+     "title": "The behavioral selection model for predicting AI motivations",
+     "authors": "Alex Mallen, Buck Shlegeris",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/FeaJcWkC6fuRAMsfp/the-behavioral-selection-model-for-predicting-ai-motivations-1",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Risk from fitness-seeking AIs: mechanisms and mitigations",
+     "authors": "Alex Mallen",
+     "year": 2026,
+     "url": "https://blog.redwoodresearch.org/p/risk-from-fitness-seeking-ais-mechanisms",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "New report: \\\"Scheming AIs: Will AIs fake alignment during training in order to get power?\\",
+     "authors": "Joe Carlsmith",
+     "year": 2023,
+     "url": "https://www.lesswrong.com/posts/yFofRxg7RRQYCcwFA/new-report-scheming-ais-will-ais-fake-alignment-during",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Ryan on the 80,000 Hours podcast",
+     "authors": "Buck Shlegeris",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/ryan-on-the-80000-hours-podcast",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Another (outer) alignment failure story",
+     "authors": "Paul Christiano",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/AyNHoTWWAJ5eb99ji/another-outer-alignment-failure-story",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What failure looks like",
+     "authors": "Paul Christiano",
+     "year": 2019,
+     "url": "https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Current AIs seem pretty misaligned to me",
+     "authors": "Ryan Greenblatt",
+     "year": 2026,
+     "url": "https://blog.redwoodresearch.org/p/current-ais-seem-pretty-misaligned",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The persona selection model",
+     "authors": "Anthropic",
+     "year": 2026,
+     "url": "https://www.anthropic.com/research/persona-selection-model",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Emergent misalignment",
+     "url": "https://arxiv.org/abs/2502.17424",
+     "arxiv": "2502.17424",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Weird generalization",
+     "url": "https://arxiv.org/abs/2512.09742",
+     "arxiv": "2512.09742",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Reward hacking in production RL",
+     "url": "https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "OpenAI's scheming paper",
+     "url": "https://www.antischeming.ai/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "eval awareness post",
+     "url": "https://www.lesswrong.com/posts/qgehQxiTXj53X49mM/sonnet-4-5-s-eval-gaming-seriously-undermines-alignment",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Audio option",
+     "url": "https://joecarlsmithaudio.buzzsprout.com/2034731/episodes/13980105-full-audio-for-scheming-ais-will-ais-fake-alignment-during-training-in-order-to-get-power",
+     "core": false,
+     "type": "other"
+    },
+    {
+     "title": "Different senses in which two AIs can be \"the same\"",
+     "url": "https://www.alignmentforum.org/posts/4j6HJt8Exowmqp245/different-senses-in-which-two-ais-can-be-the-same",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Artificial Self",
+     "url": "https://theartificialself.ai/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "A Three-Layer Model of LLM Psychology",
+     "url": "https://www.lesswrong.com/posts/zuXo9imNKYspu9HGv/a-three-layer-model-of-llm-psychology",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI 2027 AI goals supplement",
+     "url": "https://ai-2027.com/research/ai-goals-forecast",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Simulators",
+     "url": "https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Shard Theory: An Overview",
+     "url": "https://www.lesswrong.com/posts/xqkGmfikqapbJ2YMj/shard-theory-an-overview",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Alignment remains a hard, unsolved problem",
+     "url": "https://www.lesswrong.com/posts/epjuxGnSPof3GnMSL/alignment-remains-a-hard-unsolved-problem#sdJmymE7whfkemDE8",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover",
+     "url": "https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Foom & Doom 2: Technical alignment is hard",
+     "url": "https://www.lesswrong.com/posts/bnnKGSCHJghAvqPjS/foom-and-doom-2-technical-alignment-is-hard#oyooNPzNDt4JEjdCo",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "6 reasons why \"alignment-is-hard\" discourse seems alien to human intuitions, and vice-versa",
+     "url": "https://www.lesswrong.com/posts/d4HNRdw6z7Xqbnu5E/6-reasons-why-alignment-is-hard-discourse-seems-alien-to#yq4yrC4rkYT9gDdGx",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How human-like do safe AI motivations need to be?",
+     "url": "https://www.lesswrong.com/posts/r8H4d3X7AKg9n8TQk/how-human-like-do-safe-ai-motivations-need-to-be",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Will AI systems drift into misalignment?",
+     "url": "https://blog.redwoodresearch.org/p/will-ai-systems-drift-into-misalignment",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How training-gamers might function (and win)",
+     "url": "https://www.lesswrong.com/posts/ntDA4Q7BaYhWPgzuq/reward-seekers",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How likely is deceptive alignment?",
+     "url": "https://www.alignmentforum.org/posts/A9NxPTwbw6r6Awuwt/how-likely-is-deceptive-alignment",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Training-time schemers vs behavioral schemers",
+     "url": "https://www.lesswrong.com/posts/m5nWc9v6MTsWXKpCy/training-time-schemers-vs-behavioral-schemers",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Many arguments for AI x-risk are wrong",
+     "url": "https://www.lesswrong.com/posts/yQSmcfN4kA7rATHGK/many-arguments-for-ai-x-risk-are-wrong",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Risk reports need to address deployment-time spread of misalignment",
+     "url": "https://blog.redwoodresearch.org/p/risk-reports-need-to-address-deployment?utm_source=publication-search",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Behavioral red-teaming is unlikely to produce clear, strong evidence that models aren't scheming",
+     "url": "https://blog.redwoodresearch.org/p/behavioral-red-teaming-is-unlikely",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "When does training a model change its goals?",
+     "url": "https://blog.redwoodresearch.org/p/when-does-training-a-model-change",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Sleeper agents paper",
+     "url": "https://arxiv.org/abs/2401.05566",
+     "arxiv": "2401.05566",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "password-locked models paper",
+     "url": "https://arxiv.org/abs/2405.19550",
+     "arxiv": "2405.19550",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "alignment faking paper",
+     "url": "https://arxiv.org/abs/2412.14093",
+     "arxiv": "2412.14093",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "interview",
+     "url": "https://youtu.be/9eXV64O2Xp8",
+     "core": false,
+     "type": "video"
+    },
+    {
+     "title": "Why I'm not afraid of superintelligent AI taking over the world",
+     "url": "https://www.understandingai.org/p/why-im-not-afraid-of-superintelligent",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI as Normal Technology",
+     "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Problem",
+     "url": "https://www.lesswrong.com/posts/kgb58RL88YChkkBNf/the-problem",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "List of p(doom) values",
+     "url": "https://pauseai.info/pdoom",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Shallow review of technical AI safety, 2025",
+     "url": "https://www.lesswrong.com/posts/Wti4Wr7Cf5ma3FGWa/shallow-review-of-technical-ai-safety-2025-2",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 47,
+   "course": "AI Futurism (4-week course; modules in production repo, no public course page found)",
+   "course_status": "unlisted",
+   "session_in_course": 3,
+   "title": "Week 3: Control (Control)",
+   "readings": [
+    {
+     "title": "The case for ensuring that powerful AIs are controlled",
+     "authors": "Ryan Greenblatt, Buck Shlegeris",
+     "year": 2024,
+     "url": "https://www.alignmentforum.org/posts/kcKrE9mzEHrdqtDpE/the-case-for-ensuring-that-powerful-ais-are-controlled",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The Case Against AI Control Research",
+     "authors": "John Wentworth",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AI catastrophes and rogue deployments",
+     "authors": "Buck Shlegeris",
+     "year": 2024,
+     "url": "https://redwoodresearch.substack.com/p/ai-catastrophes-and-rogue-deployments",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "An overview of areas of control work",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/an-overview-of-areas-of-control-work",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Prioritizing threats for AI control",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/prioritizing-threats-for-ai-control",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Win/continue/lose scenarios and execute/replace/audit protocols",
+     "authors": "Buck Shlegeris",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/wincontinuelose-scenarios-and-executereplaceaudi",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Thoughts on the conservative assumptions in AI control",
+     "authors": "Buck Shlegeris",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/thoughts-on-the-conservative-assumptions",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Misalignment and Strategic Underperformance: An Analysis of Sandbagging and Exploration Hacking",
+     "authors": "Julian Stastny",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/misalignment-and-strategic-underperformance",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Catching AIs red-handed",
+     "authors": "Ryan Greenblatt, Buck Shlegeris",
+     "year": 2024,
+     "url": "https://redwoodresearch.substack.com/p/catching-ais-red-handed",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "AIs at the current capability level may be important for future safety work",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/ais-at-the-current-capability-level",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Jankily controlling superintelligence",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/jankily-controlling-superintelligence",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "An overview of control measures",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/an-overview-of-control-measures",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How can we solve diffuse threats like research sabotage with AI control?",
+     "authors": "Vivek Hebbar",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/how-can-we-solve-diffuse-threats",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Notes on handling non-concentrated failures with AI control: high level methods and different regimes",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/notes-on-handling-non-concentrated",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How to prevent collusion when using untrusted models to monitor each other",
+     "authors": "Buck Shlegeris",
+     "year": 2024,
+     "url": "https://redwoodresearch.substack.com/p/how-to-prevent-collusion-when-using",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Ctrl-Z: Controlling AI Agents via Resampling",
+     "authors": "Buck Shlegeris",
+     "year": 2025,
+     "url": "https://redwoodresearch.substack.com/p/ctrl-z-controlling-ai-agents-via",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "BashArena and Control Setting Design",
+     "authors": "Adam Kaufman",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/basharena-and-control-setting-design",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Research Sabotage in ML Codebases",
+     "authors": "Eric Gan",
+     "year": 2026,
+     "url": "https://blog.redwoodresearch.org/p/research-sabotage-in-ml-codebases",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Advice for making robust-to-training model organisms",
+     "url": "https://www.lesswrong.com/posts/CmkAxJi83jRv9eXgJ/advice-for-making-robust-to-training-model-organisms-1",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Buck on the 80,000 Hours podcast",
+     "url": "https://redwoodresearch.substack.com/p/buck-on-the-80000-hours-podcast",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 48,
+   "course": "AI Futurism (4-week course; modules in production repo, no public course page found)",
+   "course_status": "unlisted",
+   "session_in_course": 4,
+   "title": "Week 4: Governance and Strategy (Governance / Strategy)",
+   "readings": [
+    {
+     "title": "Plans A, B, C, and D for misalignment risk",
+     "authors": "Ryan Greenblatt",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/plans-a-b-c-and-d-for-misalignment",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How do we (more) safely defer to AIs?",
+     "authors": "Ryan Greenblatt",
+     "year": 2026,
+     "url": "https://blog.redwoodresearch.org/p/how-do-we-more-safely-defer-to-ais",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How an AI company CEO could quietly take over the world",
+     "authors": "Alex Kastner",
+     "year": 2025,
+     "url": "https://blog.ai-futures.org/p/how-an-ai-company-ceo-could-quietly",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Ten people on the inside",
+     "authors": "Buck Shlegeris",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/ten-people-on-the-inside",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Crucial considerations in ASI deterrence",
+     "authors": "Oscar Delaney",
+     "year": 2025,
+     "url": "https://oscardelaney.substack.com/p/crucial-considerations-in-asi-deterrence",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Should the US do a Manhattan Project for AGI?",
+     "authors": "Oscar Delaney, Bill Anderson-Samways, Peter Wildeford",
+     "year": 2025,
+     "url": "https://peterwildeford.substack.com/cp/179934553",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "With the RAISE Act, New York Aligns With California on Frontier AI Laws",
+     "authors": "Alasdair Phillips-Robins, Scott Singer",
+     "year": 2026,
+     "url": "https://carnegieendowment.org/emissary/2026/02/ai-state-law-new-york-raise-act-california-sb53",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How China Views AI Risks and What to do About Them",
+     "authors": "Matt Sheehan, Scott Singer",
+     "year": 2025,
+     "url": "https://carnegieendowment.org/research/2025/10/how-china-views-ai-risks-and-what-to-do-about-them",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Why China isn\u2019t about to leap ahead of the West on compute",
+     "authors": "Veronika Blablov\u00e1",
+     "year": 2026,
+     "url": "https://epoch.ai/gradient-updates/why-china-isnt-about-to-leap-ahead-of-the-west-on-compute",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Chinese AI models have lagged the US frontier by 7 months on average since 2023",
+     "authors": "Luke Emberson",
+     "year": 2026,
+     "url": "https://epoch.ai/data-insights/us-vs-china-eci",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "No, the 2017 New Generation AI Development Plan did not include a goal of building AGI",
+     "authors": "Karson Elmgren",
+     "year": 2026,
+     "url": "https://substack.com/home/post/p-186039653",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Superintelligence Strategy (MAIM)",
+     "url": "https://www.nationalsecurity.ai/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI Deterrence Is Our Best Option",
+     "url": "https://ai-frontiers.org/articles/ai-deterrence-is-our-best-option",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Evaluating the Risks of Preventive Attack in the Race for Advanced AI",
+     "url": "https://www.rand.org/pubs/perspectives/PEA3691-13.html",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Anthropic: Responsible Scaling Policy",
+     "url": "https://www-cdn.anthropic.com/17310f6d70ae5627f55313ed067afc1a762a4068.pdf",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "OpenAI: Preparedness Framework v2",
+     "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Google DeepMind: Frontier Safety Framework v3.0",
+     "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3.pdf",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "xAI: Risk Management Framework",
+     "url": "https://data.x.ai/2025-08-20-xai-risk-management-framework.pdf",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Meta: Frontier AI Framework",
+     "url": "https://about.fb.com/news/2025/02/meta-approach-frontier-ai/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Anthropic is Quietly Backpedalling on its Safety Commitments",
+     "url": "https://www.lesswrong.com/posts/HE2WXbftEebdBLR9u/anthropic-is-quietly-backpedalling-on-its-safety-commitments",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Holden Karnofsky on 80,000 Hours",
+     "url": "https://80000hours.org/podcast/episodes/holden-karnofsky-concrete-ai-safety-frontier-ai-companies/?t=2620",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Should Governments or Markets control AI?",
+     "url": "https://www.youtube.com/watch?v=wkPsbwzyOa8",
+     "core": false,
+     "type": "video"
+    },
+    {
+     "title": "Ensuring a National Policy Framework for AI",
+     "url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What is California's AI safety law?",
+     "url": "https://www.brookings.edu/articles/what-is-californias-ai-safety-law/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "America's AI Action Plan",
+     "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "IAPS compute policy explainers",
+     "url": "https://www.iaps.ai/compute-policy-hub",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "State of AI Safety in China (2025)",
+     "url": "https://concordia-ai.com/research/state-of-ai-safety-in-china-2025/",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 49,
+   "course": "AI Futurism (4-week course; modules in production repo, no public course page found)",
+   "course_status": "unlisted",
+   "session_in_course": 5,
+   "title": "Extended Readings (optional) (Extended Readings)",
+   "readings": [
+    {
+     "title": "Making deals with early schemers",
+     "url": "https://redwoodresearch.substack.com/p/making-deals-with-early-schemers",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Notes on cooperating with unaligned AIs",
+     "url": "https://www.lesswrong.com/posts/oLzoHA9ZtF2ygYgx4/notes-on-cooperating-with-unaligned-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why make deals with misaligned AIs (Lukas on ForeCast)",
+     "url": "https://open.spotify.com/episode/624xSF4qCInZnF0FxWaQsf?si=POR2q2JkTrWcZCmnCVE7WQ",
+     "core": false,
+     "type": "other"
+    },
+    {
+     "title": "A taxonomy of barriers to trading with early misaligned AIs",
+     "url": "https://blog.redwoodresearch.org/p/a-taxonomy-of-barriers-to-trading",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Being honest with AIs",
+     "url": "https://www.lesswrong.com/posts/uuikfACQBm4KJZp4w/being-honest-with-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What Happens When Superhuman AIs Compete for Control?",
+     "url": "https://blog.aifutures.org/p/what-happens-when-superhuman-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Modifying LLM Beliefs with Synthetic Document Finetuning",
+     "url": "https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Arms and Influence",
+     "url": "https://dokumen.pub/arms-and-influence-2008925430-0300143370-9780300143379.html",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "Strategy of Conflict",
+     "url": "https://www.sackett.net/Strategy-of-Conflict.pdf",
+     "core": false,
+     "type": "book"
+    },
+    {
+     "title": "AI-enabled coups: how a small group could use AI to seize power",
+     "url": "https://newsletter.forethought.org/p/ai-enabled-coups-how-a-small-group?utm_source=publication-search",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How Can We Prevent AI-Enabled Coups?",
+     "url": "https://newsletter.forethought.org/p/how-can-we-prevent-ai-enabled-coups?utm_source=publication-search",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How much should we worry about secretly loyal AIs?",
+     "url": "https://www.lesswrong.com/posts/Q3HdtWXMzyYmHD8Kh/how-much-should-we-worry-about-secretly-loyal-ais",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Checks, Balances, and Power Concentration",
+     "url": "https://newsletter.forethought.org/p/checks-balances-and-power-concentration",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Cooperating with aliens and AGIs: An ECL explainer",
+     "url": "https://www.lesswrong.com/posts/eEj9A9yMDgJyk98gm/cooperating-with-aliens-and-distant-agis-an-ecl-explainer",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "ECL: Potential Objections & FAQ",
+     "url": "https://www.lesswrong.com/posts/KCKxCQyvim9uNAnSC/evidential-cooperation-in-large-worlds-potential-objections",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Multiverse-wide Cooperation via Correlated Decision Making",
+     "url": "https://longtermrisk.org/files/Multiverse-wide-Cooperation-via-Correlated-Decision-Making.pdf",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "The stakes of AI moral status",
+     "url": "https://joecarlsmith.com/2025/05/21/the-stakes-of-ai-moral-status",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Insights from the Science of Consciousness",
+     "url": "https://arxiv.org/pdf/2308.08708",
+     "arxiv": "2308.08708",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Taking AI Welfare Seriously",
+     "url": "https://arxiv.org/pdf/2411.00986",
+     "arxiv": "2411.00986",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Key concepts and current beliefs about AI moral patienthood",
+     "url": "https://eleosai.org/post/key-concepts-and-current-beliefs-about-ai-moral-patienthood",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Key strategic considerations for taking action on AI welfare",
+     "url": "https://eleosai.org/post/working-paper-key-strategic-considerations-for-taking-action-on-ai-welfare/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Research priorities for AI welfare",
+     "url": "https://eleosai.org/post/research-priorities-for-ai-welfare",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Project Ideas: Sentience and Rights of Digital Minds",
+     "url": "https://www.forethought.org/research/project-ideas-sentience-and-rights-of-digital-minds#develop--advocate-for-lab-policies-ml-governance-advocacy-writing-philosophicalconceptual",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Why model self-reports are insufficient, and why we studied them anyway",
+     "url": "https://eleosai.org/post/claude-4-interview-notes/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Emergent Introspective Awareness in Large Language Models",
+     "url": "https://transformer-circuits.pub/2025/introspection/index.html",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Looking Inward: Language Models Can Learn About Themselves by Introspection",
+     "url": "https://arxiv.org/abs/2410.13787",
+     "arxiv": "2410.13787",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Could AI models be conscious?",
+     "url": "https://youtu.be/pyXouxa0WnY",
+     "core": false,
+     "type": "video"
+    },
+    {
+     "title": "AI and biological misuse: Differentiating risks of language models and biological design tools",
+     "url": "https://arxiv.org/abs/2306.13952",
+     "arxiv": "2306.13952",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Do the biorisk evaluations of AI labs actually measure the risk of developing bioweapons?",
+     "url": "https://epochai.substack.com/p/do-the-biorisk-evaluations-of-ai",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Toward Comprehensive Benchmarking of the Biological Knowledge of Frontier LLMs",
+     "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA3700/RRA3797-1/RAND_RRA3797-1.pdf",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Forecasting Biosecurity Risks from LLMs",
+     "url": "https://forecastingresearch.org/ai-enabled-biorisk",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Dual-Use AI Capabilities and the Risk of Bioterrorism",
+     "url": "https://cdn.governance.ai/Dual-Use_AI_Capabilities_and_the_Risk_of_Bioterrorism.pdf",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Engineered pandemics (80,000 Hours topic archive)",
+     "url": "https://80000hours.org/topic/world-problems/engineered-pandemics/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Catastrophic AI misuse",
+     "url": "https://80000hours.org/topic/world-problems/catastrophic-ai-misuse/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Totalitarianism",
+     "url": "https://80000hours.org/topic/world-problems/totalitarianism/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Nuclear war",
+     "url": "https://80000hours.org/topic/world-problems/nuclear-war-world-problems/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The importance of AI character",
+     "url": "https://www.forethought.org/research/the-importance-of-ai-character",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "How important is the model spec if alignment fails?",
+     "url": "https://newsletter.forethought.org/p/how-important-is-the-model-spec-if",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Stickiness in AI Behavioral Design",
+     "url": "https://www.forethought.org/research/stickiness-in-ai-behavioral-design",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "AI should be a good citizen, not just a good assistant",
+     "url": "https://newsletter.forethought.org/p/ai-should-be-a-good-citizen-not-just",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Claude's Constitution",
+     "url": "https://www.anthropic.com/constitution",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Model Spec Midtraining",
+     "url": "https://alignment.anthropic.com/2026/msm/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "OpenAI Model Spec",
+     "url": "https://model-spec.openai.com/2025-12-18.html",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "update announcement",
+     "url": "https://openai.com/index/sharing-the-latest-model-spec/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Stress-testing model specs reveals character differences among LLMs",
+     "url": "https://alignment.anthropic.com/2025/stress-testing-model-specs/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Claude 4.5 Opus' Soul Document",
+     "url": "https://www.lesswrong.com/posts/vpNG99GhbBoLov9og/claude-4-5-opus-soul-document",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Claude's Character",
+     "url": "https://www.anthropic.com/research/claude-character",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Constitutional AI",
+     "url": "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Forethought's Better Futures series",
+     "url": "https://www.forethought.org/research/introducing-better-futures#2-the-series",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Bootstrapping to Viatopia",
+     "url": "https://newsletter.forethought.org/p/bootstrapping-to-viatopia?utm_source=publication-search",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Moral public goods are a big deal for whether we get a good future",
+     "url": "https://newsletter.forethought.org/p/moral-public-goods-are-a-big-deal",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Gradual Disempowerment",
+     "url": "https://gradual-disempowerment.ai/",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Should we make grand deals about post-AGI outcomes?",
+     "url": "https://newsletter.forethought.org/p/should-we-make-grand-deals-about",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Could Space Debris Block Access to Outer Space?",
+     "url": "https://newsletter.forethought.org/p/could-space-debris-block-access-to?utm_source=publication-search",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Will We Really Put Data Centers in Space?",
+     "url": "https://newsletter.forethought.org/p/will-we-really-put-data-centers-in",
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 50,
+   "course": "Verifying International AI Agreements (the live 'Compute Verification' course; content from staging repo)",
+   "course_status": "launching (marketing page live at lensacademy.org/courses/compute-verification)",
+   "session_in_course": 1,
+   "title": "Why Verification, and the Compute Chain",
+   "readings": [
+    {
+     "title": "What does it take to catch a Chinchilla? Verifying Rules on Large-Scale Neural Network Training via Compute Monitoring",
+     "authors": "Yonadav Shavit",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2303.11341",
+     "arxiv": "2303.11341",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Verification methods for international AI agreements",
+     "authors": "Akash R. Wasil, Tom Reed, Jack William Miller, Peter Barnett",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2408.16074",
+     "arxiv": "2408.16074",
+     "core": true,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 51,
+   "course": "Verifying International AI Agreements (the live 'Compute Verification' course; content from staging repo)",
+   "course_status": "launching (marketing page live at lensacademy.org/courses/compute-verification)",
+   "session_in_course": 2,
+   "title": "The State of Play",
+   "readings": [
+    {
+     "title": "Verifying International Agreements on AI: Six Layers of Verification for Rules on Large-Scale AI Development and Deployment",
+     "authors": "Mauricio Baker, Gabriel Kulp, Oliver Marks, Miles Brundage, Lennart Heim",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2507.15916",
+     "arxiv": "2507.15916",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Verification for International AI Governance",
+     "authors": "Ben Harack, Robert F. Trager, Anka Reuel, David Manheim, Miles Brundage, Onni Aarne, Aaron Scher, Yanliang Pan, Jenny Xiao, Kristy Loke, Sumaya Nur Adan, Guillem Bas, Nicholas A. Caputo, Julia C. Morse, Janvi Ahuja, Isabella Duan, Janet Egan, Ben Bucknall, Brianna Rosen, Renan Araujo, Vincent Boulanin, Ranjit Lall, Fazl Barez, Sanaa Alvira, Corin Katzke, Ahmad Atamli, Amro Awad",
+     "year": 2025,
+     "url": "https://aigi.ox.ac.uk/wp-content/uploads/2025/07/Verification_for_International_AI_Governance.pdf",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Mechanisms to Verify International Agreements About AI Development",
+     "authors": "Aaron Scher, Lisa Thiergart",
+     "year": 2024,
+     "url": "https://intelligence.org/wp-content/uploads/2024/11/Mechanisms-to-Verify-International-Agreements-About-AI-Development-27-Nov-24.pdf",
+     "core": true,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 52,
+   "course": "Verifying International AI Agreements (the live 'Compute Verification' course; content from staging repo)",
+   "course_status": "launching (marketing page live at lensacademy.org/courses/compute-verification)",
+   "session_in_course": 3,
+   "title": "Hardware and Inference Mechanisms (Mechanisms: Hardware and Inference)",
+   "readings": [
+    {
+     "title": "Flexible Hardware-Enabled Guarantees for AI Compute (Part I: Overview)",
+     "authors": "James Petrie, Onni Aarne, Nora Ammann, David Dalrymple",
+     "year": 2025,
+     "url": "https://www.flexheg.com/report-1.pdf",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Verifying LLM Inference to Detect Model Weight Exfiltration",
+     "authors": "Roy Rinberg, Adam Karvonen, Alexander Hoover, Daniel Reuter, Keri Warr",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2511.02620",
+     "arxiv": "2511.02620",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Bit-Exact AI Inference Verification Without Performance Tradeoffs",
+     "authors": "Naci Cankaya",
+     "year": 2026,
+     "url": "https://arxiv.org/abs/2606.00279",
+     "arxiv": "2606.00279",
+     "core": true,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 53,
+   "course": "Verifying International AI Agreements (the live 'Compute Verification' course; content from staging repo)",
+   "course_status": "launching (marketing page live at lensacademy.org/courses/compute-verification)",
+   "session_in_course": 4,
+   "title": "Building It, and the Treaty It Serves (Building the Lie Detector, and the Treaty It Serves)",
+   "readings": [
+    {
+     "title": "A system overview for near-term, low-trust AI compute verification",
+     "authors": "Naci Cankaya",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/fgvmKqRGvBteKeDoc/a-system-overview-for-near-term-low-trust-ai-compute",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "All hands on deck to build the datacenter lie detector",
+     "authors": "Naci Cankaya",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/PZikD6PxpEqHF4qbF/all-hands-on-deck-to-build-the-datacenter-lie-detector",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "An International Agreement to Prevent the Premature Creation of Artificial Superintelligence",
+     "authors": "Aaron Scher, David Abecassis, Peter Barnett, Brian Abeyta",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2511.10783",
+     "arxiv": "2511.10783",
+     "core": true,
+     "type": "paper"
+    }
+   ]
+  }
+ ],
+ "notes": "lensacademy.org, ai-2040.com, web.archive.org and mirror/proxy services are all blocked by this environment's egress proxy, so the site could not be fetched directly. However, Lens Academy publishes its full curriculum content in public GitHub repos that directly serve the website (per the repo README: lens-edu-production is 'used directly by the production website (lensacademy.org)'; lens-edu-staging serves staging.lensacademy.org). Both repos were cloned and parsed on 2026-08-21, so this listing is the exact live curriculum source. Lens Academy is a multi-course platform, so 'sessions' here is a flat list spanning 10 courses; each session object carries a 'course' field, a per-course 'session_in_course' number, and 'n' is global. Sessions correspond to Lens Academy's units/modules (each normally ends in a 90-minute cohort meeting; meeting titles are used as session titles where defined). 'core'=false marks items Lens Academy labels optional (Dive Deeper / optional lenses / optional reading collections). Course-specific notes: (1) AI Risk Fundamentals (slug ai-risk-fundamentals, alias superintelligence-101) is the flagship intro course: core reading is the book 'If Anyone Builds It, Everyone Dies' (Yudkowsky & Soares, 2025) chapter-by-chapter (no URL - students use their own copy), plus the required film 'POV: What You Would See During an AI Takeover' replacing chapters 7-9, plus ~150 optional supplementary Q&A pages on ifanyonebuildsit.com. (2) Navigating Superintelligence (slug navigating-asi) is the default course at lensacademy.org/course. (3) 'Verifying International AI Agreements' (slug ai-verification) is the compute-verification course marketed at lensacademy.org/courses/compute-verification; it is a guided read of the 11-paper AI 2040 'Plan A' verification reading list (ai-2040.com/supplements/verification-plan/get-involved); its content currently lives in the staging repo. (4) 'AI Futurism' modules (4 weeks + extended readings, based on the reading list curated by Alexa Pan for Redwood Research's Astra Strategy Fellowship) exist fully-built in the production repo but no course file references them - treated as unlisted/upcoming; its Week 1-4 'optional readings' collections and the Extended Readings module are marked core=false. (5) AI Safety Atlas and AFFINE are co-branded partner courses; EA Introductory Program is the standard EA Handbook curriculum hosted on Lens; Facilitator Training Program is their navigator/facilitator pedagogy course (its named readings are listed without URLs where the source URL is embedded only in prose; durations in titles are Lens's own annotations). Excluded as non-curriculum: 'Demo' course, 'Iliad Intensive (Lens demo)' and 'Existential Risk Laboratory (Lens demo)' placeholder partner demos. Staging-only work-in-progress courses not yet published (not included above): 'XLab AI Control' (7 modules), 'Compute Verification: XLab Alpha' (import of UChicago XLab's curriculum), 'Thinking about Thinking' (5 modules), 'How to Talk to People About AI' (1 module). Year fields come from the 'published' metadata Lens stores per imported article; video years are omitted where Lens stores none. Authors are as recorded by Lens (occasionally a channel/site name)."
+}

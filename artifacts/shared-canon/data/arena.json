@@ -1,0 +1,1136 @@
+{
+ "course": "ARENA",
+ "source_urls": [
+  "https://www.arena.education/",
+  "https://github.com/callummcdougall/ARENA_3.0",
+  "https://arena-chapter0-fundamentals.streamlit.app/",
+  "https://arena-chapter1-transformer-interp.streamlit.app/",
+  "https://arena-chapter2-rl.streamlit.app/",
+  "https://arena-chapter3-llm-evals.streamlit.app/",
+  "https://arena-chapter4-alignment-science.streamlit.app/",
+  "https://learn.arena.education/"
+ ],
+ "sessions": [
+  {
+   "n": 0,
+   "title": "Chapter 0: Fundamentals (0.0 Prerequisites, 0.1 Ray Tracing, 0.2 CNNs & ResNets, 0.3 Optimization, 0.4 Backprop, 0.5 VAEs & GANs)",
+   "readings": [
+    {
+     "title": "A Mathematical Framework for Transformer Circuits",
+     "authors": "Elhage et al. (Anthropic)",
+     "year": 2021,
+     "url": "https://transformer-circuits.pub/2021/framework/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[0.0] Prerequisites (optional reading; cornerstone of Chapter 1)"
+    },
+    {
+     "title": "In-context Learning and Induction Heads",
+     "authors": "Olsson et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[0.0] Prerequisites (optional reading)"
+    },
+    {
+     "title": "Zoom In: An Introduction to Circuits",
+     "authors": "Olah et al.",
+     "year": 2020,
+     "url": "https://distill.pub/2020/circuits/zoom-in/",
+     "core": true,
+     "type": "paper",
+     "section": "[0.0] Prerequisites and [0.2] CNNs & ResNets (assigned reading)"
+    },
+    {
+     "title": "Why Momentum Really Works",
+     "authors": "Gabriel Goh",
+     "year": 2017,
+     "url": "https://distill.pub/2017/momentum/",
+     "core": true,
+     "type": "paper",
+     "section": "[0.0] Prerequisites and [0.3] Optimization (optional reading)"
+    },
+    {
+     "title": "Deep Residual Learning for Image Recognition",
+     "authors": "He et al.",
+     "year": 2015,
+     "url": "https://arxiv.org/abs/1512.03385",
+     "arxiv": "1512.03385",
+     "core": true,
+     "type": "paper",
+     "section": "[0.2] CNNs & ResNets (assigned reading; exercises build ResNet34)"
+    },
+    {
+     "title": "Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)",
+     "authors": "Radford, Metz & Chintala",
+     "year": 2015,
+     "url": "https://arxiv.org/abs/1511.06434",
+     "arxiv": "1511.06434",
+     "core": true,
+     "type": "paper",
+     "section": "[0.5] VAEs & GANs (assigned reading; exercises build DCGAN)"
+    },
+    {
+     "title": "beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework",
+     "authors": "Higgins et al.",
+     "year": 2017,
+     "url": "https://openreview.net/pdf?id=Sy2fzU9gl",
+     "core": false,
+     "type": "paper",
+     "section": "[0.5] VAEs & GANs (referenced for beta-VAE bonus)"
+    },
+    {
+     "title": "Understanding Diffusion Models: A Unified Perspective",
+     "authors": "Calvin Luo",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2208.11970",
+     "arxiv": "2208.11970",
+     "core": false,
+     "type": "paper",
+     "section": "[0.5] VAEs & GANs (bonus reference)"
+    },
+    {
+     "title": "Training Compute-Optimal Large Language Models (Chinchilla)",
+     "authors": "Hoffmann et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2203.15556",
+     "arxiv": "2203.15556",
+     "core": false,
+     "type": "paper",
+     "section": "[0.3] Optimization (scaling-laws bonus)"
+    },
+    {
+     "title": "Decoupled Weight Decay Regularization (AdamW)",
+     "authors": "Loshchilov & Hutter",
+     "year": 2017,
+     "url": "https://arxiv.org/abs/1711.05101",
+     "arxiv": "1711.05101",
+     "core": false,
+     "type": "paper",
+     "section": "[0.3] Optimization (referenced for AdamW exercise)"
+    },
+    {
+     "title": "Shampoo: Preconditioned Stochastic Tensor Optimization",
+     "authors": "Gupta, Koren & Singer",
+     "year": 2018,
+     "url": "https://arxiv.org/abs/1802.09568",
+     "arxiv": "1802.09568",
+     "core": false,
+     "type": "paper",
+     "section": "[0.3] Optimization (passing reference)"
+    }
+   ]
+  },
+  {
+   "n": 1,
+   "title": "Chapter 1: Transformer Interpretability (1.1 Transformer from Scratch, 1.2 Intro to Mech Interp, 1.3.x model internals, 1.4.x circuits, 1.5.x toy models)",
+   "readings": [
+    {
+     "title": "A Mathematical Framework for Transformer Circuits",
+     "authors": "Elhage, Nanda et al. (Anthropic)",
+     "year": 2021,
+     "url": "https://transformer-circuits.pub/2021/framework/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.2] Intro to Mech Interp (central paper; also core to [1.4.1], [1.5.1], [1.5.3])"
+    },
+    {
+     "title": "In-context Learning and Induction Heads",
+     "authors": "Olsson et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.2] Intro to Mech Interp (exercises reverse-engineer induction heads)"
+    },
+    {
+     "title": "Transformer Feed-Forward Layers Are Key-Value Memories",
+     "authors": "Geva et al.",
+     "year": 2020,
+     "url": "https://arxiv.org/abs/2012.14913",
+     "arxiv": "2012.14913",
+     "core": false,
+     "type": "paper",
+     "section": "[1.1] Transformer from Scratch / [1.5.1] (MLP intuition reference)"
+    },
+    {
+     "title": "TinyStories: How Small Can Language Models Be and Still Speak Coherent English?",
+     "authors": "Eldan & Li",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2305.07759",
+     "arxiv": "2305.07759",
+     "core": false,
+     "type": "paper",
+     "section": "[1.1] and [1.3.3] (models used in exercises)"
+    },
+    {
+     "title": "The Curious Case of Neural Text Degeneration",
+     "authors": "Holtzman et al.",
+     "year": 2019,
+     "url": "https://arxiv.org/abs/1904.09751",
+     "arxiv": "1904.09751",
+     "core": false,
+     "type": "paper",
+     "section": "[1.1] Transformer from Scratch (sampling exercises reference)"
+    },
+    {
+     "title": "The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets",
+     "authors": "Marks & Tegmark",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2310.06824",
+     "arxiv": "2310.06824",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.1] Linear Probes / Probing for Deception (core replication)"
+    },
+    {
+     "title": "Detecting Strategic Deception Using Linear Probes",
+     "authors": "Goldowsky-Dill et al. (Apollo Research)",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2502.03407",
+     "arxiv": "2502.03407",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.1] Linear Probes (core replication)"
+    },
+    {
+     "title": "Detecting High-Stakes Interactions with Activation Probes",
+     "authors": "McKenzie et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2506.10805",
+     "arxiv": "2506.10805",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.1] Linear Probes, section 5 (core replication)"
+    },
+    {
+     "title": "Discovering Latent Knowledge in Language Models Without Supervision",
+     "authors": "Burns et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2212.03827",
+     "arxiv": "2212.03827",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.1] Linear Probes (assigned optional reading, CCS)"
+    },
+    {
+     "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+     "authors": "Zou et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2310.01405",
+     "arxiv": "2310.01405",
+     "core": false,
+     "type": "paper",
+     "section": "[1.3.1] Linear Probes (further reading)"
+    },
+    {
+     "title": "Adversarial Examples Are Not Bugs, They Are Features",
+     "authors": "Ilyas et al.",
+     "year": 2019,
+     "url": "https://arxiv.org/abs/1905.02175",
+     "arxiv": "1905.02175",
+     "core": false,
+     "type": "paper",
+     "section": "[1.3.1] Linear Probes (discussion reference)"
+    },
+    {
+     "title": "Function Vectors in Large Language Models",
+     "authors": "Todd et al.",
+     "year": 2023,
+     "url": "https://functions.baulab.info/",
+     "arxiv": "2310.15213",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.2] Function Vectors & Model Steering (core replication)"
+    },
+    {
+     "title": "Steering GPT-2-XL by adding an activation vector",
+     "authors": "Turner et al.",
+     "year": 2023,
+     "url": "https://www.lesswrong.com/posts/5spBue2z2tw4JuDCx/steering-gpt-2-xl-by-adding-an-activation-vector",
+     "core": true,
+     "type": "blog",
+     "section": "[1.3.2] Function Vectors & Model Steering (core replication)"
+    },
+    {
+     "title": "Steering Llama 2 via Contrastive Activation Addition",
+     "authors": "Rimsky (Panickssery) et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.06681",
+     "arxiv": "2312.06681",
+     "core": false,
+     "type": "paper",
+     "section": "[1.3.2] (suggested paper replication)"
+    },
+    {
+     "title": "Inference-Time Intervention: Eliciting Truthful Answers from a Language Model",
+     "authors": "Li et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2306.03341",
+     "arxiv": "2306.03341",
+     "core": false,
+     "type": "paper",
+     "section": "[1.3.2] (suggested paper replication)"
+    },
+    {
+     "title": "Toy Models of Superposition",
+     "authors": "Elhage et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://transformer-circuits.pub/2022/toy_model/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.5.4] Toy Models of Superposition & SAEs and [1.3.3] (core assigned reading; exercises replicate it)"
+    },
+    {
+     "title": "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning",
+     "authors": "Bricken et al. (Anthropic)",
+     "year": 2023,
+     "url": "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.3] Interpretability with SAEs and [1.4.2] (top recommended reading)"
+    },
+    {
+     "title": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
+     "authors": "Templeton et al. (Anthropic)",
+     "year": 2024,
+     "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.3] Interpretability with SAEs and [1.4.2] (assigned reading)"
+    },
+    {
+     "title": "Improving Dictionary Learning with Gated Sparse Autoencoders",
+     "authors": "Rajamanoharan et al. (Google DeepMind)",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2404.16014",
+     "arxiv": "2404.16014",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.3] and [1.5.4] (assigned reading; Gated SAE exercises)"
+    },
+    {
+     "title": "Gemma Scope: helping the safety community shed light on the inner workings of language models",
+     "authors": "Google DeepMind",
+     "year": 2024,
+     "url": "https://deepmind.google/discover/blog/gemma-scope-helping-the-safety-community-shed-light-on-the-inner-workings-of-language-models/",
+     "core": true,
+     "type": "blog",
+     "section": "[1.3.3] Interpretability with SAEs (assigned reading; SAEs used throughout)"
+    },
+    {
+     "title": "Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders",
+     "authors": "Rajamanoharan et al. (Google DeepMind)",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2407.14435",
+     "arxiv": "2407.14435",
+     "core": false,
+     "type": "paper",
+     "section": "[1.3.3] (JumpReLU architecture reference)"
+    },
+    {
+     "title": "Not All Language Model Features Are Linear",
+     "authors": "Engels et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2405.14860",
+     "arxiv": "2405.14860",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.3] (exercises replicate circular day-of-week features)"
+    },
+    {
+     "title": "Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control",
+     "authors": "Makelov et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2405.08366",
+     "arxiv": "2405.08366",
+     "core": false,
+     "type": "paper",
+     "section": "[1.3.3] (further reading)"
+    },
+    {
+     "title": "Language models can explain neurons in language models",
+     "authors": "Bills et al. (OpenAI)",
+     "year": 2023,
+     "url": "https://openai.com/index/language-models-can-explain-neurons-in-language-models/",
+     "core": false,
+     "type": "blog",
+     "section": "[1.3.3] (auto-interp reference)"
+    },
+    {
+     "title": "Activation Oracles",
+     "authors": "Karvonen et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2512.15674",
+     "arxiv": "2512.15674",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.4] Activation Oracles (essential reading; exercises replicate key results)"
+    },
+    {
+     "title": "LatentQA: Teaching LLMs to Decode Activations Into Natural Language",
+     "authors": "Pan et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2412.08686",
+     "arxiv": "2412.08686",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.4] Activation Oracles (assigned optional reading)"
+    },
+    {
+     "title": "Eliciting Secret Knowledge from Language Models",
+     "authors": "Cywinski et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2510.01070",
+     "arxiv": "2510.01070",
+     "core": true,
+     "type": "paper",
+     "section": "[1.3.4] Activation Oracles (assigned optional reading; provides secret-keeping models)"
+    },
+    {
+     "title": "Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 small",
+     "authors": "Wang et al. (Redwood Research)",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2211.00593",
+     "arxiv": "2211.00593",
+     "core": true,
+     "type": "paper",
+     "section": "[1.4.1] Indirect Object Identification (core replication)"
+    },
+    {
+     "title": "Towards Automated Circuit Discovery for Mechanistic Interpretability (ACDC)",
+     "authors": "Conmy et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2304.14997",
+     "arxiv": "2304.14997",
+     "core": false,
+     "type": "paper",
+     "section": "[1.4.1] (bonus / further reading)"
+    },
+    {
+     "title": "Attribution Patching Outperforms Automated Circuit Discovery",
+     "authors": "Syed, Rager & Conmy",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2310.10348",
+     "arxiv": "2310.10348",
+     "core": false,
+     "type": "paper",
+     "section": "[1.4.1] (bonus / further reading)"
+    },
+    {
+     "title": "Interpreting GPT: the logit lens",
+     "authors": "nostalgebraist",
+     "year": 2020,
+     "url": "https://www.alignmentforum.org/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens",
+     "core": false,
+     "type": "blog",
+     "section": "[1.4.1] (technique reference)"
+    },
+    {
+     "title": "Causal Scrubbing: a method for rigorously testing interpretability hypotheses",
+     "authors": "Chan et al. (Redwood Research)",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/JvZhhzycHu2Yd57RN/causal-scrubbing-a-method-for-rigorously-testing",
+     "core": false,
+     "type": "blog",
+     "section": "[1.4.1] and [1.5.1] (further reading / bonus)"
+    },
+    {
+     "title": "Transcoders Find Interpretable LLM Feature Circuits",
+     "authors": "Dunefsky et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2406.11944",
+     "arxiv": "2406.11944",
+     "core": true,
+     "type": "paper",
+     "section": "[1.4.2] SAE Circuits (assigned reading; main technique of Section 2)"
+    },
+    {
+     "title": "Circuit Tracing: Revealing Computational Graphs in Language Models",
+     "authors": "Ameisen et al. (Anthropic)",
+     "year": 2025,
+     "url": "https://transformer-circuits.pub/2025/attribution-graphs/methods.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.4.2] SAE Circuits (assigned reading; exercises implement attribution graphs)"
+    },
+    {
+     "title": "On the Biology of a Large Language Model",
+     "authors": "Lindsey et al. (Anthropic)",
+     "year": 2025,
+     "url": "https://transformer-circuits.pub/2025/attribution-graphs/biology.html",
+     "core": true,
+     "type": "paper",
+     "section": "[1.4.2] SAE Circuits (assigned companion reading)"
+    },
+    {
+     "title": "Progress measures for grokking via mechanistic interpretability",
+     "authors": "Nanda et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2301.05217",
+     "arxiv": "2301.05217",
+     "core": true,
+     "type": "paper",
+     "section": "[1.5.2] Grokking & Modular Arithmetic (accompanying paper; exercises replicate it)"
+    },
+    {
+     "title": "A Toy Model of Universality: Reverse Engineering How Networks Learn Group Operations",
+     "authors": "Chughtai et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2302.03025",
+     "arxiv": "2302.03025",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.2] (bonus / further reading)"
+    },
+    {
+     "title": "Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task (Othello-GPT)",
+     "authors": "Li et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2210.13382",
+     "arxiv": "2210.13382",
+     "core": true,
+     "type": "paper",
+     "section": "[1.5.3] OthelloGPT (core paper; exercises replicate Neel Nanda's follow-up)"
+    },
+    {
+     "title": "An Interpretability Illusion for BERT",
+     "authors": "Bolukbasi et al.",
+     "year": 2021,
+     "url": "https://arxiv.org/abs/2104.07143",
+     "arxiv": "2104.07143",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.3] OthelloGPT (caveats discussion)"
+    },
+    {
+     "title": "Understanding intermediate layers using linear classifier probes",
+     "authors": "Alain & Bengio",
+     "year": 2016,
+     "url": "https://arxiv.org/abs/1610.01644",
+     "arxiv": "1610.01644",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.3] OthelloGPT (probing background)"
+    },
+    {
+     "title": "Eliciting Latent Predictions from Transformers with the Tuned Lens",
+     "authors": "Belrose et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2303.08112",
+     "arxiv": "2303.08112",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.3] OthelloGPT (further reading)"
+    },
+    {
+     "title": "200 Concrete Open Problems in MI: Exploring Polysemanticity and Superposition",
+     "authors": "Neel Nanda",
+     "year": 2022,
+     "url": "https://www.alignmentforum.org/posts/o6ptPu7arZrqRCxyz/200-cop-in-mi-exploring-polysemanticity-and-superposition",
+     "core": true,
+     "type": "blog",
+     "section": "[1.5.4] Toy Models of Superposition & SAEs (assigned reading)"
+    },
+    {
+     "title": "Superposition, Memorization, and Double Descent",
+     "authors": "Henighan et al. (Anthropic)",
+     "year": 2023,
+     "url": "https://transformer-circuits.pub/2023/toy-double-descent/index.html",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.4] (bonus reference)"
+    },
+    {
+     "title": "Polysemanticity and Capacity in Neural Networks",
+     "authors": "Scherlis et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2210.01892",
+     "arxiv": "2210.01892",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.4] (further reading)"
+    },
+    {
+     "title": "Finding Neurons in a Haystack: Case Studies with Sparse Probing",
+     "authors": "Gurnee et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2305.01610",
+     "arxiv": "2305.01610",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.4] (further reading)"
+    },
+    {
+     "title": "Softmax Linear Units (SoLU)",
+     "authors": "Elhage et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://transformer-circuits.pub/2022/solu/index.html",
+     "core": false,
+     "type": "paper",
+     "section": "[1.5.4] and [1.5.3] (further reading)"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Chapter 2: Reinforcement Learning (2.1 Intro to RL, 2.2 DQN & VPG, 2.3 PPO, 2.4 RLHF, 2.5 MCTS & AlphaZero)",
+   "readings": [
+    {
+     "title": "Reinforcement Learning: An Introduction (Sutton & Barto), Chapters 2-6 excerpts",
+     "authors": "Sutton & Barto",
+     "year": 2018,
+     "url": "https://www.andrew.cmu.edu/course/10-703/textbook/BartoSutton.pdf",
+     "core": true,
+     "type": "other",
+     "section": "[2.1] Intro to RL (assigned readings: Ch 2, 3.1-3.6, 4.1-4.4, 6.1, 6.3)"
+    },
+    {
+     "title": "Q-Learning (Technical Note)",
+     "authors": "Watkins & Dayan",
+     "year": 1992,
+     "url": "https://link.springer.com/content/pdf/10.1007/BF00992698.pdf",
+     "core": false,
+     "type": "paper",
+     "section": "[2.1] Intro to RL (optional reading)"
+    },
+    {
+     "title": "Playing Atari with Deep Reinforcement Learning",
+     "authors": "Mnih et al. (DeepMind)",
+     "year": 2013,
+     "url": "https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf",
+     "arxiv": "1312.5602",
+     "core": true,
+     "type": "paper",
+     "section": "[2.2] DQN & VPG (landmark paper the DQN exercises implement)"
+    },
+    {
+     "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation",
+     "authors": "Schulman et al.",
+     "year": 2015,
+     "url": "https://arxiv.org/abs/1506.02438",
+     "arxiv": "1506.02438",
+     "core": true,
+     "type": "paper",
+     "section": "[2.2]/[2.3] (GAE, implemented in VPG and PPO exercises)"
+    },
+    {
+     "title": "Dueling Network Architectures for Deep Reinforcement Learning",
+     "authors": "Wang et al.",
+     "year": 2015,
+     "url": "https://arxiv.org/abs/1511.06581",
+     "arxiv": "1511.06581",
+     "core": false,
+     "type": "paper",
+     "section": "[2.2] DQN & VPG (bonus)"
+    },
+    {
+     "title": "Double Q-Learning",
+     "authors": "van Hasselt",
+     "year": 2010,
+     "url": "https://proceedings.neurips.cc/paper/2010/file/091d584fced301b442654dd8c23b3fc9-Paper.pdf",
+     "core": false,
+     "type": "paper",
+     "section": "[2.2] DQN & VPG (bonus)"
+    },
+    {
+     "title": "Towards Characterizing Divergence in Deep Q-Learning",
+     "authors": "Achiam et al.",
+     "year": 2019,
+     "url": "https://arxiv.org/abs/1903.08894",
+     "arxiv": "1903.08894",
+     "core": false,
+     "type": "paper",
+     "section": "[2.2] DQN & VPG (interesting resources, not required)"
+    },
+    {
+     "title": "Proximal Policy Optimization Algorithms",
+     "authors": "Schulman et al. (OpenAI)",
+     "year": 2017,
+     "url": "https://arxiv.org/abs/1707.06347",
+     "arxiv": "1707.06347",
+     "core": true,
+     "type": "paper",
+     "section": "[2.3] PPO (key reference paper for the exercises)"
+    },
+    {
+     "title": "The 37 Implementation Details of Proximal Policy Optimization",
+     "authors": "Huang et al.",
+     "year": 2022,
+     "url": "https://iclr-blog-track.github.io/2022/03/25/ppo-implementation-details/",
+     "core": true,
+     "type": "blog",
+     "section": "[2.3] PPO (assigned reference used throughout exercises)"
+    },
+    {
+     "title": "The Surprising Effectiveness of PPO in Cooperative Multi-Agent Games (MAPPO)",
+     "authors": "Yu et al.",
+     "year": 2021,
+     "url": "https://arxiv.org/abs/2103.01955",
+     "arxiv": "2103.01955",
+     "core": false,
+     "type": "paper",
+     "section": "[2.3] PPO (bonus)"
+    },
+    {
+     "title": "Illustrating Reinforcement Learning from Human Feedback (RLHF)",
+     "authors": "Lambert et al. (Hugging Face)",
+     "year": 2022,
+     "url": "https://huggingface.co/blog/rlhf",
+     "core": true,
+     "type": "blog",
+     "section": "[2.4] RLHF (assigned reading)"
+    },
+    {
+     "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models (GRPO)",
+     "authors": "Shao et al. (DeepSeek)",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2402.03300",
+     "arxiv": "2402.03300",
+     "core": true,
+     "type": "paper",
+     "section": "[2.4] RLHF (assigned reading for the GRPO section)"
+    },
+    {
+     "title": "Deep Reinforcement Learning from Human Preferences",
+     "authors": "Christiano et al.",
+     "year": 2017,
+     "url": "https://arxiv.org/abs/1706.03741",
+     "arxiv": "1706.03741",
+     "core": true,
+     "type": "paper",
+     "section": "[2.4] RLHF (seminal RLHF paper; suggested replication)"
+    },
+    {
+     "title": "Recursively Summarizing Books with Human Feedback",
+     "authors": "Wu et al. (OpenAI)",
+     "year": 2021,
+     "url": "https://arxiv.org/abs/2109.10862",
+     "arxiv": "2109.10862",
+     "core": false,
+     "type": "paper",
+     "section": "[2.4] RLHF (suggested replication)"
+    },
+    {
+     "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+     "authors": "Hu et al.",
+     "year": 2021,
+     "url": "https://arxiv.org/abs/2106.09685",
+     "arxiv": "2106.09685",
+     "core": false,
+     "type": "paper",
+     "section": "[2.4] RLHF (technique reference)"
+    },
+    {
+     "title": "Mastering the game of Go without human knowledge (AlphaGo Zero)",
+     "authors": "Silver et al. (DeepMind)",
+     "year": 2017,
+     "url": "https://www.nature.com/articles/nature24270",
+     "core": true,
+     "type": "paper",
+     "section": "[2.5] MCTS & AlphaZero (assigned reading; exercises implement AlphaZero)"
+    },
+    {
+     "title": "A general reinforcement learning algorithm that masters chess, shogi and Go through self-play (AlphaZero)",
+     "authors": "Silver et al. (DeepMind)",
+     "year": 2018,
+     "url": "https://www.science.org/doi/10.1126/science.aar6404",
+     "core": true,
+     "type": "paper",
+     "section": "[2.5] MCTS & AlphaZero (assigned reading)"
+    },
+    {
+     "title": "A Survey of Monte Carlo Tree Search Methods",
+     "authors": "Browne et al.",
+     "year": 2012,
+     "url": "https://ieeexplore.ieee.org/document/6145622",
+     "core": true,
+     "type": "paper",
+     "section": "[2.5] MCTS & AlphaZero (assigned reading, UCB/PUCT background)"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Chapter 3: LLM Evaluations (3.1 Intro to Evals, 3.2 Dataset Generation, 3.3 Running Evals with Inspect, 3.4 LLM Agents, 3.5 AI Control)",
+   "readings": [
+    {
+     "title": "A starter guide for evals",
+     "authors": "Apollo Research (Hobbhahn et al.)",
+     "year": 2024,
+     "url": "https://www.alignmentforum.org/posts/2PiawPFJeyCQGcwXG/a-starter-guide-for-evals",
+     "core": true,
+     "type": "blog",
+     "section": "[3.1] Intro to Evals (strongly recommended for everyone)"
+    },
+    {
+     "title": "We need a Science of Evals",
+     "authors": "Apollo Research",
+     "year": 2024,
+     "url": "https://www.alignmentforum.org/posts/fnc6Sgt3CGCdFmmgX/we-need-a-science-of-evals",
+     "core": true,
+     "type": "blog",
+     "section": "[3.1] Intro to Evals (assigned reading)"
+    },
+    {
+     "title": "Discovering Language Model Behaviors with Model-Written Evaluations",
+     "authors": "Perez et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2212.09251",
+     "arxiv": "2212.09251",
+     "core": true,
+     "type": "paper",
+     "section": "[3.1]-[3.3] (the methodology the dataset-generation exercises follow)"
+    },
+    {
+     "title": "Alignment Faking in Large Language Models",
+     "authors": "Greenblatt et al. (Anthropic/Redwood)",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2412.14093",
+     "arxiv": "2412.14093",
+     "core": true,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (assigned reading; replicated in section 2) and [4.2]"
+    },
+    {
+     "title": "Evaluating Frontier Models for Dangerous Capabilities",
+     "authors": "Phuong et al. (Google DeepMind)",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2403.13793",
+     "arxiv": "2403.13793",
+     "core": true,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (assigned section excerpts)"
+    },
+    {
+     "title": "Safety Cases: How to Justify the Safety of Advanced AI Systems",
+     "authors": "Clymer et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2403.10462",
+     "arxiv": "2403.10462",
+     "core": false,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (definition reference)"
+    },
+    {
+     "title": "Universal and Transferable Adversarial Attacks on Aligned Language Models",
+     "authors": "Zou et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2307.15043",
+     "arxiv": "2307.15043",
+     "core": false,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (context reference)"
+    },
+    {
+     "title": "Do the Rewards Justify the Means? (MACHIAVELLI Benchmark)",
+     "authors": "Pan et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2304.03279",
+     "arxiv": "2304.03279",
+     "core": false,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (threat-modeling reference)"
+    },
+    {
+     "title": "Towards Understanding Sycophancy in Language Models",
+     "authors": "Sharma et al. (Anthropic)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2310.13548",
+     "arxiv": "2310.13548",
+     "core": false,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (threat-modeling reference)"
+    },
+    {
+     "title": "Language Models Don't Always Say What They Think",
+     "authors": "Turpin et al.",
+     "year": 2023,
+     "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/ed3fea9033a80fea1376299fa7863f4a-Paper-Conference.pdf",
+     "core": false,
+     "type": "paper",
+     "section": "[3.1] Intro to Evals (threat-modeling reference)"
+    },
+    {
+     "title": "Self-Evaluation Improves Selective Generation in Large Language Models",
+     "authors": "Ren et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.09300",
+     "arxiv": "2312.09300",
+     "core": false,
+     "type": "paper",
+     "section": "[3.3] Running Evals with Inspect (motivation for self-critique solver)"
+    },
+    {
+     "title": "Evaluating Language-Model Agents on Realistic Autonomous Tasks",
+     "authors": "Kinniment et al. (METR/ARC Evals)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.11671",
+     "arxiv": "2312.11671",
+     "core": true,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (framework the agent-evals material is based on)"
+    },
+    {
+     "title": "Large Language Models can Strategically Deceive their Users when Put Under Pressure",
+     "authors": "Scheurer et al. (Apollo Research)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2311.07590",
+     "arxiv": "2311.07590",
+     "core": false,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (further resources)"
+    },
+    {
+     "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+     "authors": "Yao et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2210.03629",
+     "arxiv": "2210.03629",
+     "core": true,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (elicitation exercises implement ReAct)"
+    },
+    {
+     "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+     "authors": "Shinn et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2303.11366",
+     "arxiv": "2303.11366",
+     "core": true,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (elicitation exercises implement reflexion)"
+    },
+    {
+     "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+     "authors": "Wei et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2201.11903",
+     "arxiv": "2201.11903",
+     "core": false,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (elicitation background)"
+    },
+    {
+     "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+     "authors": "Schick et al. (Meta AI)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2302.04761",
+     "arxiv": "2302.04761",
+     "core": false,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (further resources)"
+    },
+    {
+     "title": "Answering Questions by Meta-Reasoning over Multiple Chains of Thought",
+     "authors": "Yoran et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2304.13007",
+     "arxiv": "2304.13007",
+     "core": false,
+     "type": "paper",
+     "section": "[3.4] LLM Agents (further resources)"
+    },
+    {
+     "title": "AI Control: Improving Safety Despite Intentional Subversion",
+     "authors": "Greenblatt et al. (Redwood Research)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.06942",
+     "arxiv": "2312.06942",
+     "core": true,
+     "type": "paper",
+     "section": "[3.5] AI Control (core paper; read sections 1-2; exercises replicate protocols)"
+    },
+    {
+     "title": "Measuring Coding Challenge Competence With APPS",
+     "authors": "Hendrycks et al.",
+     "year": 2021,
+     "url": "https://arxiv.org/abs/2105.09938",
+     "arxiv": "2105.09938",
+     "core": false,
+     "type": "paper",
+     "section": "[3.5] AI Control (dataset used in exercises)"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Chapter 4: Alignment Science (4.1 Emergent Misalignment, 4.2 Science of Misalignment, 4.3 Interpreting Reasoning Models, 4.4 LLM Psychology & Persona Vectors, 4.5 Investigator Agents)",
+   "readings": [
+    {
+     "title": "Model Organisms for Emergent Misalignment",
+     "authors": "Turner, Soligo et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2506.11613",
+     "arxiv": "2506.11613",
+     "core": true,
+     "type": "paper",
+     "section": "[4.1] Emergent Misalignment (primary paper for the exercises; also used in [1.3.4])"
+    },
+    {
+     "title": "Refusal in LLMs is Mediated by a Single Direction",
+     "authors": "Arditi et al.",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/jGuXSZgv6qfdhMCuJ/refusal-in-llms-is-mediated-by-a-single-direction",
+     "arxiv": "2406.11717",
+     "core": true,
+     "type": "paper",
+     "section": "[4.1] Emergent Misalignment (assigned background for steering experiments)"
+    },
+    {
+     "title": "Emergent Misalignment is Easy, Narrow Misalignment is Hard",
+     "authors": "Soligo, Turner et al.",
+     "year": 2026,
+     "url": "https://arxiv.org/abs/2602.07852",
+     "arxiv": "2602.07852",
+     "core": true,
+     "type": "paper",
+     "section": "[4.1] Emergent Misalignment (assigned for bonus section)"
+    },
+    {
+     "title": "Shutdown Resistance in Large Language Models",
+     "authors": "Palisade Research",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2509.14260",
+     "arxiv": "2509.14260",
+     "core": true,
+     "type": "paper",
+     "section": "[4.2] Science of Misalignment (exercises replicate its setup)"
+    },
+    {
+     "title": "Self-preservation or Instruction Ambiguity? Examining the Causes of Shutdown Resistance",
+     "authors": "Google DeepMind researchers",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/wnzkjSmrgWZaBa2aC/self-preservation-or-instruction-ambiguity-examining-the",
+     "core": true,
+     "type": "blog",
+     "section": "[4.2] Science of Misalignment (assigned full read; exercises replicate ablations)"
+    },
+    {
+     "title": "Why Do Some Language Models Fake Alignment While Others Don't?",
+     "authors": "Sheshadri, Hughes et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2501.18951",
+     "arxiv": "2501.18951",
+     "core": true,
+     "type": "paper",
+     "section": "[4.2] Science of Misalignment (assigned reading)"
+    },
+    {
+     "title": "Thought Anchors: Which LLM Reasoning Steps Matter?",
+     "authors": "Bogdan, Macar, Nanda & Conmy",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2506.19143",
+     "arxiv": "2506.19143",
+     "core": true,
+     "type": "paper",
+     "section": "[4.3] Interpreting Reasoning Models (exercises replicate its methods)"
+    },
+    {
+     "title": "Thought Branches: Interpreting LLM Reasoning Requires Resampling",
+     "authors": "Macar, Bogdan et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/abs/2510.27484",
+     "arxiv": "2510.27484",
+     "core": true,
+     "type": "paper",
+     "section": "[4.3] Interpreting Reasoning Models (needed for Section 4)"
+    },
+    {
+     "title": "Principled Interpretability of Reward Hacking in Closed Frontier Models",
+     "authors": "Kroiz, Singh, Rajamanoharan & Nanda (MATS)",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/A67SbpTjuXEHK8Cvo/principled-interpretability-of-reward-hacking-in-closed",
+     "core": false,
+     "type": "blog",
+     "section": "[4.3] Interpreting Reasoning Models (optional further reading)"
+    },
+    {
+     "title": "The Assistant Axis",
+     "authors": "Lu et al. (Anthropic)",
+     "year": 2026,
+     "url": "https://www.anthropic.com/research/assistant-axis",
+     "arxiv": "2601.10387",
+     "core": true,
+     "type": "paper",
+     "section": "[4.4] LLM Psychology & Persona Vectors (exercises replicate sections 1-2)"
+    },
+    {
+     "title": "Persona Vectors: Monitoring and controlling character traits in language models",
+     "authors": "Chen et al. (Anthropic)",
+     "year": 2025,
+     "url": "https://www.anthropic.com/research/persona-vectors",
+     "arxiv": "2507.21509",
+     "core": true,
+     "type": "paper",
+     "section": "[4.4] LLM Psychology & Persona Vectors (exercises replicate sections 3-4)"
+    },
+    {
+     "title": "The Persona Selection Model",
+     "authors": "Sam Marks (Anthropic)",
+     "year": 2026,
+     "url": "https://www.lesswrong.com/posts/dfoty34sT7CSKeJNn/the-persona-selection-model",
+     "core": false,
+     "type": "blog",
+     "section": "[4.4] (assigned optional reading)"
+    },
+    {
+     "title": "Simulators",
+     "authors": "Janus",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators",
+     "core": false,
+     "type": "blog",
+     "section": "[4.4] (assigned optional reading; also referenced in [1.1])"
+    },
+    {
+     "title": "AI Psychosis",
+     "authors": "Tim Hua",
+     "year": 2025,
+     "url": "https://timhua.me/post/ai-psychosis",
+     "core": true,
+     "type": "blog",
+     "section": "[4.5] Investigator Agents (Section 1 replicates this work)"
+    },
+    {
+     "title": "Petri: An open-source auditing tool to accelerate AI safety research",
+     "authors": "Anthropic",
+     "year": 2025,
+     "url": "https://alignment.anthropic.com/2025/petri/",
+     "core": true,
+     "type": "blog",
+     "section": "[4.5] Investigator Agents (assigned reading; sections 2-3 use Petri)"
+    },
+    {
+     "title": "Petri 2.0",
+     "authors": "Anthropic",
+     "year": 2026,
+     "url": "https://alignment.anthropic.com/2026/petri-v2/",
+     "core": true,
+     "type": "blog",
+     "section": "[4.5] Investigator Agents (assigned reading for eval-awareness section)"
+    },
+    {
+     "title": "Investigating Models for Misalignment",
+     "authors": "UK AISI",
+     "year": 2025,
+     "url": "https://www.aisi.gov.uk/blog/investigating-models-for-misalignment",
+     "core": true,
+     "type": "blog",
+     "section": "[4.5] Investigator Agents (assigned short reading)"
+    },
+    {
+     "title": "Building and Evaluating Alignment Auditing Agents (Auditing Language Models for Hidden Objectives follow-up)",
+     "authors": "Anthropic",
+     "year": 2025,
+     "url": "https://alignment.anthropic.com/2025/automated-auditing/",
+     "core": false,
+     "type": "blog",
+     "section": "[4.5] Investigator Agents (super-agent aggregation reference)"
+    }
+   ]
+  }
+ ],
+ "notes": "Extracted 2026-08-21 from the canonical curriculum repo github.com/callummcdougall/ARENA_3.0 (main branch; instruction markdown under chapter*/instructions/pages/, which is the exact source rendered at the arena-chapter*.streamlit.app sites and learn.arena.education). www.arena.education and arxiv.org/streamlit were blocked by the network egress proxy, so all data comes from the repo's markdown plus web search for one title (arXiv 2312.09300); this should be equivalent to the live sites since they render from the same repo. Chapter list in the current repo: 0 Fundamentals, 1 Transformer Interpretability, 2 Reinforcement Learning, 3 LLM Evaluations, 4 Alignment Science (chapter 4 is a recent addition). 'core: true' = listed in a page's 'Reading'/'Reading Material'/'Readings' section or explicitly the paper the exercise set replicates/implements; 'core: false' = substantive further-reading/bonus/threat-modeling references (pure passing citations in code comments were excluded). Sessions are grouped per chapter, with each reading's exercise-set section given in its 'section' field ([x.y] numbering matches ARENA's page names). Note: repo page [1.3.1] exists in two near-identical variants (Linear_Probes and Probing_for_Deception) with the same readings; [2.2.2] Policy Gradient/VPG pages are variants of [2.2]. Some assigned readings are textbooks/videos/tutorials (Sutton & Barto excerpts, 3Blue1Brown, Andrew Ng videos, einops/Inspect docs, Andy Jones's RL debugging post, Neel Nanda's TransformerLens glossary); only the paper-like and load-bearing blog items are listed above. Anthropic transformer-circuits.pub and distill.pub items are typed as 'paper' per task instructions; Anthropic research-blog announcements with companion arXiv papers (Assistant Axis 2601.10387, Persona Vectors 2507.21509, Refusal Direction 2406.11717) carry both URLs."
+}

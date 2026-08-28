@@ -1,0 +1,529 @@
+{
+ "course": "AGI Safety Fundamentals",
+ "source_urls": [
+  "https://course.aisafetyfundamentals.com/alignment",
+  "https://bluedot.org/courses/alignment",
+  "https://bluedot.org/courses/alignment/1/1",
+  "https://bluedot.org/courses/alignment/2",
+  "https://bluedot.org/courses/alignment/3",
+  "https://bluedot.org/courses/alignment/4",
+  "https://bluedot.org/courses/alignment/5",
+  "https://bluedot.org/courses/alignment/6",
+  "https://bluedot.org/courses/alignment/7",
+  "https://bluedot.org/courses/alignment/8",
+  "https://bluedot.org/courses/alignment-2023",
+  "https://www.alignmentforum.org/posts/Zmwkz2BMvuFFR8bi3/agi-safety-fundamentals-curriculum-and-application",
+  "https://github.com/anogassis/anogassis.github.io",
+  "https://github.com/Teabaud/safe-ai-learn"
+ ],
+ "sessions": [
+  {
+   "n": 1,
+   "title": "AI and the years ahead",
+   "readings": [
+    {
+     "title": "AI and Its Impacts: A Brief Introduction",
+     "authors": "Vojta Kovarik, Cara Selvarajah (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://aisafetyfundamentals.com/blog/ai-and-its-impacts/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "But what is a neural network?",
+     "authors": "3Blue1Brown (Grant Sanderson)",
+     "year": 2017,
+     "url": "https://www.youtube.com/watch?v=aircAruvnKk",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Gradient descent, how neural networks learn",
+     "authors": "3Blue1Brown (Grant Sanderson)",
+     "year": 2017,
+     "url": "https://www.youtube.com/watch?v=IHZwWFHWa-w",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "[1hr Talk] Intro to Large Language Models",
+     "authors": "Andrej Karpathy",
+     "year": 2023,
+     "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Visualizing the deep learning revolution",
+     "authors": "Richard Ngo",
+     "year": 2023,
+     "url": "https://medium.com/@richardcngo/visualizing-the-deep-learning-revolution-722098eb9c5",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "What do experts think about the future? A survey of 2,778 AI authors (Thousands of AI Authors on the Future of AI)",
+     "authors": "Katja Grace et al. (AI Impacts)",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2401.02843",
+     "arxiv": "2401.02843",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Compute Trends Across Three Eras of Machine Learning",
+     "authors": "Jaime Sevilla et al. (Epoch AI)",
+     "year": 2022,
+     "url": "https://epoch.ai/blog/compute-trends",
+     "arxiv": "2202.05924",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Artificial intelligence is transforming our world \u2014 it is on all of us to make sure that it goes well",
+     "authors": "Max Roser (Our World in Data)",
+     "year": 2022,
+     "url": "https://ourworldindata.org/ai-impact",
+     "arxiv": null,
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "What risks does AI pose?",
+     "authors": "Adam Jones (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://aisafetyfundamentals.com/blog/ai-risks/",
+     "arxiv": null,
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The economic potential of generative AI: The next productivity frontier",
+     "authors": "McKinsey & Company",
+     "year": 2023,
+     "url": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
+     "arxiv": null,
+     "core": false,
+     "type": "other"
+    },
+    {
+     "title": "Nvidia: The chipmaker that became an AI superpower",
+     "authors": "BBC News",
+     "year": 2023,
+     "url": "https://www.bbc.com/news/business-65675027",
+     "arxiv": null,
+     "core": false,
+     "type": "other"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "What is AI alignment?",
+   "readings": [
+    {
+     "title": "What is AI alignment?",
+     "authors": "Adam Jones (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://aisafetyfundamentals.com/blog/what-is-ai-alignment/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Intro to AI Safety, Remastered",
+     "authors": "Rob Miles",
+     "year": 2021,
+     "url": "https://www.youtube.com/watch?v=pYXy-A4siMw",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    },
+    {
+     "title": "Why AI alignment could be hard with modern deep learning",
+     "authors": "Ajeya Cotra (Cold Takes)",
+     "year": 2021,
+     "url": "https://www.cold-takes.com/why-ai-alignment-could-be-hard-with-modern-deep-learning/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How we could stumble into AI catastrophe",
+     "authors": "Holden Karnofsky (Cold Takes)",
+     "year": 2023,
+     "url": "https://www.cold-takes.com/how-we-could-stumble-into-ai-catastrophe/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Goal Misgeneralisation: Why Correct Specifications Aren't Enough For Correct Goals",
+     "authors": "Rohin Shah, Vikrant Varma, Ramana Kumar, Mary Phuong, Victoria Krakovna, Jonathan Uesato, Zac Kenton (DeepMind)",
+     "year": 2022,
+     "url": "https://deepmindsafetyresearch.medium.com/goal-misgeneralisation-why-correct-specifications-arent-enough-for-correct-goals-cf96ebc60924",
+     "arxiv": "2210.01790",
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Risks from Learned Optimization in Advanced Machine Learning Systems",
+     "authors": "Evan Hubinger, Chris van Merwijk, Vladimir Mikulik, Joar Skalse, Scott Garrabrant",
+     "year": 2019,
+     "url": "https://arxiv.org/abs/1906.01820",
+     "arxiv": "1906.01820",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "TruthfulQA: Measuring How Models Mimic Human Falsehoods",
+     "authors": "Stephanie Lin, Jacob Hilton, Owain Evans",
+     "year": 2021,
+     "url": "https://arxiv.org/abs/2109.07958",
+     "arxiv": "2109.07958",
+     "core": false,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Reinforcement learning from human (or AI) feedback",
+   "readings": [
+    {
+     "title": "Illustrating Reinforcement Learning from Human Feedback (RLHF)",
+     "authors": "Nathan Lambert, Louis Castricato, Leandro von Werra, Alex Havrilla (Hugging Face)",
+     "year": 2022,
+     "url": "https://huggingface.co/blog/rlhf",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Constitutional AI: Harmlessness from AI Feedback",
+     "authors": "Yuntao Bai et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2212.08073",
+     "arxiv": "2212.08073",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Open Problems and Fundamental Limitations of Reinforcement Learning from Human Feedback",
+     "authors": "Stephen Casper, Xander Davies, et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2307.15217",
+     "arxiv": "2307.15217",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Deep reinforcement learning from human preferences",
+     "authors": "Paul Christiano, Jan Leike, Tom Brown, Miljan Martic, Shane Legg, Dario Amodei",
+     "year": 2017,
+     "url": "https://arxiv.org/abs/1706.03741",
+     "arxiv": "1706.03741",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Fine-Tuning Language Models from Human Preferences",
+     "authors": "Daniel Ziegler, Nisan Stiennon, Jeffrey Wu, et al.",
+     "year": 2019,
+     "url": "https://arxiv.org/abs/1909.08593",
+     "arxiv": "1909.08593",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Learning to summarize with human feedback",
+     "authors": "Nisan Stiennon, Long Ouyang, Jeffrey Wu, Daniel Ziegler, et al. (OpenAI)",
+     "year": 2020,
+     "url": "https://arxiv.org/abs/2009.01325",
+     "arxiv": "2009.01325",
+     "core": false,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Scalable oversight",
+   "readings": [
+    {
+     "title": "Can we scale human feedback for complex AI tasks? An intro to scalable oversight.",
+     "authors": "Adam Jones (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://aisafetyfundamentals.com/blog/scalable-oversight-intro/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Supervising strong learners by amplifying weak experts",
+     "authors": "Paul Christiano, Buck Shlegeris, Dario Amodei",
+     "year": 2018,
+     "url": "https://arxiv.org/abs/1810.08575",
+     "arxiv": "1810.08575",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Debating with More Persuasive LLMs Leads to More Truthful Answers",
+     "authors": "Akbir Khan, John Hughes, Dan Valentine, et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2402.06782",
+     "arxiv": "2402.06782",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Weak-to-strong generalization: Eliciting Strong Capabilities With Weak Supervision",
+     "authors": "Collin Burns, Pavel Izmailov, Jan Hendrik Kirchner, et al. (OpenAI)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.09390",
+     "arxiv": "2312.09390",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "AI safety via debate",
+     "authors": "Geoffrey Irving, Paul Christiano, Dario Amodei",
+     "year": 2018,
+     "url": "https://arxiv.org/abs/1805.00899",
+     "arxiv": "1805.00899",
+     "core": false,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Robustness, unlearning and control",
+   "readings": [
+    {
+     "title": "Deep Forgetting & Unlearning for Safely-Scoped LLMs",
+     "authors": "Stephen Casper",
+     "year": 2023,
+     "url": "https://www.alignmentforum.org/posts/mFAvspg4sXkrfZ7FA/deep-forgetting-and-unlearning-for-safely-scoped-llms",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "The WMDP Benchmark: Measuring and Reducing Malicious Use With Unlearning",
+     "authors": "Nathaniel Li, Alexander Pan, et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2403.03218",
+     "arxiv": "2403.03218",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "AI Control: Improving Safety Despite Intentional Subversion",
+     "authors": "Ryan Greenblatt, Buck Shlegeris, Kshitij Sachan, Fabien Roger (Redwood Research)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.06942",
+     "arxiv": "2312.06942",
+     "core": true,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "Mechanistic interpretability",
+   "readings": [
+    {
+     "title": "Introduction to Mechanistic Interpretability",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://aisafetyfundamentals.com/blog/introduction-to-mechanistic-interpretability/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Zoom In: An Introduction to Circuits",
+     "authors": "Chris Olah, Nick Cammarata, Ludwig Schubert, Gabriel Goh, Michael Petrov, Shan Carter",
+     "year": 2020,
+     "url": "https://distill.pub/2020/circuits/zoom-in/",
+     "arxiv": null,
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Toy Models of Superposition",
+     "authors": "Nelson Elhage et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://transformer-circuits.pub/2022/toy_model/index.html",
+     "arxiv": null,
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning",
+     "authors": "Trenton Bricken et al. (Anthropic)",
+     "year": 2023,
+     "url": "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
+     "arxiv": null,
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 Small",
+     "authors": "Kevin Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, Jacob Steinhardt",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2211.00593",
+     "arxiv": "2211.00593",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
+     "authors": "Adly Templeton, Tom Conerly, et al. (Anthropic)",
+     "year": 2024,
+     "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html",
+     "arxiv": null,
+     "core": false,
+     "type": "paper"
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "title": "Technical governance approaches",
+   "readings": [
+    {
+     "title": "Emerging processes for frontier AI safety",
+     "authors": "UK Department for Science, Innovation and Technology",
+     "year": 2023,
+     "url": "https://www.gov.uk/government/publications/emerging-processes-for-frontier-ai-safety",
+     "arxiv": null,
+     "core": true,
+     "type": "other"
+    },
+    {
+     "title": "Computing Power and the Governance of AI",
+     "authors": "Lennart Heim, Markus Anderljung, Emma Bluemke (GovAI; paper by Girish Sastry, Lennart Heim, Haydn Belfield, Markus Anderljung, et al.)",
+     "year": 2024,
+     "url": "https://www.governance.ai/post/computing-power-and-the-governance-of-ai",
+     "arxiv": "2402.08797",
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Model evaluation for extreme risks",
+     "authors": "Toby Shevlane et al.",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2305.15324",
+     "arxiv": "2305.15324",
+     "core": true,
+     "type": "paper"
+    },
+    {
+     "title": "Evaluating Language-Model Agents on Realistic Autonomous Tasks",
+     "authors": "Megan Kinniment et al. (METR / ARC Evals)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.11671",
+     "arxiv": "2312.11671",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Black-Box Access is Insufficient for Rigorous AI Audits",
+     "authors": "Stephen Casper, Carson Ezell, et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/abs/2401.14446",
+     "arxiv": "2401.14446",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Measuring Massive Multitask Language Understanding",
+     "authors": "Dan Hendrycks et al.",
+     "year": 2020,
+     "url": "https://arxiv.org/abs/2009.03300",
+     "arxiv": "2009.03300",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models (BIG-bench)",
+     "authors": "Aarohi Srivastava et al.",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2206.04615",
+     "arxiv": "2206.04615",
+     "core": false,
+     "type": "paper"
+    },
+    {
+     "title": "Responsible Scaling Policies Are Risk Management Done Wrong",
+     "authors": "Simeon Campos",
+     "year": 2023,
+     "url": "https://www.navigatingrisks.ai/p/responsible-scaling-policies-are",
+     "arxiv": null,
+     "core": false,
+     "type": "blog"
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "title": "Contributing to AI safety",
+   "readings": [
+    {
+     "title": "Alignment careers guide",
+     "authors": "Charlie Rogers-Smith (BlueDot Impact adaptation of 'How to pursue a career in technical AI alignment')",
+     "year": 2024,
+     "url": "https://aisafetyfundamentals.com/blog/alignment-careers-guide/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "Become a person who Actually Does Things",
+     "authors": "Neel Nanda",
+     "year": 2022,
+     "url": "https://www.neelnanda.io/blog/become-a-person-who-actually-does-things",
+     "arxiv": null,
+     "core": true,
+     "type": "blog"
+    },
+    {
+     "title": "How To Get Into Independent Research On Alignment/Agency",
+     "authors": "John Wentworth",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/P3Yt66Wh5g7SbkKuT/how-to-get-into-independent-research-on-alignment-agency",
+     "arxiv": null,
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "Preventing an AI-related catastrophe (incl. 'What can you do concretely to help?')",
+     "authors": "Benjamin Hilton (80,000 Hours)",
+     "year": 2022,
+     "url": "https://80000hours.org/problem-profiles/artificial-intelligence/",
+     "arxiv": null,
+     "core": false,
+     "type": "blog"
+    },
+    {
+     "title": "The Most Impactful Roles for Mitigating the Catastrophic Risks from Artificial Intelligence",
+     "authors": null,
+     "year": null,
+     "url": null,
+     "arxiv": null,
+     "core": false,
+     "type": "other"
+    }
+   ]
+  }
+ ],
+ "notes": "ACCESS FAILURES: The sandbox's network egress proxy hard-blocked every direct route to the syllabus: course.aisafetyfundamentals.com, aisafetyfundamentals.com, bluedot.org (current host; course.aisafetyfundamentals.com/alignment now redirects to bluedot.org/courses/alignment), web.archive.org, archive.ph, Google cache/translate, r.jina.ai, medium.com, substack domains, podcast mirrors (type3.audio RSS of narrated readings), and university mirrors (aialignment.mit.edu, zurich-ai-alignment.com). WebFetch and curl both returned EGRESS_BLOCKED/403 for all of these. METHOD: The list above is the current live course (BlueDot Impact's 'AI Alignment' course, successor branding of AGI Safety Fundamentals; curriculum originally by Richard Ngo, current version by Adam Jones, June-2024 revision still live as of Aug 2026). It was reconstructed and cross-verified from (1) search-engine reads of each bluedot.org/courses/alignment/N unit page (titles, authors, years, durations surfaced in indexed snippets), (2) GitHub mirrors/participant notes: anogassis/anogassis.github.io (_posts, March-2024 cohort weeks 0-5 reading lists), Teabaud/safe-ai-learn (units 1-2 resources), quantified-uncertainty/longterm-wiki (unit structure), and (3) StampyAI alignment-research-dataset. Unit titles (1-8) are confirmed verbatim from the site's own page titles. CONFIDENCE: Unit 1's five core items sum to the page's stated 1h59m, unit 7's three core items to its 1h19m, and unit 5's three to ~its 1h31m, so those core lists are complete; core lists for units 2, 3, 4, 6, 8 are attested by at least two independent sources each, though the exact core-vs-further split on the live page could not be double-checked for unit 3 (the 2017/2019/2020 OpenAI RLHF lineage papers) and unit 6 (IOI, Scaling Monosemanticity). GAPS: (a) The site now gates full per-unit resource lists behind a free account, so the optional/'further resources' lists here are only the entries I could positively attest - the real further-resources lists are longer; (b) the unit-8 resource 'The Most Impactful Roles...' was sighted in indexed page content but its author/URL could not be verified; (c) units 9-12 are project-sprint units (rapidly testing/developing your project, building in public) with no curated readings; (d) exact on-page display titles occasionally differ from canonical titles (e.g. WMDP appears as 'Measuring and Reducing Malicious Use With Unlearning'; 'Learning to summarize...' appears under an RLHF-prefixed display title). OLDER VERSIONS: the archived 2023 9-unit version (AGI Safety Fundamentals proper, by Richard Ngo) is at bluedot.org/courses/alignment-2023 (blocked; unit 6 'Interpretability', unit 9 'Careers and Projects' confirmed), and the original 2021/2022 8-week curriculum with full core readings (Four Background Claims; AGI Safety from First Principles; The Bitter Lesson; Biological Anchors; Specification Gaming; Risks from Learned Optimisation; Superintelligence ch.7; Carlsmith's Is Power-Seeking AI an Existential Risk?; What Failure Looks Like; Intelligence Explosion: Evidence and Import; Deceptive Alignment; imitation learning/RLHF/IRL week incl. Cooperative Inverse Reinforcement Learning arXiv:1606.03137; Recursively Summarizing Books arXiv:2109.10862; Factored Cognition; AI Safety via Debate; Supervising Strong Learners arXiv:1810.08575; Zoom In; MIRI's Approach; Embedded Agents; AI Governance: Opportunity and Theory of Impact; Cooperation/Conflict/Transformative AI; Vulnerable World Hypothesis) is preserved in the Alignment Forum post Zmwkz2BMvuFFR8bi3, which I fetched successfully - say the word if you want that version expanded into the same JSON schema."
+}

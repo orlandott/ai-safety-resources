@@ -1,0 +1,114 @@
+{
+ "as_of": "2026-08",
+ "counts": [
+  {
+   "arxiv": "1606.06565",
+   "title": "Concrete Problems in AI Safety",
+   "citations": 5200,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2312.06942",
+   "title": "AI Control: Improving Safety Despite Intentional Subversion",
+   "citations": 250,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2412.14093",
+   "title": "Alignment Faking in Large Language Models",
+   "citations": 350,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2212.08073",
+   "title": "Constitutional AI: Harmlessness from AI Feedback",
+   "citations": 3200,
+   "source": "scispace-snippet+extrapolation"
+  },
+  {
+   "arxiv": "1706.03741",
+   "title": "Deep Reinforcement Learning from Human Preferences",
+   "citations": 6500,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "1512.03385",
+   "title": "Deep Residual Learning for Image Recognition",
+   "citations": 280000,
+   "source": "google-scholar-via-nature-snippet"
+  },
+  {
+   "arxiv": "2212.03827",
+   "title": "Discovering Latent Knowledge in Language Models Without Supervision",
+   "citations": 700,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2209.11895",
+   "title": "In-context Learning and Induction Heads",
+   "citations": 900,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2306.12001",
+   "title": "An Overview of Catastrophic AI Risks",
+   "citations": 700,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2310.01405",
+   "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+   "citations": 1200,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": null,
+   "title": "Toy Models of Superposition",
+   "citations": 1100,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2109.07958",
+   "title": "TruthfulQA: Measuring How Models Mimic Human Falsehoods",
+   "citations": 4000,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2307.15043",
+   "title": "Universal and Transferable Adversarial Attacks on Aligned Language Models",
+   "citations": 4000,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2312.09390",
+   "title": "Weak-to-strong generalization: Eliciting Strong Capabilities With Weak Supervision",
+   "citations": 800,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": null,
+   "title": "Zoom In: An Introduction to Circuits",
+   "citations": 1000,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "1906.01820",
+   "title": "Risks from Learned Optimization in Advanced Machine Learning Systems",
+   "citations": 600,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "2109.13916",
+   "title": "Unsolved Problems in ML Safety",
+   "citations": 800,
+   "source": "semantic-scholar-snippet+extrapolation"
+  },
+  {
+   "arxiv": "1706.03762",
+   "title": "Attention Is All You Need",
+   "citations": 230000,
+   "source": "google-scholar-snippet"
+  }
+ ],
+ "note": "Only figures corroborated by a search-result snippet are kept; pure estimates were discarded."
+}

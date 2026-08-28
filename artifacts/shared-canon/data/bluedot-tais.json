@@ -1,0 +1,1546 @@
+{
+ "course": "BlueDot Technical AI Safety",
+ "source_urls": [
+  "https://bluedot.org/courses/technical-ai-safety",
+  "https://bluedot.org/courses/technical-ai-safety/1/1",
+  "https://bluedot.org/courses/technical-ai-safety/1/2",
+  "https://bluedot.org/courses/technical-ai-safety/1/3",
+  "https://bluedot.org/courses/technical-ai-safety/2/1",
+  "https://bluedot.org/courses/technical-ai-safety/2/2",
+  "https://bluedot.org/courses/technical-ai-safety/2/3",
+  "https://bluedot.org/courses/technical-ai-safety/2/4",
+  "https://bluedot.org/courses/technical-ai-safety/3/1",
+  "https://bluedot.org/courses/technical-ai-safety/3/2",
+  "https://bluedot.org/courses/technical-ai-safety/3/3",
+  "https://bluedot.org/courses/technical-ai-safety/3/4",
+  "https://bluedot.org/courses/technical-ai-safety/4/1",
+  "https://bluedot.org/courses/technical-ai-safety/4/2",
+  "https://bluedot.org/courses/technical-ai-safety/5/1",
+  "https://bluedot.org/courses/technical-ai-safety/6/1",
+  "https://github.com/Arkleseisure/Arkleseisure.github.io (curricula-tech-7c2a.html, verbatim scrape of the live course dated 2026-08-20)",
+  "https://github.com/canivel/technical-ai-safety",
+  "https://github.com/laudominik/personal-notes (seminars/TAIS)",
+  "https://github.com/digitalyoshixi/zettelkasten"
+ ],
+ "sessions": [
+  {
+   "n": 1,
+   "title": "The technical challenge with AI",
+   "readings": [
+    {
+     "title": "Unit 1 intro video (embedded on 'Making AI go well')",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=mSMBBiEI2N8",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "1.1 Making AI go well"
+    },
+    {
+     "title": "What is AI alignment?",
+     "authors": "Adam Jones (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://blog.bluedot.org/p/what-is-ai-alignment",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "1.3 Building AI safely is hard",
+     "minutes": 15
+    },
+    {
+     "title": "Specification Gaming: How AI Can Turn Your Wishes Against You",
+     "authors": "Rational Animations",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=jQOBaGka7O0",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "1.3 Building AI safely is hard",
+     "minutes": 10
+    },
+    {
+     "title": "Why alignment could be hard with modern deep learning",
+     "authors": "Ajeya Cotra (Cold Takes)",
+     "year": 2021,
+     "url": "https://www.cold-takes.com/why-ai-alignment-could-be-hard-with-modern-deep-learning/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "1.3 Building AI safely is hard",
+     "minutes": 25
+    },
+    {
+     "title": "Recent Frontier Models Are Reward Hacking",
+     "authors": "METR",
+     "year": 2025,
+     "url": "https://metr.org/blog/2025-06-05-recent-reward-hacking/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "1.3 Building AI safely is hard",
+     "minutes": 15
+    },
+    {
+     "title": "If you remember one AI disaster, make it this one",
+     "authors": "AI In Context (80,000 Hours video program; on xAI's Grok 'MechaHitler' incident)",
+     "year": 2025,
+     "url": "https://www.youtube.com/watch?v=r_9wkavYt4Y",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "1.3 Building AI safely is hard",
+     "minutes": 40
+    },
+    {
+     "title": "Multi-Agent Risks from Advanced AI (blog announcement of the report; optional linked talk)",
+     "authors": "Lewis Hammond (Cooperative AI Foundation)",
+     "year": 2025,
+     "url": "https://www.cooperativeai.com/post/new-report-multi-agent-risks-from-advanced-ai",
+     "arxiv": "2502.14143",
+     "core": true,
+     "type": "blog",
+     "chunk": "1.3 Building AI safely is hard",
+     "minutes": 5
+    },
+    {
+     "title": "Reframing AGI Threat Models",
+     "authors": "Richard Ngo",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=4v3uqWeVmco",
+     "arxiv": null,
+     "core": false,
+     "type": "video",
+     "chunk": "1 Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "What failure looks like",
+     "authors": "Paul Christiano",
+     "year": 2019,
+     "url": "https://www.alignmentforum.org/posts/HBxe6wdjxK239zajf/what-failure-looks-like",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "1 Optional resources",
+     "minutes": 10
+    },
+    {
+     "title": "AI Could Defeat All Of Us Combined",
+     "authors": "Holden Karnofsky (Cold Takes)",
+     "year": 2022,
+     "url": "https://www.cold-takes.com/ai-could-defeat-all-of-us-combined/",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "1 Optional resources",
+     "minutes": 20
+    },
+    {
+     "title": "Why Would AI \"Aim\" To Defeat Humanity?",
+     "authors": "Holden Karnofsky (Cold Takes)",
+     "year": 2022,
+     "url": "https://www.cold-takes.com/why-would-ai-aim-to-defeat-humanity/",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "1 Optional resources"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Training safer models",
+   "readings": [
+    {
+     "title": "Unit 2 intro video (embedded on 'Can we train AI to be safe?')",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=o1jxMLEFr9I",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "2.1 Can we train AI to be safe?"
+    },
+    {
+     "title": "What is input data filtration in AI safety?",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/data-filtration",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "2.2 Feeding AI 'good' data",
+     "minutes": 5
+    },
+    {
+     "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
+     "authors": "Kyle O'Brien et al. (EleutherAI & UK AISI)",
+     "year": 2025,
+     "url": "https://deepignorance.ai/",
+     "arxiv": "2508.06601",
+     "core": true,
+     "type": "paper",
+     "chunk": "2.2 Feeding AI 'good' data",
+     "minutes": 10
+    },
+    {
+     "title": "Enhancing Model Safety through Pretraining Data Filtering",
+     "authors": "Yanda Chen et al. (Anthropic Alignment Science)",
+     "year": 2025,
+     "url": "https://alignment.anthropic.com/2025/pretraining-data-filtering/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "2.2 Feeding AI 'good' data",
+     "minutes": 10
+    },
+    {
+     "title": "A small number of samples can poison LLMs of any size",
+     "authors": "Alexandra Souly et al. (Anthropic, UK AISI, Alan Turing Institute)",
+     "year": 2025,
+     "url": "https://www.anthropic.com/research/small-samples-poison",
+     "arxiv": "2510.07192",
+     "core": true,
+     "type": "blog",
+     "chunk": "2.2 Feeding AI 'good' data",
+     "minutes": 10
+    },
+    {
+     "title": "The True Story of How GPT-2 Became Maximally Lewd",
+     "authors": "Rational Animations",
+     "year": 2023,
+     "url": "https://www.youtube.com/watch?v=qV_rOlHjvvs",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "2.3 Teaching AI right from wrong",
+     "minutes": 15
+    },
+    {
+     "title": "A simple technical explanation of RLH(AI)F",
+     "authors": "Li-Lian Ang (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://kairos.fm/simple-technical-rlhaif/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "2.3 Teaching AI right from wrong",
+     "minutes": 10
+    },
+    {
+     "title": "Problems with Reinforcement Learning from Human Feedback (RLHF) for AI safety",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/rlhf-limitations-for-ai-safety/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "2.3 Teaching AI right from wrong",
+     "minutes": 10
+    },
+    {
+     "title": "An Approach to Technical AGI Safety and Security (read 'Misalignment' and 'Training an aligned model')",
+     "authors": "Google DeepMind Safety Research (Rohin Shah et al.)",
+     "year": 2025,
+     "url": "https://deepmindsafetyresearch.medium.com/an-approach-to-technical-agi-safety-and-security-25928819fbc6",
+     "arxiv": "2504.01849",
+     "core": true,
+     "type": "blog",
+     "chunk": "2.4 More safety techniques",
+     "minutes": 5
+    },
+    {
+     "title": "Can we scale human feedback for complex AI tasks?",
+     "authors": "Adam Jones (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://blog.bluedot.org/p/scalable-oversight-intro/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "2.4 More safety techniques",
+     "minutes": 10
+    },
+    {
+     "title": "Recommendations for Technical AI Safety Research Directions (read 'Scalable oversight')",
+     "authors": "Anthropic Alignment Science Team",
+     "year": 2025,
+     "url": "https://alignment.anthropic.com/2025/recommended-directions",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "2.4 More safety techniques",
+     "minutes": 10
+    },
+    {
+     "title": "Illustrating Reinforcement Learning from Human Feedback (RLHF)",
+     "authors": "Nathan Lambert, Louis Castricato, Leandro von Werra et al. (Hugging Face)",
+     "year": 2022,
+     "url": "https://huggingface.co/blog/rlhf",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "2 Optional resources"
+    },
+    {
+     "title": "Constitutional AI: Harmlessness from AI Feedback",
+     "authors": "Yuntao Bai, Jared Kaplan et al. (Anthropic)",
+     "year": 2022,
+     "url": "https://arxiv.org/abs/2212.08073",
+     "arxiv": "2212.08073",
+     "core": false,
+     "type": "paper",
+     "chunk": "2 Optional resources"
+    },
+    {
+     "title": "What is deliberative alignment?",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/deliberative-alignment",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "2 Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "Detecting and reducing scheming in AI models",
+     "authors": "OpenAI (with Apollo Research)",
+     "year": 2025,
+     "url": "https://openai.com/index/detecting-and-reducing-scheming-in-ai-models/",
+     "arxiv": "2509.15541",
+     "core": false,
+     "type": "blog",
+     "chunk": "2 Optional resources",
+     "minutes": 10
+    },
+    {
+     "title": "What is AI debate, and can it make systems safer?",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/what-is-ai-debate-and-can-it-make-systems-safer",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "2 Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "Empirical Progress on Debate",
+     "authors": "Julian Michael",
+     "year": 2025,
+     "url": "https://www.youtube.com/watch?v=QzumRZ9NjRw",
+     "arxiv": null,
+     "core": false,
+     "type": "video",
+     "chunk": "2 Optional resources",
+     "minutes": 15
+    },
+    {
+     "title": "Debating with More Persuasive LLMs Leads to More Truthful Answers",
+     "authors": "Akbir Khan, John Hughes, Dan Valentine et al.",
+     "year": 2024,
+     "url": "https://arxiv.org/pdf/2402.06782",
+     "arxiv": "2402.06782",
+     "core": false,
+     "type": "paper",
+     "chunk": "2 Optional resources",
+     "minutes": 20
+    },
+    {
+     "title": "AI safety via debate",
+     "authors": "Geoffrey Irving, Paul Christiano, Dario Amodei (OpenAI)",
+     "year": 2018,
+     "url": "https://arxiv.org/abs/1805.00899",
+     "arxiv": "1805.00899",
+     "core": false,
+     "type": "paper",
+     "chunk": "2 Optional resources",
+     "minutes": 30
+    },
+    {
+     "title": "On scalable oversight with weak LLMs judging strong LLMs",
+     "authors": "Zachary Kenton et al. (Google DeepMind)",
+     "year": 2024,
+     "url": "https://arxiv.org/pdf/2407.04622",
+     "arxiv": "2407.04622",
+     "core": false,
+     "type": "paper",
+     "chunk": "2 Optional resources",
+     "minutes": 30
+    },
+    {
+     "title": "What is Weak-to-Strong Generalisation?",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/what-is-weak-to-strong-generalisation",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "2 Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "Weak-to-strong generalization: Eliciting Strong Capabilities With Weak Supervision",
+     "authors": "Collin Burns, Pavel Izmailov, Jan Hendrik Kirchner et al. (OpenAI)",
+     "year": 2023,
+     "url": "https://arxiv.org/abs/2312.09390",
+     "arxiv": "2312.09390",
+     "core": false,
+     "type": "paper",
+     "chunk": "2 Optional resources",
+     "minutes": 40
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Detecting danger",
+   "readings": [
+    {
+     "title": "Unit 3 intro video (embedded on 'Evaluations: AI can, but will it?')",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=EtVsbBd3Rv8",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "3.1 Evaluations: AI can, but will it?"
+    },
+    {
+     "title": "We need a Science of Evals",
+     "authors": "Marius Hobbhahn (Apollo Research)",
+     "year": 2024,
+     "url": "https://www.apolloresearch.ai/blog/we-need-a-science-of-evals",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "3.1 Evaluations: AI can, but will it?",
+     "minutes": 15
+    },
+    {
+     "title": "AI models can be dangerous before public deployment",
+     "authors": "METR",
+     "year": 2025,
+     "url": "https://metr.org/blog/2025-01-17-ai-models-dangerous-before-public-deployment/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "3.1 Evaluations: AI can, but will it?",
+     "minutes": 5
+    },
+    {
+     "title": "When AI Chooses Harm Over Failure",
+     "authors": "CivAI",
+     "year": 2025,
+     "url": "https://civai.org/p/agentic-misalignment",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.1 Evaluations: AI can, but will it?",
+     "minutes": 5
+    },
+    {
+     "title": "Self-preservation or Instruction Ambiguity? Examining the Causes of Shutdown Resistance",
+     "authors": "Senthooran Rajamanoharan and Neel Nanda (Google DeepMind)",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/wnzkjSmrgWZaBa2aC/self-preservation-or-instruction-ambiguity-examining-the",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "3.1 Evaluations: AI can, but will it?",
+     "minutes": 15
+    },
+    {
+     "title": "AI Lab Watch",
+     "authors": "Zach Stein-Perlman",
+     "year": null,
+     "url": "https://ailabwatch.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.2 How do AI companies test for safety?"
+    },
+    {
+     "title": "Responsible Scaling Policies",
+     "authors": "METR",
+     "year": 2023,
+     "url": "https://metr.org/blog/2023-09-26-rsp/",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "3.2 How do AI companies test for safety?"
+    },
+    {
+     "title": "Anthropic's Responsible Scaling Policy (v3)",
+     "authors": "Anthropic",
+     "year": 2026,
+     "url": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.3 Option 1: Anthropic (choose-one)"
+    },
+    {
+     "title": "System Card: Claude Opus 4.6 (skim Section 8)",
+     "authors": "Anthropic",
+     "year": 2026,
+     "url": "https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.3 Option 1: Anthropic (choose-one)"
+    },
+    {
+     "title": "System Card: Claude Mythos Preview",
+     "authors": "Anthropic",
+     "year": 2026,
+     "url": "https://drive.google.com/file/d/1hF1WOSg7rsxPKMOXTOQucN2XgN7ICJgY/view?usp=sharing",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.3 Option 1: Anthropic (choose-one)"
+    },
+    {
+     "title": "OpenAI's Preparedness Framework (v2)",
+     "authors": "OpenAI",
+     "year": 2025,
+     "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.4 Option 2: OpenAI (choose-one)"
+    },
+    {
+     "title": "GPT-5 System Card (skim Section 5)",
+     "authors": "OpenAI",
+     "year": 2025,
+     "url": "https://cdn.openai.com/gpt-5-system-card.pdf",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.4 Option 2: OpenAI (choose-one)"
+    },
+    {
+     "title": "Google DeepMind's Frontier Safety Framework (2.0)",
+     "authors": "Google DeepMind",
+     "year": 2025,
+     "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/updating-the-frontier-safety-framework/Frontier%20Safety%20Framework%202.0.pdf",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.5 Option 3: Google DeepMind (choose-one)"
+    },
+    {
+     "title": "Gemini 3 Pro Model Card",
+     "authors": "Google DeepMind",
+     "year": 2025,
+     "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.5 Option 3: Google DeepMind (choose-one)"
+    },
+    {
+     "title": "Meta's Advanced AI Scaling Framework (v2)",
+     "authors": "Meta",
+     "year": 2026,
+     "url": "https://ai.meta.com/static-resource/Meta_Advanced-AI-Scaling-Framework-v2",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.6 Option 4: Meta (choose-one)"
+    },
+    {
+     "title": "Llama Guard 4 Model Card",
+     "authors": "Meta",
+     "year": 2025,
+     "url": "https://github.com/meta-llama/PurpleLlama/blob/main/Llama-Guard4/12B/MODEL_CARD.md",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "3.6 Option 4: Meta (choose-one)"
+    },
+    {
+     "title": "Chain-of-Thought Snippets from Deceptive AIs",
+     "authors": "Bronson Schoen et al. (Apollo Research & OpenAI)",
+     "year": 2025,
+     "url": "https://www.antischeming.ai/snippets",
+     "arxiv": "2509.15541",
+     "core": false,
+     "type": "other",
+     "chunk": "3 Optional resources (scheming)",
+     "minutes": 5
+    },
+    {
+     "title": "Alignment faking in large language models",
+     "authors": "Ryan Greenblatt et al. (Anthropic & Redwood Research)",
+     "year": 2024,
+     "url": "https://www.anthropic.com/research/alignment-faking",
+     "arxiv": "2412.14093",
+     "core": false,
+     "type": "blog",
+     "chunk": "3 Optional resources (scheming)",
+     "minutes": 10
+    },
+    {
+     "title": "System Card: Claude Sonnet 4.5 (read section 7.6.1 for white-box interpretability audits; skim Sections 9 and 7.2)",
+     "authors": "Anthropic",
+     "year": 2025,
+     "url": "https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "3 Optional resources (scheming)"
+    },
+    {
+     "title": "Agentic Misalignment: How LLMs could be insider threats",
+     "authors": "Aengus Lynch et al. (Anthropic)",
+     "year": 2025,
+     "url": "https://www.anthropic.com/research/agentic-misalignment",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "3 Optional resources (scheming)"
+    },
+    {
+     "title": "'3cb': The Catastrophic Cyber Capabilities Benchmark",
+     "authors": "Jonathan Ng (Apart Research)",
+     "year": 2024,
+     "url": "https://apartresearch.com/news/3cb-the-catastrophic-cyber-capabilities-benchmark",
+     "arxiv": "2410.09114",
+     "core": false,
+     "type": "blog",
+     "chunk": "3 Optional resources (cyber uplift)",
+     "minutes": 10
+    },
+    {
+     "title": "AI Hackers in the Wild: LLM Agent Honeypot",
+     "authors": "Reworr (Apart Research / Palisade)",
+     "year": 2024,
+     "url": "https://apartresearch.com/news/ai-hackers-in-the-wild-llm-agent-honeypot",
+     "arxiv": "2410.13919",
+     "core": false,
+     "type": "blog",
+     "chunk": "3 Optional resources (cyber uplift)"
+    },
+    {
+     "title": "HonestCyberEval: An AI Cyber Risk Benchmark for Automated Software Exploitation",
+     "authors": "Dan Ristea and Vasilios Mavroudis (Alan Turing Institute)",
+     "year": 2024,
+     "url": "https://arxiv.org/pdf/2410.21939",
+     "arxiv": "2410.21939",
+     "core": false,
+     "type": "paper",
+     "chunk": "3 Optional resources (cyber uplift)",
+     "minutes": 15
+    },
+    {
+     "title": "Do the biorisk evaluations of AI labs actually measure the risk of developing bioweapons?",
+     "authors": "Anson Ho and Arden Berg (Epoch AI)",
+     "year": 2025,
+     "url": "https://epoch.ai/gradient-updates/do-the-biorisk-evaluations-of-ai-labs-actually-measure-the-risk-of-developing-bioweapons",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "3 Optional resources (biorisk uplift)",
+     "minutes": 15
+    },
+    {
+     "title": "Toward Comprehensive Benchmarking of the Biological Knowledge of Frontier Large Language Models (read Chapters 2 & 3)",
+     "authors": "Dev et al. (RAND)",
+     "year": 2025,
+     "url": "https://www.rand.org/pubs/research_reports/RRA3797-1.html",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "3 Optional resources (biorisk uplift)",
+     "minutes": 20
+    },
+    {
+     "title": "The levers of political persuasion with conversational AI",
+     "authors": "Kobi Hackenburg et al. (UK AISI)",
+     "year": 2025,
+     "url": "https://arxiv.org/pdf/2507.13919",
+     "arxiv": "2507.13919",
+     "core": false,
+     "type": "paper",
+     "chunk": "3 Optional resources (persuasion)",
+     "minutes": 35
+    },
+    {
+     "title": "Anthropic's Threat Intelligence Report",
+     "authors": "Anthropic",
+     "year": 2025,
+     "url": "https://www-cdn.anthropic.com/b2a76c6f6992465c09a6f2fce282f6c0cea8c200.pdf",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "3 Optional resources"
+    },
+    {
+     "title": "The Long-Term Benefit Trust",
+     "authors": "Anthropic",
+     "year": 2023,
+     "url": "https://www.anthropic.com/index/the-long-term-benefit-trust",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "3 Optional resources"
+    },
+    {
+     "title": "Gemini 2.5 Pro Model Card",
+     "authors": "Google DeepMind",
+     "year": 2025,
+     "url": "https://modelcards.withgoogle.com/assets/documents/gemini-2.5-pro.pdf",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "3 Optional resources"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Understanding AI",
+   "readings": [
+    {
+     "title": "Unit 4 intro video (embedded on 'How does AI think?')",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=NEFG1YF71pI",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "4.1 How does AI think?"
+    },
+    {
+     "title": "What Do Neural Networks Really Learn? Exploring the Brain of an AI Model",
+     "authors": "Rational Animations",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=jGCvY4gNnA8",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "4.1 How does AI think?",
+     "minutes": 15
+    },
+    {
+     "title": "Introduction to Mechanistic Interpretability",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2024,
+     "url": "https://blog.bluedot.org/p/introduction-to-mechanistic-interpretability",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "4.1 How does AI think?",
+     "minutes": 5
+    },
+    {
+     "title": "Neel Nanda on the race to read AI minds (read 'The interview in a nutshell')",
+     "authors": "Robert Wiblin (80,000 Hours Podcast, interviewing Neel Nanda)",
+     "year": 2025,
+     "url": "https://80000hours.org/podcast/episodes/neel-nanda-mechanistic-interpretability/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "4.1 How does AI think?",
+     "minutes": 5
+    },
+    {
+     "title": "The Misguided Quest for Mechanistic AI Interpretability",
+     "authors": "Dan Hendrycks and Laura Hiscott (AI Frontiers)",
+     "year": 2025,
+     "url": "https://aifrontiersmedia.substack.com/p/the-misguided-quest-for-mechanistic",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "4.1 How does AI think?",
+     "minutes": 10
+    },
+    {
+     "title": "What are probing classifiers and can they help us understand what's happening inside AI models?",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/what-are-probing-classifiers",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "4.2 Interpretability in practice",
+     "minutes": 5
+    },
+    {
+     "title": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+     "authors": "Tomek Korbak et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/pdf/2507.11473",
+     "arxiv": "2507.11473",
+     "core": true,
+     "type": "paper",
+     "chunk": "4.2 Interpretability in practice",
+     "minutes": 15
+    },
+    {
+     "title": "Model Organisms of Misalignment: The Case for a New Pillar of Alignment Research",
+     "authors": "Evan Hubinger et al. (Anthropic)",
+     "year": 2023,
+     "url": "https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "4.2 Interpretability in practice",
+     "minutes": 20
+    },
+    {
+     "title": "Hallucination Probes (Real-Time Detection of Hallucinated Entities in Long-Form Generation)",
+     "authors": "Oscar Obeso et al.",
+     "year": 2025,
+     "url": "https://www.hallucination-probes.com/",
+     "arxiv": "2509.03531",
+     "core": true,
+     "type": "paper",
+     "chunk": "4.2 Interpretability in practice",
+     "minutes": 5
+    },
+    {
+     "title": "Auditing language models for hidden objectives",
+     "authors": "Samuel Marks et al. (Anthropic)",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/wSKPuBfgkkqfTpmWJ/auditing-language-models-for-hidden-objectives",
+     "arxiv": "2503.10965",
+     "core": true,
+     "type": "paper",
+     "chunk": "4.2 Interpretability in practice",
+     "minutes": 15
+    },
+    {
+     "title": "MoSSAIC: AI Safety After Mechanism",
+     "authors": "Farr et al.",
+     "year": null,
+     "url": "https://openreview.net/pdf?id=n7WYSJ35FU",
+     "arxiv": null,
+     "core": false,
+     "type": "paper",
+     "chunk": "4 Optional resources"
+    },
+    {
+     "title": "Let's Try To Understand AI Monosemanticity",
+     "authors": "Scott Alexander (Astral Codex Ten)",
+     "year": 2023,
+     "url": "https://www.astralcodexten.com/p/god-help-us-lets-try-to-understand",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "4 Optional resources",
+     "minutes": 25
+    },
+    {
+     "title": "Against Almost Every Theory of Impact of Interpretability",
+     "authors": "Charbel-Raphael Segerie",
+     "year": 2023,
+     "url": "https://www.alignmentforum.org/posts/LNA8mubrByG7SFacm/against-almost-every-theory-of-impact-of-interpretability-1",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "4 Optional resources",
+     "minutes": 20
+    },
+    {
+     "title": "Interpretability Will Not Reliably Find Deceptive AI",
+     "authors": "Neel Nanda (Google DeepMind)",
+     "year": 2025,
+     "url": "https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "4 Optional resources",
+     "minutes": 10
+    },
+    {
+     "title": "Barriers to Mechanistic Interpretability for AGI Safety",
+     "authors": "Connor Leahy (Conjecture)",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=wKI9hmaIbpg",
+     "arxiv": null,
+     "core": false,
+     "type": "video",
+     "chunk": "4 Optional resources",
+     "minutes": 15
+    },
+    {
+     "title": "ARENA Curriculum: Transformer Interpretability",
+     "authors": "Callum McDougall (ARENA)",
+     "year": null,
+     "url": "https://arena-chapter1-transformer-interp.streamlit.app/",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "4 Optional resources"
+    },
+    {
+     "title": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
+     "authors": "Adly Templeton, Tom Conerly et al. (Anthropic)",
+     "year": 2024,
+     "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+     "arxiv": null,
+     "core": false,
+     "type": "paper",
+     "chunk": "4 Optional resources"
+    },
+    {
+     "title": "On the Biology of a Large Language Model",
+     "authors": "Jack Lindsey et al. (Anthropic)",
+     "year": 2025,
+     "url": "https://transformer-circuits.pub/2025/attribution-graphs/biology.html",
+     "arxiv": null,
+     "core": false,
+     "type": "paper",
+     "chunk": "4 Optional resources"
+    },
+    {
+     "title": "Thought Anchors: Which LLM Reasoning Steps Matter?",
+     "authors": "Paul Bogdan et al.",
+     "year": 2025,
+     "url": "https://arxiv.org/pdf/2506.19143",
+     "arxiv": "2506.19143",
+     "core": false,
+     "type": "paper",
+     "chunk": "4 Optional resources"
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Minimising harm",
+   "readings": [
+    {
+     "title": "Unit 5 intro video (embedded on 'Assuming harm')",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=RMB-7p_cOnM",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "5.1 Assuming harm"
+    },
+    {
+     "title": "Using Dangerous AI, But Safely?",
+     "authors": "Robert Miles",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=0pgEMWy70Qk",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "5.1 Assuming harm",
+     "minutes": 30
+    },
+    {
+     "title": "Introduction to AI Control",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/ai-control",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "5.1 Assuming harm",
+     "minutes": 5
+    },
+    {
+     "title": "What is input/output filtering in AI safety?",
+     "authors": "Sarah Hastings-Woodhouse (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/input-output-filtering",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "5.1 Assuming harm",
+     "minutes": 5
+    },
+    {
+     "title": "Constitutional Classifiers: Defending against universal jailbreaks",
+     "authors": "Mrinank Sharma et al. (Anthropic Safeguards Research Team)",
+     "year": 2025,
+     "url": "https://www.anthropic.com/news/constitutional-classifiers",
+     "arxiv": "2501.18837",
+     "core": true,
+     "type": "blog",
+     "chunk": "5.1 Assuming harm",
+     "minutes": 10
+    },
+    {
+     "title": "AI-Enabled Coups: How a Small Group Could Use AI to Seize Power (read section 4, 'Concrete paths to an AI-enabled coup')",
+     "authors": "Tom Davidson, Lukas Finnveden, Rose Hadshar (Forethought)",
+     "year": 2025,
+     "url": "https://www.forethought.org/research/ai-enabled-coups-how-a-small-group-could-use-ai-to-seize-power",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "5.2 Building defences (threat-pathway option: power concentration)",
+     "minutes": 15
+    },
+    {
+     "title": "Gradual Disempowerment Summary",
+     "authors": "Aniket Chakravorty, Dewi Erwan (BlueDot Impact; summary of Kulveit et al. 2025)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/gradual-disempowerment-summary",
+     "arxiv": "2501.16946",
+     "core": true,
+     "type": "blog",
+     "chunk": "5.2 Building defences (threat-pathway option: gradual disempowerment)",
+     "minutes": 15
+    },
+    {
+     "title": "How AI could enable catastrophic pandemics",
+     "authors": "Will Saunter (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/how-ai-could-enable-catastrophic-pandemics",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "5.2 Building defences (threat-pathway option: catastrophic pandemics)",
+     "minutes": 15
+    },
+    {
+     "title": "How AI could enable critical infrastructure collapse",
+     "authors": "Li-Lian Ang (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/how-ai-could-enable-critical-infrastructure-collapse",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "5.2 Building defences (threat-pathway option: critical infrastructure collapse)",
+     "minutes": 5
+    },
+    {
+     "title": "Buck Shlegeris on controlling AI that wants to take over - so we can use it anyway",
+     "authors": "Robert Wiblin (80,000 Hours Podcast, interviewing Buck Shlegeris)",
+     "year": 2025,
+     "url": "https://80000hours.org/podcast/episodes/buck-shlegeris-ai-control-scheming/",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "5.3 Break the kill chain - Optional resources"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "Start contributing",
+   "readings": [
+    {
+     "title": "Unit 6 intro video (embedded on 'Your next steps')",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.youtube.com/watch?v=MCixBdLkmpQ",
+     "arxiv": null,
+     "core": true,
+     "type": "video",
+     "chunk": "6.1 Your next steps"
+    },
+    {
+     "title": "Become a person who Actually Does Things",
+     "authors": "Neel Nanda",
+     "year": null,
+     "url": "https://www.neelnanda.io/blog/become-a-person-who-actually-does-things",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "6.2 Choose your focus",
+     "minutes": 5
+    },
+    {
+     "title": "Should you do an AI safety research / engineering project?",
+     "authors": "Li-Lian Ang (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/should-you-do-an-ai-safety-research",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "6.2 Choose your focus",
+     "minutes": 5
+    },
+    {
+     "title": "The software engineer's guide to making your first AI safety contribution in <1 week",
+     "authors": "Li-Lian Ang (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/swe-ai-safety-project-guide",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "6.2 Choose your focus",
+     "minutes": 10
+    },
+    {
+     "title": "Talent Needs of Technical AI Safety Teams (read until end of 'So How Do You Make an AI Safety Professional?')",
+     "authors": "yams & Carson Jones (MATS)",
+     "year": 2024,
+     "url": "https://www.lesswrong.com/posts/QzQQvGJYDeaDE4Cfg/talent-needs-of-technical-ai-safety-teams",
+     "arxiv": null,
+     "core": true,
+     "type": "blog",
+     "chunk": "6.2 Choose your focus",
+     "minutes": 15
+    },
+    {
+     "title": "1-Pager Template",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://docs.google.com/document/d/1bHkyW6QDQuYDAJLEnop5PMe7FX_I31U8VwAjb3jTraE/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.3 Create your 1-pager"
+    },
+    {
+     "title": "Apollo Research (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.apolloresearch.ai/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "Goodfire (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.goodfire.ai/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "AI Underwriting Company (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://aiuc.com/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "Epoch AI (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://epoch.ai/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "METR (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://metr.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "CivAI (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://civai.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "FAR.AI (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.far.ai/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "MATS (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.matsprogram.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "Redwood Research (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.redwoodresearch.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "AE Studio (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.ae.studio/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "AI Digest (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://theaidigest.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "UK AI Security Institute (org profile / open roles)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.aisi.gov.uk/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.4 Next steps: Apply to roles"
+    },
+    {
+     "title": "MATS (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.matsprogram.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "Astra (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.constellation.org/programs/astra-fellowship",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "Anthropic Fellows Programme (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://alignment.anthropic.com/2025/anthropic-fellows-program-2026/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "LASR Labs (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.lasrlabs.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "ERA:AI (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://erafellowship.org/fellowship",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "ARENA (bootcamp profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.arena.education/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "Pivotal (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.pivotal-research.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "SPAR (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://sparai.org/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "BlueDot's Technical AI Safety Project Sprint (program profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://bluedot.org/courses/technical-ai-safety-project",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.5 Next steps: Technical fellowships"
+    },
+    {
+     "title": "BlueDot Frontier AI Governance Course (program profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://bluedot.org/courses/ai-governance",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.6 Next steps: Policy fellowships"
+    },
+    {
+     "title": "GovAI Summer/Fall/Winter Fellowships (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.governance.ai/opportunities",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.6 Next steps: Policy fellowships"
+    },
+    {
+     "title": "IAPS - Institute for AI Policy and Strategy (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.iaps.ai/fellowship",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.6 Next steps: Policy fellowships"
+    },
+    {
+     "title": "Horizon (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://horizonpublicservice.org/programs/become-a-fellow/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.6 Next steps: Policy fellowships"
+    },
+    {
+     "title": "Talos (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.talosnetwork.org/talos-fellowship",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.6 Next steps: Policy fellowships"
+    },
+    {
+     "title": "Additional US Policy Fellowships (database of 70+ fellowships)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://airtable.com/app3AlIYjrAVYhvIe/shr1dGfy6WQfJ5mei/tblD3ExDW2P8mtVlj",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.6 Next steps: Policy fellowships"
+    },
+    {
+     "title": "Tarbell Fellowship (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://www.tarbellcenter.org/fellowship",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.7 Next steps: Other fellowships"
+    },
+    {
+     "title": "Principles of Intelligence Fellowship (fellowship profile)",
+     "authors": "BlueDot Impact",
+     "year": null,
+     "url": "https://princint.ai/programs/fellowship/",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.7 Next steps: Other fellowships"
+    },
+    {
+     "title": "Fellowships Longlist (database of 200+ fellowships)",
+     "authors": "80,000 Hours",
+     "year": null,
+     "url": "https://airtable.com/app53PsYpHxJW61l3/shrQSYXSW9z96y5WE/tbls2B9CeeFfavLXo",
+     "arxiv": null,
+     "core": true,
+     "type": "other",
+     "chunk": "6.7 Next steps: Other fellowships"
+    },
+    {
+     "title": "Open Philanthropy's Technical AI Safety RFP: Research Areas",
+     "authors": "Open Philanthropy",
+     "year": null,
+     "url": "https://www.openphilanthropy.org/tais-rfp-research-areas/",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "6.8 Next steps: Programs - Optional resources"
+    },
+    {
+     "title": "UK AISI's Alignment Team: Research Agenda",
+     "authors": "Jacob Hilton et al. (UK AISI)",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources"
+    },
+    {
+     "title": "Recommendations for Technical AI Safety Research Directions",
+     "authors": "Anthropic Alignment Science Team",
+     "year": 2025,
+     "url": "https://alignment.anthropic.com/2025/recommended-directions",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources"
+    },
+    {
+     "title": "Recent Redwood Research project proposals",
+     "authors": "Ryan Greenblatt et al. (Redwood Research)",
+     "year": 2025,
+     "url": "https://blog.redwoodresearch.org/p/recent-redwood-research-project-proposals",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources"
+    },
+    {
+     "title": "I'm an experienced software engineer. How can I contribute to AI safety?",
+     "authors": "Li-Lian Ang (BlueDot Impact)",
+     "year": 2025,
+     "url": "https://blog.bluedot.org/p/im-an-experienced-swe",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "Alignment careers guide",
+     "authors": "Charlie Rogers-Smith",
+     "year": 2022,
+     "url": "https://blog.bluedot.org/p/alignment-careers-guide",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 45
+    },
+    {
+     "title": "Personal Action Plan Template",
+     "authors": "Dewi Erwan (BlueDot Impact)",
+     "year": null,
+     "url": "https://docs.google.com/document/d/1FN37vYcSZZEDyPddnIuEY6Yqg-TBZFN_lLK_Gyp7H2U/copy",
+     "arxiv": null,
+     "core": false,
+     "type": "other",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 10
+    },
+    {
+     "title": "Some advice on independent research",
+     "authors": "Marius Hobbhahn",
+     "year": 2022,
+     "url": "https://www.alignmentforum.org/posts/kpmaEevZ2KehZo2tp/some-advice-on-independent-research",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "Career Review: Technical AI Safety",
+     "authors": "80,000 Hours",
+     "year": null,
+     "url": "https://80000hours.org/career-reviews/ai-safety-researcher/",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources"
+    },
+    {
+     "title": "Levelling up in AI safety Research Engineering",
+     "authors": "Gabe Mukobi",
+     "year": 2022,
+     "url": "https://www.lesswrong.com/posts/uLstPRyYwzfrx3enG/levelling-up-in-ai-safety-research-engineering",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 15
+    },
+    {
+     "title": "Being the (Pareto) Best in the World",
+     "authors": "John Wentworth",
+     "year": 2019,
+     "url": "https://www.lesswrong.com/posts/XvN2QQpKTuEzgkZHY/being-the-pareto-best-in-the-world",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 5
+    },
+    {
+     "title": "How to succeed as an early-stage researcher: the \"lean startup\" approach",
+     "authors": "Toby Shevlane",
+     "year": 2021,
+     "url": "https://forum.effectivealtruism.org/posts/jfHPBbYFzCrbdEXXd/how-to-succeed-as-an-early-stage-researcher-the-lean-startup",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 10
+    },
+    {
+     "title": "How To Get Into Independent Research On Alignment/Agency",
+     "authors": "John Wentworth",
+     "year": 2021,
+     "url": "https://www.lesswrong.com/posts/P3Yt66Wh5g7SbkKuT/how-to-get-into-independent-research-on-alignment-agency",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources",
+     "minutes": 15
+    },
+    {
+     "title": "How To Become A Mechanistic Interpretability Researcher",
+     "authors": "Neel Nanda",
+     "year": 2025,
+     "url": "https://www.alignmentforum.org/posts/jP9KDyMkchuv6tHwm/how-to-become-a-mechanistic-interpretability-researcher",
+     "arxiv": null,
+     "core": false,
+     "type": "blog",
+     "chunk": "6.8 Next steps: Programs - Optional resources"
+    }
+   ]
+  }
+ ],
+ "notes": "METHOD/CAVEATS: Direct fetches to bluedot.org (and aisafetyfundamentals.com, web.archive.org, most other hosts) are blocked by this session's network egress proxy, so the live pages could not be loaded directly. The list above was reconstructed and cross-verified from: (1) a verbatim HTML scrape of the live course made 2026-08-20 (github.com/Arkleseisure/Arkleseisure.github.io, file curricula-tech-7c2a.html, whose header states it was 'scraped from bluedot.org' with BlueDot's own text; its sidebar structure, chunk titles, durations, and resource lists match the live site's Google-indexed snippets checked via web search); (2) two independent participants' full course-note repos from the same 2026 course version (github.com/canivel/technical-ai-safety and github.com/laudominik/personal-notes seminars/TAIS, both containing the same readings incl. utm_source=bluedot-impact links); and (3) ~20 targeted web searches against bluedot.org confirming unit/chunk titles, URLs (bluedot.org/courses/technical-ai-safety/{unit}/{chunk}), durations, and many resource titles/authors/times. Post-cutoff items (Claude Opus 4.6 system card Feb 2026, Claude Mythos Preview system card Apr 2026, Meta Advanced AI Scaling Framework v2 Apr 2026, Anthropic RSP v3) were independently verified as real via web search. STRUCTURE: 6 units; unit intro chunks (1.1, 1.2, 2.1, 3.2 narrative text) and exercise chunks (1.4 'What future do you want?', 3.x company options exercises, 5.3 'Break the kill chain', 6.3 '1-pager') have no or few external readings; durations shown on the live site per chunk include exercise time. Unit 3's four company options (3/3 Anthropic, 3/4 OpenAI, 3/5 Google DeepMind, 3/6 Meta) and Unit 5's threat-pathway readings are choose-ONE core options; Unit 3's optional resources are organized by dangerous capability (scheming/cyber/biorisk/persuasion) for the 'Evaluating for dangerous capabilities' exercise. Unit 6 'readings' from 6.4-6.7 are BlueDot-written org/fellowship profile cards rather than external readings. 'minutes' = course-listed reading time where shown. The six 'Unit intro video' entries are BlueDot's own embedded YouTube videos (untitled in the scrape). Chunk numbering for 5/2-5/3 and 6/2-6/8 is inferred from sidebar order (6/1, 6/4, 6/5, 6/6, 3/1-3/4, 4/1, 4/2, 5/1, 1/1-1/3, 2/1-2/4 confirmed directly via search-indexed URLs). BlueDot updates this course frequently (e.g., an earlier 2025/early-2026 run used Claude Opus 4.5/Sonnet 4.5 system cards and Gemini 3 Pro FSF report where the current run uses Opus 4.6/Mythos); this snapshot reflects the course as of ~2026-08-20."
+}

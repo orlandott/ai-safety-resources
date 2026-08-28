@@ -1,0 +1,381 @@
+{
+ "course": "AI Safety, Ethics & Society",
+ "source_urls": [
+  "https://www.aisafetybook.com/virtual-course",
+  "https://www.aisafetybook.com/curriculum",
+  "https://www.aisafetybook.com/textbook",
+  "https://www.aisafetybook.com/syllabus",
+  "https://www.aisafetybook.com/",
+  "https://safe.ai/blog/ai-safety-ethics-and-society",
+  "https://www.youtube.com/playlist?list=PLXSn3Zz2ayT7ab7I12PBYVt0244369S1q",
+  "https://github.com/centerforaisafety/AISES",
+  "https://arxiv.org/abs/2411.01042"
+ ],
+ "sessions": [
+  {
+   "n": 1,
+   "title": "AI Fundamentals Week (Week 1 of discussion phase; exemption possible with prior ML experience)",
+   "readings": [
+    {
+     "title": "AI Fundamentals",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/ai-fundamentals",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "2.1 Introduction",
+      "2.2 Artificial Intelligence & Machine Learning",
+      "2.3 Deep Learning",
+      "2.4 Scaling Laws",
+      "2.5 Speed of AI Development",
+      "2.6 Conclusion"
+     ]
+    },
+    {
+     "title": "Lecture 2 | AI Safety, Ethics, & Society: AI Fundamentals",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=tWV3wdY2870",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Overview of Catastrophic AI Risks",
+   "readings": [
+    {
+     "title": "Overview of Catastrophic AI Risks",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/overview-of-catastrophic-ai-risks",
+     "arxiv": "2306.12001",
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "1.1 Introduction",
+      "1.2 Malicious Use",
+      "1.3 AI Race",
+      "1.4 Organizational Risks",
+      "1.5 Rogue AIs",
+      "1.6 Discussion of Connections Between Risks"
+     ]
+    },
+    {
+     "title": "Lecture 1 | AI Safety, Ethics, & Society: Introduction and Overview of AI Risks",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=ixdfqY3Xyao",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Single-Agent Safety",
+   "readings": [
+    {
+     "title": "Single-Agent Safety",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/single-agent-safety",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "3.1 Introduction",
+      "3.2 Monitoring",
+      "3.3 Robustness",
+      "3.4 Alignment",
+      "3.5 Systemic Safety",
+      "3.6 Safety and General Capabilities",
+      "3.7 Conclusion"
+     ]
+    },
+    {
+     "title": "Lecture 3 | AI Safety, Ethics, & Society: Single Agent Safety",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=FWrICi4GZ_c",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Safety Engineering",
+   "readings": [
+    {
+     "title": "Safety Engineering",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/safety-engineering",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "4.1 Safety Engineering",
+      "4.2 Risk Decomposition",
+      "4.3 Nines of Reliability",
+      "4.4 Safe Design Principles",
+      "4.5 Component Failure Accident Models and Methods",
+      "4.6 Systemic Factors",
+      "4.7 Tail Events and Black Swans",
+      "4.8 Conclusion"
+     ]
+    },
+    {
+     "title": "Lecture 4 | AI Safety, Ethics, & Society: Safety Engineering",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=R7sazz_MtP8",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Complex Systems",
+   "readings": [
+    {
+     "title": "Complex Systems",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/complex-systems",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "5.1 Overview",
+      "5.2 Introduction to Complex Systems",
+      "5.3 Complex Systems for AI Safety",
+      "5.4 Conclusion"
+     ]
+    },
+    {
+     "title": "Lecture 5 | AI Safety, Ethics, & Society: Complex Systems",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=HioFwi96leY",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "Beneficial AI and Machine Ethics",
+   "readings": [
+    {
+     "title": "Beneficial AI and Machine Ethics",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/beneficial-ai",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "6.1 Introduction",
+      "6.2 Law",
+      "6.3 Fairness",
+      "6.4 The Economic Engine",
+      "6.5 Wellbeing",
+      "6.6 Preferences",
+      "6.7 Happiness",
+      "6.8 Social Welfare Functions",
+      "6.9 Moral Uncertainty"
+     ]
+    },
+    {
+     "title": "Lecture 6 | AI Safety, Ethics, & Society: Beneficial AI and Machine Ethics",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=HSH8bmL4nPg",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "title": "Collective Action Problems",
+   "readings": [
+    {
+     "title": "Collective Action Problems",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/collective-action-problems",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "7.1 Motivation",
+      "7.2 Game Theory",
+      "7.3 Cooperation",
+      "7.4 Conflict",
+      "7.5 Evolutionary Pressures",
+      "7.6 Conclusion"
+     ]
+    },
+    {
+     "title": "Lecture 7 | AI Safety, Ethics, & Society: Collective Action Problems",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=yww1xY-DeMo",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "title": "Governance",
+   "readings": [
+    {
+     "title": "Governance",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/governance",
+     "arxiv": null,
+     "core": true,
+     "type": "book-chapter",
+     "sections": [
+      "8.1 Introduction",
+      "8.2 Economic Growth",
+      "8.3 Distribution",
+      "8.4 Corporate Governance",
+      "8.5 National Governance",
+      "8.6 International Governance",
+      "8.7 Compute Governance",
+      "8.8 Conclusion"
+     ]
+    },
+    {
+     "title": "Lecture 8 | AI Safety, Ethics, & Society: Governance",
+     "authors": "Dan Hendrycks / Center for AI Safety",
+     "year": 2024,
+     "url": "https://www.youtube.com/watch?v=opTzMG_ut_o",
+     "arxiv": null,
+     "core": true,
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "title": "Project Phase (Weeks 9-12): personal project extending course knowledge; no assigned readings",
+   "readings": [
+    {
+     "title": "Resources to Take Action",
+     "authors": "Center for AI Safety",
+     "year": null,
+     "url": "https://www.aisafetybook.com/take-action",
+     "arxiv": null,
+     "core": false,
+     "type": "other"
+    },
+    {
+     "title": "Featured Projects from AISES Course",
+     "authors": "Center for AI Safety",
+     "year": null,
+     "url": "https://www.aisafetybook.com/featured-projects",
+     "arxiv": null,
+     "core": false,
+     "type": "other"
+    }
+   ]
+  },
+  {
+   "n": 10,
+   "title": "Supplementary textbook material (not assigned to a specific session)",
+   "readings": [
+    {
+     "title": "Preface",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/preface",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix A: Normative Ethics",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/appendix-ethics",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix B: Utility Functions",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix C: Reinforcement Learning",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/appendix-reinforcement-learning",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix D: Long-Tailed and Thin-Tailed Distributions",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/appendix-long-tailed-and-thin-tailed-distributions",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix E: Evolutionary Game Theory",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/appendix-evolutionary-game-theory",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix F: Other Cooperation Mechanisms",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/appendix-other-cooperation-mechanisms",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    },
+    {
+     "title": "Appendix G: Intrasystem Conflict Causes",
+     "authors": "Dan Hendrycks",
+     "year": 2024,
+     "url": "https://www.aisafetybook.com/textbook/appendix-intrasystem-conflict-causes",
+     "arxiv": null,
+     "core": false,
+     "type": "book-chapter"
+    }
+   ]
+  }
+ ],
+ "notes": "Method caveat: www.aisafetybook.com (and safe.ai/grokipedia mirrors) were blocked by this environment's network egress proxy, so pages could not be fetched directly. Content was reconstructed from (a) search-engine snapshots of aisafetybook.com/virtual-course, /curriculum, /textbook, /syllabus and /facilitate, (b) the textbook's source repository github.com/centerforaisafety/AISES (cloned; exact chapter/section headings extracted from its HTML files), and (c) the official CAIS YouTube lecture series. Course structure per the virtual-course page: an 8-week discussion phase (2-4 hrs/week of assigned readings, lectures and short assignments plus a weekly 1.5-hr facilitated cohort call) followed by a 4-week personal project phase; total ~5 hrs/week, free of charge. The first week of the discussion phase is 'AI Fundamentals Week' (textbook Chapter 2), which students with significant ML experience may request to skip. A dated week-by-week syllabus exists but is only available via an email-gated form at aisafetybook.com/syllabus, so it is not public; the mapping of the remaining chapters to sessions 2-8 above follows the textbook/lecture ordering (official Lectures 1-8 map one-to-one onto Chapters 1-8), with AI Fundamentals moved to Week 1 as the site states. IMPORTANT: the public curriculum page ('Content for Curriculum') assigns ONLY textbook chapters plus the accompanying lecture videos, slides and quizzes per chapter (some marked WIP/Coming Soon) \u2014 no external papers are publicly assigned alongside the chapters, so the reading list is the textbook itself plus the lecture videos. The full textbook is also published as arXiv:2411.01042 ('Introduction to AI Safety, Ethics, and Society', Dan Hendrycks, Taylor & Francis 2024/2025, ISBN 9781032869926); Chapter 1 closely corresponds to the standalone paper 'An Overview of Catastrophic AI Risks' (Hendrycks, Mazeika, Woodside 2023, arXiv:2306.12001), which is why that arXiv ID is attached to it. Appendix B's deep-link slug could not be verified, so it points to the table of contents; all other textbook URLs were confirmed via search snapshots of the site. An earlier course iteration described on safe.ai used 9 discussion weeks; the current site says 8 + 4."
+}
