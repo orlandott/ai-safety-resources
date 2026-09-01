@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const workspaceRoot = path.resolve(__dirname, "..", "..");
 export const resourcesPath = path.join(workspaceRoot, "public", "resources.js");
 export const scriptPath = path.join(workspaceRoot, "public", "script.js");
+export const entryMetaPath = path.join(workspaceRoot, "public", "entry-meta.js");
 
 export const SITE_ORIGIN = "https://ai-safety-resources.com";
 
@@ -205,68 +206,32 @@ export function tagsFor(entry, track) {
 // Two lightweight, mostly-derived signals that answer a newcomer's first two
 // questions: "is this over my head?" and "can I get through it tonight?".
 //
-// Level is a per-track default that authors can override per entry with a
-// `Level` field ("Beginner" | "Intermediate" | "Advanced"). The defaults
-// encode the obvious on-ramp: stories and video are accessible, papers are the
-// deep end. Override on the exceptions (a beginner-friendly survey paper, an
-// advanced trade book) rather than hand-labeling all 300+ entries.
-export const VALID_LEVELS = ["Beginner", "Intermediate", "Advanced"];
-
-const LEVEL_BY_TRACK = {
-  non_fiction_books: "Intermediate",
-  fiction_books: "Beginner",
-  academic_papers: "Advanced",
-  courses: "Beginner",
-  films: "Beginner",
-  tv: "Beginner",
-  documentaries: "Beginner",
-  podcasts: "Beginner",
-  websites: "Intermediate",
-  youtube: "Beginner",
-};
-
-export function levelFor(entry, track) {
-  if (typeof entry.Level === "string" && VALID_LEVELS.includes(entry.Level)) {
-    return entry.Level;
+// The logic lives in public/entry-meta.js — one shared, dependency-free file
+// evaluated here in a vm sandbox (like resources.js above) and loaded by the
+// browser as a plain script — so the server-rendered pills and the hydrated
+// runtime pills cannot drift apart. Edit the rules there, not here.
+function loadEntryMeta() {
+  const source = fs.readFileSync(entryMetaPath, "utf8");
+  const sandbox = { window: {} };
+  vm.createContext(sandbox);
+  vm.runInContext(source, sandbox, { filename: "entry-meta.js" });
+  const meta = sandbox.window.ENTRY_META;
+  if (
+    !meta ||
+    typeof meta.levelFor !== "function" ||
+    typeof meta.timeLabelFor !== "function" ||
+    !Array.isArray(meta.VALID_LEVELS)
+  ) {
+    throw new Error("public/entry-meta.js did not define a complete window.ENTRY_META");
   }
-  return LEVEL_BY_TRACK[track] || "";
+  return meta;
 }
 
-// A rough "time to consume" label. Books/papers derive from `page_count`
-// (~1.8 min/page); audio-visual tracks derive from an optional `Minutes`
-// (runtime / episode length). Series (TV shows, podcast feeds, YouTube
-// channels) set `MinutesPer` ("episode" | "video") so `Minutes` reads as a
-// typical installment length rather than a total. Courses use `Minutes` as a
-// total-effort estimate. Returns "" when there is nothing to estimate, so
-// callers can omit the pill rather than guess.
-const READING_MINUTES_PER_PAGE = 1.8;
+const ENTRY_META = loadEntryMeta();
 
-function humanizeMinutes(minutes, verb) {
-  if (!Number.isFinite(minutes) || minutes <= 0) return "";
-  if (minutes < 90) return `~${Math.round(minutes / 5) * 5 || 5} min ${verb}`;
-  const hours = minutes / 60;
-  const rounded = hours < 10 ? Math.round(hours * 2) / 2 : Math.round(hours);
-  return `~${rounded} hr ${verb}`;
-}
-
-export function timeLabelFor(entry, track) {
-  const pages = Number(entry.page_count);
-  if (Number.isFinite(pages) && pages > 0) {
-    return humanizeMinutes(pages * READING_MINUTES_PER_PAGE, "read");
-  }
-  const minutes = Number(entry.Minutes);
-  if (Number.isFinite(minutes) && minutes > 0) {
-    if (typeof entry.MinutesPer === "string" && entry.MinutesPer.trim()) {
-      return humanizeMinutes(minutes, `per ${entry.MinutesPer.trim()}`);
-    }
-    if (track === "courses") {
-      return humanizeMinutes(minutes, "course");
-    }
-    const verb = track === "podcasts" ? "listen" : "watch";
-    return humanizeMinutes(minutes, verb);
-  }
-  return "";
-}
+export const VALID_LEVELS = ENTRY_META.VALID_LEVELS;
+export const levelFor = ENTRY_META.levelFor;
+export const timeLabelFor = ENTRY_META.timeLabelFor;
 
 // The full set of metadata pills for an entry, in display order. Shared by the
 // server-rendered cards (build) and mirrored by the runtime cards (script.js)

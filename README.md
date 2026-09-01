@@ -37,6 +37,8 @@ After editing `public/resources.js`, run `npm run build` and commit the regenera
 
 Curated lists live in code: the **Start here** picks and the **topic tag** vocabulary are in [`scripts/lib/resources.mjs`](scripts/lib/resources.mjs); per-resource tags are the `IncludeTopics` arrays in [`public/resources.js`](public/resources.js).
 
+The difficulty-level and time-estimate rules behind the card metadata pills live in [`public/entry-meta.js`](public/entry-meta.js), a single dependency-free file shared by the browser (loaded before `script.js`) and the build (evaluated in a vm sandbox), so the server-rendered pills and the hydrated ones can't drift apart.
+
 ### Add a new resource by editing the [resources.js](public/resources.js) file, running `npm run build`, and submitting a pull request
 
 ### Suggestions & contact submissions
