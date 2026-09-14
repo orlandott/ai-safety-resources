@@ -1,12 +1,12 @@
 {
-  "count": 355,
+  "count": 358,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 45
+      "count": 46
     },
     {
       "key": "fiction_books",
@@ -24,7 +24,7 @@
       "key": "courses",
       "label": "Courses",
       "slug": "courses",
-      "count": 9
+      "count": 10
     },
     {
       "key": "films",
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 36
     },
     {
       "key": "youtube",
@@ -1205,6 +1205,20 @@
       "timeLabel": "~60 hr course"
     },
     {
+      "Name": "AI Safety (CS 2881)",
+      "Author": "Boaz Barak",
+      "Link": "https://boazbk.github.io/mltheoryseminar/",
+      "Category": "courses",
+      "Minutes": 2145,
+      "Level": "Advanced",
+      "Summary": "Harvard's first dedicated AI safety course, taught by theoretical computer scientist Boaz Barak, works through adversarial robustness, model specifications, recursive self-improvement, scheming and deception, and interpretability, with every lecture video and slide deck posted publicly.",
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [],
+      "level": "Advanced",
+      "timeLabel": "~36 hr course"
+    },
+    {
       "Name": "Superintelligence",
       "Link": "https://www.goodreads.com/search?q=Superintelligence+Nick+Bostrom",
       "Author": "Nick Bostrom",
@@ -2006,6 +2020,22 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~14 hr read"
+    },
+    {
+      "Name": "AI Snake Oil",
+      "Author": "Arvind Narayanan, Sayash Kapoor",
+      "Link": "https://www.goodreads.com/search?q=AI+Snake+Oil+Narayanan+Kapoor",
+      "page_count": 360,
+      "Category": "books",
+      "goodreads": "3.88",
+      "Year": 2024,
+      "Level": "Beginner",
+      "Summary": "Two Princeton computer scientists separate AI applications that actually work from unproven hype, arguing that mistaking predictive AI for genuine intelligence already drives flawed hiring, lending, and policing decisions.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": "~11 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -5653,6 +5683,25 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "MIT AI Risk Navigator",
+      "Author": "MIT AI Risk Initiative",
+      "Link": "https://airisk.mit.edu/navigator",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Intermediate",
+      "Summary": "MIT's interactive tool unifies its 1,700-entry AI Risk Repository with incident logs and governance-framework trackers, letting visitors click into any risk domain and see the underlying risks, real-world incidents, and policy responses side by side.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Intermediate",
+      "timeLabel": ""
     },
     {
       "Name": "Robert Miles AI Safety",
