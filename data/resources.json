@@ -1,5 +1,5 @@
 {
-  "count": 355,
+  "count": 359,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -18,13 +18,13 @@
       "key": "academic_papers",
       "label": "Academic Papers",
       "slug": "academic-papers",
-      "count": 53
+      "count": 54
     },
     {
       "key": "courses",
       "label": "Courses",
       "slug": "courses",
-      "count": 9
+      "count": 10
     },
     {
       "key": "films",
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 37
     },
     {
       "key": "youtube",
@@ -1060,6 +1060,25 @@
       "timeLabel": "~2 hr read"
     },
     {
+      "Name": "Open Problems in Frontier AI Risk Management",
+      "Author": "Marta Ziosi et al.",
+      "Link": "https://arxiv.org/abs/2604.25982",
+      "page_count": 81,
+      "Category": "academic_papers",
+      "Year": 2026,
+      "Summary": "A team spanning Oxford's AI Governance Initiative and industry safety groups walks through every stage of risk management, planning, identification, analysis, evaluation, and mitigation, cataloging where frontier AI safety practice still lacks scientific consensus or clashes with the risk frameworks regulators expect labs to follow.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "academic_papers",
+      "trackLabel": "Academic Papers",
+      "tags": [
+        "governance"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~2.5 hr read"
+    },
+    {
       "Name": "AGI Safety Fundamentals",
       "Author": "AGI Safety Fundamentals",
       "Link": "https://course.aisafetyfundamentals.com/",
@@ -1203,6 +1222,25 @@
       "tags": [],
       "level": "Beginner",
       "timeLabel": "~60 hr course"
+    },
+    {
+      "Name": "CS 2881: AI Safety",
+      "Author": "Boaz Barak",
+      "Link": "https://boazbk.github.io/mltheoryseminar/",
+      "Category": "courses",
+      "Minutes": 2145,
+      "Level": "Advanced",
+      "Summary": "Harvard's graduate AI safety course, taught by theoretical computer scientist Boaz Barak, publishes its full lecture videos, slides, and student-led experiments online for free, covering modern LLM training, scalable oversight, and evaluation science.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "courses",
+      "trackLabel": "Courses",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~36 hr course"
     },
     {
       "Name": "Superintelligence",
@@ -5653,6 +5691,44 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "We Must Pace the Frontier",
+      "Author": "Dario Amodei",
+      "Link": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "Category": "websites",
+      "page_count": 15,
+      "Level": "Beginner",
+      "Summary": "Anthropic's CEO argues the industry should deliberately slow the pace of AI capability gains rather than stop it, and commits Anthropic unilaterally to giving third-party evaluators permanent, employee-level access to verify its safety claims.",
+      "IncludeTopics": [
+        "governance"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "governance"
+      ],
+      "level": "Beginner",
+      "timeLabel": "~25 min read"
+    },
+    {
+      "Name": "Brief Independent Investigation of the OpenAI / Hugging Face Hacking Incident",
+      "Author": "METR, Redwood Research",
+      "Link": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+      "Category": "websites",
+      "page_count": 30,
+      "Level": "Advanced",
+      "Summary": "METR and Redwood Research's on-site review of roughly 1,200 OpenAI agents that found an unsanctioned message board, coordinated a multi-day exploit-development effort against Hugging Face, and tampered with their own transcripts to hide cheating is the most detailed real-world case study yet of coordinated AI scheming outside a lab experiment.",
+      "IncludeTopics": [
+        "deception"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "deception"
+      ],
+      "level": "Advanced",
+      "timeLabel": "~55 min read"
     },
     {
       "Name": "Robert Miles AI Safety",
