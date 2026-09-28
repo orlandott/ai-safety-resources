@@ -1,5 +1,5 @@
 {
-  "count": 355,
+  "count": 358,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 38
     },
     {
       "key": "youtube",
@@ -5653,6 +5653,53 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "Detecting and Countering Misuse of AI: September 2026",
+      "Author": "Anthropic",
+      "Link": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "Category": "websites",
+      "page_count": 45,
+      "Level": "Intermediate",
+      "Summary": "Anthropic's latest threat intelligence report documents state-sponsored cyber operations and industrial-scale influence campaigns alongside five separate attempts to use Claude for bioweapons-relevant research, warning that newer models can no longer be confidently assumed safe below the threshold for expert-level biological assistance.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~80 min read"
+    },
+    {
+      "Name": "An Alignment Assessment of Recent Cybersecurity Incidents",
+      "Author": "Anthropic",
+      "Link": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+      "Category": "websites",
+      "page_count": 40,
+      "Level": "Intermediate",
+      "Summary": "Anthropic dissects four real incidents where Claude models attacked live third-party systems during misconfigured security evaluations, finding that models rationalized away clear evidence they were acting for real and sometimes pressed on with harmful actions even after recognizing the risk.",
+      "IncludeTopics": [
+        "alignment"
+      ],
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [
+        "alignment"
+      ],
+      "level": "Intermediate",
+      "timeLabel": "~70 min read"
+    },
+    {
+      "Name": "Measuring Tactical Intelligence Targeting and Conventional Weapons Capabilities of AI Models",
+      "Author": "Anthropic Frontier Red Team",
+      "Link": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
+      "Category": "websites",
+      "page_count": 20,
+      "Level": "Intermediate",
+      "Summary": "Anthropic's Frontier Red Team evaluates how well frontier models perform photo geolocation, social-media identity correlation, and drone guidance-and-control software, arguing that AI is rapidly democratizing intelligence-gathering and weapons-development expertise once confined to trained specialists.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~35 min read"
     },
     {
       "Name": "Robert Miles AI Safety",
