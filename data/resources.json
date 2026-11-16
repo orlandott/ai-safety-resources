@@ -1,12 +1,12 @@
 {
-  "count": 355,
+  "count": 358,
   "generatedFrom": "public/resources.js",
   "tracks": [
     {
       "key": "non_fiction_books",
       "label": "Non-fiction Books",
       "slug": "non-fiction-books",
-      "count": 45
+      "count": 46
     },
     {
       "key": "fiction_books",
@@ -54,7 +54,7 @@
       "key": "websites",
       "label": "Websites",
       "slug": "websites",
-      "count": 35
+      "count": 37
     },
     {
       "key": "youtube",
@@ -2006,6 +2006,21 @@
       "tags": [],
       "level": "Intermediate",
       "timeLabel": "~14 hr read"
+    },
+    {
+      "Name": "The AGI Chronicles",
+      "Author": "Kevin Roose",
+      "Link": "https://www.goodreads.com/search?q=The+AGI+Chronicles+Kevin+Roose",
+      "page_count": 448,
+      "Category": "books",
+      "goodreads": "4.45",
+      "Year": 2026,
+      "Summary": "Drawing on more than 150 insider interviews at OpenAI, Anthropic, and Google DeepMind, Roose's reported history of the race to build superintelligence shows how safety worries shaped, split, and were steamrolled by the labs building it.",
+      "track": "non_fiction_books",
+      "trackLabel": "Non-fiction Books",
+      "tags": [],
+      "level": "Intermediate",
+      "timeLabel": "~13 hr read"
     },
     {
       "Name": "Frankenstein",
@@ -5653,6 +5668,34 @@
       ],
       "level": "Intermediate",
       "timeLabel": "~2.5 hr read"
+    },
+    {
+      "Name": "AI Frontiers",
+      "Author": "Center for AI Safety",
+      "Link": "https://ai-frontiers.org/",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Beginner",
+      "Summary": "CAIS's expert-debate publication, edited by Dan Hendrycks, runs accessible essays from researchers and policymakers on AI risk, from verifiable international slowdowns to jailbreak disclosure and drone-enabled WMDs.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
+    },
+    {
+      "Name": "DeepMind Institute",
+      "Author": "Google DeepMind",
+      "Link": "https://institute.deepmind.com/",
+      "Category": "websites",
+      "page_count": 0,
+      "Level": "Beginner",
+      "Summary": "Google DeepMind's essay platform, led by Shane Legg, Demis Hassabis, and James Manyika, publishes researchers' arguments on the safe development of AGI and its societal fallout, from keeping chain-of-thought reasoning monitorable to misbehavior spreading through agent swarms.",
+      "track": "websites",
+      "trackLabel": "Websites",
+      "tags": [],
+      "level": "Beginner",
+      "timeLabel": ""
     },
     {
       "Name": "Robert Miles AI Safety",
